@@ -1,0 +1,21 @@
+{
+  "name": "pieshop",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "eslint": "^4.4.1",
+    "eslint-config-google": "^0.9.1",
+    "express": "~4.15.2",
+    "hbs": "~4.0.1",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^4.0.0",
+    "gulp-sass": "^3.1.0"
+  }
+}
