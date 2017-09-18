@@ -16,5 +16,5 @@ npm i
 ### Running server
 
 ```sh
-bin/www
+gulp serve
 ```
