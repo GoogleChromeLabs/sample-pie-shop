@@ -3,6 +3,9 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/styles/style.css' />
+    {{#each scripts}}
+      <script src="{{.}}" defer></script>
+    {{/each}}
   </head>
   <body>
     {{{body}}}

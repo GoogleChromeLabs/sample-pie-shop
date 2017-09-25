@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "body-parser": "~1.17.1",
+    "color": "^2.0.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "eslint": "^4.4.1",
     "eslint-config-google": "^0.9.1",
     "express": "~4.15.2",
     "hbs": "~4.0.1",
+    "jsdom": "^11.2.0",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2"
   },
