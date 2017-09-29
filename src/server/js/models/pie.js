@@ -18,32 +18,28 @@
  */
 
 const color = require('color');
-const jsdom = require('jsdom');
+const hbs = require('handlebars');
 const ingredients = require('../../../../data/ingredients.json');
-
-const {JSDOM} = jsdom;
 
 class Pie {
   constructor(topping) {
     this.DEFAULT_TOPPING = 'icing';
+    this._colors = {};
   }
   set template(svgString) {
-    this._svg = new JSDOM(svgString);
+    this._template = hbs.compile(svgString);
   }
   set topping(topping) {
     this._topping = ingredients.topping[topping] ?
       topping : this.DEFAULT_TOPPING;
-    this._toppingColor = ingredients.topping[this._topping];
-    this._svg.window.document.querySelector(
-      '#topping').setAttribute('fill', this._toppingColor);
-    this._svg.window.document.querySelector(
-      '#topping-dark').setAttribute('fill', this._darken(this._toppingColor));
+    this._colors.topping = ingredients.topping[this._topping];
+    this._colors.toppingDark = this._darken(this._colors.topping);
   }
   _darken(sourceColor) {
     return color(sourceColor).darken(0.2).hsl().string();
   }
-  toSvg() {
-    return this._svg.window.document.body.innerHTML;
+  svg() {
+    return this._template(this._colors);
   }
 }
 

@@ -22,7 +22,7 @@ const fs = require('fs');
 const Pie = require('../models/pie.js');
 
 const router = new express.Router();
-const svgPath = __dirname + '/../../../shared/views/pie.svg';
+const svgPath = `${__dirname}/../../../shared/views/pie.svg.hbs`;
 
 router.get('/pie', (req, res, next) => {
   res.render('pie', {
@@ -36,8 +36,8 @@ router.get('/pie-svg', (req, res, next) => {
     const pie = new Pie();
     pie.template = result.toString();
     pie.topping = req.query.topping;
-    res.writeHead(200, {"Content-Type": "image/svg+xml"});
-    res.write(pie.toSvg());
+    res.writeHead(200, {'Content-Type': 'image/svg+xml'});
+    res.write(pie.svg());
     res.end();
   });
 });

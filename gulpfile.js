@@ -34,11 +34,7 @@ const distDir = './dist';
 gulp.task('clean', () => del([distDir]));
 
 gulp.task('eslint', () => gulp.src(`${srcDir}/**/*.js`)
-  .pipe(eslint({
-    'rules': {
-      'quotes': 0
-    }
-  }))
+  .pipe(eslint())
   .pipe(eslint.format())
 );
 
