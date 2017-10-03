@@ -36,7 +36,6 @@ gulp.task('clean', () => del([distDir]));
 gulp.task('eslint', () => gulp.src(`${srcDir}/**/*.js`)
   .pipe(eslint())
   .pipe(eslint.format())
-  .pipe(eslint.failAfterError())
 );
 
 gulp.task('images', () => gulp.src(`${clientDir}/images/**/*`, {base: srcDir})
@@ -56,7 +55,7 @@ gulp.task('serverjs', () => gulp.src(`${serverDir}/js/**/*.js`, {base: srcDir})
   .pipe(gulp.dest(distDir))
 );
 
-gulp.task('sharedjs', () => gulp.src(`${sharedDir}/js/**/*.js`, {base: srcDir})
+gulp.task('sharedjs', () => gulp.src(`${sharedDir}/**/*`, {base: srcDir})
   .pipe(gulp.dest(distDir))
 );
 
@@ -64,7 +63,7 @@ gulp.task('views', () => gulp.src(`${viewDir}/**/*`, {base: srcDir})
   .pipe(gulp.dest(distDir))
 );
 
-gulp.task('build', ['eslint', 'clientjs', 'serverjs', 'sass', 'images', 'views']);
+gulp.task('build', ['eslint', 'clientjs', 'serverjs', 'sharedjs', 'sass', 'images', 'views']);
 
 gulp.task('serve', ['build'], () => {
   const app = require('./dist/server/js/app');

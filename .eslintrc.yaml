@@ -10,7 +10,7 @@ rules:
   indent: [error, 2]
   max-len: [error, 120]
   no-new: warn
-  quotes: [error, single, {"avoidEscape": true}]
+  quotes: [error, single, {"avoidEscape": true, "allowTemplateLiterals": true}]
   no-var: error
   curly: error
   no-floating-decimal: error

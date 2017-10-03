@@ -27,6 +27,7 @@ const bodyParser = require('body-parser');
 
 const index = require('./routes/index');
 const search = require('./routes/search');
+const piegen = require('./routes/piegen');
 
 const app = express();
 const appRoot = path.join(__dirname, '..', '..');
@@ -45,6 +46,7 @@ app.use(express.static(path.join(appRoot, 'client')));
 
 app.use('/', index);
 app.use('/search', search);
+app.use('/piegen', piegen);
 
 // Catch 404 and forward to error handler.
 app.use(function(req, res, next) {
