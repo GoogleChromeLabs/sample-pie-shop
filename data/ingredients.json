@@ -17,5 +17,9 @@
     "strawberry": "",
     "vanilla": "",
     "chocolate": ""
+  },
+  "allergens": {
+    "nuts": true,
+    "soya": true
   }
 }
