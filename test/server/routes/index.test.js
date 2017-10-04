@@ -17,12 +17,18 @@
  *
  */
 
-import {Router} from 'express';
-const router = new Router();
+import {expect} from 'chai';
+import request from 'supertest';
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index', {title: 'Express'});
+import app from '../../../src/server/js/app.js';
+
+describe('/', () => {
+  it('should return a valid response', (done) => {
+    request(app)
+      .get('/')
+      .end((error, resp) => {
+        expect(resp.status).to.equal(200);
+        done();
+      });
+  });
 });
-
-export default router;
