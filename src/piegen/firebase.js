@@ -14,8 +14,8 @@
 
 const admin = require('firebase-admin');
 const flags = require('flags');
-const generatePie = require('./piegen.js');
 const series = require('promise-map-series');
+const generatePie = require('./piegen.js');
 
 flags.defineBoolean('prod');
 flags.defineNumber('pies', 10);
@@ -47,11 +47,9 @@ const db = admin.database();
 const products = db.ref('/products');
 
 const pies = [];
-let i = 0;
-while (i < flags.get('pies')) {
+for (let i = 0; i < flags.get('pies'), i++) {
   pies.push(generatePie());
-  i++;
-};
+}
 
 series(pies, function(pie) {
   const signature = pie.signature();

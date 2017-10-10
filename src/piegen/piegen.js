@@ -25,7 +25,7 @@ function getRandomNumber(min, max) {
 
 const MIN_WEIGHT = 300; // In grams.
 const MAX_WEIGHT = 1000; // In grams.
-const MAX_PRICE = 800; // In grams.
+const MAX_PRICE = 800;
 const MIN_CALORIES = 200; // For 100 grams.
 const MAX_CALORIES = 800; // For 100 grams.
 const ALLERGEN_FREQUENCY = 0.7; // How often allergens are present.
@@ -39,9 +39,9 @@ function generatePie() {
   if (Math.random() < ALLERGEN_FREQUENCY) {
     let i = 0;
     const allergens = new Set();
-    while (i < Object.keys(ingredients.allergens).length) {
+    const allergensLength = Object.keys(ingredients.allergens).length;
+    for (let i = 0; i < allergensLength; i++) {
       allergens.add(getRandomKey(ingredients.allergens));
-      i++;
     }
     pie.allergens = Array.from(allergens);
   }
