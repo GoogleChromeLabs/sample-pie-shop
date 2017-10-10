@@ -37,7 +37,6 @@ function generatePie() {
   pie.weight = getRandomNumber(MIN_WEIGHT, MAX_WEIGHT);
   pie.calories = getRandomNumber(MIN_CALORIES, MAX_CALORIES);
   if (Math.random() < ALLERGEN_FREQUENCY) {
-    let i = 0;
     const allergens = new Set();
     const allergensLength = Object.keys(ingredients.allergens).length;
     for (let i = 0; i < allergensLength; i++) {
