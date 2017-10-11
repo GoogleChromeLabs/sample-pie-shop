@@ -17,11 +17,11 @@
  *
  */
 
-const express = require('express');
-const fs = require('fs');
-const Pie = require('../models/pie.js');
+import {Router} from 'express';
+import fs from 'fs';
+import Pie from '../../../shared/js/models/pie.js';
 
-const router = new express.Router();
+const router = new Router();
 const svgPath = `${__dirname}/../../../shared/views/pie.svg.hbs`;
 
 router.get('/pie', (req, res, next) => {
@@ -42,4 +42,4 @@ router.get('/pie-svg', (req, res, next) => {
   });
 });
 
-module.exports = router;
+export default router;

@@ -20,6 +20,8 @@
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const sass = require('gulp-sass');
+const mocha = require('gulp-mocha');
+const babel = require('gulp-babel');
 
 const del = require('del');
 const http = require('http');
@@ -52,10 +54,12 @@ gulp.task('clientjs', () => gulp.src(`${clientDir}/js/**/*.js`, {base: srcDir})
 );
 
 gulp.task('serverjs', () => gulp.src(`${serverDir}/js/**/*.js`, {base: srcDir})
+  .pipe(babel())
   .pipe(gulp.dest(distDir))
 );
 
-gulp.task('sharedjs', () => gulp.src(`${sharedDir}/**/*`, {base: srcDir})
+gulp.task('sharedjs', () => gulp.src(`${sharedDir}/**/*.js`, {base: srcDir})
+  .pipe(babel())
   .pipe(gulp.dest(distDir))
 );
 
@@ -63,10 +67,17 @@ gulp.task('views', () => gulp.src(`${viewDir}/**/*`, {base: srcDir})
   .pipe(gulp.dest(distDir))
 );
 
+gulp.task('test-server', () => gulp.src(
+  ['./test/server/**/*.test.js', './test/shared/**/*.test.js'], {read: false})
+  .pipe(mocha({require: 'babel-register'}))
+);
+
+gulp.task('test', ['test-server']);
+
 gulp.task('build', ['eslint', 'clientjs', 'serverjs', 'sharedjs', 'sass', 'images', 'views']);
 
 gulp.task('serve', ['build'], () => {
-  const app = require('./dist/server/js/app');
+  const app = require('./dist/server/js/app').default;
   const debug = require('debug')('pieshop:server');
 
   // Get port from environment and store in Express.

@@ -17,17 +17,17 @@
  *
  */
 
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
 // Uncomment after placing your favicon in /public.
-// const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+// import favicon from 'serve-favicon';
+import logger from 'morgan';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
 
-const index = require('./routes/index');
-const search = require('./routes/search');
-const piegen = require('./routes/piegen');
+import index from './routes/index';
+import search from './routes/search';
+import piegen from './routes/piegen';
 
 const app = express();
 const appRoot = path.join(__dirname, '..', '..');
@@ -66,4 +66,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;

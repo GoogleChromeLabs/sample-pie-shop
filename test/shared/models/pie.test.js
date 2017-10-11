@@ -17,12 +17,14 @@
  *
  */
 
-import {Router} from 'express';
-const router = new Router();
+// TODO: complete tests.
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index', {title: 'Express'});
+import {expect} from 'chai';
+
+import Pie from '../../../src/shared/js/models/pie.js';
+
+describe('Pie', () => {
+  it('should have a constructor', () => {
+    expect(new Pie()).to.not.be.null;
+  });
 });
-
-export default router;
