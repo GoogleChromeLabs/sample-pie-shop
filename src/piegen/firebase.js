@@ -47,7 +47,7 @@ const db = admin.database();
 const products = db.ref('/products');
 
 const pies = [];
-for (let i = 0; i < flags.get('pies'), i++) {
+for (let i = 0; i < flags.get('pies'); i++) {
   pies.push(generatePie());
 }
 
