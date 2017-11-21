@@ -22,7 +22,9 @@ const router = new Router();
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-  res.send('respond with a resource');
+  res.render('search', {
+    title: 'Search — Pie Shop',
+  });
 });
 
 export default router;
