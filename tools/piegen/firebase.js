@@ -18,7 +18,7 @@ const series = require('promise-map-series');
 const generatePie = require('./piegen.js');
 
 flags.defineBoolean('prod');
-flags.defineNumber('pies', 10);
+flags.defineNumber('pies', 100);
 flags.parse();
 
 const STAGE_ENV = {
