@@ -32,10 +32,11 @@ import listing from './routes/listing';
 import product from './routes/product';
 
 const app = express();
-const appRoot = path.join(__dirname, '..', '..');
+const nodeRoot = path.join(__dirname, '..', '..');
+const staticRoot = path.join(nodeRoot, '..', 'static');
 
 // View engine setup.
-app.set('views', path.join(appRoot, 'shared', 'views'));
+app.set('views', path.join(nodeRoot, 'shared', 'views'));
 app.set('view engine', 'hbs');
 
 // Uncomment after placing your favicon in /public.
@@ -44,7 +45,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(express.static(path.join(appRoot, 'client')));
+app.use(express.static(staticRoot));
 
 app.use('/search', search);
 app.use('/category', category);

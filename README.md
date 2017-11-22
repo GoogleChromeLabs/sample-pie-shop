@@ -16,5 +16,5 @@ npm i
 ### Running server
 
 ```sh
-gulp serve
+npm run serve
 ```
