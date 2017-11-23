@@ -17,14 +17,24 @@
  *
  */
 
-// TODO: complete tests.
+import {Router} from 'express';
+import fs from 'fs';
+import Pie from '../../../shared/js/pie.js';
 
-import {expect} from 'chai';
+const router = new Router();
+const svgPath = `${__dirname}/../../../shared/views/pie.svg.hbs`;
 
-import Pie from '../../../src/shared/js/models/pie.js';
-
-describe('Pie', () => {
-  it('should have a constructor', () => {
-    expect(new Pie()).to.not.be.null;
+router.get('/pie-svg', (req, res, next) => {
+  fs.readFile(svgPath, (err, result) => {
+    const pie = new Pie();
+    pie.template = result.toString();
+    pie.topping = req.query.topping;
+    pie.filling = req.query.filling;
+    pie.dough = req.query.dough;
+    res.writeHead(200, {'Content-Type': 'image/svg+xml'});
+    res.write(pie.svg());
+    res.end();
   });
 });
+
+export default router;

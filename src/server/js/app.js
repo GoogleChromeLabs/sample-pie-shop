@@ -30,6 +30,7 @@ import search from './routes/search';
 import category from './routes/category';
 import listing from './routes/listing';
 import product from './routes/product';
+import pieimg from './routes/pieimg';
 
 const app = express();
 const nodeRoot = path.join(__dirname, '..', '..');
@@ -51,6 +52,7 @@ app.use('/search', search);
 app.use('/category', category);
 app.use('/listing', listing);
 app.use('/product', product);
+app.use('/pieimg', pieimg);
 app.use('/', index);
 
 // Catch 404 and forward to error handler.
