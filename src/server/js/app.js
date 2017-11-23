@@ -27,7 +27,9 @@ import bodyParser from 'body-parser';
 
 import index from './routes/index';
 import search from './routes/search';
-import piegen from './routes/piegen';
+import category from './routes/category';
+import listing from './routes/listing';
+import product from './routes/product';
 
 const app = express();
 const appRoot = path.join(__dirname, '..', '..');
@@ -44,9 +46,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(appRoot, 'client')));
 
-app.use('/', index);
 app.use('/search', search);
-app.use('/piegen', piegen);
+app.use('/category', category);
+app.use('/listing', listing);
+app.use('/product', product);
+app.use('/', index);
 
 // Catch 404 and forward to error handler.
 app.use(function(req, res, next) {

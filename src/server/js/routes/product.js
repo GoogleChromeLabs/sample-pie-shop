@@ -22,7 +22,10 @@ const router = new Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', {title: 'Pie Shop'});
+  res.render('product', {
+    title: 'Apple Pie — Pie Shop',
+    product_name: 'Apple Pie',
+    product_description: 'A classic dessert, with our unique exotic spice blend.'});
 });
 
 export default router;
