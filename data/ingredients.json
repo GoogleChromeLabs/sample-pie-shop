@@ -7,16 +7,16 @@
     "cream": "#F5F1CB",
     "curd": "#F0D6A3",
     "mousse": "#89795C",
-    "fudge": "#DfA84F",
+    "fudge": "#DFA84F",
     "custard": "#F8F66A",
     "pudding": "#FCF2C9"
   },
   "topping": {
     "icing": "#BFDFF7",
     "chocolate": "#211602",
-    "frosting": "#daf6ff",
+    "frosting": "#DAF6FF",
     "ganache": "#53212b",
-    "sugar": "#dfdfdf",
+    "sugar": "#DFDFDF",
     "cocoa": "#958871"
   },
   "flavour": {
