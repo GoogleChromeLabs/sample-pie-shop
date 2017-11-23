@@ -25,12 +25,21 @@ const ingredients = require('../../data/ingredients.json');
 class Pie {
   constructor(topping) {
     this.DEFAULTS = {
-      'topping': Object.keys(ingredients.topping)[0],
-      'dough': Object.keys(ingredients.dough)[0],
-      'filling': Object.keys(ingredients.filling)[0],
+      'topping': null,
+      'dough': null,
+      'filling': null,
       'decoration': null,
     };
-    this._colors = {};
+    this._colors = {
+      'topping': '#ccc',
+      'dough': '#ddd',
+      'filling': '#eee'
+    };
+    this._colors = Object.assign({
+      'toppingDark': this._darken(this._colors.topping),
+      'fillingDark': this._darken(this._colors.filling),
+      'doughDark': this._darken(this._colors.dough)
+    }, this._colors);
     this._attrs = Object.assign({
       'price': null,
       'weight': null,
@@ -42,11 +51,35 @@ class Pie {
   set template(svgString) {
     this._template = hbs.compile(svgString);
   }
+  get topping() {
+    return this._attrs.topping;
+  }
   set topping(topping) {
-    this._attrs.topping = ingredients.topping[topping] ?
-      topping : this.DEFAULTS.topping;
-    this._colors.topping = ingredients.topping[this._attrs.topping];
-    this._colors.toppingDark = this._darken(this._colors.topping);
+    if (ingredients.topping[topping]) {
+      this._attrs.topping = topping;
+      this._colors.topping = ingredients.topping[this._attrs.topping];
+      this._colors.toppingDark = this._darken(this._colors.topping);
+    }
+  }
+  get filling() {
+    return this._attrs.filling;
+  }
+  set filling(filling) {
+    if (ingredients.filling[filling]) {
+      this._attrs.filling = filling;
+      this._colors.filling = ingredients.filling[this._attrs.filling];
+      this._colors.fillingDark = this._darken(this._colors.filling);
+    }
+  }
+  get dough() {
+    return this._attrs.dough;
+  }
+  set dough(dough) {
+    if (ingredients.dough[dough]) {
+      this._attrs.dough = dough;
+      this._colors.dough = ingredients.dough[this._attrs.dough];
+      this._colors.doughDark = this._darken(this._colors.dough);
+    }
   }
   set price(price) {
     this._attrs.price = isNaN(price) ? this._attrs.price : price;

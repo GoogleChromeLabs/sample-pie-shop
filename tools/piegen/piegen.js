@@ -33,6 +33,8 @@ const ALLERGEN_FREQUENCY = 0.7; // How often allergens are present.
 function generatePie() {
   const pie = new Pie();
   pie.topping = getRandomKey(ingredients.topping);
+  pie.filling = getRandomKey(ingredients.filling);
+  pie.dough = getRandomKey(ingredients.dough);
   pie.price = getRandomNumber(0, MAX_PRICE);
   pie.weight = getRandomNumber(MIN_WEIGHT, MAX_WEIGHT);
   pie.calories = getRandomNumber(MIN_CALORIES, MAX_CALORIES);
