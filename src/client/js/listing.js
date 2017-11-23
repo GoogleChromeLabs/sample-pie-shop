@@ -16,24 +16,25 @@
  *  limitations under the License
  *
  */
-
-import {Router} from 'express';
-const router = new Router();
-
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('listing', {
-    title: 'Holiday Pies — Pie Shop',
-    listing_name: 'Holiday Pies',
-    listing_description: 'Spice up your winter with our seasonal pies.',
-    scripts: [
-      'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
-      'js/firebase.js',
-      'js/listing.js',
-      'js/pie-img.js',
-      'js/pie-item.js'
-    ]
+ (function() {
+  let database = firebase.database();
+  firebase.database().ref('/products/').once('value').then(function(snapshot) {
+    populatePiesList(snapshot.val());
   });
-});
 
-export default router;
+  function populatePiesList(pies) {
+    let pieList = document.querySelector('#pies');
+    let i = 0;
+    for (pie in pies) {
+      if (pieList.children[i]) {
+        pieList.children[i].pie = pies[pie];
+      } else {
+        let pieNode = document.createElement('pie-item');
+        pieNode.pie = pies[pie];
+        pieNode.pieId = pie;
+        pieList.appendChild(pieNode);
+      }
+      i++;
+    }
+  };
+})();

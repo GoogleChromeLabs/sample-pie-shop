@@ -16,24 +16,24 @@
  *  limitations under the License
  *
  */
+pie-item {
+  display: flex;
+}
 
-import {Router} from 'express';
-const router = new Router();
+pie-img {
+  background: url(/pieimg/pie-svg) center center/cover no-repeat;
+  width: 300px;
+  height: 200px;
+  transition: background .2s;
+}
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('listing', {
-    title: 'Holiday Pies — Pie Shop',
-    listing_name: 'Holiday Pies',
-    listing_description: 'Spice up your winter with our seasonal pies.',
-    scripts: [
-      'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
-      'js/firebase.js',
-      'js/listing.js',
-      'js/pie-img.js',
-      'js/pie-item.js'
-    ]
-  });
-});
-
-export default router;
+.pie-title {
+  min-width: 200px;
+  min-height: 28px;
+  background-position: 0 100%;
+  transition: background-position .2s;
+}
+.pie-description {
+  min-height: 200px;
+  min-width: 300px;
+}
