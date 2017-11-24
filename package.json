@@ -35,7 +35,7 @@
     "build:node": "npm run build:node:scripts && npm run build:node:views",
     "build": "npm run clean && npm run build:static && npm run build:node",
     "serve": "npm run build && node scripts/serve.js",
-    "test:js": "karma start",
+    "test:js": "./node_modules/.bin/karma start",
     "test:node": "./scripts/test-node.sh",
     "test": "npm run test:node"
   },
