@@ -16,24 +16,10 @@
  *  limitations under the License
  *
  */
-
-import {Router} from 'express';
-const router = new Router();
-
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('listing', {
-    title: 'Holiday Pies — Pie Shop',
-    listing_name: 'Holiday Pies',
-    listing_description: 'Spice up your winter with our seasonal pies.',
-    scripts: [
-      'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
-      'js/firebase.js',
-      'js/listing.js',
-      'js/pie-img.js',
-      'js/pie-item.js'
-    ]
-  });
-});
-
-export default router;
+ function getUrlParams(search) {
+  let params = search.slice(search.indexOf('?') + 1).split('&')
+  return params.reduce((output, param) => {
+      let [key, val] = param.split('=')
+      return Object.assign(output, {[key]: decodeURIComponent(val)})
+  }, {})
+}
