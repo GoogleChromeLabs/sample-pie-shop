@@ -16,14 +16,16 @@
  *  limitations under the License
  *
  */
- ol, ul {
-   list-style: none;
+
+ body {
+   padding: 0;
+   margin: 0;
+   height: 100%;
+   font-family: Roboto;
  }
 
- button {
-   border: 0;
-   border-radius: 0;
-   color: inherit;
-   background-color: inherit;
-   font-size: 1em;
+ main {
+   min-height: 300px;
+   max-width: 944px;
+   margin: auto;
  }

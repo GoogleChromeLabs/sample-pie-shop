@@ -17,15 +17,33 @@
  *
  */
 
-@import 'reset';
-@import 'pie';
-@import 'skeleton';
-
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/Ks_cVxiCiwUWVsFWFA3Bjn-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
 }
 
-a {
-  color: #00B7FF;
+// Components.
+@import 'reset';
+@import 'icons';
+@import 'button';
+@import 'skeleton';
+
+// Layout.
+@import 'layout';
+@import 'header';
+@import 'navbar';
+@import 'footer';
+
+// Pages.
+@import 'pie';
+
+// Variables
+html {
+  // Ensure sufficient contrast between the two.
+  --primary-color: #25a7e6;
+  --primary-text-color: #fff;
+
+  --base-spacing: 12px;
 }

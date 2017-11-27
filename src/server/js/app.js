@@ -24,6 +24,7 @@ import path from 'path';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import hbs from 'hbs';
 
 import index from './routes/index';
 import search from './routes/search';
@@ -39,6 +40,7 @@ const staticRoot = path.join(nodeRoot, '..', 'static');
 // View engine setup.
 app.set('views', path.join(nodeRoot, 'shared', 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(path.join(nodeRoot, 'shared', 'partials'));
 
 // Uncomment after placing your favicon in /public.
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

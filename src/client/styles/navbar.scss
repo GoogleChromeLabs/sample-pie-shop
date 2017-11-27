@@ -16,14 +16,27 @@
  *  limitations under the License
  *
  */
- ol, ul {
-   list-style: none;
- }
 
- button {
-   border: 0;
-   border-radius: 0;
-   color: inherit;
-   background-color: inherit;
-   font-size: 1em;
- }
+.navbar {
+  max-width: 944px;
+  background: var(--primary-color);
+  color: var(--primary-text-color);
+  margin: auto;
+  display: flex;
+
+  .search {
+    margin: var(--base-spacing);
+    flex-grow: 1;
+
+    input {
+      width: 250px;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    padding: var(--base-spacing);
+  }
+}
