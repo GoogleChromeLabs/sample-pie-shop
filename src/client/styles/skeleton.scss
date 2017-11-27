@@ -30,9 +30,9 @@ h1.skeleton::before {
   background-position: 0 0;
 }
 
+// TODO: Consider if it's possible to make skeleton element-agnostic.
 h1.skeleton.skeleton-on::before {
   opacity: 1;
-
 }
 
 .skeleton-text::before {
