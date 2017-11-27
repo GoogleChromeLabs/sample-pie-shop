@@ -2,22 +2,17 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/styles/style.css' />
+    <link rel="stylesheet" href="/styles/style.css" />
     {{#each scripts}}
       <script src="{{.}}" defer></script>
     {{/each}}
   </head>
   <body>
-    {{{body}}}
-    <!-- TODO: remove below -->
-    <div style="height: 20vh;"></div>
-    <div>Hacky temporary navigation</div>
-    <div>
-      <a href="/">Index</a>
-      <a href="/category">Category</a>
-      <a href="/listing">Listing</a>
-      <a href="/search">Search</a>
-      <a href="/product">Product</a>
-    </div>
+    {{> header }}
+    {{> navbar }}
+    <main>
+      {{{body}}}
+    </main>
+    {{> footer }}
   </body>
 </html>

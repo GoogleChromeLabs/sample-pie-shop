@@ -16,14 +16,27 @@
  *  limitations under the License
  *
  */
- ol, ul {
-   list-style: none;
- }
 
- button {
-   border: 0;
-   border-radius: 0;
-   color: inherit;
-   background-color: inherit;
-   font-size: 1em;
- }
+header {
+  max-width: 944px;
+  margin: auto;
+  display: flex;
+
+  .logo {
+    background-color: gray;
+    width: 200px;
+    height: 2em;
+    margin: 24px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3em;
+    line-height: 2em;
+  }
+
+  nav {
+    flex-grow: 1;
+    text-align: right;
+    align-self: center;
+    margin: 24px;
+  }
+}

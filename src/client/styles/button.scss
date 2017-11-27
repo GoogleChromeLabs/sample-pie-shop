@@ -16,14 +16,22 @@
  *  limitations under the License
  *
  */
- ol, ul {
-   list-style: none;
- }
 
  button {
-   border: 0;
-   border-radius: 0;
-   color: inherit;
-   background-color: inherit;
-   font-size: 1em;
+   background-color: var(--primary-color);
+   color: var(--primary-text-color);
+   padding: 12px;
+   margin: 6px;
  }
+
+ .icon-btn::before {
+  content: 'x';
+  color: #000;
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  text-align: center;
+  margin: 0 6px -3px 6px;
+  background: #fff;
+  border-radius: 50%;
+}
