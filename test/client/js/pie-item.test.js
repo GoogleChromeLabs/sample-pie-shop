@@ -15,9 +15,12 @@
  */
 /* eslint max-len: ["off"] */
 
+import PieItem from '../../../src/client/js/pie-item.js';
+
 function prepare() {
   this.container = document.createElement('div');
   document.body.appendChild(this.container);
+  window.customElements.define('pie-item', PieItem);
 };
 
 function cleanUp() {
@@ -42,10 +45,7 @@ describe('PieItem', function() {
 
   beforeEach(function() {
     this.container.innerHTML = `<pie-item></pie-item>`;
-    return customElements.whenDefined('pie-item')
-      .then(_ => {
-        this.el = this.container.querySelector('pie-item');
-      });
+    this.el = this.container.querySelector('pie-item');
   });
 
   it('Renders pie-img element', function() {

@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 /* eslint max-len: ["off"], no-console: ["off"], require-jsdoc: 0 */
+const merge = require('webpack-merge');
+const baseWebpackConfig = require('./webpack.dev.js');
+
 module.exports = function(config) {
   const configuration = {
     basePath: '',
     frameworks: ['mocha', 'chai'],
     files: [
-      'test/client/mocks/globals.js',
-      'src/client/js/**/*.js',
-      'test/client/js/**/*.js'
+      'test/client/js/**/*.js',
     ],
     reporters: ['progress'],
     port: 9876,
@@ -30,7 +31,20 @@ module.exports = function(config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: true,
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    preprocessors: {
+      'test/**/*.js': ['webpack', 'sourcemap'],
+    },
+
+    webpack: merge(baseWebpackConfig, {
+      // The Karma sourcemap loader only works with inline source maps.
+      devtool: 'inline-source-map',
+    }),
+
+    webpackMiddleware: {
+      stats: 'none',
+    },
   };
 
   config.set(configuration);
