@@ -6,7 +6,7 @@ mkdir -p $OUTDIR/server/js &&
 mkdir -p $OUTDIR/shared/js &&
 mkdir -p $OUTDIR/data &&
 
-cp -R data/* $OUTDIR/data &&
+cp -R src/data/* $OUTDIR/data &&
 
 if [ "$NODE_ENV" = "production" ]
 then
