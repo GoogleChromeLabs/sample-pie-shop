@@ -16,20 +16,19 @@
  *  limitations under the License
  *
  */
- (function() {
-  let database = firebase.database();
-  firebase.database().ref('/products/').once('value').then(function(snapshot) {
+export default function initializeProducts() {
+  firebase.database().ref('/products/').once('value').then((snapshot) => {
     populatePiesList(snapshot.val());
   });
 
   function populatePiesList(pies) {
-    let pieList = document.querySelector('#pies');
+    const pieList = document.querySelector('#pies');
     let i = 0;
-    for (pie in pies) {
+    for (const pie in pies) {
       if (pieList.children[i]) {
         pieList.children[i].pie = pies[pie];
       } else {
-        let pieNode = document.createElement('pie-item');
+        const pieNode = document.createElement('pie-item');
         pieNode.pie = pies[pie];
         pieNode.pieId = pie;
         pieList.appendChild(pieNode);
@@ -37,4 +36,4 @@
       i++;
     }
   };
-})();
+}

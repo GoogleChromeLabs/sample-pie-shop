@@ -16,10 +16,10 @@
  *  limitations under the License
  *
  */
- function getUrlParams(search) {
-  let params = search.slice(search.indexOf('?') + 1).split('&')
+export default function getUrlParams(search) {
+  const params = search.slice(search.indexOf('?') + 1).split('&');
   return params.reduce((output, param) => {
-      let [key, val] = param.split('=')
-      return Object.assign(output, {[key]: decodeURIComponent(val)})
-  }, {})
+    const [key, val] = param.split('=');
+    return Object.assign(output, {[key]: decodeURIComponent(val)});
+  }, {});
 }

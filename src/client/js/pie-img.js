@@ -16,27 +16,31 @@
  *  limitations under the License
  *
  */
- (function() {
-  class PieImg extends HTMLElement {
-    static get observedAttributes() {
-      return ['dough', 'filling', 'topping'];
-    }
-    constructor() {
-      super();
-      this.style.width = this.getAttribute('width');
-      this.style.height = this.getAttribute('height');
-    }
-    _getSvgUrl() {
-      const topping = this.getAttribute('topping');
-      const dough = this.getAttribute('dough');
-      const filling = this.getAttribute('filling');
-      return `/pieimg/pie-svg?topping=${topping}&filling=${filling}&dough=${dough}`;
-    }
-    attributeChangedCallback(name, oldVal, newVal) {
-      if (['topping', 'dough', 'filling'].includes(name)) {
-        this.style.background = `url(${this._getSvgUrl()}) no-repeat center/cover`;
-      }
+export default class PieImg extends HTMLElement {
+  static get observedAttributes() {
+    return ['dough', 'filling', 'topping'];
+  }
+
+  static define() {
+    window.customElements.define('pie-img', PieImg);
+  }
+
+  constructor() {
+    super();
+    this.style.width = this.getAttribute('width');
+    this.style.height = this.getAttribute('height');
+  }
+
+  _getSvgUrl() {
+    const topping = this.getAttribute('topping');
+    const dough = this.getAttribute('dough');
+    const filling = this.getAttribute('filling');
+    return `/pieimg/pie-svg?topping=${topping}&filling=${filling}&dough=${dough}`;
+  }
+
+  attributeChangedCallback(name, oldVal, newVal) {
+    if (['topping', 'dough', 'filling'].includes(name)) {
+      this.style.background = `url(${this._getSvgUrl()}) no-repeat center/cover`;
     }
   }
-  window.customElements.define('pie-img', PieImg);
-})();
+}
