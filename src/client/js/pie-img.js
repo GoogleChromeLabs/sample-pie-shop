@@ -21,10 +21,6 @@ export default class PieImg extends HTMLElement {
     return ['dough', 'filling', 'topping'];
   }
 
-  static define() {
-    window.customElements.define('pie-img', PieImg);
-  }
-
   constructor() {
     super();
     this.style.width = this.getAttribute('width');

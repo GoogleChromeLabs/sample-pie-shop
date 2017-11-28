@@ -23,7 +23,7 @@ import PieImg from './pie-img.js';
 import PieItem from './pie-item.js';
 
 initializeFirebase();
-PieImg.define();
-PieItem.define();
+window.customElements.define('pie-img', PieImg);
+window.customElements.define('pie-item', PieItem);
 
 initializeProducts();

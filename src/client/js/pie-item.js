@@ -36,10 +36,6 @@ export default class PieItem extends HTMLElement {
     super();
   }
 
-  static define() {
-    window.customElements.define('pie-item', PieItem);
-  }
-
   connectedCallback() {
     const content = template.content.cloneNode(true);
     this.appendChild(content);
