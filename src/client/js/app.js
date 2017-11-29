@@ -17,20 +17,13 @@
  *
  */
 
-import {Router} from 'express';
-const router = new Router();
+import initializeFirebase from './firebase.js';
+import initializeProducts from './listing.js';
+import PieImg from './pie-img.js';
+import PieItem from './pie-item.js';
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('listing', {
-    title: 'Holiday Pies — Pie Shop',
-    listing_name: 'Holiday Pies',
-    listing_description: 'Spice up your winter with our seasonal pies.',
-    scripts: [
-      'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
-      'js/main.js',
-    ],
-  });
-});
+initializeFirebase();
+window.customElements.define('pie-img', PieImg);
+window.customElements.define('pie-item', PieItem);
 
-export default router;
+initializeProducts();

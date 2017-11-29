@@ -1,9 +1,0 @@
-{
-  "presets": [
-    ["env", {
-      "targets": {
-        "browser": "latest 2 versions"
-      }
-    }]
-  ]
-}

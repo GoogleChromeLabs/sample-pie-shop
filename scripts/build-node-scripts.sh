@@ -4,13 +4,18 @@ BABEL=$PWD/node_modules/.bin/babel
 
 mkdir -p $OUTDIR/server/js &&
 mkdir -p $OUTDIR/shared/js &&
-mkdir -p $OUTDIR/shared/partials &&
 mkdir -p $OUTDIR/data &&
-cp -R src/shared/js/* $OUTDIR/shared/js &&
-cp -R src/shared/partials/* $OUTDIR/shared/partials &&
-cp -R data/* $OUTDIR/data &&
-# Change into server directory to pick up server Babel config.
-cd src/server &&
-$BABEL --minified -s --compact=true --out-dir=$OUTDIR/server/js js
-# TODO: Add back in once we have shared code.
-#&& $BABEL --minified -s --compact=true --out-dir=$OUTDIR/shared/js ../shared/js
+
+cp -R src/data/* $OUTDIR/data &&
+
+if [ "$NODE_ENV" = "production" ]
+then
+OPTIONS="--minified --compact=true"
+else
+OPTIONS="-s"
+fi
+
+# Change into src directory to pick up server Babel config.
+cd src &&
+$BABEL $OPTIONS --out-dir=$OUTDIR/server/js server/js &&
+$BABEL $OPTIONS --out-dir=$OUTDIR/shared/js shared/js
