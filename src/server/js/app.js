@@ -39,6 +39,8 @@ const staticRoot = path.join(nodeRoot, '..', 'static');
 
 app.engine('hbs', hbs({
   extname: 'hbs',
+  defaultLayout: 'layout',
+  layoutsDir: path.join(nodeRoot, 'shared', 'layouts'),
   partialsDir: path.join(nodeRoot, 'shared', 'partials'),
 }));
 
