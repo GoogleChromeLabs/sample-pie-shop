@@ -24,6 +24,10 @@
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/Ks_cVxiCiwUWVsFWFA3Bjn-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
 }
 
+$mobile-break: 470px;
+$medium-break: 660px;
+$desktop-break: 944px;
+
 // Components.
 @import 'reset';
 @import 'icons';
@@ -39,11 +43,10 @@
 // Pages.
 @import 'pie';
 
-// Variables
+// Theme.
 html {
   // Ensure sufficient contrast between the two.
   --primary-color: #25a7e6;
   --primary-text-color: #fff;
-
   --base-spacing: 12px;
 }

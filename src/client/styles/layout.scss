@@ -29,3 +29,9 @@
    max-width: 944px;
    margin: auto;
  }
+
+ @media (max-width: $desktop-break) {
+   main {
+     padding: var(--base-spacing);
+   }
+ }
