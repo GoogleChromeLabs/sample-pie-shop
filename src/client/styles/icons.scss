@@ -45,3 +45,16 @@
 .icon-link.icon-sweet::before {
   content: 's';
 }
+
+@media (max-width: $medium-break) {
+  .icon-link {
+    width: 0;
+    color: transparent;
+    width: 1.2em;
+    height: 1.2em;
+  }
+  .icon-link::before {
+    position: absolute;
+    margin: 0;
+  }
+}

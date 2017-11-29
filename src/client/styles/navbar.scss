@@ -26,17 +26,37 @@
 
   .search {
     margin: var(--base-spacing);
-    flex-grow: 1;
-
     input {
       width: 250px;
     }
   }
 
+  nav {
+    flex-grow: 1;
+    text-align: right;
+  }
+
   a {
-    color: inherit;
-    text-decoration: none;
     display: inline-block;
     padding: var(--base-spacing);
+  }
+}
+
+@media (max-width: $mobile-break) {
+  .navbar {
+    display: block;
+
+    .search {
+      text-align: center;
+      padding: 12px;
+      input {
+        width: 90%;
+      }
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }

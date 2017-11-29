@@ -18,7 +18,7 @@
  */
 
 header {
-  max-width: 944px;
+  width: 100%;
   margin: auto;
   display: flex;
 
@@ -38,5 +38,36 @@ header {
     text-align: right;
     align-self: center;
     margin: 24px;
+  }
+}
+
+@media (max-width: $mobile-break) {
+  header {
+    .logo {
+      width: 150px;
+    }
+    nav {
+      margin: 12px;
+    }
+  }
+}
+
+@media (max-width: $medium-break) {
+  button {
+    background-color: transparent;
+    color: transparent;
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .icon-btn::before {
+    margin: 0;
+    background: var(--primary-color);
+  }
+}
+
+@media (min-width: $desktop-break) {
+  header {
+    width: 944px;
   }
 }
