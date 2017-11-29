@@ -43,9 +43,14 @@ describe('PieItem', function() {
   before(prepare);
   after(cleanUp);
 
-  beforeEach(function() {
+  beforeEach(function(done) {
     this.container.innerHTML = `<pie-item></pie-item>`;
     this.el = this.container.querySelector('pie-item');
+    customElements.whenDefined('pie-item')
+      .then(_ => {
+        this.el = this.container.querySelector('pie-item');
+        done();
+      });
   });
 
   it('Renders pie-img element', function() {
