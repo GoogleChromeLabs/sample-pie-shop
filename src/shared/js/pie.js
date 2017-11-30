@@ -20,9 +20,9 @@
 const color = require('color');
 const hbs = require('handlebars');
 
-import ingredients from '../../data/ingredients.json';
+const ingredients = require('../../data/ingredients.json');
 
-export default class Pie {
+class Pie {
   constructor(topping) {
     this.DEFAULTS = {
       'topping': null,
@@ -33,12 +33,12 @@ export default class Pie {
     this._colors = {
       'topping': '#ccc',
       'dough': '#ddd',
-      'filling': '#eee',
+      'filling': '#eee'
     };
     this._colors = Object.assign({
       'toppingDark': this._darken(this._colors.topping),
       'fillingDark': this._darken(this._colors.filling),
-      'doughDark': this._darken(this._colors.dough),
+      'doughDark': this._darken(this._colors.dough)
     }, this._colors);
     this._attrs = Object.assign({
       'price': null,
@@ -114,3 +114,5 @@ export default class Pie {
     ].join('-');
   }
 }
+
+module.exports = Pie;

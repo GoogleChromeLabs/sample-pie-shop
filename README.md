@@ -18,3 +18,9 @@ npm i
 ```sh
 npm run serve
 ```
+
+### Run pie generation pipeline
+
+```sh
+node tools/piegen/firebase.js
+```
