@@ -25,6 +25,8 @@ export default class PieImg extends HTMLElement {
     super();
     this.style.width = this.getAttribute('width');
     this.style.height = this.getAttribute('height');
+    this.style.display = 'inline-block';
+    this.style.background = `url(${this._getSvgUrl()}) no-repeat center/cover`;
   }
 
   _getSvgUrl() {
@@ -40,3 +42,4 @@ export default class PieImg extends HTMLElement {
     }
   }
 }
+window.customElements.define('pie-img', PieImg);

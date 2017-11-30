@@ -16,21 +16,6 @@
  *  limitations under the License
  *
  */
- ol, ul {
-   list-style: none;
-   margin: 0;
-   padding: 0;
- }
 
- button {
-   border: 0;
-   border-radius: 0;
-   color: inherit;
-   background-color: inherit;
-   font-size: 1em;
- }
-
- a {
-   color: inherit;
-   text-decoration: none;
- }
+import init from './listing.js';
+init();

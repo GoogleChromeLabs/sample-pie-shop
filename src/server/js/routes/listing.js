@@ -18,18 +18,22 @@
  */
 
 import {Router} from 'express';
+import fbAdmin from '../services/firebase';
 const router = new Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('listing', {
-    title: 'Holiday Pies — Pie Shop',
-    listing_name: 'Holiday Pies',
-    listing_description: 'Spice up your winter with our seasonal pies.',
-    scripts: [
-      'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
-      'js/main.js',
-    ],
+  fbAdmin.database().ref('/products').once('value').then(snapshot => {
+    res.render('listing', {
+      title: 'Holiday Pies — Pie Shop',
+      listing_name: 'Holiday Pies',
+      listing_description: 'Spice up your winter with our seasonal pies.',
+      products: snapshot.val(),
+      scripts: [
+        'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
+        'js/listing_main.js',
+      ],
+    });
   });
 });
 

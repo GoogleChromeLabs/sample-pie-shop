@@ -12,44 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import admin from 'firebase-admin';
-import flags from 'flags';
+import admin from '../../src/server/js/services/firebase.js';
+
 import series from 'promise-map-series';
 import generatePie from './piegen.js';
-
-import keys from '../../keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d.json';
-
-flags.defineBoolean('prod');
-flags.defineNumber('pies', 100);
-flags.parse();
-
-const STAGE_ENV = {
-  serviceAccount: keys,
-  databaseURL: 'https://devnooktests.firebaseio.com',
-};
-
-let env = {};
-
-if (flags.get('prod')) {
-  // TODO: Set up production environment.
-  console.log('Production environment not set up.');
-} else {
-  env = STAGE_ENV;
-}
-
-admin.initializeApp({
-  credential: admin.credential.cert(env.serviceAccount),
-  databaseURL: env.databaseURL,
-  databaseAuthVariableOverride: {
-    uid: 'my-service-worker',
-  },
-});
 
 const db = admin.database();
 const products = db.ref('/products');
 
 const pies = [];
-for (let i = 0; i < flags.get('pies'); i++) {
+for (let i = 0; i < 100; i++) {
   pies.push(generatePie());
 }
 

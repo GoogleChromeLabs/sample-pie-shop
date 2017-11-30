@@ -63,3 +63,4 @@ export default class PieItem extends HTMLElement {
     }
   }
 }
+window.customElements.define('pie-item', PieItem);
