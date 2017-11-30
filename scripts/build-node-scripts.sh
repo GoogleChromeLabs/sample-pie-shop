@@ -15,7 +15,5 @@ else
 OPTIONS="-s"
 fi
 
-# Change into src directory to pick up server Babel config.
-cd src &&
-$BABEL $OPTIONS --out-dir=$OUTDIR/server/js server/js &&
-$BABEL $OPTIONS --out-dir=$OUTDIR/shared/js shared/js
+$BABEL $OPTIONS --out-dir=$OUTDIR/server/js src/server/js &&
+$BABEL $OPTIONS --out-dir=$OUTDIR/shared/js src/shared/js

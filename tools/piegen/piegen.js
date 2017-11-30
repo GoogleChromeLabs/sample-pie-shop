@@ -11,8 +11,8 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-const Pie = require('../../src/shared/js/pie.js');
-const ingredients = require('../../src/data/ingredients.json');
+import Pie from '../../src/shared/js/pie.js';
+import ingredients from '../../src/data/ingredients.json';
 
 function getRandomKey(obj) {
   const keys = Object.keys(obj);

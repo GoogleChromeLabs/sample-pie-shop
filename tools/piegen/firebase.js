@@ -12,17 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const admin = require('firebase-admin');
-const flags = require('flags');
-const series = require('promise-map-series');
-const generatePie = require('./piegen.js');
+import admin from 'firebase-admin';
+import flags from 'flags';
+import series from 'promise-map-series';
+import generatePie from './piegen.js';
+
+import keys from '../../keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d.json';
 
 flags.defineBoolean('prod');
 flags.defineNumber('pies', 100);
 flags.parse();
 
 const STAGE_ENV = {
-  serviceAccount: require('../../keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d'),
+  serviceAccount: keys,
   databaseURL: 'https://devnooktests.firebaseio.com',
 };
 

@@ -22,5 +22,5 @@ npm run serve
 ### Run pie generation pipeline
 
 ```sh
-node tools/piegen/firebase.js
+npm run tools:piegen
 ```

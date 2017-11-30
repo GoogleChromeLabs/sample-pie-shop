@@ -56,7 +56,8 @@
     "serve:prod": "npm run build:prod && node scripts/serve.js",
     "test:node": "./scripts/test-node.sh",
     "test:static": "./node_modules/.bin/karma start",
-    "test": "npm run test:node && npm run test:static"
+    "test": "npm run test:node && npm run test:static",
+    "tools:piegen": "./node_modules/.bin/babel-node tools/piegen/firebase.js"
   },
   "devDependencies": {
     "karma": "^1.7.1",
