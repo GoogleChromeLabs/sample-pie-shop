@@ -23,21 +23,75 @@ function getRandomNumber(min, max) {
   return Math.max(min, Math.round((Math.random() * max)));
 }
 
-const MIN_WEIGHT = 300; // In grams.
-const MAX_WEIGHT = 1000; // In grams.
-const MAX_PRICE = 800;
+const ADJACTIVES = [
+  'mouth-watering',
+  'delicious',
+  'tasty',
+  'crafty',
+  'well-done'
+];
+
+const NOUNS = [
+  'combination',
+  'pie',
+  'composition'
+];
+
+const VERBS = [
+  'handcrafted from',
+  'filled with',
+  'served with'
+]
+
+function generateDescription(pie) {
+  const adjIndex = getRandomNumber(0, ADJACTIVES.length - 1);
+  const adj1 = ADJACTIVES[adjIndex];
+  const adj2 = ADJACTIVES[(adjIndex+1)%ADJACTIVES.length];
+  const adj3 = ADJACTIVES[(adjIndex+2)%ADJACTIVES.length];
+  const noun = NOUNS[getRandomNumber(0, NOUNS.length - 1)];
+  const verb = VERBS[getRandomNumber(0, VERBS.length - 1)];
+  const filling = pie.filling;
+  const dough = pie.dough;
+  return `A ${adj1} and ${adj2} ${noun}, ${verb} ${filling} and wrapped in a ${adj3} ${dough}`;
+}
+
+const MAX_STARS = 5;
+const MIN_PRICE = 15;
+const MAX_PRICE = 60;
 const MIN_CALORIES = 200; // For 100 grams.
-const MAX_CALORIES = 800; // For 100 grams.
+const MAX_CALORIES = 600; // For 100 grams.
 const ALLERGEN_FREQUENCY = 0.7; // How often allergens are present.
+
+const SIZES = {
+  big: {
+    minWeight: 600,
+    maxWeight: 900,
+    serves: 6
+  },
+  medium: {
+    minWeight: 400,
+    maxWeight: 600,
+    serves: 4
+  },
+  small: {
+    minWeight: 250,
+    maxWeight: 400,
+    serves: 2
+  }
+}
 
 function generatePie() {
   const pie = new Pie();
   pie.topping = getRandomKey(ingredients.topping);
   pie.filling = getRandomKey(ingredients.filling);
   pie.dough = getRandomKey(ingredients.dough);
-  pie.price = getRandomNumber(0, MAX_PRICE);
-  pie.weight = getRandomNumber(MIN_WEIGHT, MAX_WEIGHT);
+  pie.price = getRandomNumber(MIN_PRICE, MAX_PRICE);
+  const size = getRandomKey(SIZES);
+  pie.weight = getRandomNumber(SIZES[size].minWeight, SIZES[size].maxWeight);
+  pie.serves = SIZES[size].serves;
   pie.calories = getRandomNumber(MIN_CALORIES, MAX_CALORIES);
+  pie.stars = getRandomNumber(0, MAX_STARS);
+  pie.desc = generateDescription(pie);
   if (Math.random() < ALLERGEN_FREQUENCY) {
     const allergens = new Set();
     const allergensLength = Object.keys(ingredients.allergens).length;
