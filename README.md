@@ -21,6 +21,8 @@ npm run serve
 
 ### Run pie generation pipeline
 
+Make sure you have firebase private key stored in src/data/keys. Then:
+
 ```sh
 npm run tools:piegen
 ```

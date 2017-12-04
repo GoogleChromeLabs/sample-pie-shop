@@ -87,8 +87,17 @@ export default class Pie {
   set weight(weight) {
     this._attrs.weight = isNaN(weight) ? this._attrs.weight : weight;
   }
+  set serves(serves) {
+    this._attrs.serves = isNaN(serves) ? this._attrs.serves : serves;
+  }
   set calories(calories) {
     this._attrs.calories = isNaN(calories) ? this._attrs.calories : calories;
+  }
+  set stars(stars) {
+    this._attrs.stars = isNaN(stars) ? this._attrs.stars : stars;
+  }
+  set desc(desc) {
+    this._attrs.desc = desc;
   }
   set allergens(allergens) {
     this._attrs.allergens = Array.isArray(allergens) ?
@@ -103,7 +112,15 @@ export default class Pie {
   json() {
     return Object.assign({
       'signature': this.signature(),
+      'title': this.title,
     }, this._attrs);
+  }
+  get title() {
+    let title = `A ${this._attrs.filling} pie`;
+    if (this._attrs.topping) {
+      title = `${title} with ${this._attrs.topping}`;
+    }
+    return title;
   }
   signature() {
     return [
