@@ -16,7 +16,7 @@
  *  limitations under the License
  *
  */
- 
+
 .pie-card {
   border: 1px solid #ccc;
   position: relative;
@@ -34,12 +34,12 @@
     .pie-card-top {
       display: flex;
 
-      & > pie-img,
-      & > div {
+      pie-img,
+      .pie-card-overview {
         width: 50%;
       }
 
-      & > div {
+      .pie-card-overview {
         padding: 12px;
       }
     }
