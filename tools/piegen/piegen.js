@@ -23,7 +23,7 @@ function getRandomNumber(min, max) {
   return Math.max(min, Math.round((Math.random() * max)));
 }
 
-const ADJACTIVES = [
+const ADJECTIVES = [
   'mouth-watering',
   'delicious',
   'tasty',
@@ -44,10 +44,10 @@ const VERBS = [
 ]
 
 function generateDescription(pie) {
-  const adjIndex = getRandomNumber(0, ADJACTIVES.length - 1);
-  const adj1 = ADJACTIVES[adjIndex];
-  const adj2 = ADJACTIVES[(adjIndex+1)%ADJACTIVES.length];
-  const adj3 = ADJACTIVES[(adjIndex+2)%ADJACTIVES.length];
+  const adjIndex = getRandomNumber(0, ADJECTIVES.length - 1);
+  const adj1 = ADJECTIVES[adjIndex];
+  const adj2 = ADJECTIVES[(adjIndex+1)%ADJECTIVES.length];
+  const adj3 = ADJECTIVES[(adjIndex+2)%ADJECTIVES.length];
   const noun = NOUNS[getRandomNumber(0, NOUNS.length - 1)];
   const verb = VERBS[getRandomNumber(0, VERBS.length - 1)];
   const filling = pie.filling;
