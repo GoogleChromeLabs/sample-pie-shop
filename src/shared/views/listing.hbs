@@ -1,5 +1,60 @@
 <h2>{{listing_name}}</h2>
 <h3>{{listing_description}}</h3>
+
+
+<div class="pie-list">
+{{#each products}}
+<div class="pie-card pie-card--small">
+  <div class="fav fav--on">
+    <svg viewBox="0 0 98.325027 85.880819">
+      <path
+d="M 49.140251,18.76774 C 36.413456,-11.012198 0.23916269,-4.0637498 7.4268869e-4,30.500441 -0.13074531,49.483452 17.226305,56.578738 28.783517,64.167236 c 11.205722,7.360822 19.182034,17.428167 20.431944,21.71358 1.07033,-4.19946 9.95274,-14.551783 20.32655,-21.918744 11.34284,-8.056127 28.91478,-14.68583 28.78227,-33.668841 C 98.085351,-4.3558906 61.281751,-9.8247045 49.140251,18.76774 z"
+fill="#25a7e6" />
+    </svg>
+  </div>
+  <div class="pie-price">${{this.price}}</div>
+  <pie-img width="220px" height="150px" topping="{{this.topping}}"></pie-img>
+  <div class="pie-card-content">
+    <div class="pie-title">Lamb and kidney pie</div>
+    <div class="stars">
+      <svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <polygon fill-rule="nonzero" fill="#F8D64E" points="4.63865546 22.789916 12 0 19.3613445 22.789916 0 8.67226891 24 8.67226891"></polygon>
+      </svg>
+      <svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <polygon fill-rule="nonzero" fill="#F8D64E" points="4.63865546 22.789916 12 0 19.3613445 22.789916 0 8.67226891 24 8.67226891"></polygon>
+      </svg>
+      <svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <polygon fill-rule="nonzero" fill="#F8D64E" points="4.63865546 22.789916 12 0 19.3613445 22.789916 0 8.67226891 24 8.67226891"></polygon>
+      </svg>
+      <svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <polygon fill-rule="nonzero" fill="#e5e5e5" points="4.63865546 22.789916 12 0 19.3613445 22.789916 0 8.67226891 24 8.67226891"></polygon>
+      </svg>
+      <svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <polygon fill-rule="nonzero" fill="#e5e5e5" points="4.63865546 22.789916 12 0 19.3613445 22.789916 0 8.67226891 24 8.67226891"></polygon>
+      </svg>
+
+    </div>
+    <div class="pie-description">
+      <p>{{this.signature}} {{@key}} weight: {{this.weight}}</p>
+
+    </div>
+    <ul class="pie-tags">
+      <li class="icon-link">Veg</li>
+      <li class="icon-link">Puff pastry</li>
+      <li class="icon-link">Christmas pie</li>
+    </ul>
+  </div>
+  <div class="pie-card-actions">
+    <button>Add to cart</button>
+    <button>Express buy</button>
+  </div>
+</div>
+
+
+{{/each}}
+
+</div>
+
 <ul id="pies" class="pie-list">
   <pie-item></pie-item>
   <pie-item></pie-item>

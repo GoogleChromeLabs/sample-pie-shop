@@ -16,7 +16,12 @@
  *  limitations under the License
  *
  */
-export default function initializeProducts() {
+
+import PieImg from './pie-img.js';
+import PieItem from './pie-item.js';
+import initializeFirebase from './firebase.js';
+
+function initializeProducts() {
   firebase.database().ref('/products/').once('value').then((snapshot) => {
     populatePiesList(snapshot.val());
   });
@@ -36,4 +41,9 @@ export default function initializeProducts() {
       i++;
     }
   };
+}
+
+export default function init() {
+  initializeFirebase();
+  initializeProducts();
 }

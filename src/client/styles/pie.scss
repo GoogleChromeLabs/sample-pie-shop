@@ -16,24 +16,86 @@
  *  limitations under the License
  *
  */
-pie-item {
-  display: flex;
-}
 
-pie-img {
-  background: url(/pieimg/pie-svg) center center/cover no-repeat;
-  width: 300px;
-  height: 200px;
-  transition: background .2s;
-}
+.pie-card {
+  border: 1px solid #ccc;
+  position: relative;
+  box-sizing: border-box;
+  margin: 12px;
+  display: inline-block;
 
-.pie-title {
-  min-width: 200px;
-  min-height: 28px;
-  background-position: 0 100%;
-  transition: background-position .2s;
-}
-.pie-description {
-  min-height: 200px;
-  min-width: 300px;
+  &.pie-card--small {
+    width: 220px;
+  }
+
+  &.pie-card--mobile {
+    width: 320px;
+
+    .pie-card-top {
+      display: flex;
+
+      pie-img,
+      .pie-card-overview {
+        width: 50%;
+      }
+
+      .pie-card-overview {
+        padding: 12px;
+      }
+    }
+
+    .pie-title {
+      margin-top: 60px;
+    }
+  }
+
+  pie-img {
+    background: url('/pieimg/pie-svg') center center/cover no-repeat;
+    width: 200px;
+    height: 150px;
+    display: block;
+  }
+
+  .pie-card-content {
+    padding: 12px;
+    border-top: 1px solid #ccc;
+  }
+
+  .pie-card-actions {
+    border-top: 1px solid var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    font-size: .8em;
+  }
+
+  .pie-title {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .pie-tags {
+    li {
+      display: inline;
+    }
+
+    li::before {
+      background-color: green;
+    }
+  }
+
+  .fav {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
+
+  .pie-price {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
 }

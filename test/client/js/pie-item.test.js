@@ -20,7 +20,6 @@ import PieItem from '../../../src/client/js/pie-item.js';
 function prepare() {
   this.container = document.createElement('div');
   document.body.appendChild(this.container);
-  window.customElements.define('pie-item', PieItem);
 };
 
 function cleanUp() {

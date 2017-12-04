@@ -12,15 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import path from 'path';
 import admin from 'firebase-admin';
 import flags from 'flags';
-import series from 'promise-map-series';
-import generatePie from './piegen.js';
-
-import keys from '../../keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d.json';
+import keys from '../../../data/keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d';
 
 flags.defineBoolean('prod');
-flags.defineNumber('pies', 100);
 flags.parse();
 
 const STAGE_ENV = {
@@ -45,28 +42,4 @@ admin.initializeApp({
   },
 });
 
-const db = admin.database();
-const products = db.ref('/products');
-
-const pies = [];
-for (let i = 0; i < flags.get('pies'); i++) {
-  pies.push(generatePie());
-}
-
-series(pies, function(pie) {
-  const signature = pie.signature();
-  return new Promise((resolve, reject) => {
-    products.orderByChild('signature').equalTo(signature).once(
-      'value').then(function(snapshot) {
-      if (snapshot.val()) {
-        console.log(`Product ${signature} already exists`);
-        resolve();
-      } else {
-        products.push(pie.json()).then((_) => {
-          console.log(`Added product ${signature}`);
-          resolve();
-        });
-      }
-    }, reject);
-  });
-}).then(process.exit);
+export default admin;
