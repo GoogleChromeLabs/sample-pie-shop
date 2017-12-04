@@ -19,9 +19,10 @@ import generatePie from './piegen.js';
 
 const db = admin.database();
 const products = db.ref('/products');
+const NUM_PIES = 100;
 
 const pies = [];
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < NUM_PIES; i++) {
   pies.push(generatePie());
 }
 
