@@ -13,9 +13,13 @@ fill="#25a7e6" />
     </svg>
   </div>
   <div class="pie-price">${{this.price}}</div>
-  <pie-img width="220px" height="150px" topping="{{this.topping}}"></pie-img>
+  <pie-img width="220px" height="150px"
+      topping="{{this.topping}}"
+      filling="{{this.filling}}"
+      crust="{{this.crust}}"
+      deco="{{this.deco}}"></pie-img>
   <div class="pie-card-content">
-    <div class="pie-title">Lamb and kidney pie</div>
+    <div class="pie-title">{{this.title}}</div>
     <div class="stars">
       <svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <polygon fill-rule="nonzero" fill="#F8D64E" points="4.63865546 22.789916 12 0 19.3613445 22.789916 0 8.67226891 24 8.67226891"></polygon>
@@ -35,7 +39,7 @@ fill="#25a7e6" />
 
     </div>
     <div class="pie-description">
-      <p>{{this.signature}} {{@key}} weight: {{this.weight}}</p>
+      <p>{{this.desc}}</p>
 
     </div>
     <ul class="pie-tags">
