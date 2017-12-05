@@ -22,19 +22,16 @@ import fs from 'fs';
 import Pie from '../../../shared/js/pie.js';
 
 const router = new Router();
-const svgPath = `${__dirname}/../../../shared/views/pie.svg.hbs`;
 
 router.get('/pie-svg', (req, res, next) => {
-  fs.readFile(svgPath, (err, result) => {
-    const pie = new Pie();
-    pie.template = result.toString();
-    pie.topping = req.query.topping;
-    pie.filling = req.query.filling;
-    pie.dough = req.query.dough;
-    res.writeHead(200, {'Content-Type': 'image/svg+xml'});
-    res.write(pie.svg());
-    res.end();
-  });
+  const pie = new Pie();
+  pie.topping = req.query.topping;
+  pie.filling = req.query.filling;
+  pie.dough = req.query.dough;
+  pie.deco = req.query.deco;
+  res.writeHead(200, {'Content-Type': 'image/svg+xml'});
+  res.write(pie.svg());
+  res.end();
 });
 
 export default router;

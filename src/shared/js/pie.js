@@ -19,8 +19,20 @@
 
 import color from 'color';
 import hbs from 'handlebars';
-
+import fs from 'fs';
 import ingredients from '../../data/ingredients.json';
+
+const svgPath = `${__dirname}/../views/pie.svg.hbs`;
+const template = hbs.compile(fs.readFileSync(svgPath).toString());
+
+const decoPaths = {
+  'deco_a': `${__dirname}/../partials/deco_a.svg.hbs`,
+  'deco_b': `${__dirname}/../partials/deco_b.svg.hbs`,
+  'deco_c': `${__dirname}/../partials/deco_c.svg.hbs`
+};
+for (let deco in decoPaths) {
+  hbs.registerPartial(deco, fs.readFileSync(decoPaths[deco]).toString());
+};
 
 export default class Pie {
   constructor(topping) {
@@ -47,9 +59,10 @@ export default class Pie {
       'allergens': null,
       'img': null,
     }, this.DEFAULTS);
+    this._template = template;
   }
-  set template(svgString) {
-    this._template = hbs.compile(svgString);
+  set deco(decoType) {
+    this._attrs.deco = decoPaths[decoType] ? decoType : this._attrs.deco;
   }
   get topping() {
     return this._attrs.topping;
@@ -95,10 +108,12 @@ export default class Pie {
       allergens: this._attrs.allergens;
   }
   _darken(sourceColor) {
-    return color(sourceColor).darken(0.2).hsl().string();
+    return color(sourceColor).darken(0.2).hex();
   }
   svg() {
-    return this._template(this._colors);
+    return this._template(Object.assign({
+      deco: this._attrs.deco
+    }, this._colors));
   }
   json() {
     return Object.assign({
