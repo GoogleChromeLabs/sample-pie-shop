@@ -16,9 +16,12 @@
  *  limitations under the License
  *
  */
+
+const PIE_ATTRIBUTES = ['dough', 'filling', 'topping', 'deco'];
+
 export default class PieImg extends HTMLElement {
   static get observedAttributes() {
-    return ['dough', 'filling', 'topping'];
+    return PIE_ATTRIBUTES;
   }
 
   constructor() {
@@ -33,11 +36,11 @@ export default class PieImg extends HTMLElement {
     const topping = this.getAttribute('topping');
     const dough = this.getAttribute('dough');
     const filling = this.getAttribute('filling');
-    return `/pieimg/pie-svg?topping=${topping}&filling=${filling}&dough=${dough}`;
+    return `/pieimg/pie-svg?topping=${topping}&filling=${filling}&dough=${dough}&deco=${deco}`;
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    if (['topping', 'dough', 'filling'].includes(name)) {
+    if (PIE_ATTRIBUTES.includes(name)) {
       this.style.background = `url(${this._getSvgUrl()}) no-repeat center/cover`;
     }
   }
