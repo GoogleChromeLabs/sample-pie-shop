@@ -78,13 +78,20 @@ const SIZES = {
     maxWeight: 400,
     serves: 2
   }
-}
+};
+
+const DECO_TYPES = {
+  'deco_a': true,
+  'deco_b': true,
+  'deco_c': true
+};
 
 function generatePie() {
   const pie = new Pie();
   pie.topping = getRandomKey(ingredients.topping);
   pie.filling = getRandomKey(ingredients.filling);
   pie.dough = getRandomKey(ingredients.dough);
+  pie.deco = getRandomKey(DECO_TYPES);
   pie.price = getRandomNumber(MIN_PRICE, MAX_PRICE);
   const size = getRandomKey(SIZES);
   pie.weight = getRandomNumber(SIZES[size].minWeight, SIZES[size].maxWeight);
