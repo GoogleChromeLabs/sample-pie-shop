@@ -18,7 +18,6 @@
  */
 
 import {Router} from 'express';
-import fs from 'fs';
 import Pie from '../../../shared/js/pie.js';
 
 const router = new Router();

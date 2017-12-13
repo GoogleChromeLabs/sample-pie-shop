@@ -28,10 +28,12 @@ const template = hbs.compile(fs.readFileSync(svgPath).toString());
 const decoPaths = {
   'deco_a': `${__dirname}/../partials/deco_a.svg.hbs`,
   'deco_b': `${__dirname}/../partials/deco_b.svg.hbs`,
-  'deco_c': `${__dirname}/../partials/deco_c.svg.hbs`
+  'deco_c': `${__dirname}/../partials/deco_c.svg.hbs`,
 };
-for (let deco in decoPaths) {
-  hbs.registerPartial(deco, fs.readFileSync(decoPaths[deco]).toString());
+for (const deco in decoPaths) {
+  if (deco.startsWith('deco_')) {
+    hbs.registerPartial(deco, fs.readFileSync(decoPaths[deco]).toString());
+  }
 };
 
 export default class Pie {
@@ -50,7 +52,7 @@ export default class Pie {
     this._colors = Object.assign({
       'toppingDark': this._darken(this._colors.topping),
       'fillingDark': this._darken(this._colors.filling),
-      'doughDark': this._darken(this._colors.dough)
+      'doughDark': this._darken(this._colors.dough),
     }, this._colors);
     this._attrs = Object.assign({
       'price': null,
@@ -121,7 +123,7 @@ export default class Pie {
   }
   svg() {
     return this._template(Object.assign({
-      deco: this._attrs.deco
+      deco: this._attrs.deco,
     }, this._colors));
   }
   json() {
