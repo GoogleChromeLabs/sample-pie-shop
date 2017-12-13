@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import path from 'path';
 import admin from 'firebase-admin';
 import flags from 'flags';
 import keys from '../../../data/keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d';

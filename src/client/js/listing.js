@@ -17,8 +17,6 @@
  *
  */
 
-import PieImg from './pie-img.js';
-import PieItem from './pie-item.js';
 import initializeFirebase from './firebase.js';
 
 function initializeProducts() {

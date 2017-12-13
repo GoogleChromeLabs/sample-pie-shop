@@ -23,7 +23,7 @@ const router = new Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  fbAdmin.database().ref('/products').once('value').then(snapshot => {
+  fbAdmin.database().ref('/products').once('value').then((snapshot) => {
     res.render('listing', {
       title: 'Holiday Pies — Pie Shop',
       listing_name: 'Holiday Pies',
