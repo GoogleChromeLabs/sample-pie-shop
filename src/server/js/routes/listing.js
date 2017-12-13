@@ -18,7 +18,6 @@
  */
 
 import {Router} from 'express';
-import fbAdmin from '../services/firebase';
 const router = new Router();
 
 /* GET home page. */
@@ -36,7 +35,7 @@ router.get('/', (req, res, next) => {
         ],
       });
     });
-  })
+  });
 });
 
 export default router;
