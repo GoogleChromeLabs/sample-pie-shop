@@ -13,25 +13,15 @@
 // limitations under the License.
 
 import admin from 'firebase-admin';
-import flags from 'flags';
 import keys from '../../../data/keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d';
-
-flags.defineBoolean('prod');
-flags.parse();
 
 const STAGE_ENV = {
   serviceAccount: keys,
   databaseURL: 'https://devnooktests.firebaseio.com',
 };
 
-let env = {};
-
-if (flags.get('prod')) {
-  // TODO: Set up production environment.
-  console.log('Production environment not set up.');
-} else {
-  env = STAGE_ENV;
-}
+// TODO: Test for production environment.
+const env = STAGE_ENV;
 
 admin.initializeApp({
   credential: admin.credential.cert(env.serviceAccount),
