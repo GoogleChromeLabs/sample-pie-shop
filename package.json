@@ -54,7 +54,7 @@
     "build": "npm run clean && ./node_modules/.bin/parallelshell 'npm run build:static' 'npm run build:node'",
     "build:prod": "NODE_ENV=production npm run build",
     "watch": "./node_modules/.bin/parallelshell 'npm run watch:static' 'npm run watch:node'",
-    "serve": "./node_modules/.bin/parallelshell 'npm run watch' 'node scripts/serve.js'",
+    "serve": "npm run build && ./node_modules/.bin/parallelshell 'npm run watch' 'node scripts/serve.js'",
     "serve:prod": "npm run build:prod && node scripts/serve.js",
     "test:node": "./scripts/test-node.sh",
     "test:static": "./node_modules/.bin/karma start",
