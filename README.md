@@ -34,7 +34,7 @@ Check [`package.json`](package.json) for the other build targets.
 
 ### Run pie generation pipeline
 
-Make sure you have firebase private key stored in `rc/data/keys\`. Then:
+Make sure you have firebase private key stored in `src/data/keys\`. Then:
 
 ```sh
 npm run tools:piegen
