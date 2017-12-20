@@ -13,33 +13,35 @@
 // limitations under the License.
 
 import admin from '../../src/server/js/services/firebase.js';
-
-import series from 'promise-map-series';
 import generatePie from './piegen.js';
 
-const db = admin.database();
-const products = db.ref('/products');
+const products = admin.firestore().collection('/products');
 const NUM_PIES = 100;
+let piesGenerated = 0;
 
-const pies = [];
-for (let i = 0; i < NUM_PIES; i++) {
-  pies.push(generatePie());
+console.log('Pies to generate:', NUM_PIES);
+
+const checkPie = async (pieRef) => {
+  return await pieRef.get();
 }
 
-series(pies, function(pie) {
-  const signature = pie.signature();
-  return new Promise((resolve, reject) => {
-    products.orderByChild('signature').equalTo(signature).once(
-      'value').then(function(snapshot) {
-      if (snapshot.val()) {
-        console.log(`Product ${signature} already exists`);
-        resolve();
-      } else {
-        products.push(pie.json()).then((_) => {
-          console.log(`Added product ${signature}`);
-          resolve();
-        });
-      }
-    }, reject);
-  });
-}).then(process.exit);
+const persistPie = async (pieRef, data) => {
+  return await pieRef.set(data);
+}
+
+while (piesGenerated < NUM_PIES) {
+  console.log('*** *** *** *** *** ***');
+  const pie = generatePie();
+  const pieSig = pie.signature();
+  console.log('a) Canidate [', piesGenerated, '] - Sig:', pieSig, ' Data:', pie.json());
+  const pieRef = products.doc(pieSig);
+  console.log('b) Checking canidate [', piesGenerated, ']');
+  const doc = checkPie(pieRef);
+  if (!doc.exists) {
+    console.log('c) Adding new pie!');
+    persistPie(pieRef, pie.json());
+    piesGenerated++;
+  } else {
+    console.log('c) Pie already exists:', doc.data());
+  }
+}
