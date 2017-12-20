@@ -1,5 +1,5 @@
-<h3>{{product_name}}</h3>
-<p>{{product_description}}</p>
+<h3>{{pie.title}}</h3>
+<p>{{pie.description}}</p>
 
 <!-- Example pie card mobile markup -->
 <div class="pie-card pie-card--mobile">
@@ -10,12 +10,12 @@ d="M 49.140251,18.76774 C 36.413456,-11.012198 0.23916269,-4.0637498 7.4268869e-
 fill="#25a7e6" />
     </svg>
   </div>
-  <div class="pie-price">$20</div>
+  <div class="pie-price">${{pie.price}}</div>
 
   <div class="pie-card-top">
     <pie-img></pie-img>
     <div class="pie-card-overview">
-      <div class="pie-title">Lamb and kidney pie</div>
+      <div class="pie-title">{{pie.title}}</div>
       <div class="stars">
         <svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <polygon fill-rule="nonzero" fill="#F8D64E" points="4.63865546 22.789916 12 0 19.3613445 22.789916 0 8.67226891 24 8.67226891"></polygon>
@@ -37,7 +37,7 @@ fill="#25a7e6" />
   </div>
   <div class="pie-card-content">
     <div class="pie-description">
-      <p>A delicious pie for your table.</p>
+      <p>{{pie.description}}</p>
     </div>
     <ul class="pie-tags">
       <li class="icon-link">Veg</li>
