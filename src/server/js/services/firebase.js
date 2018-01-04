@@ -12,23 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import admin from 'firebase-admin';
-import keys from '../../../data/keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d';
+import * as admin from 'firebase-admin';
+// import keys from '../../../data/keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d';
 
-const STAGE_ENV = {
-  serviceAccount: keys,
-  databaseURL: 'https://devnooktests.firebaseio.com',
-};
 
-// TODO: Test for production environment.
-const env = STAGE_ENV;
+// const STAGE_ENV = {
+//   serviceAccount: keys,
+//   databaseURL: 'https://devnooktests.firebaseio.com',
+// };
 
-admin.initializeApp({
-  credential: admin.credential.cert(env.serviceAccount),
-  databaseURL: env.databaseURL,
-  databaseAuthVariableOverride: {
-    uid: 'my-service-worker',
-  },
-});
+// // TODO: Test for production environment.
+// const env = STAGE_ENV;
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(env.serviceAccount),
+//   databaseURL: env.databaseURL,
+//   databaseAuthVariableOverride: {
+//     uid: 'my-service-worker',
+//   },
+// });
+
+const serviceAccount = require('../../../data/keys/pie-shop-app-firebase-adminsdk-cq5dk-ff2e1cd893.json');
+admin.initializeApp({credential: admin.credential.cert(serviceAccount)});
 
 export default admin;

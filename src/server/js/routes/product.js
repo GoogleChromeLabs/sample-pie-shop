@@ -18,14 +18,20 @@
  */
 
 import {Router} from 'express';
+import * as admin from 'firebase-admin';
+
 const router = new Router();
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('product', {
-    title: 'Apple Pie — Pie Shop',
-    product_name: 'Apple Pie',
-    product_description: 'A classic dessert, with our unique exotic spice blend.'});
+/* GET /product/ */
+router.get('/', async (req, res, next) => {
+  const db = admin.firestore();
+  const productSnapshot = await db.collection('products').doc('cocoa-chocolate-crust-x').get();
+
+  if (productSnapshot.exists) {
+    const pie = productSnapshot.data();
+    // res.send(pie);
+    res.render('product', {pie: pie});
+  }
 });
 
 export default router;

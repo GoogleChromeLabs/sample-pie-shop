@@ -32,6 +32,7 @@ import category from './routes/category';
 import listing from './routes/listing';
 import product from './routes/product';
 import pieimg from './routes/pieimg';
+import * as admin from 'firebase-admin';
 
 const app = express();
 const nodeRoot = path.join(__dirname, '..', '..');
@@ -47,6 +48,9 @@ app.engine('hbs', hbs({
 // View engine setup.
 app.set('views', path.join(nodeRoot, 'shared', 'views'));
 app.set('view engine', 'hbs');
+
+const serviceAccount = require('../../data/keys/pie-shop-app-firebase-adminsdk-cq5dk-ff2e1cd893.json');
+admin.initializeApp({credential: admin.credential.cert(serviceAccount)});
 
 // Uncomment after placing your favicon in /public.
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
