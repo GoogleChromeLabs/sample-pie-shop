@@ -18,6 +18,6 @@
  */
 
 import init from './product.js';
-import router from './router.js';
+// import router from './router.js';
 
 init();

@@ -18,6 +18,6 @@
  */
 
 import init from './category.js';
-import router from './router.js';
+// import router from './router.js';
 
 init();
