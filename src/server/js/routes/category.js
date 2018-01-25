@@ -25,7 +25,11 @@ router.get('/', (req, res, next) => {
   res.render('category', {
     title: 'Sweet Pies — Pie Shop',
     category_name: 'Sweet Pies',
-    category_description: 'Great for a special dessert or an indulgent afternoon tea.'});
+    category_description: 'Great for a special dessert or an indulgent afternoon tea.',
+    scripts: [
+      'js/category-bundle.js',
+    ],
+  });
 });
 
 export default router;
