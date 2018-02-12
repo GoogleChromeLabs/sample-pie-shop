@@ -17,17 +17,7 @@
  *
  */
 
-import {Router} from 'express';
-const router = new Router();
+import init from './search.js';
+// import router from './router.js';
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index', {
-    title: 'Pie Shop',
-    scripts: [
-      'js/index-bundle.js',
-    ],
-  });
-});
-
-export default router;
+init();

@@ -25,7 +25,11 @@ router.get('/', (req, res, next) => {
   res.render('product', {
     title: 'Apple Pie — Pie Shop',
     product_name: 'Apple Pie',
-    product_description: 'A classic dessert, with our unique exotic spice blend.'});
+    product_description: 'A classic dessert, with our unique exotic spice blend.',
+    scripts: [
+      'js/product-bundle.js',
+    ],
+  });
 });
 
 export default router;

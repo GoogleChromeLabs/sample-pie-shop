@@ -17,13 +17,6 @@
  *
  */
 
-import initializeFirebase from './firebase.js';
-import initializeProducts from './listing.js';
-import PieImg from './pie-img.js';
-import PieItem from './pie-item.js';
-
-initializeFirebase();
-window.customElements.define('pie-img', PieImg);
-window.customElements.define('pie-item', PieItem);
-
-initializeProducts();
+export default function init() {
+  console.log('Index init.');
+}

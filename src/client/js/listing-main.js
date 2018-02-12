@@ -18,4 +18,6 @@
  */
 
 import init from './listing.js';
+// import router from './router.js';
+
 init();
