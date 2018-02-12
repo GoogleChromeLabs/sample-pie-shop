@@ -22,8 +22,8 @@ const router = new Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  import('../services/firebase').then((fbAdmin) => {
-    fbAdmin.database().ref('/products').once('value').then((snapshot) => {
+  import('../services/firebase.js').then((fbService) => {
+    fbService.default.database().ref('/products').once('value').then((snapshot) => {
       res.render('listing', {
         title: 'Holiday Pies — Pie Shop',
         listing_name: 'Holiday Pies',
@@ -31,7 +31,7 @@ router.get('/', (req, res, next) => {
         products: snapshot.val(),
         scripts: [
           'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
-          'js/listing_main.js',
+          'js/listing-bundle.js',
         ],
       });
     });

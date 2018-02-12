@@ -42,6 +42,7 @@ function initializeProducts() {
 }
 
 export default function init() {
+  console.log('Listing init.');
   initializeFirebase();
   initializeProducts();
 }
