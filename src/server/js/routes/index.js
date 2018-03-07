@@ -17,12 +17,8 @@
  *
  */
 
-import {Router} from 'express';
-const router = new Router();
-
-/* GET home page. */
-router.get('/', (req, res, next) => {
+const index = (req, res, next) => {
   res.render('index', {title: 'Pie Shop'});
-});
+};
 
-export default router;
+export default index;

@@ -16,18 +16,21 @@
  *  limitations under the License
  *
  */
+import index from './routes/index';
+import search from './routes/search';
+import category from './routes/category';
+import listing from './routes/listing';
+import product from './routes/product';
+import pieimg from './routes/pieimg';
 
-import Pie from '../../../shared/js/pie.js';
+import {Router} from 'express';
+const router = new Router();
 
-const pieImg = (req, res, next) => {
-  const pie = new Pie();
-  pie.topping = req.query.topping;
-  pie.filling = req.query.filling;
-  pie.dough = req.query.dough;
-  pie.deco = req.query.deco;
-  res.writeHead(200, {'Content-Type': 'image/svg+xml'});
-  res.write(pie.svg());
-  res.end();
-};
+router.get('/search', search);
+router.get('/category/:id', category);
+router.get('/listing', listing);
+router.get('/product', product);
+router.get('/pieimg', pieimg);
+router.get('/', index);
 
-export default pieImg;
+export default router;

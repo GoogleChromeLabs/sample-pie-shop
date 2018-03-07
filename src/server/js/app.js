@@ -26,12 +26,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import hbs from 'express-handlebars';
 
-import index from './routes/index';
-import search from './routes/search';
-import category from './routes/category';
-import listing from './routes/listing';
-import product from './routes/product';
-import pieimg from './routes/pieimg';
+import router from './router';
 
 const app = express();
 const nodeRoot = path.join(__dirname, '..', '..');
@@ -55,13 +50,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(staticRoot));
-
-app.use('/search', search);
-app.use('/category', category);
-app.use('/listing', listing);
-app.use('/product', product);
-app.use('/pieimg', pieimg);
-app.use('/', index);
+app.use('/', router);
 
 // Catch 404 and forward to error handler.
 app.use(function(req, res, next) {

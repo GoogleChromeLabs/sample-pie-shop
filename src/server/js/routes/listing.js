@@ -17,11 +17,7 @@
  *
  */
 
-import {Router} from 'express';
-const router = new Router();
-
-/* GET home page. */
-router.get('/', (req, res, next) => {
+const listing = (req, res, next) => {
   import('../services/firebase').then((fbAdmin) => {
     fbAdmin.database().ref('/products').once('value').then((snapshot) => {
       res.render('listing', {
@@ -36,6 +32,6 @@ router.get('/', (req, res, next) => {
       });
     });
   });
-});
+};
 
-export default router;
+export default listing;

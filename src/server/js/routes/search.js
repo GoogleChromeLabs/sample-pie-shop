@@ -17,14 +17,10 @@
  *
  */
 
-import {Router} from 'express';
-const router = new Router();
-
-/* GET users listing. */
-router.get('/', (req, res, next) => {
+const search = (req, res, next) => {
   res.render('search', {
     title: 'Search — Pie Shop',
   });
-});
+};
 
-export default router;
+export default search;
