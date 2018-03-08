@@ -17,21 +17,17 @@
  *
  */
 
-const listing = (req, res, next) => {
-  import('../services/firebase').then((fbAdmin) => {
-    fbAdmin.database().ref('/products').once('value').then((snapshot) => {
-      res.render('listing', {
-        title: 'Holiday Pies — Pie Shop',
-        listing_name: 'Holiday Pies',
-        listing_description: 'Spice up your winter with our seasonal pies.',
-        products: snapshot.val(),
-        scripts: [
-          'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
-          'js/listing_main.js',
-        ],
-      });
-    });
-  });
+import Pie from '../../shared/js/pie.js';
+
+const pieImg = (req, res, next) => {
+  const pie = new Pie();
+  pie.topping = req.query.topping;
+  pie.filling = req.query.filling;
+  pie.dough = req.query.dough;
+  pie.deco = req.query.deco;
+  res.writeHead(200, {'Content-Type': 'image/svg+xml'});
+  res.write(pie.svg());
+  res.end();
 };
 
-export default listing;
+export default pieImg;

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import admin from 'firebase-admin';
-import keys from '../../../data/keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d';
+import keys from '../../../../../keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d';
 
 const STAGE_ENV = {
   serviceAccount: keys,

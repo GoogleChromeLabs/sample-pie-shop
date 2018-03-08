@@ -17,12 +17,24 @@
  *
  */
 
-/* GET home page. */
 const category = (req, res, next) => {
-  res.render('category', {
-    title: 'Sweet Pies — Pie Shop',
-    category_name: 'Sweet Pies',
-    category_description: 'Great for a special dessert or an indulgent afternoon tea.'});
+  const categoryId = req.params.id;
+  import('../services/firebase').then((module) => {
+    const fbAdmin = module.default;
+    fbAdmin.database().ref('/products').once('value').then((snapshot) => {
+      console.log('render')
+      res.render('category', {
+        title: `${categoryId.toUpperCase()} Pies`,
+        category_name: categoryId,
+        products: snapshot.val(),
+        scripts: [
+          'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
+          'js/category_main.js',
+        ],
+      });
+    }, (err) => console.log(err))
+    .catch(console.log);
+  });
 };
 
 export default category;
