@@ -16,9 +16,15 @@
  *  limitations under the License
  *
  */
+import fbAdmin from '../../services/firebase';
 
 const index = (req, res, next) => {
-  res.render('index', {title: 'Pie Shop'});
+  fbAdmin.database().ref('/products').once('value').then((snapshot) => {
+    res.render('index', {
+      title: `Pie Shop`,
+      products: snapshot.val(),
+    });
+  });
 };
 
 export default index;

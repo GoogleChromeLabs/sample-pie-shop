@@ -17,24 +17,4 @@
  *
  */
 
-header {
-  width: 100%;
-  min-height: 200px;
-  margin: auto;
-  display: flex;
-  background: url('/images/header-bg.jpg');
-}
-
-.logo {
-  background: url('/images/logo.svg') 50% no-repeat;
-  background-size: contain;
-  height: 150px;
-  width: 150px;
-  margin: auto auto 10px;
-  font-size: 48px;
-  line-height: 130px;
-  white-space: nowrap;
-  font-family: 'Times New Roman';
-  font-style: italic;
-  color: #E91E63;
-}
+ export const capitalize = (value) => `${value[0].toUpperCase()}${value.slice(1)}`;

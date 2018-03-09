@@ -19,44 +19,22 @@
 
 .navbar {
   max-width: 944px;
-  background: var(--primary-color);
-  color: var(--primary-text-color);
   margin: auto;
   display: flex;
+  padding: var(--base-spacing);
+  height: 32px;
 
   .search {
-    margin: var(--base-spacing);
-    input {
-      width: 250px;
-    }
-  }
-
-  nav {
     flex-grow: 1;
+    input {
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      line-height: 24px;
+    }
+  }
+
+  .cart {
     text-align: right;
-  }
-
-  a {
-    display: inline-block;
-    padding: var(--base-spacing);
-  }
-}
-
-@media (max-width: $mobile-break) {
-  .navbar {
-    display: block;
-
-    .search {
-      text-align: center;
-      padding: 12px;
-      input {
-        width: 90%;
-      }
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-    }
   }
 }

@@ -17,11 +17,25 @@
  *
  */
 
-const product = (req, res, next) => {
-  res.render('product', {
-    title: 'Apple Pie — Pie Shop',
-    product_name: 'Apple Pie',
-    product_description: 'A classic dessert, with our unique exotic spice blend.'});
-};
+import fbAdmin from '../../services/firebase';
+
+const product = {
+  get: (req, res, next) => {
+    const productId = req.params.id.split('+')[1];
+    fbAdmin.database().ref('/products/' + productId).once('value').then((snapshot) => {
+      res.render('product', {
+        product: snapshot.val(),
+        productId: productId,
+      });
+    });
+  },
+  addToCart: (req, res, next) => {
+    console.log('add to cart');
+    res.render('product', {
+      title: 'Apple Pie — Pie Shop',
+      product_name: 'Apple Pie',
+      product_description: 'A classic dessert, with our unique exotic spice blend.'});
+  },
+}
 
 export default product;

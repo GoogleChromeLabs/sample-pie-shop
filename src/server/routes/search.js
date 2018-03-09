@@ -18,7 +18,7 @@
  */
 
 const search = (req, res, next) => {
-  res.render('search', {
+  res.render('listing', {
     title: 'Search — Pie Shop',
   });
 };

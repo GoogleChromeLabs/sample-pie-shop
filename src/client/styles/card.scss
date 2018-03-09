@@ -16,25 +16,36 @@
  *  limitations under the License
  *
  */
+ .card {
+   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+   width: 300px;
+   height: 400px;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   margin: 12px;
 
-header {
-  width: 100%;
-  min-height: 200px;
-  margin: auto;
-  display: flex;
-  background: url('/images/header-bg.jpg');
-}
 
-.logo {
-  background: url('/images/logo.svg') 50% no-repeat;
-  background-size: contain;
-  height: 150px;
-  width: 150px;
-  margin: auto auto 10px;
-  font-size: 48px;
-  line-height: 130px;
-  white-space: nowrap;
-  font-family: 'Times New Roman';
-  font-style: italic;
-  color: #E91E63;
-}
+   .card-image {
+     height: 160px;
+     border-bottom: 1px solid #ccc;
+     text-align: center;
+   }
+
+   .card-title {
+     padding: 12px;
+     font-size: 1.2em;
+     font-weight: bold;
+   }
+   .card-text {
+     padding: 12px;
+     flex: 1;
+   }
+   .card-actions {
+     padding: 12px;
+     display: flex;
+     justify-content: space-between;
+     padding: 12px;
+     vertical-align: middle;
+   }
+ }
