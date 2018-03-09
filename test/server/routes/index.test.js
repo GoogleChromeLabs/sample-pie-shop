@@ -20,7 +20,7 @@
 import {expect} from 'chai';
 import request from 'supertest';
 
-import app from '../../../src/server/js/app.js';
+import app from '../../../src/server/app.js';
 
 describe('/', () => {
   it('should return a valid response', (done) => {
