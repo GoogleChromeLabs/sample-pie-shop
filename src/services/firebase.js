@@ -13,22 +13,16 @@
 // limitations under the License.
 
 import admin from 'firebase-admin';
-import keys from '../../keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d';
 
-const STAGE_ENV = {
-  serviceAccount: keys,
-  databaseURL: 'https://devnooktests.firebaseio.com',
-};
+if (admin.initializeApp) {
+  admin.initializeApp({
+    credential: admin.credential.cert(require('../../keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d')),
+    databaseURL: 'https://devnooktests.firebaseio.com',
+    databaseAuthVariableOverride: {
+      uid: 'my-service-worker',
+    },
+  });
+}
 
-// TODO: Test for production environment.
-const env = STAGE_ENV;
-
-admin.initializeApp({
-  credential: admin.credential.cert(env.serviceAccount),
-  databaseURL: env.databaseURL,
-  databaseAuthVariableOverride: {
-    uid: 'my-service-worker',
-  },
-});
 
 export default admin;

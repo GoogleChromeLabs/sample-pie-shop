@@ -1,5 +1,3 @@
+import fbMock from '../../mocks/firebase-mock';
 
-window.firebase = {
-  initializeApp: function() {},
-  database: _ => ({ref: _ => ({once: _ => ({then: _ => {}})})})
-};
+window.firebase = fbMock;

@@ -16,28 +16,16 @@
  *  limitations under the License
  *
  */
+const fbMock = {
+  database: _ => ({
+    ref: _ => ({
+      once: _ => ({
+        then: callback => {
+          callback({ val: _ => ([])})
+        }
+      })
+    })
+  })
+};
 
-import {expect} from 'chai';
-import request from 'supertest';
-import mockery from 'mockery';
-import fbMock from '../../mocks/firebase-mock';
-
-describe('/', () => {
-  before(() => {
-    mockery.enable({
-      warnOnUnregistered: false
-    });
-    mockery.registerMock('firebase-admin', fbMock);
-  });
-
-  it('should return a valid response', (done) => {
-    import('../../../src/server/app.js').then(app => {
-      request(app.default)
-        .get('/')
-        .end((error, resp) => {
-          expect(resp.status).to.equal(200);
-          done();
-        });
-    });
-  });
-});
+export default fbMock;
