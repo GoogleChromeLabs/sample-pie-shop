@@ -18,20 +18,26 @@
  */
 import fbAdmin from '../../services/firebase';
 import { capitalize } from '../../shared/js/stringUtils';
+import categories from '../../data/categories';
 
 const category = (req, res, next) => {
   const categoryId = req.params.id;
-  fbAdmin.database().ref('/products').once('value').then((snapshot) => {
-    res.render('listing', {
-      title: `${capitalize(categoryId)} Pies`,
-      category_name: categoryId,
-      products: snapshot.val(),
-      scripts: [
-        'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
-        'js/category_main.js',
-      ],
+  fbAdmin.database().ref('/products')
+    .orderByChild('category')
+    .equalTo(categoryId)
+    .once('value')
+    .then((snapshot) => {
+      res.render('listing', {
+        title: `${capitalize(categoryId)}`,
+        category_name: categoryId,
+        products: snapshot.val(),
+        categories: categories,
+        scripts: [
+          'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
+          'js/category_main.js',
+        ],
+      });
     });
-  });
 };
 
 export default category;

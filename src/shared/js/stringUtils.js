@@ -18,3 +18,7 @@
  */
 
  export const capitalize = (value) => `${value[0].toUpperCase()}${value.slice(1)}`;
+
+ export const signaturize = (value) => (value.toLowerCase().replace(/[\.,;]+/, '').replace(/\s/g, '-'));
+
+ export const getNWords = (value, num) => (value.split(' ').slice(0, num).join(' '));

@@ -21,18 +21,17 @@ header {
   width: 100%;
   min-height: 200px;
   margin: auto;
-  display: flex;
   background: url('/images/header-bg.jpg');
+  text-align: center;
 }
 
 .logo {
-  background: url('/images/logo.svg') 50% no-repeat;
   background-size: contain;
-  height: 150px;
+  height: 120px;
   width: 150px;
-  margin: auto auto 10px;
+  margin: auto auto;
   font-size: 48px;
-  line-height: 130px;
+  line-height: 120px;
   white-space: nowrap;
   font-family: 'Times New Roman';
   font-style: italic;

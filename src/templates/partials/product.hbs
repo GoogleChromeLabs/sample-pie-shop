@@ -1,18 +1,19 @@
 <div class="card">
   <div class="card-image">
     <a href="/product/{{product.signature}}+{{id}}">
-      <img src="/pieimg.svg" alt="pie"/>
+      <img
+        class="product-frame-{{product.frame}} product-filter-{{product.filter}}"
+        src="{{product.urls.thumb}}"
+        alt="{{product.signature}}"/>
     </a>
   </div>
-  <div class="card-title">
-    {{product.title}}
-  </div>
   <div class="card-text">
-    {{product.desc}}
+    {{product.description}}
+    {{product.category}}
   </div>
   <div class="card-actions">
     <div class="product-price">
-      {{product.price}}
+      {{product.price}} $
     </div>
     <form action="/product/{{id}}/cart" method="post">
       <button>add to cart</button>

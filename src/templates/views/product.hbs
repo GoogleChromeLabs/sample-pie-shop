@@ -1,15 +1,15 @@
   <div class="card-image">
-      <img src="/pieimg.svg" alt="pie"/>
-  </div>
-  <div class="card-title">
-    {{product.title}}
+    <img
+      class="product-frame-{{product.frame}} product-filter-{{product.filter}}"
+      src="{{product.urls.thumb}}"
+      alt="{{product.signature}}"/>
   </div>
   <div class="card-text">
-    {{product.desc}}
+    {{product.description}}
   </div>
   <div class="card-actions">
     <div class="product-price">
-      {{product.price}}
+      {{product.price}} $
     </div>
     <form action="/product/{{product.signature}}+{{id}}/cart" method="post">
       <button>add to cart</button>
