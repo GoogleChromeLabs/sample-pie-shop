@@ -1,3 +1,8 @@
 <h1>{{title}}</h1>
 
-{{cart}}
+{{#if cart.totalQty }}
+  {{> cart }}
+  <a href="/payment"><button>Pay</button></a>
+{{else}}
+  <p>No items in your cart so far. Continue shopping!</p>
+{{/if}}

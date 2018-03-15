@@ -25,6 +25,7 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import hbs from 'express-handlebars';
+import session from 'express-session';
 
 import router from './router';
 
@@ -38,10 +39,19 @@ app.engine('hbs', hbs({
   layoutsDir: path.join(rootDir, 'templates', 'layouts'),
   partialsDir: path.join(rootDir, 'templates', 'partials'),
 }));
-
-// View engine setup.
 app.set('views', path.join(rootDir, 'templates', 'views'));
 app.set('view engine', 'hbs');
+
+app.use(session({
+  // WARNING: This is a code sample. Please use a real store for your sessions
+  // instead of memcache in a production code.
+  secret: 'some secret',
+  resave: false,
+  saveUninitialized: false,
+  secure: true,
+  //maxAge: 180 * 60 * 1000, // 3h
+  maxAge: 20 * 1000  // 20 sec
+}));
 
 // Uncomment after placing your favicon in /public.
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

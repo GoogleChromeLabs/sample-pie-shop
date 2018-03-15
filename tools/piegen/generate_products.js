@@ -20,8 +20,7 @@ import { signaturize, getNWords } from '../../src/shared/js/stringUtils';
 
 const API_CLIENT_ID = 'ceced05f3befb37ab80604cdffe1860d74e080c6fe40455c659bbed071c0ab58';
 const IMG_ORIENTATION = 'portrait';
-const IMG_WIDTH = 200;
-const IMG_HEIGHT = 300;
+const IMG_WIDTH = 100;
 const MIN_PRICE = 60;
 const MAX_PRICE = 430;
 const FRAMES = ['black', 'white', 'none'];
@@ -36,7 +35,6 @@ baseApiUrl.searchParams.append('client_id', API_CLIENT_ID);
 baseApiUrl.searchParams.append('orientation', IMG_ORIENTATION);
 baseApiUrl.searchParams.append('count', '30');
 baseApiUrl.searchParams.append('w', IMG_WIDTH);
-baseApiUrl.searchParams.append('h', IMG_HEIGHT);
 
 const makeProducts = (photos, category) => (photos.reduce((result, photo) => {
   if (photo.description) {

@@ -21,6 +21,7 @@ import search from './routes/search';
 import category from './routes/category';
 import product from './routes/product';
 import cart from './routes/cart';
+import payment from './routes/payment';
 import pieimg from './routes/pieimg';
 
 import {Router} from 'express';
@@ -30,9 +31,12 @@ router.get('/search', search);
 router.get('/category/:id', category);
 router.get('/product/:id', product.get);
 router.get('/cart', cart);
+router.get('/payment', payment.get);
+router.get('/confirmation', payment.confirm);
 router.get('/pieimg.svg', pieimg);
 router.get('/', index);
 
 router.post('/product/:id/cart', product.addToCart);
+router.post('/payment', payment.pay);
 
 export default router;

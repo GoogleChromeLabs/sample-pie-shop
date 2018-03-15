@@ -32,6 +32,7 @@ const category = (req, res, next) => {
         category_name: categoryId,
         products: snapshot.val(),
         categories: categories,
+        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
         scripts: [
           'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
           'js/category_main.js',

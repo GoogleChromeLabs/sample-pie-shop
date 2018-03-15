@@ -16,27 +16,26 @@
  *  limitations under the License
  *
  */
+
 import fbAdmin from '../../services/firebase';
-import categories from '../../data/categories';
+import Cart from '../../services/cart';
 
-const index = (req, res, next) => {
-  fbAdmin.database().ref('products')
-    .orderByChild('price')
-    .once('value')
-    .then((snapshot) => {
-      const products = [];
-      snapshot.forEach(record => {
-        let product = record.val();
-        product.key = record.key;
-        products.push(product);
-      })
-      res.render('index', {
-        title: `The Shop`,
-        products: products,
-        categories: categories,
-        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
-      });
+const payment = {
+  get: (req, res, next) => {
+    res.render('payment', {
+      cart: req.session.cart,
+      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
     });
-};
+  },
+  pay: (req, res, next) => {
+    req.session.cart = null;
+    res.redirect('/confirmation');
+  },
+  confirm: (req, res, next) => {
+    res.render('confirmation', {
+      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
+    });
+  }
+}
 
-export default index;
+export default payment;
