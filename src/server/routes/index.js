@@ -34,7 +34,10 @@ const index = (req, res, next) => {
         title: `The Shop`,
         products: products,
         categories: categories,
-        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
+        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
+        scripts: [
+          'js/index_main.js',
+        ],
       });
     });
 };

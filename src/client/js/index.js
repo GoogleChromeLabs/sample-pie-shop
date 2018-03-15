@@ -16,44 +16,13 @@
  *  limitations under the License
  *
  */
- .card {
-   width: 260px;
-   height: 500px;
-   box-sizing: border-box;
-   display: flex;
-   flex-direction: column;
-   margin: 12px;
 
-   .card-image {
-     text-align: center;
+ import lazyImg from './lazy-img.js';
 
-     lazy-img {
-       display: block;
-       width: 200px;
-       height: 300px;
-     }
+ function initializeIndex() {
+   console.log('aaaaaaaaaaaa')
+ }
 
-     img {
-       box-sizing: border-box;
-       width: 200px;
-       height: 300px;
-     }
-   }
-
-   .card-title {
-     padding: 12px;
-     font-size: 1.2em;
-     font-weight: bold;
-   }
-   .card-text {
-     padding: 12px;
-     flex: 1;
-   }
-   .card-actions {
-     padding: 12px;
-     display: flex;
-     justify-content: space-between;
-     padding: 12px;
-     vertical-align: middle;
-   }
+ export default function init() {
+   initializeIndex();
  }
