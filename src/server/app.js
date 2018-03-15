@@ -49,8 +49,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   secure: true,
-  //maxAge: 180 * 60 * 1000, // 3h
-  maxAge: 20 * 1000  // 20 sec
+  // maxAge: 180 * 60 * 1000, // 3h
+  maxAge: 20 * 1000, // 20 sec
 }));
 
 // Uncomment after placing your favicon in /public.

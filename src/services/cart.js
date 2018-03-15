@@ -16,38 +16,31 @@
  *  limitations under the License
  *
  */
+export default function Cart(oldCart) {
+  this.updateTotals = () => {
+    let totalPrice = 0;
+    let totalQty = 0;
+    Object.values(this.items).forEach((item) => {
+      totalQty += item.quantity;
+      totalPrice += item.totalPrice;
+    });
+    this.totalPrice = totalPrice;
+    this.totalQty = totalQty;
+  };
 
- export default function Cart(oldCart) {
+  this.add = (item, quantity) => {
+    if (!this.items[item.key]) {
+      this.items[item.key] = Object.assign({key: item.key}, item.product);
+      this.items[item.key].quantity = 0;
+    }
+    this.items[item.key].quantity += 1;
+    this.items[item.key].totalPrice += (
+      this.items[item.key].quantity * this.items[item.key].price
+    );
+    this.updateTotals();
+  };
 
-   this.updateTotals = () => {
-     let totalPrice = 0;
-     let totalQty = 0;
-     Object.values(this.items).forEach(item => {
-       totalQty += item.quantity;
-       totalPrice += item.totalPrice;
-     });
-     this.totalPrice = totalPrice;
-
-     this.totalQty = totalQty;
-   };
-
-   this.add = (item, quantity) => {
-      console.log('adding')
-      if (!this.items[item.key]) {
-        this.items[item.key] = Object.assign({key: item.key}, item.product);
-        this.items[item.key].quantity = 0;
-      }
-      this.items[item.key].quantity += 1;
-      this.items[item.key].totalPrice += this.items[item.key].quantity * this.items[item.key].price;
-
-      console.log(this.items[item.key].quantity)
-      console.log(this.items[item.key].price)
-      console.log(this.totalPrice)
-
-      this.updateTotals();
-   };
-
-   this.items = oldCart ? oldCart.items : {};
-   this.totalPrice = oldCart ? oldCart.totalPrice : 0;
-   this.totalQty = oldCart ? oldCart.totalQty: 0;
- }
+  this.items = oldCart ? oldCart.items : {};
+  this.totalPrice = oldCart ? oldCart.totalPrice : 0;
+  this.totalQty = oldCart ? oldCart.totalQty: 0;
+}
