@@ -20,7 +20,7 @@
  import lazyImg from './lazy-img.js';
 
  function initializeIndex() {
-   console.log('aaaaaaaaaaaa')
+   console.log('TODO: Initializing index.')
  }
 
  export default function init() {
