@@ -19,22 +19,21 @@
 
 header {
   background: url('/images/header-bg.jpg');
-  display: flex;
   margin: auto;
   min-height: 200px;
+  text-align: center;
   width: 100%;
 }
 
 .logo {
-  background: url('/images/logo.svg') 50% no-repeat;
   background-size: contain;
   color: #E91E63;
   font-family: 'Times New Roman';
   font-size: 48px;
   font-style: italic;
-  height: 150px;
-  line-height: 130px;
-  margin: auto auto 10px;
+  height: 120px;
+  line-height: 120px;
+  margin: auto auto;
   white-space: nowrap;
   width: 150px;
 }

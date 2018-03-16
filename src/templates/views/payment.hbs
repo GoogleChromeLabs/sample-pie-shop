@@ -1,0 +1,37 @@
+<h1>{{title}}</h1>
+
+{{#if cart.totalQty }}
+  {{> cart }}
+  <form action="/payment" method="post">
+
+    <h3>Shipping</h3>
+    <label for="SAddress">Shipping address</label>
+    <input name="ship-address" required id="SAddress" placeholder="Street name" autocomplete="shipping street-address">
+
+    <label for="SCity">City</label>
+    <input name="ship-city" required id="SCity" placeholder="City" autocomplete="shipping locality">
+
+    <label for="SZip">Zip / Postal code</label>
+    <input name="ship-zip" required id="SZip" placeholder="00000" autocomplete="shipping postal-code">
+
+    <label for="SCountry">Country</label>
+    <input name="ship-country" required id="SCountry" placeholder="Country" autocomplete="shipping country">
+
+    <h3>Payment</h3>
+    <label for="CCName">Name on card</label>
+    <input name="ccname" id="CCName" required placeholder="Full Name" autocomplete="cc-name">
+
+    <label for="CCNum">Card Number</label>
+    <input name="cardnumber" id="CCNum" required autocomplete="cc-number">
+
+    <label for="CCCVC">CVC</label>
+    <input name="cvc" id="CCCVC" required autocomplete="cc-csc">
+
+    <label for="CCExp">Expiry</label>
+    <input name="cc-exp" id="CCExp" required placeholder="MM-YYYY" autocomplete="cc-exp">
+
+    <button>Pay</button>
+  </form>
+{{else}}
+  <p>No items in your cart so far. Continue shopping!</p>
+{{/if}}

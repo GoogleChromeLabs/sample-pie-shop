@@ -17,27 +17,12 @@
  *
  */
 
-footer {
-  height: 200px;
-  margin: auto;
-  max-width: 944px;
+ import lazyImg from './lazy-img.js';
 
-  .logo {
-    height: 80px;
-    margin: 24px;
-    text-align: center;
-    width: 80px;
-    vertical-align: middle;
-  }
+ function initializeIndex() {
+   console.log('TODO: Initializing index.')
+ }
 
-  nav {
-    flex-grow: 1;
-    margin: 24px;
-  }
-
-  a {
-    color: inherit;
-    display: block;
-    text-decoration: none;
-  }
-}
+ export default function init() {
+   initializeIndex();
+ }

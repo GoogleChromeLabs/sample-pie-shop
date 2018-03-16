@@ -1,8 +1,7 @@
 <div class="pie-categories">
-    <a href="/category/meat">Meat Pies</a>
-    <a href="/category/meat">Veg Pies</a>
-    <a href="/category/meat">Fish Pies</a>
-    <a href="/category/meat">Sweet Pies</a>
+  {{#each categories}}
+    <a href="/category/category">{{category}}</a>
+  {{/each}}
 </div>
 
   {{> product_list }}

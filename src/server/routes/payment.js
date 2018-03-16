@@ -17,27 +17,25 @@
  *
  */
 
-footer {
-  height: 200px;
-  margin: auto;
-  max-width: 944px;
+import fbAdmin from '../../services/firebase';
+import Cart from '../../services/cart';
 
-  .logo {
-    height: 80px;
-    margin: 24px;
-    text-align: center;
-    width: 80px;
-    vertical-align: middle;
-  }
-
-  nav {
-    flex-grow: 1;
-    margin: 24px;
-  }
-
-  a {
-    color: inherit;
-    display: block;
-    text-decoration: none;
+const payment = {
+  get: (req, res, next) => {
+    res.render('payment', {
+      cart: req.session.cart,
+      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
+    });
+  },
+  pay: (req, res, next) => {
+    req.session.cart = null;
+    res.redirect('/confirmation');
+  },
+  confirm: (req, res, next) => {
+    res.render('confirmation', {
+      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
+    });
   }
 }
+
+export default payment;

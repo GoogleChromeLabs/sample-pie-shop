@@ -17,18 +17,27 @@
  *
  */
  .card {
-   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
    box-sizing: border-box;
    display: flex;
    flex-direction: column;
-   height: 400px;
+   height: 500px;
    margin: 12px;
-   width: 300px;
+   width: 260px;
 
    .card-image {
-     border-bottom: 1px solid #ccc;
-     height: 160px;
      text-align: center;
+
+     lazy-img {
+       box-sizing: border-box;
+       display: block;
+       height: 300px;
+       width: 200px;
+     }
+
+     img {
+       height: 100%;
+       width: 100%;
+     }
    }
 
    .card-title {
@@ -36,10 +45,13 @@
      font-weight: bold;
      padding: 12px;
    }
+
    .card-text {
      flex: 1;
      padding: 12px;
+
    }
+
    .card-actions {
      display: flex;
      justify-content: space-between;

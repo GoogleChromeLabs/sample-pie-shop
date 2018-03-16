@@ -18,6 +18,7 @@
  */
 
 import fbAdmin from '../../services/firebase';
+import Cart from '../../services/cart';
 
 const product = {
   get: (req, res, next) => {
@@ -26,15 +27,28 @@ const product = {
       res.render('product', {
         product: snapshot.val(),
         productId: productId,
+        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
       });
     });
   },
   addToCart: (req, res, next) => {
-    console.log('add to cart');
-    res.render('product', {
-      title: 'Apple Pie — Pie Shop',
-      product_name: 'Apple Pie',
-      product_description: 'A classic dessert, with our unique exotic spice blend.'});
+    const cart = new Cart(req.session.cart);
+    fbAdmin.database().ref('/products/' + req.params.id)
+      .once('value')
+      .then((snapshot) => {
+        if (snapshot.val()) {
+          const item = {
+            key: snapshot.key,
+            product: snapshot.val()
+          };
+          cart.add(item, 1);
+        } else {
+          req.session.notify = 'No item found :(';
+        }
+        const back = req.query.back || '';
+        req.session.cart = cart;
+        res.redirect(['/', back].join(''));
+      });
   },
 }
 

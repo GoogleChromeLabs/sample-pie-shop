@@ -17,14 +17,29 @@
  *
  */
 import fbAdmin from '../../services/firebase';
+import categories from '../../data/categories';
 
 const index = (req, res, next) => {
-  fbAdmin.database().ref('/products').once('value').then((snapshot) => {
-    res.render('index', {
-      title: `Pie Shop`,
-      products: snapshot.val(),
+  fbAdmin.database().ref('products')
+    .orderByChild('price')
+    .once('value')
+    .then((snapshot) => {
+      const products = [];
+      snapshot.forEach(record => {
+        let product = record.val();
+        product.key = record.key;
+        products.push(product);
+      })
+      res.render('index', {
+        title: `The Shop`,
+        products: products,
+        categories: categories,
+        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
+        scripts: [
+          'js/index_main.js',
+        ],
+      });
     });
-  });
 };
 
 export default index;

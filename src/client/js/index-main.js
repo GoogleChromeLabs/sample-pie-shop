@@ -16,28 +16,5 @@
  *  limitations under the License
  *
  */
-
-footer {
-  height: 200px;
-  margin: auto;
-  max-width: 944px;
-
-  .logo {
-    height: 80px;
-    margin: 24px;
-    text-align: center;
-    width: 80px;
-    vertical-align: middle;
-  }
-
-  nav {
-    flex-grow: 1;
-    margin: 24px;
-  }
-
-  a {
-    color: inherit;
-    display: block;
-    text-decoration: none;
-  }
-}
+ import init from './index.js';
+ init();

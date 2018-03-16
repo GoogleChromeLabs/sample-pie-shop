@@ -16,13 +16,25 @@
  *  limitations under the License
  *
  */
+import productJson from './devnooktests-products-export';
+
+const products = Object.keys(productJson).map(key => ({
+  key: key,
+  val: _ => (productJson[key])
+}));
+
+const once = _ => ({
+  then: callback => {
+    callback(products)
+  }
+})
+
 const fbMock = {
   database: _ => ({
     ref: _ => ({
-      once: _ => ({
-        then: callback => {
-          callback({ val: _ => ([])})
-        }
+      once,
+      orderByChild: _ => ({
+        once
       })
     })
   })

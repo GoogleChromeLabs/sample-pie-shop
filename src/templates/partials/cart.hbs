@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <td>Item</td>
+    <td>Price</td>
+    <td>Quantity</td>
+    <td>Total</td>
+  </tr>
+{{#each cart.items}}
+  <tr>
+    <td>{{> product_img product=this size="custom"}}</td>
+    <td>{{this.price}}</td>
+    <td>{{this.quantity}}</td>
+    <td>{{this.totalPrice}} $</td>
+  </tr>
+{{/each}}
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Total</td>
+    <td>{{cart.totalPrice}} $</td>
+  </tr>
+</table>
