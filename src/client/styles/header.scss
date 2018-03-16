@@ -18,22 +18,22 @@
  */
 
 header {
-  width: 100%;
-  min-height: 200px;
-  margin: auto;
   background: url('/images/header-bg.jpg');
+  margin: auto;
+  min-height: 200px;
   text-align: center;
+  width: 100%;
 }
 
 .logo {
   background-size: contain;
-  height: 120px;
-  width: 150px;
-  margin: auto auto;
-  font-size: 48px;
-  line-height: 120px;
-  white-space: nowrap;
-  font-family: 'Times New Roman';
-  font-style: italic;
   color: #E91E63;
+  font-family: 'Times New Roman';
+  font-size: 48px;
+  font-style: italic;
+  height: 120px;
+  line-height: 120px;
+  margin: auto auto;
+  white-space: nowrap;
+  width: 150px;
 }

@@ -18,19 +18,20 @@
  */
 
 .navbar {
-  max-width: 944px;
-  margin: auto;
   display: flex;
-  padding: var(--base-spacing);
   height: 32px;
+  margin: auto;
+  max-width: 944px;
+  padding: var(--base-spacing);
 
   .search {
     flex-grow: 1;
+
     input {
-      width: 300px;
       border: 1px solid #ccc;
       border-radius: 15px;
       line-height: 24px;
+      width: 300px;
     }
   }
 

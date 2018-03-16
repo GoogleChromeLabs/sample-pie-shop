@@ -18,19 +18,16 @@
  */
 
 footer {
-  max-width: 944px;
   height: 200px;
   margin: auto;
-  display: flex;
+  max-width: 944px;
 
   .logo {
     height: 80px;
-    width: 80px;
     margin: 24px;
     text-align: center;
+    width: 80px;
     vertical-align: middle;
-    font-size: 2em;
-    line-height: 2em;
   }
 
   nav {
@@ -39,8 +36,8 @@ footer {
   }
 
   a {
-    text-decoration: none;
     color: inherit;
     display: block;
+    text-decoration: none;
   }
 }
