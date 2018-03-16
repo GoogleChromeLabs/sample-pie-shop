@@ -16,31 +16,23 @@
  *  limitations under the License
  *
  */
+import index from './routes/index';
+import search from './routes/search';
+import category from './routes/category';
+import product from './routes/product';
+import cart from './routes/cart';
+import pieimg from './routes/pieimg';
 
-footer {
-  display: flex;
-  height: 200px;
-  margin: auto;
-  max-width: 944px;
+import {Router} from 'express';
+const router = new Router();
 
-  .logo {
-    font-size: 2em;
-    height: 80px;
-    line-height: 2em;
-    margin: 24px;
-    text-align: center;
-    width: 80px;
-    vertical-align: middle;
-  }
+router.get('/search', search);
+router.get('/category/:id', category);
+router.get('/product/:id', product.get);
+router.get('/cart', cart);
+router.get('/pieimg.svg', pieimg);
+router.get('/', index);
 
-  nav {
-    flex-grow: 1;
-    margin: 24px;
-  }
+router.post('/product/:id/cart', product.addToCart);
 
-  a {
-    color: inherit;
-    display: block;
-    text-decoration: none;
-  }
-}
+export default router;

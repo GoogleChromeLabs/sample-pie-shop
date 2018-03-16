@@ -17,30 +17,17 @@
  *
  */
 
-footer {
-  display: flex;
-  height: 200px;
-  margin: auto;
-  max-width: 944px;
+import Pie from '../../shared/js/pie.js';
 
-  .logo {
-    font-size: 2em;
-    height: 80px;
-    line-height: 2em;
-    margin: 24px;
-    text-align: center;
-    width: 80px;
-    vertical-align: middle;
-  }
+const pieImg = (req, res, next) => {
+  const pie = new Pie();
+  pie.topping = req.query.topping;
+  pie.filling = req.query.filling;
+  pie.dough = req.query.dough;
+  pie.deco = req.query.deco;
+  res.writeHead(200, {'Content-Type': 'image/svg+xml'});
+  res.write(pie.svg());
+  res.end();
+};
 
-  nav {
-    flex-grow: 1;
-    margin: 24px;
-  }
-
-  a {
-    color: inherit;
-    display: block;
-    text-decoration: none;
-  }
-}
+export default pieImg;

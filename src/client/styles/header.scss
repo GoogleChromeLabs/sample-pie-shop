@@ -18,56 +18,23 @@
  */
 
 header {
-  width: 100%;
-  margin: auto;
+  background: url('/images/header-bg.jpg');
   display: flex;
-
-  .logo {
-    background-color: gray;
-    width: 200px;
-    height: 2em;
-    margin: 24px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 3em;
-    line-height: 2em;
-  }
-
-  nav {
-    flex-grow: 1;
-    text-align: right;
-    align-self: center;
-    margin: 24px;
-  }
+  margin: auto;
+  min-height: 200px;
+  width: 100%;
 }
 
-@media (max-width: $mobile-break) {
-  header {
-    .logo {
-      width: 150px;
-    }
-    nav {
-      margin: 12px;
-    }
-  }
-}
-
-@media (max-width: $medium-break) {
-  button {
-    background-color: transparent;
-    color: transparent;
-    width: 1.2em;
-    height: 1.2em;
-  }
-
-  .icon-btn::before {
-    margin: 0;
-    background: var(--primary-color);
-  }
-}
-
-@media (min-width: $desktop-break) {
-  header {
-    width: 944px;
-  }
+.logo {
+  background: url('/images/logo.svg') 50% no-repeat;
+  background-size: contain;
+  color: #E91E63;
+  font-family: 'Times New Roman';
+  font-size: 48px;
+  font-style: italic;
+  height: 150px;
+  line-height: 130px;
+  margin: auto auto 10px;
+  white-space: nowrap;
+  width: 150px;
 }

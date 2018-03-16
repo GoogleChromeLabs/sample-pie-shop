@@ -16,16 +16,13 @@
  *  limitations under the License
  *
  */
+ .product-list {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+ }
 
-import {Router} from 'express';
-const router = new Router();
-
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('product', {
-    title: 'Apple Pie — Pie Shop',
-    product_name: 'Apple Pie',
-    product_description: 'A classic dessert, with our unique exotic spice blend.'});
-});
-
-export default router;
+ .product-price {
+   font-size: 1.2em;
+   font-weight: bold;
+   line-height: 32px;
+ }

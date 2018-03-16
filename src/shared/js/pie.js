@@ -22,13 +22,14 @@ import hbs from 'handlebars';
 import fs from 'fs';
 import ingredients from '../../data/ingredients.json';
 
-const svgPath = `${__dirname}/../views/pie.svg.hbs`;
+const templatesPath = `${__dirname}/../../templates`;
+const svgPath = `${templatesPath}/views/pie.svg.hbs`;
 const template = hbs.compile(fs.readFileSync(svgPath).toString());
 
 const decoPaths = {
-  'deco_a': `${__dirname}/../partials/deco_a.svg.hbs`,
-  'deco_b': `${__dirname}/../partials/deco_b.svg.hbs`,
-  'deco_c': `${__dirname}/../partials/deco_c.svg.hbs`,
+  'deco_a': `${templatesPath}/partials/deco_a.svg.hbs`,
+  'deco_b': `${templatesPath}/partials/deco_b.svg.hbs`,
+  'deco_c': `${templatesPath}/partials/deco_c.svg.hbs`,
 };
 for (const deco in decoPaths) {
   if (deco.startsWith('deco_')) {

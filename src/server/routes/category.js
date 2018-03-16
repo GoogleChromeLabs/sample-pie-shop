@@ -16,21 +16,22 @@
  *  limitations under the License
  *
  */
+import fbAdmin from '../../services/firebase';
+import { capitalize } from '../../shared/js/stringUtils';
 
-import {Router} from 'express';
-import Pie from '../../../shared/js/pie.js';
+const category = (req, res, next) => {
+  const categoryId = req.params.id;
+  fbAdmin.database().ref('/products').once('value').then((snapshot) => {
+    res.render('listing', {
+      title: `${capitalize(categoryId)} Pies`,
+      category_name: categoryId,
+      products: snapshot.val(),
+      scripts: [
+        'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
+        'js/category_main.js',
+      ],
+    });
+  });
+};
 
-const router = new Router();
-
-router.get('/pie-svg', (req, res, next) => {
-  const pie = new Pie();
-  pie.topping = req.query.topping;
-  pie.filling = req.query.filling;
-  pie.dough = req.query.dough;
-  pie.deco = req.query.deco;
-  res.writeHead(200, {'Content-Type': 'image/svg+xml'});
-  res.write(pie.svg());
-  res.end();
-});
-
-export default router;
+export default category;

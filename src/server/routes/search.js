@@ -17,30 +17,10 @@
  *
  */
 
-footer {
-  display: flex;
-  height: 200px;
-  margin: auto;
-  max-width: 944px;
+const search = (req, res, next) => {
+  res.render('listing', {
+    title: 'Search — Pie Shop',
+  });
+};
 
-  .logo {
-    font-size: 2em;
-    height: 80px;
-    line-height: 2em;
-    margin: 24px;
-    text-align: center;
-    width: 80px;
-    vertical-align: middle;
-  }
-
-  nav {
-    flex-grow: 1;
-    margin: 24px;
-  }
-
-  a {
-    color: inherit;
-    display: block;
-    text-decoration: none;
-  }
-}
+export default search;

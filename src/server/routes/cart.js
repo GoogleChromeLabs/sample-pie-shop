@@ -17,15 +17,11 @@
  *
  */
 
-import {Router} from 'express';
-const router = new Router();
+const cart = (req, res, next) => {
+  res.render('cart', {
+    title: 'Cart',
+    cart: {}
+  });
+};
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('category', {
-    title: 'Sweet Pies — Pie Shop',
-    category_name: 'Sweet Pies',
-    category_description: 'Great for a special dessert or an indulgent afternoon tea.'});
-});
-
-export default router;
+export default cart;

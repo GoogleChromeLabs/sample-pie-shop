@@ -19,7 +19,7 @@
 
 const http = require('http');
 
-const app = require('../dist/node/server/js/app').default;
+const app = require('./app').default;
 const debug = require('debug')('pieshop:server');
 
 // Get port from environment and store in Express.

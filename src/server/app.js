@@ -26,26 +26,21 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import hbs from 'express-handlebars';
 
-import index from './routes/index';
-import search from './routes/search';
-import category from './routes/category';
-import listing from './routes/listing';
-import product from './routes/product';
-import pieimg from './routes/pieimg';
+import router from './router';
 
 const app = express();
-const nodeRoot = path.join(__dirname, '..', '..');
-const staticRoot = path.join(nodeRoot, '..', 'static');
+const rootDir = path.join(__dirname, '..');
+const staticDir = path.join(rootDir, 'static');
 
 app.engine('hbs', hbs({
   extname: 'hbs',
   defaultLayout: 'layout',
-  layoutsDir: path.join(nodeRoot, 'shared', 'layouts'),
-  partialsDir: path.join(nodeRoot, 'shared', 'partials'),
+  layoutsDir: path.join(rootDir, 'templates', 'layouts'),
+  partialsDir: path.join(rootDir, 'templates', 'partials'),
 }));
 
 // View engine setup.
-app.set('views', path.join(nodeRoot, 'shared', 'views'));
+app.set('views', path.join(rootDir, 'templates', 'views'));
 app.set('view engine', 'hbs');
 
 // Uncomment after placing your favicon in /public.
@@ -54,14 +49,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(express.static(staticRoot));
-
-app.use('/search', search);
-app.use('/category', category);
-app.use('/listing', listing);
-app.use('/product', product);
-app.use('/pieimg', pieimg);
-app.use('/', index);
+app.use(express.static(staticDir));
+app.use('/', router);
 
 // Catch 404 and forward to error handler.
 app.use(function(req, res, next) {

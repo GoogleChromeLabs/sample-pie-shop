@@ -16,13 +16,16 @@
  *  limitations under the License
  *
  */
+const fbMock = {
+  database: _ => ({
+    ref: _ => ({
+      once: _ => ({
+        then: callback => {
+          callback({ val: _ => ([])})
+        }
+      })
+    })
+  })
+};
 
-import {Router} from 'express';
-const router = new Router();
-
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index', {title: 'Pie Shop'});
-});
-
-export default router;
+export default fbMock;

@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-image">
+    <a href="/product/{{product.signature}}+{{id}}">
+      <img src="/pieimg.svg" alt="pie"/>
+    </a>
+  </div>
+  <div class="card-title">
+    {{product.title}}
+  </div>
+  <div class="card-text">
+    {{product.desc}}
+  </div>
+  <div class="card-actions">
+    <div class="product-price">
+      {{product.price}}
+    </div>
+    <form action="/product/{{id}}/cart" method="post">
+      <button>add to cart</button>
+    </form>
+  </div>
+</div>

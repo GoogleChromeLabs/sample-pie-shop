@@ -19,16 +19,25 @@
 
 import {expect} from 'chai';
 import request from 'supertest';
-
-import app from '../../../src/server/js/app.js';
+import mockery from 'mockery';
+import fbMock from '../../mocks/firebase-mock';
 
 describe('/', () => {
+  before(() => {
+    mockery.enable({
+      warnOnUnregistered: false
+    });
+    mockery.registerMock('firebase-admin', fbMock);
+  });
+
   it('should return a valid response', (done) => {
-    request(app)
-      .get('/')
-      .end((error, resp) => {
-        expect(resp.status).to.equal(200);
-        done();
-      });
+    import('../../../src/server/app.js').then(app => {
+      request(app.default)
+        .get('/')
+        .end((error, resp) => {
+          expect(resp.status).to.equal(200);
+          done();
+        });
+    });
   });
 });

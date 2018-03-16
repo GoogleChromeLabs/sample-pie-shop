@@ -17,14 +17,25 @@
  *
  */
 
-import {Router} from 'express';
-const router = new Router();
+import fbAdmin from '../../services/firebase';
 
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  res.render('search', {
-    title: 'Search — Pie Shop',
-  });
-});
+const product = {
+  get: (req, res, next) => {
+    const productId = req.params.id.split('+')[1];
+    fbAdmin.database().ref('/products/' + productId).once('value').then((snapshot) => {
+      res.render('product', {
+        product: snapshot.val(),
+        productId: productId,
+      });
+    });
+  },
+  addToCart: (req, res, next) => {
+    console.log('add to cart');
+    res.render('product', {
+      title: 'Apple Pie — Pie Shop',
+      product_name: 'Apple Pie',
+      product_description: 'A classic dessert, with our unique exotic spice blend.'});
+  },
+}
 
-export default router;
+export default product;
