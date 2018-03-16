@@ -18,31 +18,29 @@
  */
  .card {
    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
-   width: 300px;
-   height: 400px;
    box-sizing: border-box;
    display: flex;
    flex-direction: column;
+   height: 400px;
    margin: 12px;
-
+   width: 300px;
 
    .card-image {
-     height: 160px;
      border-bottom: 1px solid #ccc;
+     height: 160px;
      text-align: center;
    }
 
    .card-title {
-     padding: 12px;
      font-size: 1.2em;
      font-weight: bold;
+     padding: 12px;
    }
    .card-text {
-     padding: 12px;
      flex: 1;
+     padding: 12px;
    }
    .card-actions {
-     padding: 12px;
      display: flex;
      justify-content: space-between;
      padding: 12px;
