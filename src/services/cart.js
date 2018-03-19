@@ -29,14 +29,14 @@ export default function Cart(oldCart) {
   };
 
   this.add = (item, quantity) => {
-    if (!this.items[item.key]) {
-      this.items[item.key] = Object.assign({key: item.key}, item.product);
-      this.items[item.key].quantity = 0;
+    const items = this.items;
+    const key = item.key;
+    if (!items[key]) {
+      items[key] = Object.assign({key: key}, item.product);
+      items[key].quantity = 0;
     }
-    this.items[item.key].quantity += 1;
-    this.items[item.key].totalPrice += (
-      this.items[item.key].quantity * this.items[item.key].price
-    );
+    items[key].quantity += 1;
+    items[key].totalPrice = items[key].quantity * items[key].price;
     this.updateTotals();
   };
 
