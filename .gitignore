@@ -3,4 +3,3 @@ node_modules
 dist
 keys
 products.csv
-package-lock.json
