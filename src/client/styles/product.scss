@@ -26,24 +26,3 @@
    font-weight: bold;
    line-height: 32px;
  }
-
- .product-frame-black {
-   border: 10px solid #000;
- }
-
- .product-frame-white {
-   border: 9px solid #fff;
-   outline: 1px solid #000;
- }
-
- .product-filter-greyscale {
-   filter: grayscale(1);
- }
-
- .product-filter-sepia {
-   filter: sepia(1);
- }
-
- .product-filter-hue-violet {
-   filter: sepia(1) hue-rotate(200deg);
- }

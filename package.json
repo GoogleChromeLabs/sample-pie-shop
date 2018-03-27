@@ -59,9 +59,10 @@
     "test:node": "./tasks/test-node.sh",
     "test:static": "./node_modules/.bin/karma start",
     "test": "npm run test:node && npm run test:static",
-    "tools:piegen": "./node_modules/.bin/babel-node tools/piegen/generate.js"
+    "tools:import_products": "./node_modules/.bin/babel-node tools/import_products.js"
   },
   "devDependencies": {
+    "csv-parse": "^2.0.4",
     "karma": "^1.7.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",

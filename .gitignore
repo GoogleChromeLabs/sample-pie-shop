@@ -2,3 +2,5 @@ node_modules
 .DS_Store
 dist
 keys
+products.csv
+package-lock.json
