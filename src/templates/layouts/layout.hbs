@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/styles/style.css" />
-    {{#each scripts}}
-      <script src="{{.}}" defer></script>
-    {{/each}}
-  </head>
-  <body>
-    {{> header }}
-    {{> navbar }}
-    <main>
-      {{{body}}}
-    </main>
-    {{> footer }}
-  </body>
+<html lang="en">
+
+<head>
+
+  <title>{{title}}</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Pie Shop: e-commerce Progressive Web App">
+  <meta name="author" content="https://google.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta itemprop="name" content="Pie Shop: e-commerce Progressive Web App">
+  <meta itemprop="image" content="/images/icons/icon192.svg">
+  <meta id="theme-color" name="theme-color" content="#fff">
+
+  <link rel="stylesheet" href="/styles/style.css" />
+  {{#each scripts}}
+    <script src="{{.}}" defer></script>
+  {{/each}}
+
+</head>
+
+<body>
+  {{> header }}
+  {{{main}}}
+  {{> footer }}
+</body>
+
 </html>
