@@ -15,11 +15,11 @@ a#basket:after {
   font-family: sans-serif;
   font-size: 10px;
   font-weight: bold;
-  left: -7px;
+  left: -11px;
   padding: 3px 3px 3px 2px;
   position: relative;
   text-align: center;
-  top: -21px;
+  top: -26px;
   width: 13px;
 }
 
