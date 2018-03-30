@@ -237,8 +237,8 @@ footer p {
 
 section {
   display: grid;
-  grid-template-columns: 120px auto 140px;
   grid-gap: 10px 20px;
+  grid-template-columns: 120px auto 140px;
 }
 
 #basket svg {
