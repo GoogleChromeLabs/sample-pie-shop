@@ -153,12 +153,16 @@ main img {
 }
 
 input#search {
-  background-color: white;
+  background-color: #eee;
   border: none;
   color: #444;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   padding: 10px;
+}
+
+input#search:focus {
+  background-color: white;
 }
 
 input#search::placeholder {
