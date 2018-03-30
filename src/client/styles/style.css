@@ -1,8 +1,11 @@
+a {
+  text-decoration: none;
+}
+
 a#basket {
   align-self: center;
   justify-self: end;
   position: relative;
-  text-decoration: none;
   top: 7px;
 }
 
@@ -25,11 +28,23 @@ a#basket:after {
 
 footer a {
   color: #ccc;
-  text-decoration: none;
 }
 
 footer a:hover {
   color: white;
+}
+
+nav a {
+  color: white;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  padding: 10px 10px;
+}
+
+nav a:hover, nav a.current {
+  background-color: #eee;
+  color: #444;
 }
 
 body {
@@ -44,8 +59,8 @@ button {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   color: #eee;
   cursor: pointer;
-  font-size: 12px;
   font-family: 'Roboto', sans-serif;
+  font-size: 12px;
   padding: 10px 15px;
   text-transform: uppercase;
 }
@@ -91,7 +106,8 @@ footer {
 
 header {
   align-items: center;
-  background-color: #1976D2;
+  /* background-color: #1976D2; */
+  background-color: #333;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: grid;
   grid-template-columns: 40px 100px auto 70px;
@@ -137,6 +153,22 @@ main img {
 }
 
 input#search {
+  background-color: white;
+  border: none;
+  color: #444;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  padding: 10px;
+}
+
+input#search::placeholder {
+  color: #666;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* input#search {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #ddd;
@@ -152,7 +184,7 @@ input#search::placeholder {
   font-size: 14px;
   left: -5px;
   position: relative;
-}
+} */
 
 input:focus::placeholder {
   transition: opacity 0.1s 0.1s ease;
@@ -172,6 +204,13 @@ header menu {
   cursor: pointer;
   margin: 0 auto;
   padding: 0;
+}
+
+nav {
+  background-color: #525050;
+  font-family: 'Roboto', sans-serif;
+  padding: 0 20px;
+  white-space: nowrap;
 }
 
 p {
