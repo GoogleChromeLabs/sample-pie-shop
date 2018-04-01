@@ -204,7 +204,7 @@ main {
   padding: 0 30px;
 }
 
-header menu {
+menu {
   cursor: pointer;
   margin: 0 auto;
   padding: 0;
@@ -212,8 +212,12 @@ header menu {
 
 nav {
   background-color: #525050;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+  display: none;
   font-family: 'Roboto', sans-serif;
-  padding: 0 20px;
+  padding: 0 20px 0 10px;
+  position: sticky;
+  top: 80px;
   white-space: nowrap;
 }
 
@@ -271,7 +275,7 @@ menu svg {
   }
   
   header {
-    grid-template-columns: 100px 230px auto 140px;
+    grid-template-columns: auto auto 80px;
     padding: 20px 20px;
   }
   
@@ -287,8 +291,17 @@ menu svg {
   input#search::placeholder {
     font-size: 16px;
   }
+
   main {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  menu {
+    display: none;
+  }
+
+  nav {
+    display: block;
   }
 }
 
