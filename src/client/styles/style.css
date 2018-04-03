@@ -172,24 +172,6 @@ input#search::placeholder {
   font-weight: 300;
 }
 
-/* input#search {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  padding: 5px;
-}
-
-input#search::placeholder {
-  color: #ddd;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  left: -5px;
-  position: relative;
-} */
-
 input:focus::placeholder {
   transition: opacity 0.1s 0.1s ease;
   opacity: 0;
