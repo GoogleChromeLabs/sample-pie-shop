@@ -1,5 +1,5 @@
-node_modules
 .DS_Store
+.vscode
 dist
 keys
-package-lock.json
+node_modules
