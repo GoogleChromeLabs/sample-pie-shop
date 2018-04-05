@@ -14,15 +14,18 @@
 
 import admin from 'firebase-admin';
 
+if (!process.env.FB_KEYS) {
+  console.error('No Firebase keys provided. Please set $FB_KEYS')
+}
+
 if (admin.initializeApp) {
   admin.initializeApp({
-    credential: admin.credential.cert(require('../../keys/devnooktests-firebase-adminsdk-81tr6-ccef77753d')),
-    databaseURL: 'https://devnooktests.firebaseio.com',
+    credential: admin.credential.cert(require(process.env.FB_KEYS)),
+    databaseURL: "https://pie-shop-app.firebaseio.com",
     databaseAuthVariableOverride: {
       uid: 'my-service-worker',
     },
   });
 }
-
 
 export default admin;
