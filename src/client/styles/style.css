@@ -258,6 +258,7 @@ menu svg {
   
   header {
     grid-template-columns: auto auto 80px;
+    margin: 0;
     padding: 20px 20px;
   }
   
@@ -284,6 +285,7 @@ menu svg {
 
   nav {
     display: block;
+    margin: 0 0 20px 0;
   }
 }
 

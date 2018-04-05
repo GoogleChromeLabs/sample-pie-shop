@@ -20,8 +20,8 @@
 const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
   entries.forEach(function(entry) {
     if (entry.isIntersecting) {
-       entry.target.src = entry.target.dataset.src;
-       lazyImageObserver.unobserve(entry.target);
+      entry.target.src = entry.target.dataset.src;
+      lazyImageObserver.unobserve(entry.target);
     }
   });
 });
