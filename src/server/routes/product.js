@@ -23,10 +23,13 @@ import Cart from '../../services/cart';
 const product = {
   get: (req, res, next) => {
     const productId = req.params.id.split(';')[0];
-    fbAdmin.database().ref('/products/' + productId).once('value').then((snapshot) => {
+    fbAdmin.firestore()
+      .collection('products')
+      .doc(productId).get()
+      .then((snapshot) => {
       res.render('product', {
-        product: snapshot.val(),
-        key: snapshot.key,
+        product: snapshot.data(),
+        key: snapshot.id,
         productId: productId,
         cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
       });

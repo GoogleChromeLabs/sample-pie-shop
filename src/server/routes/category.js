@@ -22,15 +22,18 @@ import categories from '../../data/categories';
 
 const category = (req, res, next) => {
   const categoryId = req.params.id;
-  fbAdmin.database().ref('/products')
-    .orderByChild('category')
-    .equalTo(categoryId)
-    .once('value')
+  fbAdmin.firestore().collection('products').where('category', '==', categoryId).get()
     .then((snapshot) => {
+      const products = [];
+      snapshot.forEach(record => {
+        let product = record.data();
+        product.key = record.id;
+        products.push(product);
+      })
       res.render('listing', {
         title: `${capitalize(categoryId)}`,
         category_name: categoryId,
-        products: snapshot.val(),
+        products: products,
         categories: categories,
         cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
         scripts: [

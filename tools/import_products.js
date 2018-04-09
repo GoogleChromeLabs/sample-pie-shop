@@ -22,7 +22,7 @@ const DATA_FILE = '../products.csv';
 const CATEGORIES_FILE = '../src/data/categories.json';
 
 const COLUMNS = {
-  id: 0,
+  storeId: 0,
   title: 1,
   shortDesc: 2,
   price: 7,
@@ -53,37 +53,56 @@ const parseProductLine = (record) => {
   return product;
 }
 
-const uploadProduct = (newProduct) => {
-  return productsRef
-    .orderByChild('id')
-    .equalTo(newProduct.id)
-    .once('value')
-    .then(snapshot => {
-      if (snapshot.val()) {
-        console.log(`Product ${newProduct.id} already exists`);
-        return true;
-      } else {
-        return productsRef.push(newProduct);
-      }
-    });
-}
-
 const updateCategories = () => {
   return fs.writeFileSync(path.join(__dirname, CATEGORIES_FILE),
       JSON.stringify(Array.from(categories)));
 }
 
-const db = admin.database();
-const productsRef = db.ref('/products');
-productsRef.remove();
+const clearCollection = (collection, batchSize) => {
+  const query = collection.orderBy('__name__').limit(batchSize);
+  return new Promise((resolve, reject) => {
+    deleteQueryBatch(db, query, batchSize, resolve, reject);
+  });
+};
 
-const processRecord = (record) => (uploadProduct(parseProductLine(record)));
+const deleteQueryBatch = (db, query, batchSize, resolve, reject) => {
+  query.get().then((snapshot) => {
+    if (snapshot.size === 0) {
+        return 0;
+    }
+    const batch = db.batch();
+    snapshot.docs.forEach((doc) => {
+        batch.delete(doc.ref);
+    });
+    return batch.commit().then(() => {
+        return snapshot.size;
+    });
+  }).then((numDeleted) => {
+    if (numDeleted === 0) {
+      resolve();
+      return;
+    }
+    process.nextTick(() => {
+      deleteQueryBatch(db, query, batchSize, resolve, reject);
+    });
+  })
+  .catch(reject);
+};
 
-fs.readFile(path.join(__dirname, DATA_FILE), (err, input) => {
-  return parse(input, {}, function(err, output) {
-    console.log(`Uploading ${output.length} products...`);
-    return Promise.all(output.map(processRecord))
-      .then(updateCategories)
-      .then(process.exit);
+const processRecord = (record) => productsRef.add(parseProductLine(record));
+
+const db = admin.firestore();
+const productsRef = db.collection('products');
+clearCollection(productsRef, 100).then(() => {
+  fs.readFile(path.join(__dirname, DATA_FILE), (err, input) => {
+    return parse(input, {}, function(err, output) {
+      console.log(`Uploading ${output.length} products...`);
+      return Promise.all(output.map(processRecord))
+        .then((results) => {
+          console.log(results);
+        })
+        .then(updateCategories)
+        .then(process.exit);
+    });
   });
 });
