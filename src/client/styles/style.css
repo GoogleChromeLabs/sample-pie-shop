@@ -152,13 +152,12 @@ h2 {
 
 img.product {
   background-color: #eee;
-  color: #ccc;
+  color: #eee;
   display: block;
   font-family: 'Roboto', sans-serif;
   height: calc(100vw - 60px);
   line-height: 1.3em;
   margin: 0 0 20px 0;
-  vertical-align: middle;
   width: 100%;
 }
 
