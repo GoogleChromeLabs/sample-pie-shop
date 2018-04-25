@@ -151,7 +151,7 @@ h2 {
 }
 
 main img {
-  height: calc(33vw - 80px);
+  height: calc(100vw - 25px);
   margin: 0 0 20px 0;
   width: 100%;
 }
@@ -244,6 +244,9 @@ menu svg {
 }
 
 @media all and (min-width: 420px) {
+  main img {
+    height: calc(50vw - 25px);
+  }
   main {
     grid-template-columns: 1fr 1fr;
   }
@@ -262,6 +265,9 @@ menu svg {
   header h1 {
     font-size: 32px;
     justify-self: start;
+  }
+  main img {
+    height: calc(33.33vw - 25px);
   }
   input#search {
     font-size: 16px;
@@ -282,6 +288,9 @@ menu svg {
 }
 
 @media all and (min-width: 1200px) {
+  main img {
+    height: calc(25vw - 25px);
+  }
   main {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
