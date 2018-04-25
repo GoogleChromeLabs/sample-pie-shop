@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/styles/style.css" />
-    {{#each scripts}}
-      <script src="{{.}}" defer></script>
-    {{/each}}
-  </head>
-  <body>
-    {{> header }}
-    {{> navbar }}
-    <main>
-      {{{body}}}
-    </main>
-    {{> footer }}
-  </body>
+<html lang="en">
+
+{{> head}}
+
+<body>
+
+  {{> header}}
+  {{> nav}}
+  {{> main}}
+  {{> footer}}
+
+</body>
+
 </html>
