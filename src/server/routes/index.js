@@ -36,7 +36,7 @@ const index = (req, res, next) => {
         categories: categories,
         cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
         scripts: [
-          'js/index_main.js',
+          'js/lazy-img.js',
         ],
       });
     });

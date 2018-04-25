@@ -3,7 +3,6 @@
       {{> product_img product=product size="thumb"}}
     </a>
     <h2>{{product.description}}</h2>
-    {{!-- <p class="category">{{product.category}}</p> --}}
     <p class="price">${{product.price}}</p>
     <form action="/product/{{id}}/cart" method="post">
       <button>Add to Cart</button>

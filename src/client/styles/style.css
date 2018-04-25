@@ -150,8 +150,12 @@ h2 {
   white-space: nowrap;
 }
 
-main img {
-  height: calc(100vw - 25px);
+img.product {
+  background-color: #eee;
+  color: #666;
+  font-family: 'Roboto', sans-serif;
+  height: calc(100vw - 50px);
+  line-height: 1.3em;
   margin: 0 0 20px 0;
   width: 100%;
 }
@@ -244,8 +248,8 @@ menu svg {
 }
 
 @media all and (min-width: 420px) {
-  main img {
-    height: calc(50vw - 25px);
+  img.product {
+    height: calc((100vw - 75px) / 2);
   }
   main {
     grid-template-columns: 1fr 1fr;
@@ -266,8 +270,8 @@ menu svg {
     font-size: 32px;
     justify-self: start;
   }
-  main img {
-    height: calc(33.33vw - 25px);
+  img.product {
+    height: calc((100vw - 100px) / 3);
   }
   input#search {
     font-size: 16px;
@@ -288,8 +292,8 @@ menu svg {
 }
 
 @media all and (min-width: 1200px) {
-  main img {
-    height: calc(25vw - 25px);
+  img.product {
+    height: calc((100vw - 125px) / 4);
   }
   main {
     grid-template-columns: 1fr 1fr 1fr 1fr;
