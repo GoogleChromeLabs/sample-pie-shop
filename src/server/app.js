@@ -20,7 +20,7 @@
 import express from 'express';
 import path from 'path';
 // Uncomment after placing your favicon in /public.
-// import favicon from 'serve-favicon';
+import favicon from 'serve-favicon';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
@@ -54,7 +54,7 @@ app.use(session({
 }));
 
 // Uncomment after placing your favicon in /public.
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(rootDir, 'static/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

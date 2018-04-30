@@ -6,10 +6,8 @@ else
 CONFIG="webpack.dev.js"
 fi
 
-mkdir -p dist/static/js && ./node_modules/.bin/webpack --config $CONFIG
+INDIR=src/client/js
+OUTDIR=dist/static
 
-# temporary hack!
-INFILE=src/client/js/lazy-img.js
-OUTDIR=dist/static/js
-OUTFILE=$OUTDIR/lazy-img.js
-cp $INFILE $OUTFILE
+mkdir -p dist/static/js && ./node_modules/.bin/webpack --config $CONFIG
+cp -R $INDIR $OUTDIR

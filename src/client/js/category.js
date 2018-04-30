@@ -16,7 +16,7 @@
  *  limitations under the License
  *
  */
-
+ import lazyImg from './lazy-img.js';
 
  function initializeCategoryPage() {
    console.log('TODO: Initializing category.')

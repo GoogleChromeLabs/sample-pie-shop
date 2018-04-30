@@ -2,8 +2,8 @@
 
 # Copy images.
 
-OUTDIR=dist/static
 INDIR=src/client/images
+OUTDIR=dist/static
 
 mkdir -p $OUTDIR
 cp -R $INDIR $OUTDIR

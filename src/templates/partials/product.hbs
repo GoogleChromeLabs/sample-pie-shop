@@ -1,10 +1,10 @@
 <div>
-    <a href="/product/{{product.signature}}+{{id}}">
-      {{> product_img product=product size="thumb"}}
+    <a href="/product/">
+      {{> product_img product=product}}
     </a>
-    <h2>{{product.description}}</h2>
+    <h2>{{product.shortDesc}}</h2>
     <p class="price">${{product.price}}</p>
-    <form action="/product/{{id}}/cart" method="post">
+    <form action="/product/{{product.id}}/cart" method="post">
       <button>Add to Cart</button>
     </form>
 </div>

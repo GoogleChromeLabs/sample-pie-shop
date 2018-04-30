@@ -17,7 +17,6 @@
  *
  */
 
-
  function initializeIndex() {
    console.log('TODO: Initializing index.')
  }
