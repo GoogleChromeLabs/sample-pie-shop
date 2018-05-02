@@ -150,6 +150,10 @@ h2 {
   white-space: nowrap;
 }
 
+img.product[srcset=''] {
+  visibility: hidden;
+}
+
 img.product {
   background-color: #eee;
   color: #eee;

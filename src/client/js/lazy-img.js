@@ -17,6 +17,18 @@
  *
  */
 
+
+const BASE_URL = 'https://res.cloudinary.com/pieshop/f_auto,dpr_auto,q_auto:eco/';
+
+const SIZES = {
+  0: 'calc(100vw - 60px)',
+  420: 'calc((100vw - 90px) / 2)',
+  750: 'calc((100vw - 120px) / 3)',
+  1200: 'calc((100vw - 150px) / 4)'
+}
+
+const WIDTHS = [500, 1000, 1500];
+
 const options = {
   // rootMargin: top, right, bottom, left margins
   // added to the bounding box of the root element (viewport if not defined)
@@ -30,16 +42,34 @@ function callback(entries) {
   for (const entry of entries) {
     if (entry.isIntersecting) {
       const lazyImage = entry.target;
-      if (lazyImage.hasAttribute('data-srcset')) {
-        lazyImage.srcset = lazyImage.dataset.srcset;
-      }
-      if (lazyImage.hasAttribute('data-src')) {
-        lazyImage.src = lazyImage.dataset.src;
-      }
+      const id = lazyImage.dataset.id;
+      // lazyImage.sizes = getSizes();
+      var image = new Image();
+      image.src = 'picture.jpg';
+      lazyImage.srcset = getSrcset(id);
       io.unobserve(lazyImage);
     }
   }
 }
+
+function getSrcset(id) {
+  const srcset = [];
+  for (const width of WIDTHS) {
+    srcset.push(`${BASE_URL}w_${width}/${id}.jpg ${width}w`);
+  }
+  return srcset.join(',');
+}
+
+// function getSizes() {
+//   const sizes = [];
+//   for (const size in SIZES) { // eslint-disable-line
+//     sizes.push(`(min-width: ${size}px) ${SIZES[size]}`);
+//   }
+//   // return sizes.join(',');
+
+//   // return '(max-width: 420px) calc(100vw - 60px), (min-width: 420px) and (max-width: 750px) calc((100vw - 90px) / 2), (min-width: 750px) and (max - width: 1200px) calc((100vw - 120px) / 3), (min - width: 1200px) calc((100vw - 150px) / 4)';
+
+// }
 
 const images = document.querySelectorAll('img.lazy');
 
@@ -55,6 +85,6 @@ for (const image of images) {
     io.observe(image);
   } else {
     console.log('Intersection Observer not supported');
-    image.src = image.getAttribute('data-src');
+    image.src = BASE_URL + image.getAttribute('data-id' + '.jpg');
   }
 }
