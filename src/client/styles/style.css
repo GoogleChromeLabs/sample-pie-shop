@@ -115,8 +115,8 @@ header {
   grid-template-columns: 40px 100px auto 70px;
   height: 80px;
   margin: 0 0 20px 0;
-  position: sticky;
-  top: 0;
+  /* position: sticky; */
+  /* top: 0; */
 }
 
 h1 {
@@ -211,8 +211,8 @@ nav {
   display: none;
   font-family: 'Roboto', sans-serif;
   padding: 0 20px 0 10px;
-  position: sticky;
-  top: 80px;
+  /* position: sticky;
+  top: 80px; */
   white-space: nowrap;
 }
 
