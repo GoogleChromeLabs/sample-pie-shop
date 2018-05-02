@@ -26,16 +26,19 @@ The `serve` target will build the site and serve it locally while watching for
 any changes. Once the script completes the initial build, the site should be
 available on <http://localhost:3000/>.
 
+You have to provide path to the firebase keys file as an env variable.
+
 ```sh
-npm run serve
+FB_KEYS=full-path-to-fb-keys-json-file npm run serve
 ```
 
 Check [`package.json`](package.json) for the other build targets.
 
 ### Run pie generation pipeline
 
-Make sure you have firebase private key stored in `src/data/keys\`. Then:
+Make sure you have firebase private key stored somewhere. Provide path
+to the firebase keys file as an env variable.
 
 ```sh
-npm run tools:piegen
+FB_KEYS=full-path-to-fb-keys-json-file npm run tools:import_products
 ```
