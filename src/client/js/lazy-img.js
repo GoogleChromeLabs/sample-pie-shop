@@ -20,12 +20,12 @@
 
 const BASE_URL = 'https://res.cloudinary.com/pieshop/f_auto,dpr_auto,q_auto:eco/';
 
-const SIZES = {
-  0: 'calc(100vw - 60px)',
-  420: 'calc((100vw - 90px) / 2)',
-  750: 'calc((100vw - 120px) / 3)',
-  1200: 'calc((100vw - 150px) / 4)'
-}
+// const SIZES = {
+//   0: 'calc(100vw - 60px)',
+//   420: 'calc((100vw - 90px) / 2)',
+//   750: 'calc((100vw - 120px) / 3)',
+//   1200: 'calc((100vw - 150px) / 4)'
+// }
 
 const WIDTHS = [500, 1000, 1500];
 
@@ -44,8 +44,6 @@ function callback(entries) {
       const lazyImage = entry.target;
       const id = lazyImage.dataset.id;
       // lazyImage.sizes = getSizes();
-      var image = new Image();
-      image.src = 'picture.jpg';
       lazyImage.srcset = getSrcset(id);
       io.unobserve(lazyImage);
     }

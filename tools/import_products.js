@@ -1,13 +1,13 @@
 // Copyright 2016 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the 'License');
+// Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
 //      http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an 'AS IS' BASIS,
+// distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
@@ -17,7 +17,8 @@ import path from 'path';
 import fs from 'fs';
 import admin from '../src/services/firebase.js';
 import {
-  getNWords
+  signaturize,
+  getNWords,
 } from '../src/shared/js/stringUtils';
 
 const DATA_FILE = '../products.csv';
@@ -25,7 +26,7 @@ const CATEGORIES_FILE = '../src/data/categories.json';
 
 const COLUMNS = {
   'id': 0,
-  'title': 1,
+  'name': 1,
   'description': 2,
   'features': 3,
   'price': 4,
@@ -49,7 +50,7 @@ const parseProductLine = (record) => {
 const updateCategories = () => {
   return fs.writeFileSync(path.join(__dirname, CATEGORIES_FILE),
     JSON.stringify(Array.from(categories)));
-}
+};
 
 const clearCollection = (collection, batchSize) => {
   const query = collection.orderBy('__name__').limit(batchSize);
@@ -88,7 +89,10 @@ const db = admin.firestore();
 const productsRef = db.collection('products');
 clearCollection(productsRef, 100).then(() => {
   fs.readFile(path.join(__dirname, DATA_FILE), (err, input) => {
-    return parse(input, {}, function(err, output) {
+    return parse(input, {}, (parseError, output) => {
+      if (parseError) {
+        console.error(parseError);
+      }
       console.log(`Uploading ${output.length} products...`);
       return Promise.all(output.map(processRecord))
         .then((results) => {
