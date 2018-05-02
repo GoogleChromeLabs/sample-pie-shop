@@ -20,16 +20,14 @@ import fbAdmin from '../../services/firebase';
 import categories from '../../data/categories';
 
 const index = (req, res, next) => {
-  fbAdmin.database().ref('products')
-    .orderByChild('price')
-    .once('value')
+  fbAdmin.firestore().collection('products').get()
     .then((snapshot) => {
       const products = [];
       snapshot.forEach(record => {
-        let product = record.val();
-        product.key = record.key;
+        let product = record.data();
+        product.key = record.id;
         products.push(product);
-      })
+      });
       res.render('index', {
         title: `The Shop`,
         products: products,
