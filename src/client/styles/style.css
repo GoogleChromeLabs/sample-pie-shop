@@ -15,7 +15,7 @@ menu a:hover {
 
 menu div {
   background-color: #5d666f;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16), 0 5px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16);
   left: 0;
   margin: 0;
   opacity: 0;
@@ -108,6 +108,7 @@ nav a {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   padding: 10px 10px;
+  text-transform: lowercase;
 }
 
 nav a:hover,
