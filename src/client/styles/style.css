@@ -1,3 +1,70 @@
+/* menu */
+
+menu a {
+  color: white;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  line-height: 50px;
+  white-space: nowrap;
+}
+
+menu a:hover {
+  color: #457FE2;
+}
+
+menu div {
+  background-color: #5d666f;
+  box-shadow: 
+  0 2px 5px 0 rgba(0, 0, 0, 0.16),
+  0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  padding: 5px 55px 30px 55px;
+  position: absolute;
+  top: 50px;
+  transition: visibility 0.5s;
+  visibility: hidden;
+  z-index: 1;
+}
+
+menu:focus div {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+menu {
+  display: inline-block;
+  padding: 0 15px;
+  position: relative;
+}
+
+menu:focus {
+  outline: none;
+  pointer-events: none;
+}
+
+menu svg {
+  height: 25px;
+  cursor: pointer;
+  width: 25px;
+}
+
+menu svg#close {
+  display: none;
+}
+
+menu:focus svg#close {
+  display: block;
+}
+
+menu:focus svg#open {
+  display: none;
+}
+
+/* menu */
+
 a {
   text-decoration: none;
 }
@@ -109,10 +176,10 @@ footer {
 header {
   align-items: center;
   /* background-color: #1976D2; */
-  background-color: #333;
+  background-color: #5d666f;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: grid;
-  grid-template-columns: 40px 100px auto 70px;
+  grid-template-columns: 55px 102px auto 70px;
   height: 80px;
   margin: 0 0 20px 0;
   /* position: sticky; */
@@ -128,8 +195,8 @@ h1 {
 
 header h1 {
   color: white;
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 22px;
+  font-weight: 400;
   margin: 0;
   padding: 0 0 2px 0;
   white-space: nowrap;
@@ -171,7 +238,7 @@ input#search {
   color: #444;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-  padding: 10px;
+  padding: 5px;
 }
 
 input#search:focus {
@@ -199,14 +266,8 @@ main {
   padding: 0 30px;
 }
 
-menu {
-  cursor: pointer;
-  margin: 0 auto;
-  padding: 0;
-}
-
 nav {
-  background-color: #525050;
+  background-color: #9099a2;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: none;
   font-family: 'Roboto', sans-serif;
@@ -255,6 +316,13 @@ menu svg {
 @media all and (min-width: 420px) {
   img.product {
     height: calc((100vw - 90px) / 2);
+  }
+  header h1 {
+    font-size: 24px;
+    justify-self: start;
+  }
+  input#search {
+    padding: 10px;
   }
   main {
     grid-template-columns: 1fr 1fr;

@@ -43,7 +43,7 @@ function callback(entries) {
     if (entry.isIntersecting) {
       const lazyImage = entry.target;
       const id = lazyImage.dataset.id;
-      // lazyImage.sizes = getSizes();
+      lazyImage.sizes = getSizes();
       lazyImage.srcset = getSrcset(id);
       io.unobserve(lazyImage);
     }
@@ -58,16 +58,15 @@ function getSrcset(id) {
   return srcset.join(',');
 }
 
-// function getSizes() {
+function getSizes() {
 //   const sizes = [];
 //   for (const size in SIZES) { // eslint-disable-line
 //     sizes.push(`(min-width: ${size}px) ${SIZES[size]}`);
 //   }
 //   // return sizes.join(',');
 
-//   // return '(max-width: 420px) calc(100vw - 60px), (min-width: 420px) and (max-width: 750px) calc((100vw - 90px) / 2), (min-width: 750px) and (max - width: 1200px) calc((100vw - 120px) / 3), (min - width: 1200px) calc((100vw - 150px) / 4)';
-
-// }
+  return '(max-width: 419px) calc(100vw - 60px), (min-width: 420px) and (max-width: 750px) calc((100vw - 90px) / 2), (min-width: 750 px) and(max - width: 1200 px) calc((100 vw - 120 px) / 3), (min - width: 1200 px) calc((100 vw - 150 px) / 4)';
+}
 
 const images = document.querySelectorAll('img.lazy');
 
