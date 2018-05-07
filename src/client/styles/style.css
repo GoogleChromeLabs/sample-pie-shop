@@ -4,7 +4,9 @@ menu a {
   color: white;
   display: block;
   font-family: 'Roboto', sans-serif;
-  padding: 20px 50px 20px 50px;
+  font-weight: 200;
+  padding: 20px 50px 20px 65px;
+  text-transform: lowercase;
   white-space: nowrap;
 }
 
@@ -20,7 +22,7 @@ menu div {
   margin: 0;
   opacity: 0;
   position: absolute;
-  top: 50px;
+  top: 40px;
   transform: translateX(-100%);
   transition: transform 0.2s ease;
   z-index: 1;
@@ -47,19 +49,25 @@ menu:focus {
 menu svg {
   cursor: pointer;
   fill: white;
-  width: 30px;
+  position: absolute;
+  top: -18px;
+  transition: all 0.5s ease-out;
 }
 
 menu svg#close {
-  display: none;
+  opacity: 0;
+}
+
+menu svg#open {
+  opacity: 1;
 }
 
 menu:focus svg#close {
-  display: block;
+  opacity: 1;
 }
 
 menu:focus svg#open {
-  display: none;
+  opacity: 0;
 }
 
 /* menu */
@@ -179,7 +187,7 @@ header {
   background-color: #5d666f;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: grid;
-  grid-template-columns: 55px 102px auto 70px;
+  grid-template-columns: 65px 102px auto 70px;
   height: 80px;
   margin: 0 0 20px 0;
   /* position: sticky; */
@@ -198,7 +206,7 @@ header h1 {
   font-size: 22px;
   font-weight: 400;
   margin: 0;
-  padding: 0 0 10px 0;
+  padding: 0 0 3px 0;
   white-space: nowrap;
 }
 
