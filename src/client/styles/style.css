@@ -47,8 +47,7 @@ menu:focus {
 menu svg {
   cursor: pointer;
   fill: white;
-  height: 25px;
-  width: 25px;
+  width: 30px;
 }
 
 menu svg#close {
@@ -77,21 +76,21 @@ a#basket {
 }
 
 a#basket:after {
-  background-color: #f44336;
-  border-radius: 50%;
   color: white;
   content: attr(data-badge);
   display: inline-block;
-  font-family: sans-serif;
-  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
   font-weight: bold;
-  height: 13px;
-  left: -11px;
-  padding: 2px;
+  left: -34px;
   position: relative;
   text-align: center;
-  top: -26px;
+  top: -30px;
   width: 13px;
+}
+
+a#basket[data-badge='0']:after {
+  display: none;
 }
 
 footer a {
@@ -199,7 +198,7 @@ header h1 {
   font-size: 22px;
   font-weight: 400;
   margin: 0;
-  padding: 0 0 2px 0;
+  padding: 0 0 10px 0;
   white-space: nowrap;
 }
 
@@ -304,8 +303,7 @@ section {
 
 #basket svg {
   fill: white;
-  height: 28px;
-  width: 28px;
+  width: 40px;
 }
 
 @media all and (min-width: 420px) {
@@ -337,6 +335,7 @@ section {
   header h1 {
     font-size: 32px;
     justify-self: start;
+    padding: 0 0 6px 0;
   }
   img.product {
     height: calc((100vw - 120px) / 3);
