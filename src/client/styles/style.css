@@ -166,9 +166,8 @@ button[disabled] {
 
 main div {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  display: grid;
-  grid-template-rows: max-content;
-  /* grid-auto-rows: max-content;*/
+  display: flex;
+  flex-direction: column;
   padding: 0 0 20px 0;
   text-align: center;
 }
@@ -216,13 +215,13 @@ header h1::before {
 
 h2 {
   font-family: 'Roboto', sans-serif;
+  flex-grow: 1;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.3em;
-  /*  min-height: 3em;*/
   margin: 0 0 13px 0;
   padding: 0 10px;
-  white-space: nowrap;
+
 }
 
 img.product[srcset=''] {
