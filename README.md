@@ -1,5 +1,4 @@
 # Online store PWA sample.
-test
 
 This sample will attempt to demonstrate some best practices on the web, taking
 into account the specific requirements of an e-commerce site. It will also
