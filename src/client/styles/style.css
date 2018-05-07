@@ -51,7 +51,7 @@ menu svg {
   fill: white;
   position: absolute;
   top: -18px;
-  transition: all 0.5s ease-out;
+  transition: all 0.5s ease;
 }
 
 menu svg#close {
