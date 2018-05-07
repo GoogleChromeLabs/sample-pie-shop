@@ -38,11 +38,10 @@ const options = {
 function callback(entries) {
   for (const entry of entries) {
     if (entry.isIntersecting) {
-      const lazyImage = entry.target;
-      const id = lazyImage.dataset.id;
-      lazyImage.sizes = getSizes();
-      lazyImage.srcset = getSrcset(id);
-      io.unobserve(lazyImage);
+      const image = entry.target;
+      const id = image.dataset.id;
+      image.srcset = getSrcset(id);
+      io.unobserve(image);
     }
   }
 }
@@ -84,10 +83,13 @@ if (window.IntersectionObserver) {
 }
 
 for (const image of images) {
+  image.sizes = getSizes();
   if (window.IntersectionObserver) {
-    io.observe(image);
+    io.observe(image); // adds srcset when img element is in view
   } else {
     console.log('Intersection Observer not supported');
-    image.src = BASE_URL + image.getAttribute('data-id' + '.jpg');
+    const id = image.getAttribute('data-id');
+    image.srcset = getSrcset(id);
+    image.src = BASE_URL + 'id' + '.jpg';
   }
 }
