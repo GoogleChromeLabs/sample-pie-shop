@@ -2,7 +2,7 @@
     <a href="/product/">
       {{> product_img product=product}}
     </a>
-    <h2>{{product.description}}</h2>
+    <h2>{{product.name}}</h2>
     <p class="price">${{product.price}}</p>
     <form action="/product/{{product.id}}/cart" method="post">
       <button>Add to Cart</button>
