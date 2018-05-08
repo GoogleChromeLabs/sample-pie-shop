@@ -4,7 +4,6 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-  - 'node'
   - 'lts/*'
 script:
   - npm run lint
