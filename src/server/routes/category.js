@@ -17,7 +17,7 @@
  *
  */
 import fbAdmin from '../../services/firebase';
-import { capitalize } from '../../shared/js/stringUtils';
+import {capitalize} from '../../shared/js/stringUtils';
 import categories from '../../data/categories';
 
 const category = (req, res, next) => {
@@ -25,11 +25,11 @@ const category = (req, res, next) => {
   fbAdmin.firestore().collection('products').where('category', '==', categoryId).get()
     .then((snapshot) => {
       const products = [];
-      snapshot.forEach(record => {
-        let product = record.data();
+      snapshot.forEach((record) => {
+        const product = record.data();
         product.key = record.id;
         products.push(product);
-      })
+      });
       res.render('listing', {
         title: `${capitalize(categoryId)}`,
         category_name: categoryId,

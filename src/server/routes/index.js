@@ -23,13 +23,13 @@ const index = (req, res, next) => {
   fbAdmin.firestore().collection('products').get()
     .then((snapshot) => {
       const products = [];
-      snapshot.forEach(record => {
-        let product = record.data();
+      snapshot.forEach((record) => {
+        const product = record.data();
         product.key = record.id;
         products.push(product);
       });
       res.render('index', {
-        title: `The Shop`,
+        title: `Pie Shop`,
         products: products,
         categories: categories,
         cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,

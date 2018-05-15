@@ -21,7 +21,7 @@ const cart = (req, res, next) => {
   res.render('cart', {
     title: 'Cart',
     cart: req.session.cart,
-    cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
+    cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
   });
 };
 

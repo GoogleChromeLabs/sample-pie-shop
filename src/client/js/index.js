@@ -17,10 +17,10 @@
  *
  */
 
- function initializeIndex() {
-   console.log('TODO: Initializing index.')
- }
+function initializeIndex() {
+  console.log('TODO: Initializing index.')
+}
 
- export default function init() {
-   initializeIndex();
- }
+export default function init() {
+  initializeIndex();
+}

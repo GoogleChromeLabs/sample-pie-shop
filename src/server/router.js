@@ -34,8 +34,7 @@ router.get('/cart', cart);
 router.get('/payment', payment.get);
 router.get('/confirmation', payment.confirm);
 router.get('/pieimg.svg', pieimg);
-router.get('/', index);
-
+router.get(/\/(index.html)?$/, index);
 router.post('/product/:id/cart', product.addToCart);
 router.post('/payment', payment.pay);
 
