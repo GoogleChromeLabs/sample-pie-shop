@@ -20,8 +20,7 @@ import fbAdmin from '../../services/firebase';
 import categories from '../../data/categories';
 
 const category = (req, res, next) => {
-  let thisCategory = req.url.slice(1, );
-  thisCategory = thisCategory.charAt(0).toUpperCase() + thisCategory.slice(1);
+  const thisCategory = req.url.slice(1, );
   fbAdmin.firestore().collection('products').
     where('category', '==', thisCategory).get().then((snapshot) => {
       const products = [];
