@@ -35,7 +35,6 @@ const staticDir = path.join(rootDir, 'static');
 app.engine('hbs', hbs({
   extname: 'hbs',
   defaultLayout: 'layout',
-  helpers: require('./handlebars-helpers'),
   layoutsDir: path.join(rootDir, 'templates', 'layouts'),
   partialsDir: path.join(rootDir, 'templates', 'partials'),
 }));
