@@ -17,28 +17,25 @@
  *
  */
 import fbAdmin from '../../services/firebase';
-import {capitalize} from '../../shared/js/stringUtils';
 import categories from '../../data/categories';
 
 const category = (req, res, next) => {
-  const categoryId = req.params.id;
-  fbAdmin.firestore().collection('products').where('category', '==', categoryId).get()
-    .then((snapshot) => {
+  let thisCategory = req.url.slice(1, );
+  thisCategory = thisCategory.charAt(0).toUpperCase() + thisCategory.slice(1);
+  fbAdmin.firestore().collection('products').
+    where('category', '==', thisCategory).get().then((snapshot) => {
       const products = [];
       snapshot.forEach((record) => {
         const product = record.data();
-        product.key = record.id;
         products.push(product);
       });
-      res.render('listing', {
-        title: `${capitalize(categoryId)}`,
-        category_name: categoryId,
-        products: products,
+      res.render('category', {
         categories: categories,
-        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
+        category: thisCategory,
+        products: products,
         scripts: [
-          'https://www.gstatic.com/firebasejs/4.6.2/firebase.js',
-          '/js/category_main.js',
+          '/js/category.js',
+          '/js/lazy-img.js',
         ],
       });
     });

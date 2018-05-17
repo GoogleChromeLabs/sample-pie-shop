@@ -22,20 +22,26 @@ import category from './routes/category';
 import product from './routes/product';
 import cart from './routes/cart';
 import payment from './routes/payment';
-import pieimg from './routes/pieimg';
+import products from './routes/products';
+
+// enable URLs like foo.com/accessories
+import categories from '../data/categories';
+const categoryRoutes = categories.map((item) => {
+  return '/' + item;
+});
 
 import {Router} from 'express';
 const router = new Router();
 
-router.get('/search', search);
-router.get('/category/:id', category);
-router.get('/product/:id', product.get);
 router.get('/cart', cart);
-router.get('/payment', payment.get);
+router.get(categoryRoutes, category);
 router.get('/confirmation', payment.confirm);
-router.get('/pieimg.svg', pieimg);
 router.get(/\/(index.html)?$/, index);
-router.post('/product/:id/cart', product.addToCart);
+router.get('/payment', payment.get);
 router.post('/payment', payment.pay);
+router.get('/product/:id', product.get);
+router.post('/product/:id/cart', product.addToCart);
+router.get('/products', products);
+router.get('/search', search);
 
 export default router;

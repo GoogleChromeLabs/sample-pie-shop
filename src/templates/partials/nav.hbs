@@ -1,8 +1,3 @@
 <nav>
-  <a href="accessories">Accessories</a>
-  <a href="apparel">Apparel</a>
-  <a href="bags">Bags</a>
-  <a href="drinkware">Drinkware</a>
-  <a href="office">Office</a>
-  <a href="brand">Shop by Brand</a>
+  {{#each categories}}<a href="{{this}}">{{this}}</a>{{/each}}
 </nav>

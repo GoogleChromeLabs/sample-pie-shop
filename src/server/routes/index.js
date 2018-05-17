@@ -28,7 +28,7 @@ const index = (req, res, next) => {
         product.key = record.id;
         products.push(product);
       });
-      res.render('index', {
+      res.render('products', {
         title: `Pie Shop`,
         products: products,
         categories: categories,

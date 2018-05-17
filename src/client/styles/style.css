@@ -5,7 +5,7 @@ menu a {
   display: block;
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
-  padding: 20px 50px 20px 65px;
+  padding: 20px 80px 20px 34px;
   text-transform: lowercase;
   white-space: nowrap;
 }
@@ -37,7 +37,7 @@ menu:focus div {
 
 menu {
   display: block;
-  padding: 0 15px;
+  padding: 0 0 0 24px;
   position: relative;
 }
 
@@ -50,8 +50,9 @@ menu svg {
   cursor: pointer;
   fill: white;
   position: absolute;
-  top: -18px;
+  top: -21px;
   transition: all 0.5s ease;
+  width: 40px;
 }
 
 menu svg#close {
@@ -77,10 +78,9 @@ a {
 }
 
 a#basket {
-  align-self: center;
-  justify-self: end;
   position: relative;
-  top: 7px;
+  top: 15px;
+  padding: 0 0 0 18px;
 }
 
 a#basket:after {
@@ -116,6 +116,7 @@ nav a {
   font-weight: 300;
   padding: 10px 10px;
   text-transform: lowercase;
+  margin: 0 1px 0 0;
 }
 
 nav a:hover,
@@ -186,9 +187,10 @@ header {
   background-color: #5d666f;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: grid;
-  grid-template-columns: 65px 102px auto 70px;
+  grid-template-columns: 81px 93px auto 73px;
+  /* justify-content: center; */
   height: 80px;
-  margin: 0 0 20px 0;
+  margin: 0 0 28px 0;
   /* position: sticky; */
   /* top: 0; */
 }
@@ -197,7 +199,6 @@ h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   margin: 0;
-  padding: 30px;
 }
 
 header h1 {
@@ -205,12 +206,17 @@ header h1 {
   font-size: 22px;
   font-weight: 400;
   margin: 0;
-  padding: 0 0 3px 0;
+  padding: 0 0 6px 0;
   white-space: nowrap;
 }
 
 header h1::before {
   content: '';
+}
+
+main h1 {
+  grid-column-end: -1;
+  grid-column-start: 1;
 }
 
 h2 {
@@ -244,7 +250,7 @@ input#search {
   border: none;
   color: #444;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   padding: 5px;
 }
 
@@ -255,7 +261,7 @@ input#search:focus {
 input#search::placeholder {
   color: #666;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
 }
 
@@ -265,12 +271,13 @@ input:focus::placeholder {
 }
 
 main {
-  background-color: white;
+  margin: 0 28px 30px 28px;
+}
+
+main#product-list {
   display: grid;
   grid-gap: 30px 30px;
   grid-template-columns: 1fr;
-  margin: 0 0 30px 0;
-  padding: 0 30px;
 }
 
 nav {
@@ -278,7 +285,7 @@ nav {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: none;
   font-family: 'Roboto', sans-serif;
-  padding: 0 20px 0 10px;
+  padding: 0 20px 0 17px;
   /* position: sticky;
   top: 80px; */
   white-space: nowrap;
@@ -288,7 +295,7 @@ p {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 300;
-  margin: 0;
+  margin: 0 0 1em 0;
   padding: 0;
 }
 
@@ -311,38 +318,44 @@ section {
 #basket svg {
   fill: white;
   width: 40px;
+  height: 40px;
 }
 
 @media all and (min-width: 420px) {
+  header {
+      grid-template-columns: 89px 122px auto 72px;
+  }
+  header h1 {
+    font-size: 28px;
+    justify-self: start;
+  }
   img.product {
     height: calc((100vw - 90px) / 2);
   }
-  header h1 {
-    font-size: 24px;
-    justify-self: start;
-  }
   input#search {
-    padding: 10px;
+    padding: 7px;
   }
-  main {
+  main#product-list {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media all and (min-width: 750px) {
   a#basket {
-    position: relative;
-    top: 7px;
+    padding: 0 0 0 35px;
   }
   header {
     grid-template-columns: auto auto 80px;
     margin: 0;
-    padding: 0 20px;
+    padding: 0 26px;
   }
   header h1 {
     font-size: 32px;
     justify-self: start;
     padding: 0 0 6px 0;
+  }
+  main h1 {
+    display: none;
   }
   img.product {
     height: calc((100vw - 120px) / 3);
@@ -353,7 +366,7 @@ section {
   input#search::placeholder {
     font-size: 16px;
   }
-  main {
+  main#product-list {
     grid-template-columns: 1fr 1fr 1fr;
   }
   menu {
@@ -361,7 +374,7 @@ section {
   }
   nav {
     display: block;
-    margin: 0 0 20px 0;
+    margin: 0 0 28px 0;
   }
 }
 
@@ -369,7 +382,7 @@ section {
   img.product {
     height: calc((100vw - 150px) / 4);
   }
-  main {
+  main#product-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
