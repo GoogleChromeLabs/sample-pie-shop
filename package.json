@@ -23,6 +23,7 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "firebase-admin": "^5.5.1",
+    "firestore-export-import": "^0.1.3",
     "flags": "^0.1.3",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.6",

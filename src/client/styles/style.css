@@ -1,4 +1,4 @@
-/* menu */
+/* menu start */
 
 menu a {
   color: white;
@@ -24,7 +24,7 @@ menu div {
   position: absolute;
   top: 40px;
   transform: translateX(-100%);
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
   z-index: 1;
 }
 
@@ -71,7 +71,7 @@ menu:focus svg#open {
   opacity: 0;
 }
 
-/* menu */
+/* menu end */
 
 a {
   text-decoration: none;
@@ -106,6 +106,14 @@ footer a {
 }
 
 footer a:hover {
+  color: white;
+}
+
+h1 a {
+  color: #eee;
+}
+
+h1 a:hover {
   color: white;
 }
 

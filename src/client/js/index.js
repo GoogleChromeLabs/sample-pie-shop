@@ -16,11 +16,3 @@
  *  limitations under the License
  *
  */
-
-function initializeIndex() {
-  console.log('TODO: Initializing index.')
-}
-
-export default function init() {
-  initializeIndex();
-}
