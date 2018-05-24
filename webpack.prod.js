@@ -6,6 +6,7 @@ const common = require('./webpack.common.js');
 
 module.exports = merge.smart(common, {
   module: {
+    mode: 'production',
     rules: [
       {
         test: /\.js$/,
