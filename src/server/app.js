@@ -32,6 +32,8 @@ const app = express();
 const rootDir = path.join(__dirname, '..');
 const staticDir = path.join(rootDir, 'static');
 
+import categories from '../data/categories';
+
 app.engine('hbs', hbs({
   extname: 'hbs',
   defaultLayout: 'layout',
@@ -53,7 +55,7 @@ app.use(session({
 }));
 
 // Uncomment after placing your favicon in /public.
-app.use(favicon(path.join(rootDir, 'static/images', 'favicon.ico')));
+app.use(favicon(path.join(rootDir, '/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -77,7 +79,9 @@ app.use(function(err, req, res, next) {
   // Render the error page.
   res.status(err.status || 500);
   console.error('Error:', err.stack);
-  res.render('error');
+  res.render('error', {
+    categories: categories,
+  });
 });
 
 export default app;

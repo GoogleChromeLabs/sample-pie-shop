@@ -1,9 +1,21 @@
 <main id="home">
 
-Home page
+<section id="home-products">
 
-{{#each featuredProducts}} {{this.heading}} {{/each}}
-<hr>
-{{#each featuredCategories}} {{this.heading}} {{/each}}
+  {{#each homeProducts}}
+    {{> home-product product=this}}
+  {{/each}}
+
+</section>
+
+<section id="home-categories">
+
+  <h2>Shop by category</h2>
+
+  {{#each homeCategories}}
+    {{> home-category category=this}}
+  {{/each}}
+
+</section>
 
 </main>

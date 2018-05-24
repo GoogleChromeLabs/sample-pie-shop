@@ -23,11 +23,16 @@ fei.initializeApp(process.env.FB_KEYS,
 import categories from '../../data/categories';
 
 function index(req, res) {
-  fei.backup('home').then((data) => {
+  fei.backup('home').then((data) => { // get data for home page content
     res.render('index', {
       categories: categories,
-      featuredCategories: data.home.categories.data,
-      featuredProducts: data.home.products.data,
+      homeCategories: data.home.categories.data,
+      homeProducts: data.home.products.data,
+      scripts: [
+        '/js/index.js',
+        '/js/lazy-img.js',
+      ],
+
     });
   });
 }

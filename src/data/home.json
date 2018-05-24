@@ -1,0 +1,86 @@
+{
+  "home": {
+    "products": {
+      "data": [{
+          "name": "Soft and warm sweatshirts",
+          "id": "sweatshirts",
+          "link": "apparel",
+          "description": "Spring sweatshirts that are so cool, you'll want to wear them all season"
+        },
+        {
+          "name": "Google thermal water bottles",
+          "id": "google-colorful-thermal-bottles",
+          "link": "drinkware",
+          "description": "Insulated and beautifully crafted to help you take your favorite beverage on the go"
+        },
+        {
+          "name": "New snapback hats",
+          "id": "google-snapback-hats",
+          "link": "apparel",
+          "description": "Dashing, distinctive. Stay shaded on sunny days wearing this stylish Google hat"
+        },
+        {
+          "name": "Office supplies",
+          "id": "pens-and-journals",
+          "link": "office",
+          "description": "Prepare for your next meeting with new Google, YouTube and Android pens and journals"
+        },
+        {
+          "name": "Colorful Google T-shirts",
+          "id": "colorful-google-t-shirts",
+          "link": "apparel",
+          "description": "The shirts you need to refresh your wardrobe for spring and beyond"
+        },
+        {
+          "name": "Google rolltop backpack",
+          "id": "google-timbuk2-rolltop-backback",
+          "link": "bags",
+          "description": "Keep all your favorite items organized and together while you’re on the move"
+        }
+      ]
+    },
+    "categories": {
+      "data": [{
+          "name": "Drinkware",
+          "id": "google-thermal-bottle-small",
+          "link": "drinkware"
+        },
+        {
+          "name": "Women's apparel",
+          "id": "google-t-shirt-women-gray-small",
+          "link": "apparel"
+        },
+        {
+          "name": "Bags",
+          "id": "google-timbuk2-rolltop-backback-small",
+          "link": "bags"
+        },
+        {
+          "name": "Headgear",
+          "id": "beanie-google-gray-small",
+          "link": "apparel"
+        },
+        {
+          "name": "Men's apparel",
+          "id": "google-t-shirt-men-blue-small",
+          "link": "apparel"
+        },
+        {
+          "name": "Accessories",
+          "id": "google-wooden-toy-small",
+          "link": "accessories"
+        },
+        {
+          "name": "Office supplies",
+          "id": "google-notebook-blue-small",
+          "link": "office"
+        },
+        {
+          "name": "Kids apparel",
+          "id": "google-baby-onesie-green-small",
+          "link": "apparel"
+        }
+      ]
+    }
+  }
+}
