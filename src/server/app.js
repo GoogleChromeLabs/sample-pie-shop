@@ -54,7 +54,7 @@ app.use(session({
 }));
 
 // Uncomment after placing your favicon in /public.
-app.use(favicon(path.join(rootDir, 'static/images', 'favicon.ico')));
+app.use(favicon(path.join(rootDir, '/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
