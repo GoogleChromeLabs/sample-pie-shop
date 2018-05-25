@@ -27,9 +27,13 @@ import session from 'express-session';
 
 import router from './router';
 
+import categories from '../data/categories';
+
 const app = express();
 const rootDir = path.join(__dirname, '..');
 const staticDir = path.join(rootDir, 'static');
+
+
 
 app.engine('hbs', hbs({
   extname: 'hbs',
@@ -73,7 +77,9 @@ app.use(function(err, req, res, next) {
 
   // Render the error page.
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {
+    categories: categories,
+  });
 });
 
 export default app;

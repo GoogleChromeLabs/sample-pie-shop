@@ -2,6 +2,18 @@
   "home": {
     "products": {
       "data": [{
+          "name": "Colorful Google T-shirts",
+          "id": "colorful-google-t-shirts",
+          "link": "apparel",
+          "description": "The shirts you need to refresh your wardrobe for spring and beyond"
+        },
+        {
+          "name": "New snapback hats",
+          "id": "google-snapback-hats",
+          "link": "apparel",
+          "description": "Dashing, distinctive. Stay shaded on sunny days wearing this stylish Google hat"
+        },
+        {
           "name": "Soft and warm sweatshirts",
           "id": "sweatshirts",
           "link": "apparel",
@@ -14,22 +26,10 @@
           "description": "Insulated and beautifully crafted to help you take your favorite beverage on the go"
         },
         {
-          "name": "New snapback hats",
-          "id": "google-snapback-hats",
-          "link": "apparel",
-          "description": "Dashing, distinctive. Stay shaded on sunny days wearing this stylish Google hat"
-        },
-        {
           "name": "Office supplies",
           "id": "pens-and-journals",
           "link": "office",
           "description": "Prepare for your next meeting with new Google, YouTube and Android pens and journals"
-        },
-        {
-          "name": "Colorful Google T-shirts",
-          "id": "colorful-google-t-shirts",
-          "link": "apparel",
-          "description": "The shirts you need to refresh your wardrobe for spring and beyond"
         },
         {
           "name": "Google rolltop backpack",
