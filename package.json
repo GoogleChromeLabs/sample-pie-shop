@@ -33,7 +33,6 @@
     "nodemon": "^1.13.3",
     "parallelshell": "^3.0.2",
     "promise-map-series": "^0.2.3",
-    "serve-favicon": "^2.4.5",
     "supertest": "^3.0.0",
     "watch": "^1.0.2",
     "webpack": "^3.8.1",

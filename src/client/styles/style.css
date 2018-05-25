@@ -17,11 +17,11 @@ a#basket:after {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: bold;
-  left: 7px;
+  left: 25px;
   padding: 3px;
-  position: relative;
+  position: absolute;
   text-align: center;
-  top: -53px;
+  top: -33px;
   width: 13px;
 }
 
@@ -296,7 +296,9 @@ div.shop-now svg {
 }
 
 #basket svg {
+  top: -22px;
   fill: white;
+  position: absolute;
   width: 40px;
   height: 40px;
 }
@@ -402,6 +404,9 @@ menu:focus svg#open {
   a#basket {
     padding: 0 0 0 35px;
   }
+  a#basket:after {
+    left: 42px;
+  }
   header {
     grid-template-columns: auto auto 80px;
     margin: 0;
@@ -432,6 +437,7 @@ menu:focus svg#open {
   }
   nav {
     display: block;
+    margin: 0 0 28px 0;
   }
 }
 
