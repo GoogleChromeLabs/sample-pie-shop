@@ -64,7 +64,7 @@ nav a.current {
 section#home-products a {
   background: linear-gradient(#eee, #fff);
   display: block;
-  color: black;
+  color: #444;
   cursor: pointer;
   padding: 30px;
 }
@@ -179,7 +179,7 @@ main#product-list h2 {
   padding: 0 10px;
 }
 
-section#home-products h2 {
+main#home h2 {
   font-size: 28px;
   font-weight: 300;
   margin: 0 0 10px 0;
@@ -407,6 +407,12 @@ menu:focus svg#open {
   a#basket:after {
     left: 42px;
   }
+  section#home-products a {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr auto;
+    justify-items: stretch;
+  }
   header {
     grid-template-columns: auto auto 80px;
     margin: 0;
@@ -437,7 +443,6 @@ menu:focus svg#open {
   }
   nav {
     display: block;
-    margin: 0 0 28px 0;
   }
 }
 
