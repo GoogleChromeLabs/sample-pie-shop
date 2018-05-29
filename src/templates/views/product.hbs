@@ -1,18 +1,17 @@
-  <div class="card">
-    <div class="card-image">
-      {{> product_img product=product}}
+  <div class="card-image">
+    <img
+      class="product-frame-{{product.frame}} product-filter-{{product.filter}}"
+      src="{{product.urls.thumb}}"
+      alt="{{product.signature}}"/>
+  </div>
+  <div class="card-text">
+    {{product.description}}
+  </div>
+  <div class="card-actions">
+    <div class="product-price">
+      {{product.price}} $
     </div>
-    <div class="card-text">
-      <p>{{product.title}}</p>
-      <p>{{product.shortDesc}}</p>
-      <p>{{product.category}}</p>
-    </div>
-    <div class="card-actions">
-      <div class="product-price">
-        {{product.price}} $
-      </div>
-      <form action="/product/{{key}}/cart?back=product/{{key}};{{product.signature}}" method="post">
-        <button>add to cart</button>
-      </form>
-    </div>
+    <form action="/product/{{product.signature}}+{{id}}/cart" method="post">
+      <button>add to cart</button>
+    </form>
   </div>

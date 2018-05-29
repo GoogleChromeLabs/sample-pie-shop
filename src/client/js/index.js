@@ -17,8 +17,6 @@
  *
  */
 
- import lazyImg from './lazy-img.js';
-
  function initializeIndex() {
    console.log('TODO: Initializing index.')
  }

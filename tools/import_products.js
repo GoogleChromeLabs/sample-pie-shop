@@ -16,47 +16,41 @@ import parse from 'csv-parse';
 import path from 'path';
 import fs from 'fs';
 import admin from '../src/services/firebase.js';
-import { signaturize, getNWords } from '../src/shared/js/stringUtils';
+import {
+  signaturize,
+  getNWords,
+} from '../src/shared/js/stringUtils';
 
 const DATA_FILE = '../products.csv';
 const CATEGORIES_FILE = '../src/data/categories.json';
 
 const COLUMNS = {
-  storeId: 0,
-  title: 1,
-  shortDesc: 2,
-  price: 7,
-  longDesc: 9,
-  inStock: 19,
-  weight: 20,
-  weightUnit: 21,
-  length: 22,
-  width:23,
-  height: 24,
-  sizeUnit: 25,
-  imageLarge: 32,
-  imageMedium: 37,
-  imageThumb: 42,
-  imageSmall: 47,
-  category: 56,
-}
+  'id': 0,
+  'name': 1,
+  'description': 2,
+  'features': 3,
+  'price': 4,
+  'keywords': 5,
+  'url': 6,
+  'category': 7,
+  'subcategory': 8,
+};
 
 const categories = new Set();
 
 const parseProductLine = (record) => {
-  let product = {};
+  const product = {};
   Object.keys(COLUMNS).forEach((column) => {
     product[column] = record[COLUMNS[column]].trim();
   });
-  product.signature = signaturize(getNWords(product.title, 7));
   categories.add(product.category);
   return product;
-}
+};
 
 const updateCategories = () => {
   return fs.writeFileSync(path.join(__dirname, CATEGORIES_FILE),
-      JSON.stringify(Array.from(categories)));
-}
+    JSON.stringify(Array.from(categories)));
+};
 
 const clearCollection = (collection, batchSize) => {
   const query = collection.orderBy('__name__').limit(batchSize);
@@ -68,14 +62,14 @@ const clearCollection = (collection, batchSize) => {
 const deleteQueryBatch = (db, query, batchSize, resolve, reject) => {
   query.get().then((snapshot) => {
     if (snapshot.size === 0) {
-        return 0;
+      return 0;
     }
     const batch = db.batch();
     snapshot.docs.forEach((doc) => {
-        batch.delete(doc.ref);
+      batch.delete(doc.ref);
     });
     return batch.commit().then(() => {
-        return snapshot.size;
+      return snapshot.size;
     });
   }).then((numDeleted) => {
     if (numDeleted === 0) {
@@ -86,7 +80,7 @@ const deleteQueryBatch = (db, query, batchSize, resolve, reject) => {
       deleteQueryBatch(db, query, batchSize, resolve, reject);
     });
   })
-  .catch(reject);
+    .catch(reject);
 };
 
 const processRecord = (record) => productsRef.add(parseProductLine(record));
@@ -95,7 +89,10 @@ const db = admin.firestore();
 const productsRef = db.collection('products');
 clearCollection(productsRef, 100).then(() => {
   fs.readFile(path.join(__dirname, DATA_FILE), (err, input) => {
-    return parse(input, {}, function(err, output) {
+    return parse(input, {}, (parseError, output) => {
+      if (parseError) {
+        console.error(parseError);
+      }
       console.log(`Uploading ${output.length} products...`);
       return Promise.all(output.map(processRecord))
         .then((results) => {

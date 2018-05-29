@@ -19,22 +19,22 @@
 import productJson from './devnooktests-products-export';
 
 const products = Object.keys(productJson).map(key => ({
-  id: key,
-  data: _ => (productJson[key])
+  key: key,
+  val: _ => (productJson[key])
 }));
 
-const get = _ => ({
+const once = _ => ({
   then: callback => {
     callback(products)
   }
 })
 
 const fbMock = {
-  firestore: _ => ({
-    collection: _ => ({
-      get,
-      doc: _ => ({
-        get
+  database: _ => ({
+    ref: _ => ({
+      once,
+      orderByChild: _ => ({
+        once
       })
     })
   })
