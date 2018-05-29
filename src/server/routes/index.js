@@ -16,28 +16,25 @@
  *  limitations under the License
  *
  */
-import fbAdmin from '../../services/firebase';
+const fei = require('firestore-export-import');
+fei.initializeApp(process.env.FB_KEYS,
+  'https://firebase.corp.google.com/u/0/project/pie-shop-app/');
+
 import categories from '../../data/categories';
 
-const index = (req, res, next) => {
-  fbAdmin.firestore().collection('products').get()
-    .then((snapshot) => {
-      const products = [];
-      snapshot.forEach(record => {
-        let product = record.data();
-        product.key = record.id;
-        products.push(product);
-      });
-      res.render('index', {
-        title: `The Shop`,
-        products: products,
-        categories: categories,
-        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
-        scripts: [
-          'js/index_main.js',
-        ],
-      });
+function index(req, res) {
+  fei.backup('home').then((data) => { // get data for home page content
+    res.render('index', {
+      categories: categories,
+      homeCategories: data.home.categories.data,
+      homeProducts: data.home.products.data,
+      scripts: [
+        '/js/index.js',
+        '/js/lazy-img.js',
+      ],
+
     });
-};
+  });
+}
 
 export default index;

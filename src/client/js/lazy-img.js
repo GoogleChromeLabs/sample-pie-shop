@@ -20,14 +20,11 @@
 
 const BASE_URL = 'https://res.cloudinary.com/pieshop/f_auto,dpr_auto,q_auto:eco/';
 
-// const SIZES = {
-//   0: 'calc(100vw - 60px)',
-//   420: 'calc((100vw - 90px) / 2)',
-//   750: 'calc((100vw - 120px) / 3)',
-//   1200: 'calc((100vw - 150px) / 4)'
-// }
+const BREAKPOINTS = [0, 420, 750, 1200];
+const DISPLAY_WIDTHS = ['calc(100vw - 60px)', 'calc((100vw - 90px) / 2)',
+  'calc((100vw - 120px) / 3)', 'calc((100vw - 150px) / 4)'];
 
-const WIDTHS = [500, 1000, 1500];
+const IMAGE_WIDTHS = [500, 1000, 1500];
 
 const options = {
   // rootMargin: top, right, bottom, left margins
@@ -41,33 +38,40 @@ const options = {
 function callback(entries) {
   for (const entry of entries) {
     if (entry.isIntersecting) {
-      const lazyImage = entry.target;
-      const id = lazyImage.dataset.id;
-      // lazyImage.sizes = getSizes();
-      lazyImage.srcset = getSrcset(id);
-      io.unobserve(lazyImage);
+      const image = entry.target;
+      const id = image.dataset.id;
+      image.srcset = getSrcset(id);
+      io.unobserve(image);
     }
   }
 }
 
 function getSrcset(id) {
   const srcset = [];
-  for (const width of WIDTHS) {
-    srcset.push(`${BASE_URL}w_${width}/${id}.jpg ${width}w`);
+  for (const width of IMAGE_WIDTHS) {
+    srcset.push(`${BASE_URL}w_${width}/${id}.png ${width}w`);
   }
   return srcset.join(',');
 }
 
-// function getSizes() {
-//   const sizes = [];
-//   for (const size in SIZES) { // eslint-disable-line
-//     sizes.push(`(min-width: ${size}px) ${SIZES[size]}`);
-//   }
-//   // return sizes.join(',');
+function getSizes() {
+  const sizes = [];
+  for (let i = 0; i !== BREAKPOINTS.length; ++i) {
+    let size = `(min-width: ${BREAKPOINTS[i]}px) `;
+    const nextBreakpoint = BREAKPOINTS[i + 1];
+    if (nextBreakpoint) {
+      size += `and (max-width: ${nextBreakpoint}px) `;
+    }
+    size += DISPLAY_WIDTHS[i];
+    sizes.push(size);
+  }
+  return sizes.join(',');
 
-//   // return '(max-width: 420px) calc(100vw - 60px), (min-width: 420px) and (max-width: 750px) calc((100vw - 90px) / 2), (min-width: 750px) and (max - width: 1200px) calc((100vw - 120px) / 3), (min - width: 1200px) calc((100vw - 150px) / 4)';
-
-// }
+//  return '(max-width: 419px) calc(100vw - 60px), (min-width: 420px) and
+// (max-width: 750px) calc((100vw - 90px) / 2), (min-width: 750 px) and
+// (max - width: 1200 px) calc((100 vw - 120 px) / 3),
+// (min - width: 1200 px) calc((100 vw - 150 px) / 4)';
+}
 
 const images = document.querySelectorAll('img.lazy');
 
@@ -79,10 +83,13 @@ if (window.IntersectionObserver) {
 }
 
 for (const image of images) {
+  image.sizes = getSizes();
   if (window.IntersectionObserver) {
-    io.observe(image);
+    io.observe(image); // adds srcset when img element is in view
   } else {
     console.log('Intersection Observer not supported');
-    image.src = BASE_URL + image.getAttribute('data-id' + '.jpg');
+    const id = image.getAttribute('data-id');
+    image.srcset = getSrcset(id);
+    image.src = BASE_URL + 'id' + '.jpg';
   }
 }

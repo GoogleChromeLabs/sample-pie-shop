@@ -16,12 +16,8 @@ import parse from 'csv-parse';
 import path from 'path';
 import fs from 'fs';
 import admin from '../src/services/firebase.js';
-import {
-  signaturize,
-  getNWords,
-} from '../src/shared/js/stringUtils';
 
-const DATA_FILE = '../products.csv';
+const DATA_FILE = '../src/data/products.csv';
 const CATEGORIES_FILE = '../src/data/categories.json';
 
 const COLUMNS = {
