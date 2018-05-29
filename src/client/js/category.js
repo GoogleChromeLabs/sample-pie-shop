@@ -16,12 +16,10 @@
  *  limitations under the License
  *
  */
- import lazyImg from './lazy-img.js';
 
- function initializeCategoryPage() {
-   console.log('TODO: Initializing category.')
- }
-
- export default function init() {
-   initializeCategoryPage();
- }
+const navLinks = document.querySelectorAll('nav a');
+for (const navLink of navLinks) {
+  if (navLink.href === location.href) {
+    navLink.classList.add('current');
+  }
+}

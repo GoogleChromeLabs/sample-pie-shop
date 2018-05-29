@@ -49,7 +49,7 @@ function callback(entries) {
 function getSrcset(id) {
   const srcset = [];
   for (const width of IMAGE_WIDTHS) {
-    srcset.push(`${BASE_URL}w_${width}/${id}.jpg ${width}w`);
+    srcset.push(`${BASE_URL}w_${width}/${id}.png ${width}w`);
   }
   return srcset.join(',');
 }

@@ -15,65 +15,8 @@
  */
 /* eslint max-len: ["off"] */
 
-import PieItem from '../../../src/client/js/pie-item.js';
+function test() {
+  return 0;
+}
 
-function prepare() {
-  this.container = document.createElement('div');
-  document.body.appendChild(this.container);
-};
-
-function cleanUp() {
-  this.container.remove();
-  this.container = null;
-};
-
-describe('PieItem', function() {
-
-  const pie = {
-    'calories' : 457,
-    'dough' : 'biscuit',
-    'filling' : 'curd',
-    'price' : 70,
-    'signature' : 'chocolate-curd-biscuit-x',
-    'topping' : 'chocolate',
-    'weight' : 370
-  };
-
-  before(prepare);
-  after(cleanUp);
-
-  beforeEach(function(done) {
-    this.container.innerHTML = `<pie-item></pie-item>`;
-    this.el = this.container.querySelector('pie-item');
-    customElements.whenDefined('pie-item')
-      .then(_ => {
-        this.el = this.container.querySelector('pie-item');
-        done();
-      });
-  });
-
-  it('Renders pie-img element', function() {
-    let img = this.el.querySelector('pie-img');
-    expect(img).to.not.be.null;
-  });
-
-  it('Renders price property', function() {
-    this.el.pie = pie;
-    let price = this.el.querySelector('.pie-price');
-    expect(price.innerText).to.equal(`price: ${pie.price}`);
-  });
-
-  it('Renders weight property', function() {
-    this.el.pie = pie;
-    let weight = this.el.querySelector('.pie-weight');
-    expect(weight.innerText).to.equal(`weight: ${pie.weight}`);
-  });
-
-  it('Passes properties to pie-img', function() {
-    this.el.pie = pie;
-    let img = this.el.querySelector('pie-img');
-    expect(img.getAttribute('topping')).to.equal(pie.topping);
-    expect(img.getAttribute('filling')).to.equal(pie.filling);
-    expect(img.getAttribute('dough')).to.equal(pie.dough);
-  });
-});
+test();

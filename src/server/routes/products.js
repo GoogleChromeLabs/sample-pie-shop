@@ -16,18 +16,27 @@
  *  limitations under the License
  *
  */
+import fbAdmin from '../../services/firebase';
+import categories from '../../data/categories';
 
-import Pie from '../../shared/js/pie.js';
-
-const pieImg = (req, res, next) => {
-  const pie = new Pie();
-  pie.topping = req.query.topping;
-  pie.filling = req.query.filling;
-  pie.dough = req.query.dough;
-  pie.deco = req.query.deco;
-  res.writeHead(200, {'Content-Type': 'image/svg+xml'});
-  res.write(pie.svg());
-  res.end();
+const index = (req, res, next) => {
+  fbAdmin.firestore().collection('products').get()
+    .then((snapshot) => {
+      const products = [];
+      snapshot.forEach((record) => {
+        const product = record.data();
+        product.key = record.id;
+        products.push(product);
+      });
+      res.render('products', {
+        title: `Pie Shop`,
+        products: products,
+        categories: categories,
+        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
+        scripts: [
+        ],
+      });
+    });
 };
 
-export default pieImg;
+export default index;

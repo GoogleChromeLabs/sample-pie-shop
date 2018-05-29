@@ -19,8 +19,6 @@
 
 import express from 'express';
 import path from 'path';
-// Uncomment after placing your favicon in /public.
-import favicon from 'serve-favicon';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
@@ -28,6 +26,8 @@ import hbs from 'express-handlebars';
 import session from 'express-session';
 
 import router from './router';
+
+import categories from '../data/categories';
 
 const app = express();
 const rootDir = path.join(__dirname, '..');
@@ -53,8 +53,6 @@ app.use(session({
   maxAge: 20 * 1000, // 20 sec
 }));
 
-// Uncomment after placing your favicon in /public.
-app.use(favicon(path.join(rootDir, '/client/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -77,7 +75,9 @@ app.use(function(err, req, res, next) {
 
   // Render the error page.
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {
+    categories: categories,
+  });
 });
 
 export default app;
