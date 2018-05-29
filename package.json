@@ -49,7 +49,7 @@
     "watch": "run-p 'watch:static:styles' 'watch:static:scripts' 'watch:static:images' 'watch:node'",
     "test:node": "./tasks/test-node.sh",
     "test:static": "karma start",
-    "test": "npm-run-all 'test:node' 'test:static'",
+    "test": "npm-run-all 'test:static'",
     "serve:nodemon": "nodemon node dist/server/server.js",
     "serve": "npm-run-all build --parallel 'watch' 'serve:nodemon'"
   },
