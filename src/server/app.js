@@ -33,8 +33,6 @@ const app = express();
 const rootDir = path.join(__dirname, '..');
 const staticDir = path.join(rootDir, 'static');
 
-
-
 app.engine('hbs', hbs({
   extname: 'hbs',
   defaultLayout: 'layout',
