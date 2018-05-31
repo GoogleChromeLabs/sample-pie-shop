@@ -23,6 +23,7 @@ const category = (req, res, next) => {
   const thisCategory = req.url.slice(1, );
   fbAdmin.firestore().collection('products').
     where('category', '==', thisCategory).get().then((snapshot) => {
+      console.log('>>>>>', snapshot);
       const products = [];
       snapshot.forEach((record) => {
         const product = record.data();
@@ -37,7 +38,7 @@ const category = (req, res, next) => {
           '/js/lazy-img.js',
         ],
       });
-    });
+    }).catch((error) => console.error('Error getting products:', error));
 };
 
 export default category;

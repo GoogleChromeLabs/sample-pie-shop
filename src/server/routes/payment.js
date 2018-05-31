@@ -17,14 +17,14 @@
  *
  */
 
-import fbAdmin from '../../services/firebase';
-import Cart from '../../services/cart';
+// import fbAdmin from '../../services/firebase';
+// import Cart from '../../services/cart';
 
 const payment = {
   get: (req, res, next) => {
     res.render('payment', {
       cart: req.session.cart,
-      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
+      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
     });
   },
   pay: (req, res, next) => {
@@ -33,9 +33,9 @@ const payment = {
   },
   confirm: (req, res, next) => {
     res.render('confirmation', {
-      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
+      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
     });
-  }
-}
+  },
+};
 
 export default payment;

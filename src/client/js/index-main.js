@@ -16,5 +16,5 @@
  *  limitations under the License
  *
  */
- import init from './index.js';
- init();
+import init from './index.js';
+init();
