@@ -16,5 +16,7 @@
  *  limitations under the License
  *
  */
-import init from './index.js';
-init();
+
+import initializeFirebase from './firebase.js';
+
+initializeFirebase();

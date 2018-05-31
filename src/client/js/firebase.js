@@ -16,10 +16,15 @@
  *  limitations under the License
  *
  */
-export default function getUrlParams(search) {
-  const params = search.slice(search.indexOf('?') + 1).split('&');
-  return params.reduce((output, param) => {
-    const [key, val] = param.split('=');
-    return Object.assign(output, {[key]: decodeURIComponent(val)});
-  }, {});
-}
+// const config = {
+//   apiKey: 'AIzaSyAhJEsYl-waHmh79ReYD1n3Ez6kicjHNT4',
+//   authDomain: 'devnooktests.firebaseapp.com',
+//   databaseURL: 'https://devnooktests.firebaseio.com',
+//   projectId: 'devnooktests',
+//   storageBucket: 'devnooktests.appspot.com',
+//   messagingSenderId: '465166485267',
+// };
+
+// export default function initializeFirebase() {
+//   firebase.initializeApp(config);
+// }
