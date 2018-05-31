@@ -219,7 +219,7 @@ img.product {
 }
 
 section#home-categories img {
-  height: 220px;
+  max-height: 220px;
   margin: 0 0 20px 0;
   max-width: 240px;
   width: 100%;
