@@ -12,49 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const firestoreService = require('firestore-export-import');
+const fei = require('firestore-export-import');
 
-firestoreService.initializeApp(process.env.FB_KEYS,
+fei.initializeApp(process.env.FB_KEYS,
   'https://firebase.corp.google.com/u/0/project/pie-shop-app/');
 
-firestoreService.restore('../src/data/home.json');
-
-// import admin from '../src/services/firebase.js';
-// import home from '../src/data/home.json';
-
-// const clearCollection = (collection, batchSize) => {
-//   const query = collection.orderBy('__name__').limit(batchSize);
-//   return new Promise((resolve, reject) => {
-//     deleteQueryBatch(db, query, batchSize, resolve, reject);
-//   });
-// };
-
-// const deleteQueryBatch = (db, query, batchSize, resolve, reject) => {
-//   query.get().then((snapshot) => {
-//     if (snapshot.size === 0) {
-//       return 0;
-//     }
-//     const batch = db.batch();
-//     snapshot.docs.forEach((doc) => {
-//       batch.delete(doc.ref);
-//     });
-//     return batch.commit().then(() => {
-//       return snapshot.size;
-//     });
-//   }).then((numDeleted) => {
-//     if (numDeleted === 0) {
-//       resolve();
-//       return;
-//     }
-//     process.nextTick(() => {
-//       deleteQueryBatch(db, query, batchSize, resolve, reject);
-//     });
-//   })
-//     .catch(reject);
-// };
-
-// const db = admin.firestore();
-// const productsRef = db.collection('home');
-// clearCollection(productsRef, 100).then(() => {
-//   db.collection('home').set(home);
-// });
+fei.restore('../src/data/home.json');

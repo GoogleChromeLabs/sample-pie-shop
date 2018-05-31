@@ -9,30 +9,30 @@ const BROWSERS = [
 
 module.exports = {
   entry: {
-    // main: './src/client/js/app.js',
+    main: './src/client/js/app.js',
     // listing_main: './src/client/js/listing-main.js',
     // index_main: './src/client/js/index-main.js',
     // category_main: './src/client/js/category-main.js',
   },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [['env', {
+    rules: [{
+      test: /\.js$/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ['env', {
               targets: {
                 browsers: BROWSERS,
               },
               modules: false,
-            }]],
-            plugins: ['syntax-dynamic-import'],
-            babelrc: false,
-          },
+            }]
+          ],
+          plugins: ['syntax-dynamic-import'],
+          babelrc: false,
         },
       },
-    ],
+    }, ],
   },
   output: {
     filename: '[name].js',

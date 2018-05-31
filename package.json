@@ -21,7 +21,6 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "firebase-admin": "^5.5.1",
-    "firestore-export-import": "^0.1.3",
     "mocha": "^5.2.0",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.5",
@@ -58,6 +57,7 @@
   },
   "devDependencies": {
     "csv-parse": "^2.0.4",
+    "firestore-export-import": "^0.1.3",
     "mockery": "^2.1.0",
     "stylelint": "^9.2.1",
     "stylelint-config-standard": "^18.2.0"
