@@ -23,7 +23,6 @@ const category = (req, res, next) => {
   const thisCategory = req.url.slice(1, );
   fbAdmin.firestore().collection('products').
     where('category', '==', thisCategory).get().then((snapshot) => {
-      console.log('>>>>>', snapshot);
       const products = [];
       snapshot.forEach((record) => {
         const product = record.data();
