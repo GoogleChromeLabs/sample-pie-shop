@@ -34,7 +34,8 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "./node_modules/.bin/eslint src/**/*.js",
+    "lint:eslint": "eslint 'src/**/*.js'",
+    "lint:stylelint": "stylelint 'src/**/*.css'",
     "build:static:images": "./tasks/build-static-images.sh",
     "watch:static:images": "./node_modules/.bin/watch 'npm run build:static:images' src/client/images",
     "build:static:styles": "./tasks/build-static-styles.sh",
@@ -57,7 +58,9 @@
   },
   "devDependencies": {
     "csv-parse": "^2.0.4",
-    "mockery": "^2.1.0"
+    "mockery": "^2.1.0",
+    "stylelint": "^9.2.1",
+    "stylelint-config-standard": "^18.2.0"
   },
   "nodemonConfig": {
     "watch": [
