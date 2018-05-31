@@ -6,7 +6,8 @@ language: node_js
 node_js:
   - 'lts/*'
 script:
-  - npm run lint
+  - npm run lint:eslint
+  - npm run lint:stylelint
   - npm run build
 #  - npm run test
 # before_script:
