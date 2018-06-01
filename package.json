@@ -40,6 +40,7 @@
     "build:static:scripts": "./tasks/build-static-scripts.sh",
     "build:static:styles": "./tasks/build-static-styles.sh",
     "clean": "rm -rf dist",
+    "lint": "npm-run-all --parallel lint:eslint lint:stylelint",
     "lint:eslint": "eslint 'src/**/*.js'",
     "lint:stylelint": "stylelint 'src/**/*.css'",
     "serve": "npm run build && npm-run-all --parallel watch server",
