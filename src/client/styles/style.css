@@ -209,8 +209,10 @@ img[srcset=''] {
 
 img.product {
   /* background-color: #eee; */
+
   /* color: #eee; */
   display: block;
+
   /* font-family: 'Roboto', sans-serif; */
   height: calc(100vw - 60px);
   line-height: 1.3em;

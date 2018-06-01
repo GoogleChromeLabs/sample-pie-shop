@@ -17,12 +17,13 @@
  *
  */
 
-import express from 'express';
-import path from 'path';
-import logger from 'morgan';
-import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import express from 'express';
+import flatCache from 'flat-cache';
 import hbs from 'express-handlebars';
+import logger from 'morgan';
+import path from 'path';
 import session from 'express-session';
 
 import router from './router';
@@ -32,6 +33,11 @@ import categories from '../data/categories';
 const app = express();
 const rootDir = path.join(__dirname, '..');
 const staticDir = path.join(rootDir, 'static');
+
+const cache = flatCache.load('cache', path.resolve('./cache'));
+const CACHE_EXPIRY = 5000;
+flatCache.clearAll();
+console.log('>>>>>>>>  cleared cache');
 
 app.engine('hbs', hbs({
   extname: 'hbs',
@@ -58,7 +64,30 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(staticDir));
-app.use('/', router);
+
+function checkCache(req, res, next) {
+  const key = '__express__' + req.originalUrl || req.url;
+  const cachedContent = cache.getKey(key);
+  if (cachedContent) {
+    console.log('\nUsing cached content', key);
+    res.send(cachedContent);
+  } else {
+    console.log('\nCaching content', key);
+    res.sendResponse = res.send;
+    res.send = function(body) {
+      res.sendResponse(body);
+      cache.setKey(key, body);
+      cache.save();      
+      setTimeout(function() {
+        cache.removeKey(key);
+      }, CACHE_EXPIRY);
+
+    };
+    next();
+  }
+}
+
+app.use(checkCache, router);
 
 // Catch 404 and forward to error handler.
 app.use(function(req, res, next) {
@@ -72,7 +101,7 @@ app.use(function(err, req, res, next) {
   // Set locals, only providing error in development.
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
+  console.error('>>>>> Error:', err);
   // Render the error page.
   res.status(err.status || 500);
   res.render('error', {
