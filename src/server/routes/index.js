@@ -17,30 +17,15 @@
  *
  */
 
-const fei = require('firestore-export-import');
-// fei.initializeApp(process.env.FB_KEYS,
-//   'https://firebase.corp.google.com/u/0/project/pie-shop-app/');
-
+import {getHomeData} from '../get-data';
 import categories from '../../data/categories';
 
-let localData;
-
 function index(req, res) {
-  if (localData) {
-    renderPage(res, localData);
-  } else {
-    fei.backup('home').then((data) => {
-      renderPage(res, data);
-      localData = data;
-    });
-  }
-}
-
-function renderPage(res, data) {
+  const data = getHomeData();
   res.render('index', {
     categories: categories,
-    homeCategories: data.home.categories.data,
-    homeProducts: data.home.products.data,
+    homeCategories: data.categories,
+    homeProducts: data.products,
     scripts: [
       '/js/index.js',
       '/js/lazy-img.js',
