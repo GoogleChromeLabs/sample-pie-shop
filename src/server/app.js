@@ -36,8 +36,6 @@ const staticDir = path.join(rootDir, 'static');
 
 const cache = flatCache.load('cache', path.resolve('./cache'));
 const CACHE_EXPIRY = 5000;
-flatCache.clearAll();
-console.log('>>>>>>>>  cleared cache');
 
 app.engine('hbs', hbs({
   extname: 'hbs',
