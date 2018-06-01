@@ -77,11 +77,10 @@ function checkCache(req, res, next) {
     res.send = function(body) {
       res.sendResponse(body);
       cache.setKey(key, body);
-      cache.save();      
+      cache.save();
       setTimeout(function() {
         cache.removeKey(key);
       }, CACHE_EXPIRY);
-
     };
     next();
   }
