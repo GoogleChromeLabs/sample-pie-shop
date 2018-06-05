@@ -17,12 +17,8 @@
  *
  */
 import index from './routes/index';
-import search from './routes/search';
 import category from './routes/category';
 import product from './routes/product';
-import cart from './routes/cart';
-import payment from './routes/payment';
-import products from './routes/products';
 
 // enable URLs like foo.com/accessories
 import categories from '../data/categories';
@@ -33,15 +29,8 @@ const categoryRoutes = categories.map((item) => {
 import {Router} from 'express';
 const router = new Router();
 
-router.get('/cart', cart);
 router.get(categoryRoutes, category);
-router.get('/confirmation', payment.confirm);
 router.get(/\/(index.html)?$/, index);
-router.get('/payment', payment.get);
-router.post('/payment', payment.pay);
-router.get('/product/:id', product.get);
-router.post('/product/:id/cart', product.addToCart);
-router.get('/products', products);
-router.get('/search', search);
+router.get('/*+*/', product);
 
 export default router;

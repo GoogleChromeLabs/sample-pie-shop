@@ -18,8 +18,10 @@
  */
 
 const navLinks = document.querySelectorAll('nav a');
+const category = document.querySelector('main').dataset.category;
+
 for (const navLink of navLinks) {
-  if (navLink.href === location.href) {
+  if (navLink.href.includes(category)) {
     navLink.classList.add('current');
   }
 }

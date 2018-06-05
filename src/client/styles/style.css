@@ -172,7 +172,6 @@ header h1::before {
 main h1 {
   grid-column-end: -1;
   grid-column-start: 1;
-  margin: 20px 0 0 0;
 }
 
 h2 {
@@ -218,6 +217,11 @@ img.product {
   line-height: 1.3em;
   margin: 0 0 20px 0;
   width: 100%;
+}
+
+main#product img {
+  height: calc(100vw - 56px);
+  width: calc(100vw - 56px);
 }
 
 section#home-categories img {
@@ -270,7 +274,14 @@ main#category {
   display: grid;
   grid-gap: 30px 30px;
   grid-template-columns: 1fr;
-  margin: 0 28px 30px 28px;
+  margin: 30px 28px 30px 28px;
+}
+
+main#product {
+  display: grid;
+  grid-gap: 30px 30px;
+  grid-template-columns: 1fr;
+  margin: 30px 28px 30px 28px;
 }
 
 nav {
@@ -489,7 +500,7 @@ menu:focus svg#open {
     padding: 0 0 6px 0;
   }
 
-  main h1 {
+  main#category h1 {
     display: none;
   }
 
@@ -524,7 +535,6 @@ menu:focus svg#open {
 
   nav {
     display: block;
-    margin: 0 0 30px 0;
   }
 
   section#home-categories {

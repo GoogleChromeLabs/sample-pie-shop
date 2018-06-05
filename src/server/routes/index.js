@@ -20,12 +20,12 @@
 import {getHomeData} from '../get-data';
 import categories from '../../data/categories';
 
+
 function index(req, res) {
-  const data = getHomeData();
   res.render('index', {
     categories: categories,
-    homeCategories: data.categories,
-    homeProducts: data.products,
+    homeCategories: getHomeData().categories,
+    homeProducts: getHomeData().products,
     scripts: [
       '/js/index.js',
       '/js/lazy-img.js',

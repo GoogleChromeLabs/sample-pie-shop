@@ -17,7 +17,7 @@
  *
  */
 
-import {getProductData} from '../get-data';
+import {getProducts} from '../get-data';
 import categories from '../../data/categories';
 
 function category(req, res) {
@@ -25,7 +25,7 @@ function category(req, res) {
   res.render('category', {
     categories: categories,
     category: thisCategory,
-    products: getProductData(thisCategory),
+    products: getProducts(thisCategory),
     scripts: [
       '/js/category.js',
       '/js/lazy-img.js',

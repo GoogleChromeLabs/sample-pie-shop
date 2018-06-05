@@ -28,7 +28,7 @@ import session from 'express-session';
 
 import router from './router';
 
-import {getHomeData, getProductData} from './get-data';
+import {getHomeData, getProducts} from './get-data';
 import categories from '../data/categories';
 
 const app = express();
@@ -39,7 +39,7 @@ const staticDir = path.join(rootDir, 'static');
 // const CACHE_EXPIRY = 30000;
 
 getHomeData();
-getProductData();
+getProducts();
 
 app.engine('hbs', hbs({
   extname: 'hbs',
