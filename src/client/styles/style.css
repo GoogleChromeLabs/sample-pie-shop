@@ -1,3 +1,7 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 a {
   text-decoration: none;
 }
@@ -125,6 +129,21 @@ main#category div {
   text-align: center;
 }
 
+main#product div#description {
+  color: #444;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.3em;
+  margin: 0 0 20px 30px;
+}
+
+main#product div#price {
+  color: #444;
+  font-size: 22px;
+  font-weight: 100;
+  margin: 0 0 25px 30px;
+}
+
 div.shop-now {
   margin: 0 0 20px 0;
 }
@@ -170,8 +189,14 @@ header h1::before {
 }
 
 main h1 {
-  grid-column-end: -1;
-  grid-column-start: 1;
+/*   grid-column-end: -1;
+  grid-column-start: 1; */
+}
+
+main#product h1 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 25px 30px;
 }
 
 h2 {
@@ -220,8 +245,9 @@ img.product {
 }
 
 main#product img {
-  height: calc(100vw - 56px);
-  width: calc(100vw - 56px);
+  height: 100vw;
+  margin: 0 0 15px 0;
+  width: 100vw;
 }
 
 section#home-categories img {
@@ -279,9 +305,8 @@ main#category {
 
 main#product {
   display: grid;
-  grid-gap: 30px 30px;
+  grid-gap: 20px 30px;
   grid-template-columns: 1fr;
-  margin: 30px 28px 30px 28px;
 }
 
 nav {
@@ -442,6 +467,15 @@ menu:focus svg#open {
 /* media queries start */
 
 @media all and (min-width: 420px) {
+
+  main#product div#description {
+    margin: 0 0 30px 0;
+  }
+
+  main#product div#price {
+    margin: 0 0 30px 0;
+  }
+
   header {
     grid-template-columns: 89px 122px auto 72px;
   }
@@ -449,6 +483,12 @@ menu:focus svg#open {
   header h1 {
     font-size: 28px;
     justify-self: start;
+  }
+
+  main#product h1 {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0 0 30px 0;
   }
 
   img.product {
@@ -459,12 +499,22 @@ menu:focus svg#open {
     height: calc((100vw - 250px) / 2);
   }
 
+  main#product img {
+    height: 50vw;
+    width: 50vw;
+  }
+
   input#search {
     padding: 7px;
   }
 
   main#category {
     grid-template-columns: 1fr 1fr;
+  }
+
+  main#product {
+    grid-template-columns: 1fr 1fr;
+    padding: 30px 0 13px 28px;
   }
 
   section#home-categories {

@@ -1,7 +1,8 @@
 <main id="product" data-category="{{product.category}}">
-
-  <h1>{{product.name}}</h1>
-
   <img class="lazy" data-id="{{product.id}}" alt="{{product.name}}" srcset=""></img>
-
+  <div>
+    <h1>{{product.name}}</h1>
+    <div id="price">${{product.price}}</div>
+    <div id="description">{{product.description}}</div>
+  </div>
 </main>
