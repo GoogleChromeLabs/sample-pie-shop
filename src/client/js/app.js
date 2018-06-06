@@ -18,7 +18,5 @@
  */
 
 import initializeFirebase from './firebase.js';
-import initializeProducts from './listing.js';
 
 initializeFirebase();
-initializeProducts();

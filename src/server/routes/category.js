@@ -37,7 +37,7 @@ const category = (req, res, next) => {
           '/js/lazy-img.js',
         ],
       });
-    });
+    }).catch((error) => console.error('Error getting products:', error));
 };
 
 export default category;

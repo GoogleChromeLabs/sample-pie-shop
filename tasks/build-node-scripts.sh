@@ -19,5 +19,5 @@ OPTIONS="-s"
 fi
 
 $BABEL $OPTIONS --out-dir=$OUTDIR/server src/server &&
-$BABEL $OPTIONS --out-dir=$OUTDIR/shared/js src/shared/js &&
+#$BABEL $OPTIONS --out-dir=$OUTDIR/shared/js src/shared/js &&
 $BABEL $OPTIONS --out-dir=$OUTDIR/services src/services

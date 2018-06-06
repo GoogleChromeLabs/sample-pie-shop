@@ -27,13 +27,13 @@ const product = {
       .collection('products')
       .doc(productId).get()
       .then((snapshot) => {
-      res.render('product', {
-        product: snapshot.data(),
-        key: snapshot.id,
-        productId: productId,
-        cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0
+        res.render('product', {
+          product: snapshot.data(),
+          key: snapshot.id,
+          productId: productId,
+          cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
+        });
       });
-    });
   },
   addToCart: (req, res, next) => {
     const cart = new Cart(req.session.cart);
@@ -43,7 +43,7 @@ const product = {
         if (snapshot.val()) {
           const item = {
             key: snapshot.key,
-            product: snapshot.val()
+            product: snapshot.val(),
           };
           cart.add(item, 1);
         } else {
@@ -54,6 +54,6 @@ const product = {
         res.redirect(['/', back].join(''));
       });
   },
-}
+};
 
 export default product;
