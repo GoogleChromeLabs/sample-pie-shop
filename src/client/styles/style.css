@@ -32,11 +32,11 @@ a#basket[data-badge='']::after {
 }
 
 footer a {
-  color: #ccc;
+  color: #666;
 }
 
 footer a:hover {
-  color: white;
+  color: black;
 }
 
 h1 a {
@@ -151,9 +151,9 @@ div.shop-now {
 }
 
 footer {
-  background-color: #444;
-  box-shadow: 0 -2px 5px 0 rgba(0, 0, 0, 0.16);
-  color: white;
+  /* background-color: #444; */
+  border-top: 1px solid #ccc;
+  /* box-shadow: 0 -2px 5px 0 rgba(0, 0, 0, 0.16); */
   font-family: 'Roboto', sans-serif;
   padding: 10px 30px 10px 30px;
 }
@@ -253,6 +253,10 @@ main#product img {
   width: 100vw;
 }
 
+main {
+  margin: 0 0 30px 0;
+}
+
 section#home-categories img {
   height: 220px;
   margin: 0 0 20px 0;
@@ -339,7 +343,7 @@ main p.price {
 }
 
 footer p {
-  color: #ccc;
+  color: #666;
   margin: 20px 0;
 }
 
