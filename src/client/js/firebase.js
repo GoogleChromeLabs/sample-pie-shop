@@ -16,15 +16,3 @@
  *  limitations under the License
  *
  */
-// const config = {
-//   apiKey: 'AIzaSyAhJEsYl-waHmh79ReYD1n3Ez6kicjHNT4',
-//   authDomain: 'devnooktests.firebaseapp.com',
-//   databaseURL: 'https://devnooktests.firebaseio.com',
-//   projectId: 'devnooktests',
-//   storageBucket: 'devnooktests.appspot.com',
-//   messagingSenderId: '465166485267',
-// };
-
-// export default function initializeFirebase() {
-//   firebase.initializeApp(config);
-// }

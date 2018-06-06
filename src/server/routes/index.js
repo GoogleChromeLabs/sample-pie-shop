@@ -18,8 +18,6 @@
  */
 
 const fei = require('firestore-export-import');
-// fei.initializeApp(process.env.FB_KEYS,
-//   'https://firebase.corp.google.com/u/0/project/pie-shop-app/');
 
 import categories from '../../data/categories';
 
