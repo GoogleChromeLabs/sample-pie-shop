@@ -134,14 +134,16 @@ main#product div#description {
   font-size: 18px;
   font-weight: 300;
   line-height: 1.3em;
-  margin: 0 0 20px 30px;
+  margin: 0 0 20px 0;
+  padding: 0 28px 0 28px;
 }
 
 main#product div#price {
   color: #444;
   font-size: 22px;
   font-weight: 100;
-  margin: 0 0 25px 30px;
+  margin: 0 0 25px 0;
+  padding: 0 28px 0 28px;
 }
 
 div.shop-now {
@@ -196,7 +198,8 @@ main h1 {
 main#product h1 {
   font-size: 24px;
   font-weight: 400;
-  margin: 0 0 25px 30px;
+  margin: 0 0 25px 0;
+  padding: 0 28px 0 28px;
 }
 
 h2 {
@@ -307,6 +310,7 @@ main#product {
   display: grid;
   grid-gap: 20px 30px;
   grid-template-columns: 1fr;
+  padding: 0;
 }
 
 nav {
@@ -467,13 +471,14 @@ menu:focus svg#open {
 /* media queries start */
 
 @media all and (min-width: 420px) {
-
   main#product div#description {
     margin: 0 0 30px 0;
+    padding: 0;
   }
 
   main#product div#price {
     margin: 0 0 30px 0;
+    padding: 0;
   }
 
   header {
@@ -489,6 +494,7 @@ menu:focus svg#open {
     font-size: 30px;
     font-weight: 300;
     margin: 0 0 30px 0;
+    padding: 0;
   }
 
   img.product {
@@ -514,7 +520,7 @@ menu:focus svg#open {
 
   main#product {
     grid-template-columns: 1fr 1fr;
-    padding: 30px 0 13px 28px;
+    padding: 30px 28px 13px 28px;
   }
 
   section#home-categories {
