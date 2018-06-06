@@ -27,7 +27,7 @@ function category(req, res) {
     category: thisCategory,
     products: getProducts(thisCategory),
     scripts: [
-      '/js/category.js',
+      '/js/highlight-category.js',
       '/js/lazy-img.js',
     ],
   });

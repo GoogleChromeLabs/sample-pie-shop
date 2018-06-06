@@ -153,6 +153,7 @@ div.shop-now {
 footer {
   /* background-color: #444; */
   border-top: 1px solid #ccc;
+
   /* box-shadow: 0 -2px 5px 0 rgba(0, 0, 0, 0.16); */
   font-family: 'Roboto', sans-serif;
   padding: 10px 30px 10px 30px;
@@ -300,7 +301,7 @@ input:focus::placeholder {
 }
 
 main#error {
-  padding: 30px;
+  padding: 30px 30px 60px 30px;
 }
 
 main#category {

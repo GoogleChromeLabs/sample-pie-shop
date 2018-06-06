@@ -20,17 +20,24 @@
 import {getProduct} from '../get-data';
 import categories from '../../data/categories';
 
-function product(req, res) {
+function product(req, res, next) {
   const productUrl = req.url.slice(1, );
   const thisProduct = getProduct(productUrl);
-  res.render('product', {
-    categories: categories,
-    product: thisProduct,
-    scripts: [
-      '/js/lazy-img.js',
-      '/js/category.js',
-    ],
-  });
+  if (thisProduct) {
+    res.render('product', {
+      categories: categories,
+      product: thisProduct,
+      scripts: [
+        '/js/lazy-img.js',
+        '/js/highlight-category.js',
+      ],
+    });
+  } else {
+    res.status(404);
+    const error = new Error(`URL ${productUrl} not found`);
+    error.status = 404;
+    next(error);
+  }
 }
 
 export default product;
