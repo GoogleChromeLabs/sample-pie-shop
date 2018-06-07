@@ -17,43 +17,27 @@
  *
  */
 
-import fbAdmin from '../../services/firebase';
-import Cart from '../../services/cart';
+import {getProduct} from '../get-data';
+import categories from '../../data/categories';
 
-const product = {
-  get: (req, res, next) => {
-    const productId = req.params.id.split(';')[0];
-    fbAdmin.firestore()
-      .collection('products')
-      .doc(productId).get()
-      .then((snapshot) => {
-        res.render('product', {
-          product: snapshot.data(),
-          key: snapshot.id,
-          productId: productId,
-          cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
-        });
-      });
-  },
-  addToCart: (req, res, next) => {
-    const cart = new Cart(req.session.cart);
-    fbAdmin.database().ref('/products/' + req.params.id)
-      .once('value')
-      .then((snapshot) => {
-        if (snapshot.val()) {
-          const item = {
-            key: snapshot.key,
-            product: snapshot.val(),
-          };
-          cart.add(item, 1);
-        } else {
-          req.session.notify = 'No item found :(';
-        }
-        const back = req.query.back || '';
-        req.session.cart = cart;
-        res.redirect(['/', back].join(''));
-      });
-  },
-};
+function product(req, res, next) {
+  const productUrl = req.url.slice(1, );
+  const thisProduct = getProduct(productUrl);
+  if (thisProduct) {
+    res.render('product', {
+      categories: categories,
+      product: thisProduct,
+      scripts: [
+        '/js/lazy-img.js',
+        '/js/highlight-category.js',
+      ],
+    });
+  } else {
+    res.status(404);
+    const error = new Error(`URL ${productUrl} not found`);
+    error.status = 404;
+    next(error);
+  }
+}
 
 export default product;

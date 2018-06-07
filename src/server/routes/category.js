@@ -16,28 +16,21 @@
  *  limitations under the License
  *
  */
-import fbAdmin from '../../services/firebase';
+
+import {getProducts} from '../get-data';
 import categories from '../../data/categories';
 
-const category = (req, res, next) => {
+function category(req, res) {
   const thisCategory = req.url.slice(1, );
-  fbAdmin.firestore().collection('products').
-    where('category', '==', thisCategory).get().then((snapshot) => {
-      const products = [];
-      snapshot.forEach((record) => {
-        const product = record.data();
-        products.push(product);
-      });
-      res.render('category', {
-        categories: categories,
-        category: thisCategory,
-        products: products,
-        scripts: [
-          '/js/category.js',
-          '/js/lazy-img.js',
-        ],
-      });
-    }).catch((error) => console.error('Error getting products:', error));
-};
+  res.render('category', {
+    categories: categories,
+    category: thisCategory,
+    products: getProducts(thisCategory),
+    scripts: [
+      '/js/highlight-category.js',
+      '/js/lazy-img.js',
+    ],
+  });
+}
 
 export default category;

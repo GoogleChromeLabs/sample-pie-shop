@@ -27,11 +27,15 @@ import session from 'express-session';
 
 import router from './router';
 
+import {getHomeData, getProducts} from './get-data';
 import categories from '../data/categories';
 
 const app = express();
 const rootDir = path.join(__dirname, '..');
 const staticDir = path.join(rootDir, 'static');
+
+getHomeData();
+getProducts();
 
 app.engine('hbs', hbs({
   extname: 'hbs',
@@ -73,7 +77,7 @@ app.use(function(err, req, res, next) {
   // Set locals, only providing error in development.
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-  console.error('>>>>> Error:', err);
+  console.error('Error in app.js:', err);
   // Render the error page.
   res.status(err.status || 500);
   res.render('error', {

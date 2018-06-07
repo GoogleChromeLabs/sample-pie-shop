@@ -17,28 +17,15 @@
  *
  */
 
-const fei = require('firestore-export-import');
-
+import {getHomeData} from '../get-data';
 import categories from '../../data/categories';
 
-let localData;
 
 function index(req, res) {
-  if (localData) {
-    renderPage(res, localData);
-  } else {
-    fei.backup('home').then((data) => {
-      renderPage(res, data);
-      localData = data;
-    });
-  }
-}
-
-function renderPage(res, data) {
   res.render('index', {
     categories: categories,
-    homeCategories: data.home.categories.data,
-    homeProducts: data.home.products.data,
+    homeCategories: getHomeData().categories,
+    homeProducts: getHomeData().products,
     scripts: [
       '/js/index.js',
       '/js/lazy-img.js',

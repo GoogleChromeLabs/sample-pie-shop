@@ -1,7 +1,8 @@
-<main id="product">
-
-  <h1>{{category}}</h1>
-
-  {{#each products}} {{> product product=this}} {{/each}}
-
+<main id="product" data-category="{{product.category}}">
+  <img class="lazy" data-id="{{product.id}}" alt="{{product.name}}" srcset=""></img>
+  <div>
+    <h1>{{product.name}}</h1>
+    <div id="price">${{product.price}}</div>
+    <div id="description">{{product.description}}</div>
+  </div>
 </main>
