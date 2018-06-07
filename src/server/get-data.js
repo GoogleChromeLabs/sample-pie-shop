@@ -26,11 +26,9 @@ let productData;
 
 export function getHomeData() {
   if (homeData) {
-    // console.log('>>>>>> had homeData', homeData);
     return homeData;
   } else {
     fei.backup('home').then((data) => {
-      // console.log('>>>>>> got homeData', data);
       homeData = {
         categories: data.home.categories.data,
         products: data.home.products.data,
