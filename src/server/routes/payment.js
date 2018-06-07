@@ -17,9 +17,6 @@
  *
  */
 
-// import fbAdmin from '../../services/firebase';
-// import Cart from '../../services/cart';
-
 const payment = {
   get: (req, res, next) => {
     res.render('payment', {

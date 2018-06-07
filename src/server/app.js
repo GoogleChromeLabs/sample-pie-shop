@@ -20,7 +20,6 @@
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import express from 'express';
-// import flatCache from 'flat-cache';
 import hbs from 'express-handlebars';
 import logger from 'morgan';
 import path from 'path';
@@ -34,9 +33,6 @@ import categories from '../data/categories';
 const app = express();
 const rootDir = path.join(__dirname, '..');
 const staticDir = path.join(rootDir, 'static');
-
-// const cache = flatCache.load('cache', path.resolve('./cache'));
-// const CACHE_EXPIRY = 30000;
 
 getHomeData();
 getProducts();
@@ -67,28 +63,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(staticDir));
 
-// function checkCache(req, res, next) {
-//   const key = '__express__' + req.originalUrl || req.url;
-//   setTimeout(function() {
-//     cache.removeKey(key);
-//   }, CACHE_EXPIRY);
-//   const cachedContent = cache.getKey(key);
-//   if (cachedContent) {
-//     console.log('\nUsing cached content', key);
-//     res.send(cachedContent);
-//   } else {
-//     console.log('\nCaching content', key);
-//     res.sendResponse = res.send;
-//     res.send = function(body) {
-//       res.sendResponse(body);
-//       cache.setKey(key, body);
-//       cache.save();
-//     };
-//     next();
-//   }
-// }
-
-// app.use(checkCache, router);
 app.use(router);
 
 // Catch 404 and forward to error handler.
