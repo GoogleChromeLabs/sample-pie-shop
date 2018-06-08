@@ -16,21 +16,5 @@
  *  limitations under the License
  *
  */
-
-import {getHomeData} from '../get-data';
-import categories from '../../data/categories';
-
-
-function index(req, res) {
-  res.render('index', {
-    categories: categories,
-    homeCategories: getHomeData().categories,
-    homeProducts: getHomeData().products,
-    scripts: [
-      '/js/home_main.js',
-    ],
-    layout: req.query.fragment ? 'fragment' : 'layout'
-  });
-}
-
-export default index;
+import init from './home.js';
+init();

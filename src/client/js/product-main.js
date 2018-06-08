@@ -16,3 +16,5 @@
  *  limitations under the License
  *
  */
+import init from './product.js';
+init();

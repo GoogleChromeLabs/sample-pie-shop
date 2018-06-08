@@ -17,11 +17,11 @@
  *
  */
 
-const navLinks = document.querySelectorAll('nav a');
-const category = document.querySelector('main').dataset.category;
+export default function highlightCurrentCategory() {
+  const navLinks = document.querySelectorAll('nav a');
+  const category = document.querySelector('main').dataset.category;
 
-for (const navLink of navLinks) {
-  if (navLink.href.includes(category)) {
-    navLink.classList.add('current');
+  for (const navLink of navLinks) {
+    navLink.classList.toggle('current', navLink.href.includes(category));
   }
 }
