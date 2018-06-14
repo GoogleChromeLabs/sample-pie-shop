@@ -28,6 +28,7 @@ function category(req, res) {
     products: getProducts(thisCategory),
     scripts: [
       '/js/category_main.js',
+      '/js/add-to-cart.js',
     ],
     layout: req.query.fragment ? 'fragment' : 'layout',
   });
