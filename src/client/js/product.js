@@ -20,11 +20,11 @@
 import {instance as lazyImg} from './lazy-img.js';
 // import {instance as globalRouter} from './router.js';
 import highlightCategory from './highlight-category.js';
-import AddToCart from 'js/add-to-cart';
+import Cart from './cart';
 
 function initializeProductPage() {
   lazyImg.loadImages();
-  AddToCart.addHandlers();
+  Cart.init();
   highlightCategory();
 }
 

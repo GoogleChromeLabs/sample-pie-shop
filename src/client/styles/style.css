@@ -6,13 +6,13 @@ a {
   text-decoration: none;
 }
 
-a#basket {
+a#cart {
   padding: 0 0 0 18px;
   position: relative;
   top: 7px;
 }
 
-a#basket::after {
+a#cart::after {
   background-color: red;
   border-radius: 50%;
   color: white;
@@ -20,14 +20,17 @@ a#basket::after {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: bold;
+  height: 17px;
   left: 25px;
-  padding: 3px;
+  padding: 3px 1px 0 0;
   position: absolute;
   text-align: center;
-  top: -33px;
+  top: -10px;
+  width: 18px;
 }
 
-a#basket[data-badge='']::after {
+a#cart[data-badge='']::after,
+a#cart[data-badge='0']::after {
   display: none;
 }
 
@@ -398,11 +401,11 @@ div.shop-now svg {
   width: 22px;
 }
 
-#basket svg {
+#cart svg {
   fill: white;
   height: 40px;
-  position: absolute;
-  top: -22px;
+  /* position: absolute; */
+  /* top: -22px; */
   width: 40px;
 }
 
@@ -546,11 +549,11 @@ menu:focus svg#open {
 }
 
 @media all and (min-width: 750px) {
-  a#basket {
+  a#cart {
     padding: 0 0 0 35px;
   }
 
-  a#basket::after {
+  a#cart::after {
     left: 42px;
   }
 

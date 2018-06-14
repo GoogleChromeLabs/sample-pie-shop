@@ -17,12 +17,14 @@
  *
  */
 
-import { instance as lazyImg } from './lazy-img.js';
-import { instance as globalRouter } from './router.js';
+import {instance as lazyImg} from './lazy-img.js';
+// import { instance as globalRouter } from './router.js';
 import highlightCategory from './highlight-category.js';
+import Cart from './cart';
 
 function initializeCategoryPage() {
   lazyImg.loadImages();
+  Cart.init();
   highlightCategory();
 }
 
