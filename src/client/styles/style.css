@@ -22,10 +22,10 @@ a#cart::after {
   font-weight: bold;
   height: 17px;
   left: 25px;
-  padding: 3px 1px 0 0;
+  padding: 3px 1px 0 1px;
   position: absolute;
   text-align: center;
-  top: -10px;
+  top: -36px;
   width: 18px;
 }
 
