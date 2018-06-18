@@ -19,14 +19,11 @@
 
 
 const BASE_URL = 'https://res.cloudinary.com/pieshop/f_auto,dpr_auto,q_auto:eco/';
-
 const BREAKPOINTS = [0, 420, 750, 1200];
 const DISPLAY_WIDTHS = ['calc(100vw - 60px)', 'calc((100vw - 90px) / 2)',
   'calc((100vw - 120px) / 3)', 'calc((100vw - 150px) / 4)'];
-
 const IMAGE_WIDTHS = [500, 1000, 1500];
-
-const options = {
+const OPTIONS = {
   // rootMargin: top, right, bottom, left margins
   // added to the bounding box of the root element (viewport if not defined)
   // see https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver
@@ -38,7 +35,7 @@ const options = {
 class LazyImg {
   constructor() {
     if (window.IntersectionObserver) {
-      this._io = new IntersectionObserver(this._loadImages.bind(this), options);
+      this._io = new IntersectionObserver(this._loadImages.bind(this), OPTIONS);
     }
   }
 

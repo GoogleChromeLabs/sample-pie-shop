@@ -26,11 +26,12 @@ function product(req, res, next) {
   if (thisProduct) {
     res.render('product', {
       categories: categories,
+      layout: req.query.fragment ? 'fragment' : 'layout',
       product: thisProduct,
       scripts: [
         '/js/product_main.js',
       ],
-      layout: req.query.fragment ? 'fragment' : 'layout',
+      title: `pieshop: ${thisProduct.name}`,
     });
   } else {
     res.status(404);

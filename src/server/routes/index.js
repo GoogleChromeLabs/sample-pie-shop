@@ -26,10 +26,11 @@ function index(req, res) {
     categories: categories,
     homeCategories: getHomeData().categories,
     homeProducts: getHomeData().products,
+    layout: req.query.fragment ? 'fragment' : 'layout',
     scripts: [
       '/js/home_main.js',
     ],
-    layout: req.query.fragment ? 'fragment' : 'layout'
+    title: 'pieshop',
   });
 }
 

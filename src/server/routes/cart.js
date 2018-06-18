@@ -17,11 +17,15 @@
  *
  */
 
+import categories from '../../data/categories';
+
 const cart = (req, res, next) => {
   res.render('cart', {
+    categories: categories,
+    scripts: [
+      '/js/category_main.js',
+    ],
     title: 'Cart',
-    cart: req.session.cart,
-    cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
     layout: req.query.fragment ? 'fragment' : 'layout',
   });
 };

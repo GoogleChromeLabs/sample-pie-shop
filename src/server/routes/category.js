@@ -25,11 +25,12 @@ function category(req, res) {
   res.render('category', {
     categories: categories,
     category: thisCategory,
+    layout: req.query.fragment ? 'fragment' : 'layout',
     products: getProducts(thisCategory),
     scripts: [
       '/js/category_main.js',
     ],
-    layout: req.query.fragment ? 'fragment' : 'layout',
+    title: `pieshop: ${thisCategory}`,
   });
 }
 
