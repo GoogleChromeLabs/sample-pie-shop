@@ -60,6 +60,10 @@ class Router {
       target = this._getParentByTagName(target, 'A');
       if (!target) return;
     }
+    // If no href, just let the click pass through.
+    if (!target.href) {
+      return;
+    }
     const link = new URL(target.href);
     // If it’s an external link, just navigate.
     if (link.host !== this._hostname) {
