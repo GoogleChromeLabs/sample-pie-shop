@@ -17,7 +17,7 @@
  *
  */
 
-import { instance as lazyImg } from './lazy-img.js';
+import {instance as lazyImg} from './lazy-img.js';
 import highlightCategory from './highlight-category.js';
 
 class Router {
@@ -40,7 +40,7 @@ class Router {
     parent = node.parentNode;
     tagname = tagname.toUpperCase();
 
-    while (parent.tagName !== "HTML") {
+    while (parent.tagName !== 'HTML') {
       if (parent.tagName === tagname) {
         return parent;
       }
@@ -68,7 +68,7 @@ class Router {
 
     event.preventDefault();
     this.navigate(link)
-      .catch(err => console.error(err.stack));
+      .catch((err) => console.error(err.stack));
   }
 
   static get TRANSITION_DURATION() {
@@ -95,10 +95,10 @@ class Router {
     newView.setAttribute('id', 'main-view');
     link.searchParams.append('fragment', true);
     const fragmentURL = link.toString();
-    let load = async function() {
+    const load = async function() {
       let fragment;
       try {
-        fragment = await fetch(fragmentURL).then(resp => resp.text());
+        fragment = await fetch(fragmentURL).then((resp) => resp.text());
       } catch (e) {
         fragment = 'This content is not available.';
       }
@@ -113,8 +113,8 @@ class Router {
     history.scrollRestoration = 'manual';
 
     if (pushState) {
-      history.replaceState({ scrollTop: document.scrollingElement.scrollTop }, '');
-      history.pushState({ scrollTop }, '', link.toString());
+      history.replaceState({scrollTop: document.scrollingElement.scrollTop}, '');
+      history.pushState({scrollTop}, '', link.toString());
     }
     const oldView = document.querySelector('#main-view');
     const viewAnimation = this._animateOut(oldView);
@@ -133,7 +133,7 @@ class Router {
 }
 
 function transitionEndPromise(element) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     element.addEventListener('transitionend', function f() {
       element.removeEventListener('transitionend', f);
       resolve();
@@ -142,10 +142,8 @@ function transitionEndPromise(element) {
 }
 
 function requestAnimationFramePromise() {
-  return new Promise(resolve => requestAnimationFrame(resolve));
+  return new Promise((resolve) => requestAnimationFrame(resolve));
 }
 
-
-
 const instance = new Router();
-export { Router, instance };
+export {Router, instance};

@@ -78,7 +78,7 @@ class LazyImg {
     for (const entry of entries) {
       if (entry.isIntersecting) {
         const image = entry.target;
-        this._setSrcSet(image); 
+        this._setSrcSet(image);
         this._io.unobserve(image);
       }
     }
@@ -91,7 +91,7 @@ class LazyImg {
       if (this._io) {
         this._io.observe(image); // adds srcset when img element is in view
       } else {
-        this._setSrcSet(image); 
+        this._setSrcSet(image);
         image.src = BASE_URL + 'id' + '.jpg';
       }
       image.classList.remove('lazy');
@@ -100,4 +100,4 @@ class LazyImg {
 }
 
 const instance = new LazyImg();
-export { LazyImg, instance };
+export {LazyImg, instance};

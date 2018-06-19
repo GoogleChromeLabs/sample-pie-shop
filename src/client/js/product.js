@@ -17,8 +17,7 @@
  *
  */
 
-import { instance as lazyImg } from './lazy-img.js';
-import { instance as globalRouter } from './router.js';
+import {instance as lazyImg} from './lazy-img.js';
 import highlightCategory from './highlight-category.js';
 
 function initializeProductPage() {

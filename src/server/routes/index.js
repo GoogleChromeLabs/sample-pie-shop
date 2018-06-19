@@ -29,7 +29,7 @@ function index(req, res) {
     scripts: [
       '/js/home_main.js',
     ],
-    layout: req.query.fragment ? 'fragment' : 'layout'
+    layout: req.query.fragment ? 'fragment' : 'layout',
   });
 }
 
