@@ -149,4 +149,4 @@ function requestAnimationFramePromise() {
   return new Promise((resolve) => requestAnimationFrame(resolve));
 }
 
-export {Router, instance};
+export {Router};

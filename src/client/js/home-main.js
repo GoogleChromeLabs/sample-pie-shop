@@ -17,6 +17,6 @@
  *
  */
 import init from './home.js';
-import { Router } from './router';
-const instance = new Router();
+import {Router} from './router';
+new Router();
 init();

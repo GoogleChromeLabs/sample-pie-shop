@@ -18,4 +18,5 @@
  */
 import init from './product.js';
 import {Router} from './router';
+new Router();
 init();
