@@ -21,16 +21,16 @@ import {getProduct} from '../get-data';
 import categories from '../../data/categories';
 
 function product(req, res, next) {
-  const productUrl = req.url.slice(1, );
+  const productUrl = req.path.slice(1, );
   const thisProduct = getProduct(productUrl);
   if (thisProduct) {
     res.render('product', {
       categories: categories,
       product: thisProduct,
       scripts: [
-        '/js/lazy-img.js',
-        '/js/highlight-category.js',
+        '/js/product_main.js',
       ],
+      layout: req.query.fragment ? 'fragment' : 'layout',
     });
   } else {
     res.status(404);

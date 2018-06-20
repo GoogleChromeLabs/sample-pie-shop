@@ -35,61 +35,69 @@ const options = {
   // includes padding, 1.0 means 100%
 };
 
-function callback(entries) {
-  for (const entry of entries) {
-    if (entry.isIntersecting) {
-      const image = entry.target;
-      const id = image.dataset.id;
-      image.srcset = getSrcset(id);
-      io.unobserve(image);
+class LazyImg {
+  constructor() {
+    if (window.IntersectionObserver) {
+      this._io = new IntersectionObserver(this._loadImages.bind(this), options);
+    }
+  }
+
+  _getSrcset(id) {
+    const srcset = [];
+    for (const width of IMAGE_WIDTHS) {
+      srcset.push(`${BASE_URL}w_${width}/${id}.png ${width}w`);
+    }
+    return srcset.join(',');
+  }
+
+  _getSizes() {
+    const sizes = [];
+    for (let i = 0; i !== BREAKPOINTS.length; ++i) {
+      let size = `(min-width: ${BREAKPOINTS[i]}px) `;
+      const nextBreakpoint = BREAKPOINTS[i + 1];
+      if (nextBreakpoint) {
+        size += `and (max-width: ${nextBreakpoint}px) `;
+      }
+      size += DISPLAY_WIDTHS[i];
+      sizes.push(size);
+    }
+    return sizes.join(',');
+
+    //  return '(max-width: 419px) calc(100vw - 60px), (min-width: 420px) and
+    // (max-width: 750px) calc((100vw - 90px) / 2), (min-width: 750 px) and
+    // (max - width: 1200 px) calc((100 vw - 120 px) / 3),
+    // (min - width: 1200 px) calc((100 vw - 150 px) / 4)';
+  }
+
+  _setSrcSet(image) {
+    const id = image.dataset.id;
+    image.srcset = this._getSrcset(id);
+  }
+
+  _loadImages(entries) {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        const image = entry.target;
+        this._setSrcSet(image);
+        this._io.unobserve(image);
+      }
+    }
+  }
+
+  loadImages() {
+    const images = document.querySelectorAll('img.lazy');
+    for (const image of images) {
+      image.sizes = this._getSizes();
+      if (this._io) {
+        this._io.observe(image); // adds srcset when img element is in view
+      } else {
+        this._setSrcSet(image);
+        image.src = BASE_URL + 'id' + '.jpg';
+      }
+      image.classList.remove('lazy');
     }
   }
 }
 
-function getSrcset(id) {
-  const srcset = [];
-  for (const width of IMAGE_WIDTHS) {
-    srcset.push(`${BASE_URL}w_${width}/${id}.png ${width}w`);
-  }
-  return srcset.join(',');
-}
-
-function getSizes() {
-  const sizes = [];
-  for (let i = 0; i !== BREAKPOINTS.length; ++i) {
-    let size = `(min-width: ${BREAKPOINTS[i]}px) `;
-    const nextBreakpoint = BREAKPOINTS[i + 1];
-    if (nextBreakpoint) {
-      size += `and (max-width: ${nextBreakpoint}px) `;
-    }
-    size += DISPLAY_WIDTHS[i];
-    sizes.push(size);
-  }
-  return sizes.join(',');
-
-//  return '(max-width: 419px) calc(100vw - 60px), (min-width: 420px) and
-// (max-width: 750px) calc((100vw - 90px) / 2), (min-width: 750 px) and
-// (max - width: 1200 px) calc((100 vw - 120 px) / 3),
-// (min - width: 1200 px) calc((100 vw - 150 px) / 4)';
-}
-
-const images = document.querySelectorAll('img.lazy');
-
-// callback is invoked whenever observe() is called
-// including when the page loads
-let io;
-if (window.IntersectionObserver) {
-  io = new IntersectionObserver(callback, options);
-}
-
-for (const image of images) {
-  image.sizes = getSizes();
-  if (window.IntersectionObserver) {
-    io.observe(image); // adds srcset when img element is in view
-  } else {
-    console.log('Intersection Observer not supported');
-    const id = image.getAttribute('data-id');
-    image.srcset = getSrcset(id);
-    image.src = BASE_URL + 'id' + '.jpg';
-  }
-}
+const instance = new LazyImg();
+export {LazyImg, instance};

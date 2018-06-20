@@ -16,3 +16,13 @@
  *  limitations under the License
  *
  */
+
+import {instance as lazyImg} from './lazy-img.js';
+
+function initializeHomePage() {
+  lazyImg.loadImages();
+}
+
+export default function init() {
+  initializeHomePage();
+}
