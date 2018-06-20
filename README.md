@@ -1,8 +1,8 @@
 # Online store PWA sample
 
-This sample demonstrates some best practices for e-commerce websites.
+This sample demonstrates best practices for e-commerce websites.
 
-It also demonstrates useful features enabled by new technologies and APIs on the web.
+It also demonstrates some useful features enabled by new technologies and APIs on the web.
 
 ## Development
 
