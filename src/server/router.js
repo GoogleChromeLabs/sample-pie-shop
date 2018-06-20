@@ -16,8 +16,9 @@
  *  limitations under the License
  *
  */
-import index from './routes/index';
+import cart from './routes/cart';
 import category from './routes/category';
+import index from './routes/index';
 import product from './routes/product';
 
 // enable URLs like foo.com/accessories
@@ -29,6 +30,7 @@ const categoryRoutes = categories.map((item) => {
 import {Router} from 'express';
 const router = new Router();
 
+router.get('/cart', cart);
 router.get(categoryRoutes, category);
 router.get(/\/(index.html)?$/, index);
 router.get('/*+*/', product);

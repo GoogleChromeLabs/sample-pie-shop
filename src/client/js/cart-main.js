@@ -17,17 +17,16 @@
  *
  */
 
-import categories from '../../data/categories';
+import {instance as lazyImg} from './lazy-img.js';
+import highlightCategory from './highlight-category.js';
+import Cart from './cart';
 
-const cart = (req, res, next) => {
-  res.render('cart', {
-    categories: categories,
-    layout: req.query.fragment ? 'fragment' : 'layout',
-    scripts: [
-      '/js/cart_main.js',
-    ],
-    title: 'cart',
-  });
-};
+function initializeCartPage() {
+  lazyImg.loadImages();
+  Cart.init();
+  highlightCategory();
+}
 
-export default cart;
+export default function init() {
+  initializeCartPage();
+}
