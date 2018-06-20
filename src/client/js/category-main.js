@@ -17,4 +17,6 @@
  *
  */
 import init from './category.js';
+import { Router } from './router';
+const instance = new Router();
 init();

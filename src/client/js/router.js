@@ -149,5 +149,4 @@ function requestAnimationFramePromise() {
   return new Promise((resolve) => requestAnimationFrame(resolve));
 }
 
-const instance = new Router();
 export {Router, instance};

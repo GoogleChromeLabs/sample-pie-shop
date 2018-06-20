@@ -19,4 +19,6 @@
 
 import initializeFirebase from './firebase.js';
 
+console.log('app')
+
 initializeFirebase();

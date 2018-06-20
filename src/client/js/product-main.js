@@ -17,4 +17,5 @@
  *
  */
 import init from './product.js';
+import {Router} from './router';
 init();
