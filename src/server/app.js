@@ -42,6 +42,9 @@ app.engine('hbs', hbs({
   defaultLayout: 'layout',
   layoutsDir: path.join(rootDir, 'templates', 'layouts'),
   partialsDir: path.join(rootDir, 'templates', 'partials'),
+  helpers: {
+    trimKeywords: (str) => str.split(',').slice(0, 3),
+  },
 }));
 app.set('views', path.join(rootDir, 'templates', 'views'));
 app.set('view engine', 'hbs');
