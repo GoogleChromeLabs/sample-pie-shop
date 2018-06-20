@@ -20,6 +20,14 @@
 import {instance as lazyImg} from './lazy-img.js';
 import highlightCategory from './highlight-category.js';
 
+/**
+ * Router for smooth page tranistions.
+ * Usage:
+ * new Router();
+ * It works as a progressive enhancement by hijacking the links
+ * and popstate events. To disable page transitions simply don't
+ * instantiate Router on page.
+ */
 class Router {
   constructor() {
     this._bindHandlers();
