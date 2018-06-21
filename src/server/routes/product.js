@@ -19,25 +19,39 @@
 
 import {getProduct} from '../get-data';
 import categories from '../../data/categories';
+import Cart from '../../services/cart';
 
-function product(req, res, next) {
-  const productUrl = req.path.slice(1, );
-  const thisProduct = getProduct(productUrl);
-  if (thisProduct) {
-    res.render('product', {
-      categories: categories,
-      product: thisProduct,
-      scripts: [
-        '/js/product_main.js',
-      ],
-      layout: req.query.fragment ? 'fragment' : 'layout',
-    });
-  } else {
-    res.status(404);
-    const error = new Error(`URL ${productUrl} not found`);
-    error.status = 404;
-    next(error);
-  }
-}
+const product = {
+  get: (req, res, next) => {
+    const thisProduct = getProduct(req.params.id);
+    if (thisProduct) {
+      res.render('product', {
+        categories: categories,
+        product: thisProduct,
+        scripts: [
+          '/js/product_main.js',
+        ],
+        layout: req.query.fragment ? 'fragment' : 'layout',
+        cart: req.session.cart,
+      });
+    } else {
+      res.status(404);
+      const error = new Error(`URL ${productUrl} not found`);
+      error.status = 404;
+      next(error);
+    }
+  },
+  addToCart: (req, res) => {
+    const cart = new Cart(req.session.cart);
+    const thisProduct = getProduct(req.params.id);
+    if (thisProduct) {
+      cart.add(thisProduct, 1);
+    } else {
+      req.session.notify = 'No item found';
+    }
+    req.session.cart = cart;
+    res.redirect(req.get('Referrer'));
+  },
+};
 
 export default product;

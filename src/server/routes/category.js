@@ -26,6 +26,7 @@ function category(req, res) {
     categories: categories,
     category: thisCategory,
     products: getProducts(thisCategory),
+    cart: req.session.cart,
     scripts: [
       '/js/category_main.js',
     ],

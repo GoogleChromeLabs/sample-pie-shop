@@ -26,6 +26,7 @@ function index(req, res) {
     categories: categories,
     homeCategories: getHomeData().categories,
     homeProducts: getHomeData().products,
+    cart: req.session.cart,
     scripts: [
       '/js/home_main.js',
     ],
