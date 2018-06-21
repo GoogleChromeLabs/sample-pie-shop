@@ -13,19 +13,12 @@ a#cart {
 }
 
 a#cart::after {
-  /* background-color: red; */
-
-  /* border-radius: 50%; */
   color: white;
   content: attr(data-badge);
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: bold;
-
-  /* height: 17px; */
   left: 25px;
-
-  /* padding: 3px 1px 0 1px; */
   position: absolute;
   text-align: center;
   top: -27px;
@@ -167,10 +160,7 @@ div.shop-now {
 }
 
 footer {
-  /* background-color: #444; */
   border-top: 1px solid #ccc;
-
-  /* box-shadow: 0 -2px 5px 0 rgba(0, 0, 0, 0.16); */
   font-family: 'Roboto', sans-serif;
   padding: 10px 30px 10px 30px;
 }
@@ -182,10 +172,6 @@ header {
   display: grid;
   grid-template-columns: 81px 93px auto 73px;
   height: 80px;
-
-  /* position: sticky; */
-
-  /* top: 0; */
 }
 
 h1 {
@@ -251,12 +237,7 @@ img[srcset=''] {
 }
 
 img.product {
-  /* background-color: #eee; */
-
-  /* color: #eee; */
   display: block;
-
-  /* font-family: 'Roboto', sans-serif; */
   height: calc(100vw - 60px);
   line-height: 1.3em;
   margin: 0 0 20px 0;
@@ -339,9 +320,6 @@ nav {
   display: none;
   font-family: 'Roboto', sans-serif;
   padding: 0 20px 0 17px;
-
-  /* position: sticky;
-  top: 80px; */
   white-space: nowrap;
 }
 
@@ -408,10 +386,6 @@ div.shop-now svg {
 #cart svg {
   fill: white;
   height: 40px;
-
-  /* position: absolute; */
-
-  /* top: -22px; */
   width: 40px;
 }
 
@@ -645,3 +619,5 @@ menu:focus svg#open {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+
+/* media queries end */
