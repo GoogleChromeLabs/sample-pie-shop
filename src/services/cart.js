@@ -22,7 +22,7 @@ export default function Cart(oldCart) {
     let totalQty = 0;
     Object.values(this.items).forEach((item) => {
       totalQty += item.quantity;
-      totalPrice += item.totalPrice;
+      totalPrice += item.quantity * item.price;
     });
     this.totalPrice = totalPrice;
     this.totalQty = totalQty;
@@ -30,13 +30,12 @@ export default function Cart(oldCart) {
 
   this.add = (item, quantity) => {
     const items = this.items;
-    const key = item.key;
+    const key = item.url;
     if (!items[key]) {
-      items[key] = Object.assign({key: key}, item.product);
+      items[key] = Object.assign({key: key}, item);
       items[key].quantity = 0;
     }
     items[key].quantity += 1;
-    items[key].totalPrice = items[key].quantity * items[key].price;
     this.updateTotals();
   };
 

@@ -42,6 +42,9 @@ app.engine('hbs', hbs({
   defaultLayout: 'layout',
   layoutsDir: path.join(rootDir, 'templates', 'layouts'),
   partialsDir: path.join(rootDir, 'templates', 'partials'),
+  helpers: {
+    multiply: (a, b) => (a * b),
+  },
 }));
 app.set('views', path.join(rootDir, 'templates', 'views'));
 app.set('view engine', 'hbs');
@@ -50,11 +53,7 @@ app.use(session({
   // WARNING: This is a code sample. Please use a real store for your sessions
   // instead of memcache in a production code.
   secret: 'some secret',
-  resave: false,
-  saveUninitialized: false,
-  secure: true,
-  // maxAge: 180 * 60 * 1000, // 3h
-  maxAge: 20 * 1000, // 20 sec
+  maxAge: 60 * 1000, // 60 sec
 }));
 
 app.use(logger('dev'));

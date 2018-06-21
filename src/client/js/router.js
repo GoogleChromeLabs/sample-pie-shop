@@ -110,7 +110,7 @@ class Router {
     const load = async function() {
       let fragment;
       try {
-        fragment = await fetch(fragmentURL).then((resp) => resp.text());
+        fragment = await fetch(fragmentURL, {credentials: 'include'}).then((resp) => resp.text());
       } catch (e) {
         fragment = 'This content is not available.';
       }
