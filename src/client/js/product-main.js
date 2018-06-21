@@ -18,5 +18,6 @@
  */
 import init from './product.js';
 import {Router} from './router';
-new Router();
+const router = new Router();
+router.enable();
 init();
