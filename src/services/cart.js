@@ -24,7 +24,7 @@ export default function Cart(oldCart) {
       totalQty += item.quantity;
       totalPrice += item.quantity * item.price;
     });
-    this.totalPrice = totalPrice;
+    this.totalPrice = totalPrice.toFixed(2);
     this.totalQty = totalQty;
   };
 
