@@ -15,13 +15,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  *
- */
+*/
 
 export default function highlightCurrentCategory() {
   const navLinks = document.querySelectorAll('nav a');
-  const category = document.querySelector('main').dataset.category;
-
-  for (const navLink of navLinks) {
-    navLink.classList.toggle('current', navLink.href.includes(category));
+  const main = document.querySelector('main');
+  if (main && main.dataset && main.dataset.category) {
+    const category = document.querySelector('main').dataset.category;
+    for (const navLink of navLinks) {
+      navLink.classList.toggle('current', navLink.href.includes(category));
+    }
   }
 }

@@ -1,21 +1,17 @@
-<table>
-  <tr>
-    <td>Item</td>
-    <td>Price</td>
-    <td>Quantity</td>
-    <td>Total</td>
-  </tr>
-{{#each cart.items}}
-  <tr>
-    <td>{{this.price}}</td>
-    <td>{{this.quantity}}</td>
-    <td>{{multiply this.price this.quantity}} $</td>
-  </tr>
-{{/each}}
-  <tr>
-    <td></td>
-    <td></td>
-    <td>Total</td>
-    <td>{{cart.totalPrice}} $</td>
-  </tr>
-</table>
+<section id="cart-items">
+  {{#each cart.items}}
+  <a href="{{this.url}}">
+    <img class="lazy cart" data-id="{{this.id}}" alt="{{this.name}}" srcset=""></img>
+    <div>
+      <h2>{{this.name}}</h2>
+      <p class="quantity">{{this.quantity}}</p>
+    </div>
+    <p class="total-price">Total (excluding delivery): <strong>${{multiply this.price this.quantity}}</strong></p>
+  </a>
+  {{/each}}
+</section>
+
+<section id="cart-summary">
+  <p class="total">Total: <strong>{{cart.totalPrice}}</strong></p>
+  <a href="/payment" title="Go to checkout page"><button>Checkout</button></a>
+</section>
