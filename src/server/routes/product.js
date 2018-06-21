@@ -36,7 +36,7 @@ const product = {
       });
     } else {
       res.status(404);
-      const error = new Error(`URL ${productUrl} not found`);
+      const error = new Error(`URL ${thisProduct.url} not found`);
       error.status = 404;
       next(error);
     }
