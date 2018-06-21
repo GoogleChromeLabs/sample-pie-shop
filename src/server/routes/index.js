@@ -23,14 +23,15 @@ import categories from '../../data/categories';
 
 function index(req, res) {
   res.render('index', {
+    cart: req.session.cart,
     categories: categories,
     homeCategories: getHomeData().categories,
     homeProducts: getHomeData().products,
-    cart: req.session.cart,
+    layout: req.query.fragment ? 'fragment' : 'layout',
     scripts: [
       '/js/home_main.js',
     ],
-    layout: req.query.fragment ? 'fragment' : 'layout',
+    title: 'pieshop',
   });
 }
 
