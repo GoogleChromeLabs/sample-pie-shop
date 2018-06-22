@@ -12,7 +12,15 @@
 </section>
 
 <section id="cart-summary">
-  <p class="total"><span>Total:</span><strong>${{cart.totalPrice}}</strong></p>
+  <h2 id="summary">Summary</h2>
+  <p id="your-order">Your order qualifies for:</p>
+  <svg id="tick" viewBox="0 0 24 24">
+    <path fill="none" d="M0 0h24v24H0z"/>
+    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+  </svg>
+  <p id="free-shipping">Free standard shipping</p>
+  <p id="delivery-options">More delivery options at checkout</p>
+  <p class="total"><span>Total (excluding delivery):</span><strong>${{cart.totalPrice}}</strong></p>
   <a id="checkout" href="/payment" title="Go to checkout page"><button>Checkout</button></a>
   <a id="continue-shopping" href="/" title="Go to home page">Continue shopping</a>
 </section>

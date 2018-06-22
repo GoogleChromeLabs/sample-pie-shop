@@ -17,15 +17,12 @@
  *
  */
 
-const cart = (req, res, next) => {
-  res.render('cart', {
-    cart: req.session.cart,
-    layout: req.query.fragment ? 'fragment' : 'layout',
-    scripts: [
-      '/js/cart_main.js',
-    ],
-    title: 'pieshop: cart',
-  });
-};
+import {instance as lazyImg} from './lazy-img.js';
 
-export default cart;
+function initializeProductPage() {
+  lazyImg.loadImages();
+}
+
+export default function init() {
+  initializeProductPage();
+}

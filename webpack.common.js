@@ -13,6 +13,7 @@ module.exports = {
     home_main: './src/client/js/home-main.js',
     category_main: './src/client/js/category-main.js',
     product_main: './src/client/js/product-main.js',
+    cart_main: './src/client/js/cart-main.js',
   },
   module: {
     rules: [{
@@ -26,13 +27,13 @@ module.exports = {
                 browsers: BROWSERS,
               },
               modules: false,
-            }]
+            }],
           ],
           plugins: ['syntax-dynamic-import'],
           babelrc: false,
         },
       },
-    }, ],
+    }],
   },
   output: {
     filename: '[name].js',

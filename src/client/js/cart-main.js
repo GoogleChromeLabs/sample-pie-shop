@@ -16,16 +16,8 @@
  *  limitations under the License
  *
  */
-
-const cart = (req, res, next) => {
-  res.render('cart', {
-    cart: req.session.cart,
-    layout: req.query.fragment ? 'fragment' : 'layout',
-    scripts: [
-      '/js/cart_main.js',
-    ],
-    title: 'pieshop: cart',
-  });
-};
-
-export default cart;
+import init from './cart.js';
+import {Router} from './router';
+const router = new Router();
+router.enable();
+init();
