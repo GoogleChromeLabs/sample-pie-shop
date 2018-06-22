@@ -56,11 +56,9 @@ a#continue-shopping {
   width: 100%;
 }
 
-
 a#continue-shopping:hover {
   color: black;
 }
-
 
 footer a {
   color: #666;
@@ -720,7 +718,6 @@ menu:focus svg#open {
   #cart svg text {
     display: inherit;
   }
-
 }
 
 @media all and (min-width: 1200px) {
