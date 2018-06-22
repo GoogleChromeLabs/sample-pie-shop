@@ -3,3 +3,4 @@ dist
 keys
 node_modules
 products.csv
+src/data/firebase-admin-key.json

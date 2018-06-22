@@ -23,14 +23,15 @@ import categories from '../../data/categories';
 function category(req, res) {
   const thisCategory = req.path.slice(1, );
   res.render('category', {
+    cart: req.session.cart,
     categories: categories,
     category: thisCategory,
+    layout: req.query.fragment ? 'fragment' : 'layout',
     products: getProducts(thisCategory),
-    cart: req.session.cart,
     scripts: [
       '/js/category_main.js',
     ],
-    layout: req.query.fragment ? 'fragment' : 'layout',
+    title: `pieshop: ${thisCategory}`,
   });
 }
 
