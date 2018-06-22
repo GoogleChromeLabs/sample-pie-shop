@@ -19,7 +19,7 @@
 
 const cart = (req, res, next) => {
   res.render('cart', {
-    title: 'Cart',
+    title: 'pieshop: cart',
     cart: req.session.cart,
     layout: req.query.fragment ? 'fragment' : 'layout',
   });
