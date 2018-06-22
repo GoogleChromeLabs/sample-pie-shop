@@ -7,7 +7,7 @@ a {
 }
 
 a#cart {
-  padding: 0 0 0 18px;
+  padding: 0 0 0 15px;
   position: relative;
   top: 7px;
 }
@@ -18,7 +18,7 @@ a#cart::after {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: bold;
-  left: 25px;
+  left: 22px;
   position: absolute;
   text-align: center;
   top: -27px;
@@ -43,6 +43,24 @@ section#cart-items a {
 section#cart-items a:last-of-type {
   border: none;
 }
+
+a#checkout {
+  display: block;
+  margin: 0 0 20px 0;
+}
+
+a#continue-shopping {
+  color: #999;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+
+a#continue-shopping:hover {
+  color: black;
+}
+
 
 footer a {
   color: #666;
@@ -194,7 +212,7 @@ header {
   background-color: #5d666f;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: grid;
-  grid-template-columns: 81px 93px auto 73px;
+  grid-template-columns: 81px 93px auto 60px;
   height: 80px;
 }
 
@@ -318,6 +336,7 @@ input#search {
   color: #444;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  min-width: 100px;
   padding: 5px;
 }
 
@@ -343,9 +362,9 @@ main#error {
 
 main#cart {
   display: grid;
-  grid-gap: 30px 30px;
+  grid-gap: 17px 30px;
   grid-template-columns: 1fr;
-  margin: 30px 28px 30px 28px;
+  margin: 21px 28px 30px 28px;
 }
 
 main#category {
@@ -464,9 +483,18 @@ div.shop-now svg {
 }
 
 #cart svg {
-  fill: white;
+  fill: #eee;
   height: 40px;
   width: 40px;
+}
+
+#cart svg:hover {
+  fill: white;
+}
+
+#cart svg text {
+  display: none;
+  font-size: 12px;
 }
 
 /* menu start */
@@ -566,7 +594,7 @@ menu:focus svg#open {
   }
 
   header {
-    grid-template-columns: 89px 122px auto 72px;
+    grid-template-columns: 89px 122px auto 62px;
   }
 
   header h1 {
@@ -614,11 +642,11 @@ menu:focus svg#open {
 
 @media all and (min-width: 750px) {
   a#cart {
-    padding: 0 0 0 35px;
+    padding: 0 0 0 10px;
   }
 
   a#cart::after {
-    left: 42px;
+    left: 40px;
   }
 
   section#home-products a {
@@ -629,7 +657,7 @@ menu:focus svg#open {
   }
 
   header {
-    grid-template-columns: auto auto 80px;
+    grid-template-columns: auto auto 100px;
     margin: 0;
     padding: 0 26px;
   }
@@ -684,6 +712,15 @@ menu:focus svg#open {
   section#home-brands {
     grid-template-columns: auto auto auto auto auto;
   }
+
+  #cart svg {
+    width: 85px;
+  }
+
+  #cart svg text {
+    display: inherit;
+  }
+
 }
 
 @media all and (min-width: 1200px) {
