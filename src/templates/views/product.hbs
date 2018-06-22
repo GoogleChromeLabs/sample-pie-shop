@@ -5,9 +5,5 @@
     <div id="price">${{product.price}}</div>
     <div id="description">{{product.description}}</div>
     <div id="features">{{{product.features}}}</div>
-    <div id="keywords">
-       {{#each (trimKeywords product.keywords)}}
-       <span class="keyword">{{this}}</span>{{/each}}
-    </div>
   </div>
 </main>
