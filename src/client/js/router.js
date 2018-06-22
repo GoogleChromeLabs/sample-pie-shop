@@ -23,16 +23,19 @@ import highlightCategory from './highlight-category.js';
 /**
  * Router for smooth page tranistions.
  * Usage:
- * new Router();
+ * const router = new Router();
+ * router.enable();
  * It works as a progressive enhancement by hijacking the links
- * and popstate events. To disable page transitions simply don't
- * instantiate Router on page.
+ * and popstate events. To enable page transitions call enable()
+ * on instance of a Router.
  */
 class Router {
   constructor() {
     this._bindHandlers();
     this._hostname = location.host;
+  }
 
+  enable() {
     document.addEventListener('click', this._onLinkClick);
     window.addEventListener('popstate', this._onPopState);
   }
