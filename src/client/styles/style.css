@@ -44,7 +44,6 @@ section#cart-items a:last-of-type {
   border: none;
 }
 
-
 footer a {
   color: #666;
 }
@@ -454,10 +453,6 @@ div.shop-now span {
 }
 
 p.total span {
-  display: block;
-}
-
-p.total strong {
   display: block;
 }
 
