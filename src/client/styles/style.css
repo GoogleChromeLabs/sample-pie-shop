@@ -262,7 +262,6 @@ main#cart h2 {
   top: -2px;
 }
 
-
 main#cart #cart-summary h2 {
   font-size: 22px;
   font-weight: 200;
@@ -453,6 +452,7 @@ p#delivery-options {
   margin: 0 0 30px 0;
   padding: 0 0 25px 0;
 }
+
 p#free-shipping {
   display: inline-block;
   font-weight: 200;
@@ -525,7 +525,6 @@ a#cart svg text {
   top: 4px;
   width: 20px;
 }
-
 
 /* menu start */
 
@@ -728,7 +727,6 @@ menu:focus svg#open {
     grid-template-columns: 1fr 1fr;
   }
 
-
   main#category {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -744,7 +742,6 @@ menu:focus svg#open {
   section#cart-items {
     border-bottom: none;
   }
-
 
   section#cart-summary {
     border: 1px solid #ddd;
