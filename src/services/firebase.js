@@ -14,13 +14,15 @@
 
 import admin from 'firebase-admin';
 
-if (!process.env.FB_KEYS) {
-  console.error('No Firebase keys provided. Please set $FB_KEYS');
+let configFile = path.resolve(__dirname, '../data/firebase-admin-key.json');
+
+if (process.env.FB_KEYS) {
+  configFile = process.env.FB_KEYS;
 }
 
 if (admin.initializeApp) {
   admin.initializeApp({
-    credential: admin.credential.cert(require(process.env.FB_KEYS)),
+    credential: admin.credential.cert(require(configFile)),
     databaseURL: 'https://pie-shop-app.firebaseio.com',
     databaseAuthVariableOverride: {
       uid: 'my-service-worker',

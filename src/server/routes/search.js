@@ -20,6 +20,7 @@
 const search = (req, res, next) => {
   res.render('listing', {
     title: 'Search — Pie Shop',
+    cart: req.session.cart,
   });
 };
 

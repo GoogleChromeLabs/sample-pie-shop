@@ -16,23 +16,8 @@
  *  limitations under the License
  *
  */
-
-import {getHomeData} from '../get-data';
-import categories from '../../data/categories';
-
-
-function index(req, res) {
-  res.render('index', {
-    cart: req.session.cart,
-    categories: categories,
-    homeCategories: getHomeData().categories,
-    homeProducts: getHomeData().products,
-    layout: req.query.fragment ? 'fragment' : 'layout',
-    scripts: [
-      '/js/home_main.js',
-    ],
-    title: 'pieshop',
-  });
-}
-
-export default index;
+import init from './category.js';
+import {Router} from './router';
+const router = new Router();
+router.enable();
+init();

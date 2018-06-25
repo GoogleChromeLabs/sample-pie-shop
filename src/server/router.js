@@ -19,6 +19,8 @@
 import index from './routes/index';
 import category from './routes/category';
 import product from './routes/product';
+import payment from './routes/payment';
+import cart from './routes/cart';
 
 // enable URLs like foo.com/accessories
 import categories from '../data/categories';
@@ -30,7 +32,13 @@ import {Router} from 'express';
 const router = new Router();
 
 router.get(categoryRoutes, category);
+router.get('/cart', cart);
+router.get('/payment', payment.get);
+router.get('/confirmation', payment.confirm);
 router.get(/\/(index.html)?$/, index);
-router.get('/*+*/', product);
+router.get('/:id', product.get);
+
+router.post('/:id/cart', product.addToCart);
+router.post('/payment', payment.pay);
 
 export default router;

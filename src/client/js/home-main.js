@@ -16,3 +16,8 @@
  *  limitations under the License
  *
  */
+import init from './home.js';
+import {Router} from './router';
+const router = new Router();
+router.enable();
+init();

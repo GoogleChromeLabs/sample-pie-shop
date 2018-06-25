@@ -7,10 +7,9 @@
   </tr>
 {{#each cart.items}}
   <tr>
-    <td>{{> product_img product=this size="custom"}}</td>
     <td>{{this.price}}</td>
     <td>{{this.quantity}}</td>
-    <td>{{this.totalPrice}} $</td>
+    <td>{{multiply this.price this.quantity}} $</td>
   </tr>
 {{/each}}
   <tr>

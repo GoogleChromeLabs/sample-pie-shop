@@ -21,15 +21,17 @@ import {getProducts} from '../get-data';
 import categories from '../../data/categories';
 
 function category(req, res) {
-  const thisCategory = req.url.slice(1, );
+  const thisCategory = req.path.slice(1, );
   res.render('category', {
+    cart: req.session.cart,
     categories: categories,
     category: thisCategory,
+    layout: req.query.fragment ? 'fragment' : 'layout',
     products: getProducts(thisCategory),
     scripts: [
-      '/js/highlight-category.js',
-      '/js/lazy-img.js',
+      '/js/category_main.js',
     ],
+    title: `pieshop: ${thisCategory}`,
   });
 }
 

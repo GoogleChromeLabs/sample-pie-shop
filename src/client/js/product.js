@@ -17,22 +17,14 @@
  *
  */
 
-import {getHomeData} from '../get-data';
-import categories from '../../data/categories';
+import {instance as lazyImg} from './lazy-img.js';
+import highlightCategory from './highlight-category.js';
 
-
-function index(req, res) {
-  res.render('index', {
-    cart: req.session.cart,
-    categories: categories,
-    homeCategories: getHomeData().categories,
-    homeProducts: getHomeData().products,
-    layout: req.query.fragment ? 'fragment' : 'layout',
-    scripts: [
-      '/js/home_main.js',
-    ],
-    title: 'pieshop',
-  });
+function initializeProductPage() {
+  lazyImg.loadImages();
+  highlightCategory();
 }
 
-export default index;
+export default function init() {
+  initializeProductPage();
+}

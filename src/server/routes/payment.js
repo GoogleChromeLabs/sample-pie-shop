@@ -18,19 +18,20 @@
  */
 
 const payment = {
-  get: (req, res, next) => {
+  get: (req, res) => {
     res.render('payment', {
       cart: req.session.cart,
-      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
+      layout: req.query.fragment ? 'fragment' : 'layout',
     });
   },
-  pay: (req, res, next) => {
+  pay: (req, res) => {
     req.session.cart = null;
     res.redirect('/confirmation');
   },
-  confirm: (req, res, next) => {
+  confirm: (req, res) => {
     res.render('confirmation', {
-      cartTotalQty: req.session.cart ? req.session.cart.totalQty : 0,
+      cart: req.session.cart,
+      layout: req.query.fragment ? 'fragment' : 'layout',
     });
   },
 };

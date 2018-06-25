@@ -5,5 +5,8 @@
     <div id="price">${{product.price}}</div>
     <div id="description">{{product.description}}</div>
     <div id="features">{{{product.features}}}</div>
+    <form action="/{{product.url}}/cart" method="post">
+      <button>Add to Cart</button>
+    </form>
   </div>
 </main>

@@ -5,8 +5,8 @@ const MinifyPlugin = require('babel-minify-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge.smart(common, {
+  mode: 'production',
   module: {
-    mode: 'production',
     rules: [
       {
         test: /\.js$/,
@@ -21,7 +21,7 @@ module.exports = merge.smart(common, {
     ],
   },
   plugins: [
-    new MinifyPlugin({simplify: false, mangle: false}),
+    new MinifyPlugin({ simplify: false, mangle: false }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
