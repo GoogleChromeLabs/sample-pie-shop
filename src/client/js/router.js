@@ -16,8 +16,6 @@
  *  limitations under the License
  *
  */
-
-import {instance as lazyImg} from './lazy-img.js';
 import pageInit from './page-init';
 
 /**
