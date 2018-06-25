@@ -34,7 +34,6 @@ class Router {
     this._bindHandlers();
     this._hostname = location.host;
     this._enabled = false;
-    console.log('constructor');
   }
 
   enable() {
