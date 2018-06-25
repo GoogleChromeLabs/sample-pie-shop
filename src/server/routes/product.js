@@ -26,17 +26,18 @@ const product = {
     const thisProduct = getProduct(req.params.id);
     if (thisProduct) {
       res.render('product', {
+        cart: req.session.cart,
         categories: categories,
+        layout: req.query.fragment ? 'fragment' : 'layout',
         product: thisProduct,
         scripts: [
           '/js/product_main.js',
         ],
-        layout: req.query.fragment ? 'fragment' : 'layout',
-        cart: req.session.cart,
+        title: `pieshop: ${thisProduct.name}`,
       });
     } else {
       res.status(404);
-      const error = new Error(`URL ${productUrl} not found`);
+      const error = new Error(`URL ${thisProduct.url} not found`);
       error.status = 404;
       next(error);
     }
