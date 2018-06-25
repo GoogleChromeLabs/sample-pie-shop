@@ -16,11 +16,10 @@
  *  limitations under the License
  *
  */
-import {Router} from './router';
+import {instance as router} from './router';
 
 export default function initApp() {
   // Enable client side routing
-  const router = new Router();
   router.enable();
 
   // Enable service worker.

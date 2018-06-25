@@ -16,7 +16,6 @@
  *  limitations under the License
  *
  */
-
 import {instance as lazyImg} from './lazy-img.js';
 import highlightCategory from './highlight-category.js';
 

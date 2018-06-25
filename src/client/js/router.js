@@ -33,11 +33,16 @@ class Router {
   constructor() {
     this._bindHandlers();
     this._hostname = location.host;
+    this._enabled = false;
+    console.log('constructor');
   }
 
   enable() {
-    document.addEventListener('click', this._onLinkClick);
-    window.addEventListener('popstate', this._onPopState);
+    if (!this._enabled) {
+      document.addEventListener('click', this._onLinkClick);
+      window.addEventListener('popstate', this._onPopState);
+      this._enabled = true;
+    }
   }
 
   _bindHandlers() {
@@ -160,4 +165,6 @@ function requestAnimationFramePromise() {
   return new Promise((resolve) => requestAnimationFrame(resolve));
 }
 
-export {Router};
+const instance = new Router();
+
+export {Router, instance};
