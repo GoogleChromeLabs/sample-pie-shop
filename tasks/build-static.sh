@@ -6,8 +6,9 @@ else
 CONFIG="webpack.dev.js"
 fi
 
-INDIR=src/client/js
+INDIR=src/client/*
 OUTDIR=dist/static
 
-mkdir -p dist/static/js && ./node_modules/.bin/webpack --config $CONFIG
-cp -R $INDIR $OUTDIR
+mkdir -p $OUTDIR &&
+cp -Rv $INDIR $OUTDIR &&
+./node_modules/.bin/webpack --config $CONFIG

@@ -29,16 +29,14 @@
     "watch": "^1.0.2",
     "webpack": "^4.10.2",
     "webpack-cli": "^2.1.4",
-    "webpack-merge": "^4.1.1"
+    "webpack-merge": "^4.1.1",
+    "workbox-webpack-plugin": "^3.3.0"
   },
   "scripts": {
     "build": "npm run clean && npm-run-all --parallel build:static build:node",
     "build:node": "./tasks/build-node-scripts.sh",
     "build:prod": "NODE_ENV=production npm run build",
-    "build:static": "npm-run-all --parallel build:static:styles build:static:scripts build:static:images",
-    "build:static:images": "./tasks/build-static-images.sh",
-    "build:static:scripts": "./tasks/build-static-scripts.sh",
-    "build:static:styles": "./tasks/build-static-styles.sh",
+    "build:static": "./tasks/build-static.sh",
     "clean": "rm -rf dist",
     "lint": "npm-run-all --parallel lint:eslint lint:stylelint",
     "lint:eslint": "eslint 'src/**/*.js'",
@@ -52,9 +50,7 @@
     "tools:import_products": "./node_modules/.bin/babel-node tools/import_products.js",
     "watch": "npm-run-all --parallel watch:static watch:node",
     "watch:node": "./node_modules/.bin/watch 'npm run build:node' src/server src/data",
-    "watch:static": "npm-run-all --parallel watch:static:scripts watch:static:images",
-    "watch:static:images": "./node_modules/.bin/watch 'npm run build:static:images' src/client/images",
-    "watch:static:scripts": "./node_modules/.bin/watch 'npm run build:static:scripts' src/client/js"
+    "watch:static": "./node_modules/.bin/watch 'npm run build:static' src/client"
   },
   "devDependencies": {
     "csv-parse": "^2.0.4",

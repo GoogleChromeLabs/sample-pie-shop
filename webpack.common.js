@@ -1,4 +1,5 @@
 const path = require('path');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 const BROWSERS = [
   'last 2 chrome versions',
@@ -35,8 +36,23 @@ module.exports = {
     }, ],
   },
   output: {
-    filename: '[name].js',
-    chunkFilename: 'chunk-[name].js',
-    path: path.resolve(__dirname, 'dist/static/js'),
+    filename: 'js/[name].js',
+    chunkFilename: 'js/chunk-[name].js',
+    path: path.resolve(__dirname, 'dist/static'),
   },
+  plugins: [
+    new InjectManifest({
+      swSrc: './src/sw.js',
+      globDirectory: 'dist/static',
+      globPatterns: [
+        'styles/*.css'
+      ],
+      templatedUrls: {
+        '/': [
+          '../templates/layouts/layout.hbs',
+          '../templates/partials/*.hbs'
+        ]
+      },
+    })
+  ]
 };
