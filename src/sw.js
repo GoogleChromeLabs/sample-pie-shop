@@ -27,9 +27,8 @@ const offlineNavigationResponse = `It seems you don't have
 // TODO: Figure out why it's not working with NetworkFirst?
 const fragmentHandler = workbox.strategies.networkOnly();
 // Custom response handler.
-function fragmentFallbackStrategy({ event, url }) {
-  console.log('fragmentFallbackStrategy')
-  return fragmentHandler.handle({ event })
+function fragmentFallbackStrategy({event, url}) {
+  return fragmentHandler.handle({event})
     .catch(() => {
       return new Response(offlineNavigationResponse);
     });

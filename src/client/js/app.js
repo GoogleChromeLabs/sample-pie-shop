@@ -16,11 +16,9 @@
  *  limitations under the License
  *
  */
-import { Router } from './router';
+import {Router} from './router';
 
 export default function initApp() {
-  console.log('initapp')
-
   // Enable client side routing
   const router = new Router();
   router.enable();
