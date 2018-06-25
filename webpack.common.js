@@ -42,17 +42,7 @@ module.exports = {
   },
   plugins: [
     new InjectManifest({
-      swSrc: './src/sw.js',
-      globDirectory: 'dist/static',
-      globPatterns: [
-        'styles/*.css'
-      ],
-      templatedUrls: {
-        '/': [
-          '../templates/layouts/layout.hbs',
-          '../templates/partials/*.hbs'
-        ]
-      },
+      swSrc: './src/sw.js'
     })
   ]
 };

@@ -17,36 +17,4 @@
  *
  */
 
-// Precache static assets.
-workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
-
-// Cache at runtime: partial navigation routes (fragments).
-const offlineNavigationResponse = `It seems you don't have
-  internet access at the moment.
-  Please try again later.`;
-// TODO: Figure out why it's not working with NetworkFirst?
-const fragmentHandler = workbox.strategies.networkOnly();
-// Custom response handler.
-function fragmentFallbackStrategy({event, url}) {
-  return fragmentHandler.handle({event})
-    .catch(() => {
-      return new Response(offlineNavigationResponse);
-    });
-}
-workbox.routing.registerRoute(
-  new RegExp('\/(.+)?fragment=true'),
-  fragmentFallbackStrategy
-);
-
-// Cache at runtime: category and product urls.
-// POI: we cache the same content twice - in full urls and in partials.
-workbox.routing.registerRoute(
-  new RegExp('\/([A-Za-z\+]+)$'),
-  workbox.strategies.networkFirst()
-);
-
-// Cache at runtime: images from Cloudinary.
-workbox.routing.registerRoute(
-  new RegExp('https\:\/\/res\.cloudinary\.com\/pieshop\/.*'),
-  workbox.strategies.networkFirst(),
-);
+// Empty service worker for development.

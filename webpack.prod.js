@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 const common = require('./webpack.common.js');
 
@@ -25,5 +26,19 @@ module.exports = merge.smart(common, {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
+    new InjectManifest({
+      swSrc: './src/sw.prod.js',
+      swDest: 'sw.js',
+      globDirectory: 'dist/static',
+      globPatterns: [
+        'styles/*.css'
+      ],
+      templatedUrls: {
+        '/': [
+          '../templates/layouts/layout.hbs',
+          '../templates/partials/*.hbs'
+        ]
+      },
+    })
   ],
 });
