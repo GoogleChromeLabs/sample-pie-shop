@@ -16,12 +16,12 @@
  *  limitations under the License
  *
  */
-import {instance as lazyImg} from './lazy-img.js';
-import highlightCategory from './highlight-category.js';
+import pageInit from './page-init';
 
 function initializeCategoryPage() {
-  lazyImg.loadImages();
-  highlightCategory();
+  pageInit();
+
+  // TODO: Add Code dedicated to Category page only.
 }
 
 export default function init() {

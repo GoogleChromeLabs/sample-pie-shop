@@ -18,7 +18,7 @@
  */
 
 import {instance as lazyImg} from './lazy-img.js';
-import highlightCategory from './highlight-category.js';
+import pageInit from './page-init';
 
 /**
  * Router for smooth page tranistions.
@@ -145,9 +145,7 @@ class Router {
     history.scrollRestoration = 'auto';
     await this._animateIn(newView);
 
-    // Init page
-    lazyImg.loadImages();
-    highlightCategory();
+    pageInit();
   }
 }
 
