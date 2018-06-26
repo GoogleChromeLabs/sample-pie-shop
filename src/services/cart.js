@@ -24,7 +24,7 @@ export default function Cart(oldCart) {
       totalQty += item.quantity;
       totalPrice += item.quantity * item.price;
     });
-    this.totalPrice = totalPrice.toFixed(2);
+    this.totalPrice = totalPrice;
     this.totalQty = totalQty;
   };
 
@@ -35,17 +35,7 @@ export default function Cart(oldCart) {
       items[key] = Object.assign({key: key}, item);
       items[key].quantity = 0;
     }
-    items[key].quantity += quantity;
-    this.updateTotals();
-  };
-
-  this.remove = (item) => {
-    const items = this.items;
-    const key = item.url;
-    items[key].quantity -= 1;
-    if (items[key].quantity === 0) {
-      delete items[key];
-    }
+    items[key].quantity += 1;
     this.updateTotals();
   };
 
