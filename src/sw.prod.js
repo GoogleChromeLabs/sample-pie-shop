@@ -16,6 +16,8 @@
  *  limitations under the License
  *
  */
+workbox.skipWaiting();
+workbox.clientsClaim();
 
 // Precache static assets.
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
@@ -24,12 +26,16 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
 const offlineNavigationResponse = `It seems you don't have
   internet access at the moment.
   Please try again later.`;
-// TODO: Figure out why it's not working with NetworkFirst?
-const fragmentHandler = workbox.strategies.networkOnly();
+const fragmentHandler = workbox.strategies.networkFirst();
 // Custom response handler.
 function fragmentFallbackStrategy({event, url}) {
   return fragmentHandler.handle({event})
+    .then((response) => {
+      // This gets called with networkFirst base strategy.
+      return response || new Response(offlineNavigationResponse);
+    })
     .catch(() => {
+      // This gets called with networkOnly base strategy.
       return new Response(offlineNavigationResponse);
     });
 }
