@@ -19,11 +19,8 @@
 
 export default function highlightCurrentCategory() {
   const navLinks = document.querySelectorAll('nav a');
-  const main = document.querySelector('main');
-  if (main && main.dataset && main.dataset.category) {
-    const category = document.querySelector('main').dataset.category;
-    for (const navLink of navLinks) {
-      navLink.classList.toggle('current', navLink.href.includes(category));
-    }
+  const category = document.querySelector('main').dataset.category;
+  for (const navLink of navLinks) {
+    navLink.classList.toggle('current', navLink.href.includes(category));
   }
 }
