@@ -5,6 +5,8 @@ addons:
 language: node_js
 node_js:
   - 'lts/*'
+install:
+  - npm ci
 script:
   - npm run lint:eslint
   - npm run lint:stylelint
