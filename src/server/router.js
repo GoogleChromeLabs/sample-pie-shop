@@ -38,7 +38,8 @@ router.get('/confirmation', payment.confirm);
 router.get(/\/(index.html)?$/, index);
 router.get('/:id', product.get);
 
-router.post('/:id/cart', product.addToCart);
+router.post('/add/:id', product.addToCart);
+router.post('/remove/:id', product.removeFromCart);
 router.post('/payment', payment.pay);
 
 export default router;

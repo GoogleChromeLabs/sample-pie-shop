@@ -35,8 +35,19 @@ export default function Cart(oldCart) {
       items[key] = Object.assign({key: key}, item);
       items[key].quantity = 0;
     }
-    items[key].quantity += 1;
+    items[key].quantity += quantity;
     this.updateTotals();
+  };
+
+  this.remove = (item) => {
+    const items = this.items;
+    const key = item.url;
+    items[key].quantity -= 1;
+    if (items[key].quantity === 0) {
+      delete items[key];
+    }
+    this.updateTotals();
+
   };
 
   this.items = oldCart ? oldCart.items : {};

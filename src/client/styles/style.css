@@ -30,19 +30,18 @@ a#cart[data-badge='0']::after {
   display: none;
 }
 
-section#cart-items a {
-  align-items: start;
-  border-bottom: 1px solid #ccc;
+section.cart-item a {
   color: black;
-  display: grid;
-  grid-gap: 0 20px;
-  grid-template-columns: 1fr 2fr 1fr;
-  height: fit-content;
-  padding: 0 0 15px 0;
+  cursor: pointer;
 }
 
-section#cart-items a:last-of-type {
-  border: none;
+section.cart-item a.remove {
+  flex-grow: 1;
+  font-size: 16px;
+  font-weight: 200;
+  position: relative;
+  text-decoration: underline;
+  top: -2px;
 }
 
 a#checkout {
@@ -155,14 +154,36 @@ button[disabled] {
 }
 
 main#cart button {
+  max-width: 360px;
   width: 100%;
 }
 
-section#cart-items div {
+section#cart-items div.name-and-quantity {
   display: flex;
   flex-direction: column;
   min-height: 20vw;
   height: fit-content;
+}
+
+section#cart-items div.remove-and-total {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  min-height: 20vw;
+  text-align: right;
+}
+
+section.cart-item div.quantity {
+  align-self: end;
+  justify-self: end;
+  font-size: 16px;
+  font-weight: 200;
+  margin: 0;
+}
+
+section.cart-item div.total-price {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 main#category div {
@@ -185,7 +206,7 @@ main#product > div {
 main#product div#description {
   color: #444;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 1.3em;
   margin: 0 0 20px 0;
 }
@@ -253,10 +274,10 @@ h2 {
   line-height: 1.3em;
 }
 
-main#cart h2 {
+section.cart-item h2 {
   flex-grow: 1;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 200;
   margin: 0 0 10px 0;
   position: relative;
   top: -2px;
@@ -409,27 +430,12 @@ main p.price {
   margin: 0 0 20px 0;
 }
 
-main#cart p.quantity {
-  align-self: end;
-  justify-self: end;
-  font-size: 16px;
-  font-weight: 300;
-  margin: 0;
-}
-
 main#cart p.total {
   display: grid;
   font-size: 16px;
   font-weight: 300;
   grid-template-columns: auto 1fr;
   margin: 0 0 30px 0;
-}
-
-main#cart p.total-price {
-  align-self: end;
-  justify-self: right;
-  font-size: 16px;
-  font-weight: 600;
 }
 
 footer p {
@@ -463,6 +469,16 @@ section#cart-items {
   border-bottom: 1px solid #666;
   display: grid;
   grid-gap: 30px 0;
+}
+
+section.cart-item {
+  align-items: start;
+  border-bottom: 1px solid #ccc;
+  display: grid;
+  grid-gap: 0 20px;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: fit-content;
+  padding: 0 0 15px 0;
 }
 
 section#home-categories {

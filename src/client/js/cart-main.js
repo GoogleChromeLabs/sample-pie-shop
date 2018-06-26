@@ -16,8 +16,8 @@
  *  limitations under the License
  *
  */
+import initApp from './app.js';
 import init from './cart.js';
-import {Router} from './router';
-const router = new Router();
-router.enable();
+
+initApp();
 init();
