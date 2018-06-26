@@ -6,6 +6,7 @@ language: node_js
 node_js:
   - 'lts/*'
 install:
+  - npm i npm@6.1.0
   - npm ci
 script:
   - npm run lint:eslint
