@@ -4,6 +4,7 @@
     <h1>{{product.name}}</h1>
     <div id="price">${{product.price}}</div>
     <div id="description">{{product.description}}</div>
+    <div id="features">{{{product.features}}}</div>
     <form action="/add/{{product.url}}" method="post">
       <button>Add to Cart</button>
     </form>

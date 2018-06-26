@@ -16,8 +16,17 @@
  *  limitations under the License
  *
  */
-import initApp from './app.js';
-import init from './category.js';
+import {instance as lazyImg} from './lazy-img.js';
+import highlightCategory from './highlight-category.js';
 
-initApp();
-init();
+function initializePage() {
+  lazyImg.loadImages();
+  highlightCategory();
+  const metaTitleEl = document.querySelector('#meta-title');
+  document.title = metaTitleEl ? metaTitleEl.textContent : document.title;
+}
+
+export default function init() {
+  initializePage();
+}
+

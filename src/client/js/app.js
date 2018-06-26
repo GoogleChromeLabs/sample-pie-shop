@@ -16,7 +16,17 @@
  *  limitations under the License
  *
  */
+import {instance as router} from './router';
 
-import initializeFirebase from './firebase.js';
+export default function initApp() {
+  // Enable client side routing
+  router.enable();
 
-initializeFirebase();
+  // Enable service worker.
+  if ('serviceWorker' in navigator) {
+    // Use the window load event to keep the page load performant
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+}

@@ -16,9 +16,7 @@
  *  limitations under the License
  *
  */
-
-import {instance as lazyImg} from './lazy-img.js';
-import highlightCategory from './highlight-category.js';
+import pageInit from './page-init';
 
 /**
  * Router for smooth page tranistions.
@@ -33,11 +31,15 @@ class Router {
   constructor() {
     this._bindHandlers();
     this._hostname = location.host;
+    this._enabled = false;
   }
 
   enable() {
-    document.addEventListener('click', this._onLinkClick);
-    window.addEventListener('popstate', this._onPopState);
+    if (!this._enabled) {
+      document.addEventListener('click', this._onLinkClick);
+      window.addEventListener('popstate', this._onPopState);
+      this._enabled = true;
+    }
   }
 
   _bindHandlers() {
@@ -141,9 +143,7 @@ class Router {
     history.scrollRestoration = 'auto';
     await this._animateIn(newView);
 
-    // Init page
-    lazyImg.loadImages();
-    highlightCategory();
+    pageInit();
   }
 }
 
@@ -160,4 +160,6 @@ function requestAnimationFramePromise() {
   return new Promise((resolve) => requestAnimationFrame(resolve));
 }
 
-export {Router};
+const instance = new Router();
+
+export {Router, instance};

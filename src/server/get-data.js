@@ -17,9 +17,16 @@
  *
  */
 
+const path = require('path');
 const fei = require('firestore-export-import');
-fei.initializeApp(process.env.FB_KEYS,
-  'https://firebase.corp.google.com/u/0/project/pie-shop-app/');
+
+let configFile = path.resolve(__dirname, '../data/firebase-admin-key.json');
+
+if (process.env.FB_KEYS) {
+  configFile = process.env.FB_KEYS;
+}
+
+fei.initializeApp(configFile, 'https://pie-shop-app.firebaseio.com');
 
 let homeData;
 let productData;

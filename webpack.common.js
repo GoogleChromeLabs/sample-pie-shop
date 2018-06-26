@@ -36,8 +36,8 @@ module.exports = {
     }],
   },
   output: {
-    filename: '[name].js',
-    chunkFilename: 'chunk-[name].js',
-    path: path.resolve(__dirname, 'dist/static/js'),
+    filename: 'js/[name].js',
+    chunkFilename: 'js/chunk-[name].js',
+    path: path.resolve(__dirname, 'dist/static'),
   },
 };

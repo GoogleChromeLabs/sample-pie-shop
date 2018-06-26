@@ -16,8 +16,5 @@
  *  limitations under the License
  *
  */
-import initApp from './app.js';
-import init from './category.js';
 
-initApp();
-init();
+// Empty service worker for development.

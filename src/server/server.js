@@ -16,11 +16,9 @@
  *  limitations under the License
  *
  */
-
 const http = require('http');
 
 const app = require('./app').default;
-const debug = require('debug')('pieshop:server');
 
 // Get port from environment and store in Express.
 // TODO: H2 + TLS.
@@ -34,7 +32,7 @@ const server = http.createServer(app);
 server.listen(port);
 server.on('listening', () => {
   const addr = server.address();
-  debug(`Listening on port ${addr.port}`);
+  console.log(`Listening on port ${addr.port}`);
 });
 server.on('error', (error) => {
   if (error.syscall !== 'listen') {

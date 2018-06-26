@@ -17,12 +17,12 @@
  *
  */
 
-import {instance as lazyImg} from './lazy-img.js';
-import highlightCategory from './highlight-category.js';
+import pageInit from './page-init';
 
 function initializeProductPage() {
-  lazyImg.loadImages();
-  highlightCategory();
+  pageInit();
+
+  // TODO: Add Code dedicated to Product page only.
 }
 
 export default function init() {
