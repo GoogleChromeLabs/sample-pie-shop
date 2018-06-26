@@ -15,12 +15,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  *
- */
+*/
 
-import {instance as lazyImg} from './lazy-img.js';
+import pageInit from './page-init';
 
 function initializeCartPage() {
-  lazyImg.loadImages();
+  pageInit();
+  // TODO: Add code dedicated to cart page only.
 }
 
 export default function init() {
