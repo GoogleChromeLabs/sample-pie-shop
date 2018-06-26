@@ -21,20 +21,6 @@ import {instance as lazyImg} from './lazy-img.js';
 
 function initializeCartPage() {
   lazyImg.loadImages();
-  addRemoveFromCartListeners();
-}
-
-function addRemoveFromCartListeners() {
-  const removeLinks = document.querySelectorAll('a.remove');
-  for (const removeLink of removeLinks) {
-    removeLink.onclick = (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      fetch(event.target.href, {credentials: 'include', method: 'post'});
-      window.location.reload(true);
-      return false;
-    };
-  }
 }
 
 export default function init() {

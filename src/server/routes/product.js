@@ -48,18 +48,7 @@ const product = {
     if (thisProduct) {
       cart.add(thisProduct, 1);
     } else {
-      req.session.notify = `Item ${req.params.id} not found`;
-    }
-    req.session.cart = cart;
-    res.redirect(req.get('Referrer'));
-  },
-  removeFromCart: (req, res) => {
-    const cart = new Cart(req.session.cart);
-    const thisProduct = getProduct(req.params.id);
-    if (thisProduct) {
-      cart.remove(thisProduct);
-    } else {
-      req.session.notify = `Item ${req.params.id} not found`;
+      req.session.notify = 'No item found';
     }
     req.session.cart = cart;
     res.redirect(req.get('Referrer'));

@@ -4,7 +4,7 @@
     </a>
     <h2>{{product.name}}</h2>
     <p class="price">${{product.price}}</p>
-    <form action="/add/{{product.url}}" method="post">
+    <form action="/{{product.url}}/cart" method="post">
       <button>Add to Cart</button>
     </form>
 </div>
