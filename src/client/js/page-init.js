@@ -16,15 +16,17 @@
  *  limitations under the License
  *
  */
+import {instance as lazyImg} from './lazy-img.js';
+import highlightCategory from './highlight-category.js';
 
-import pageInit from './page-init';
-
-function initializeProductPage() {
-  pageInit();
-
-  // TODO: Add Code dedicated to Product page only.
+function initializePage() {
+  lazyImg.loadImages();
+  highlightCategory();
+  const metaTitleEl = document.querySelector('#meta-title');
+  document.title = metaTitleEl ? metaTitleEl.textContent : document.title;
 }
 
 export default function init() {
-  initializeProductPage();
+  initializePage();
 }
+
