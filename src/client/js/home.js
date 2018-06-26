@@ -17,10 +17,12 @@
  *
  */
 
-import {instance as lazyImg} from './lazy-img.js';
+import pageInit from './page-init';
 
 function initializeHomePage() {
-  lazyImg.loadImages();
+  pageInit();
+
+  // TODO: Add Code dedicated to home page only.
 }
 
 export default function init() {
