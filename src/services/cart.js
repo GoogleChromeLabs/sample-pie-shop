@@ -47,7 +47,6 @@ export default function Cart(oldCart) {
       delete items[key];
     }
     this.updateTotals();
-
   };
 
   this.items = oldCart ? oldCart.items : {};
