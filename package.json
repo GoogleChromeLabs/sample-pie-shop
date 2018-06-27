@@ -20,10 +20,9 @@
     "build:frontend": "./tasks/build-static.sh",
     "build": "npm-run-all clean build:backend build:frontend",
     "build:prod": "NODE_ENV=production npm run build",
-    "watch:backend": "nodemon --watch src/data --watch src/server --watch src/services --watch src/templates --exec 'npm run build:backend'",
+    "watch:backend": "nodemon --watch src/data --watch src/server --watch src/services --watch src/templates --exec 'npm-run-all build:backend start'",
     "watch:frontend": "nodemon --watch src/client --exec 'npm run build:frontend'",
-    "watch:dist": "nodemon --delay 1500ms --watch dist --exec 'npm start'",
-    "start:dev": "NODE_ENV=development npm-run-all --parallel watch:backend watch:frontend watch:dist",
+    "start:dev": "NODE_ENV=development npm-run-all --parallel watch:backend watch:frontend",
     "start": "node dist/server/server.js"
   },
   "nodemonConfig": {
