@@ -34,19 +34,19 @@ console](https://console.firebase.google.com/project/YOUR-PROJECT-NAME/settings/
 using the **Generate new private key** button. Save this to
 `src/data/firebase-admin-key.json`.
 
-The `start:watch` target will build the site and serve it locally while watching
+The `start:dev` target will build the site and serve it locally while watching
 for any changes. Once the script completes the initial build, the site should be
 available at [localhost:3000](http://localhost:3000/).
 
 ```sh
-npm run start:watch
+npm run start:dev
 ```
 
 *Note:* You can override the default location for the config file by specifying
 a path in the `FB_KEYS` environment variable.
 
 ```sh
-FB_KEYS=/path/to/alternative-key.json npm run start:watch
+FB_KEYS=/path/to/alternative-key.json npm run start:dev
 ```
 
 Check

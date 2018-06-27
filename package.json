@@ -16,15 +16,18 @@
     "lint:eslint": "eslint src",
     "lint:stylelint": "stylelint 'src/**/*.css'",
     "lint": "npm-run-all --continue-on-error lint:eslint lint:stylelint",
-    "build:node": "./tasks/build-node-scripts.sh",
-    "build:static": "./tasks/build-static.sh",
-    "build": "npm-run-all clean build:node build:static",
+    "build:backend": "./tasks/build-node-scripts.sh",
+    "build:frontend": "./tasks/build-static.sh",
+    "build": "npm-run-all clean build:backend build:frontend",
     "build:prod": "NODE_ENV=production npm run build",
-    "watch:dist": "nodemon --delay 2000ms --watch dist -e css,js,json,hbs,png,svg",
-    "watch:node": "nodemon --watch src/data --watch src/server --watch src/services --watch src/templates -e js,json,hbs --exec 'npm run build:node'",
-    "watch:static": "nodemon --watch src/client -e css,js,json,png,svg --exec 'npm run build:static'",
-    "start:watch": "npm-run-all --parallel watch:static watch:node watch:dist",
+    "watch:backend": "nodemon --watch src/data --watch src/server --watch src/services --watch src/templates --exec 'npm run build:backend'",
+    "watch:frontend": "nodemon --watch src/client --exec 'npm run build:frontend'",
+    "watch:dist": "nodemon --delay 1500ms --watch dist --exec 'npm start'",
+    "start:dev": "NODE_ENV=development npm-run-all --parallel watch:backend watch:frontend watch:dist",
     "start": "node dist/server/server.js"
+  },
+  "nodemonConfig": {
+    "ext": "css,hbs,js,json,png,svg"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
