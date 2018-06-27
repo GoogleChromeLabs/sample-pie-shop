@@ -1,4 +1,5 @@
 # Online store PWA sample
+# Dummy pr to test on travis
 
 This sample demonstrates best practices for e-commerce websites.
 
