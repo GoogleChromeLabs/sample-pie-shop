@@ -15,12 +15,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  *
-*/
+ */
+import initApp from './app.js';
+import init from './cart.js';
 
-export default function highlightCurrentCategory() {
-  const navLinks = document.querySelectorAll('nav a');
-  const category = document.querySelector('main').dataset.category;
-  for (const navLink of navLinks) {
-    navLink.classList.toggle('current', navLink.href.includes(category));
-  }
-}
+initApp();
+init();

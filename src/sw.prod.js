@@ -19,6 +19,8 @@
 workbox.skipWaiting();
 workbox.clientsClaim();
 
+/* global workbox */
+
 // Precache static assets.
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
 
@@ -40,19 +42,19 @@ function fragmentFallbackStrategy({event, url}) {
     });
 }
 workbox.routing.registerRoute(
-  new RegExp('\/(.+)?fragment=true'),
+  new RegExp('/(.+)?fragment=true'),
   fragmentFallbackStrategy
 );
 
 // Cache at runtime: category and product urls.
 // POI: we cache the same content twice - in full urls and in partials.
 workbox.routing.registerRoute(
-  new RegExp('\/([A-Za-z\+]+)$'),
+  new RegExp('/([A-Za-z+]+)$'),
   workbox.strategies.networkFirst()
 );
 
 // Cache at runtime: images from Cloudinary.
 workbox.routing.registerRoute(
-  new RegExp('https\:\/\/res\.cloudinary\.com\/pieshop\/.*'),
+  new RegExp('https://res.cloudinary.com/pieshop/.*'),
   workbox.strategies.networkFirst(),
 );

@@ -17,11 +17,17 @@
  *
  */
 
+import categories from '../../data/categories';
+
 const cart = (req, res, next) => {
   res.render('cart', {
-    title: 'pieshop: cart',
     cart: req.session.cart,
+    categories: categories,
     layout: req.query.fragment ? 'fragment' : 'layout',
+    scripts: [
+      '/js/cart_main.js',
+    ],
+    title: 'pieshop: cart',
   });
 };
 

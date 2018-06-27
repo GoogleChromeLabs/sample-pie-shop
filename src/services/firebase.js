@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import admin from 'firebase-admin';
+import path from 'path';
 
 let configFile = path.resolve(__dirname, '../data/firebase-admin-key.json');
 
