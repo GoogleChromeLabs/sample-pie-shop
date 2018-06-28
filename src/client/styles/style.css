@@ -379,7 +379,6 @@ main#shipping-and-payment input#shipping-postal-code {
   width: 150px;
 }
 
-
 main#shipping-and-payment input#cc-csc {
   width: 35px;
 }
@@ -582,7 +581,7 @@ main#shipping-and-payment section {
 }
 
 main#shipping-and-payment section:last-of-type {
-  margin: 0 0 46px 0;  
+  margin: 0 0 46px 0;
 }
 
 main#shipping-and-payment select {
@@ -602,15 +601,15 @@ main#shipping-and-payment select {
 main#shipping-and-payment select#cc-exp-month {
   margin: 0 10px 0 0;
   width: 67px;
-} 
+}
 
 main#shipping-and-payment select#cc-exp-year {
   width: 99px;
-} 
+}
 
 main#shipping-and-payment select#cc-type {
   width: 180px;
-} 
+}
 
 div.shop-now span {
   font-family: 'Roboto', sans-serif;
