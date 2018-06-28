@@ -1,11 +1,18 @@
 dist: trusty
+
 language: node_js
+
 node_js:
-  - 'lts/*'
-install:
-  - npm i -g npm@6.1.0
-  - npm ci
+- 'lts/*'
+
+before_install:
+- npm i -g npm@6.1.0
+
+cache:
+directories:
+- 'node_modules'
+
 script:
-  - npm run lint:eslint
-  - npm run lint:stylelint
-  - npm run build
+- npm run lint:eslint
+- npm run lint:stylelint
+- npm run build
