@@ -1,21 +1,31 @@
-<table>
-  <tr>
-    <td>Item</td>
-    <td>Price</td>
-    <td>Quantity</td>
-    <td>Total</td>
-  </tr>
-{{#each cart.items}}
-  <tr>
-    <td>{{this.price}}</td>
-    <td>{{this.quantity}}</td>
-    <td>{{multiply this.price this.quantity}} $</td>
-  </tr>
-{{/each}}
-  <tr>
-    <td></td>
-    <td></td>
-    <td>Total</td>
-    <td>{{cart.totalPrice}} $</td>
-  </tr>
-</table>
+<section id="cart-items">
+  {{#each cart.items}}
+  <section class="cart-item">
+    <a href="{{this.url}}">
+      <img class="lazy cart" data-id="{{this.id}}" alt="{{this.name}}" srcset=""></img>
+    </a>
+    <div class="name-and-quantity">
+      <h2>{{this.name}}</h2>
+      <div class="quantity">Quantity: <strong>{{this.quantity}}</strong></div>
+    </div>
+    <div class="remove-and-total">
+      <a class="remove" href="/cart">Remove</a>
+      <div class="total-price"><strong>${{multiplyAndFormat this.price this.quantity}}</strong></div>
+    </div>
+  </section>
+  {{/each}}
+</section>
+
+<section id="cart-summary">
+  <h2 id="summary">Summary</h2>
+  <p id="your-order">Your order qualifies for:</p>
+  <svg id="tick" viewBox="0 0 24 24">
+    <path fill="none" d="M0 0h24v24H0z"/>
+    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+  </svg>
+  <p id="free-shipping">Free standard shipping</p>
+  <p id="delivery-options">More delivery options at checkout</p>
+  <p class="total"><span>Total (excluding delivery):</span><strong>${{cart.totalPrice}}</strong></p>
+  <a id="checkout" href="/payment" title="Go to checkout page"><button>Checkout</button></a>
+  <a id="continue-shopping" href="/" title="Go to home page">Continue shopping</a>
+</section>

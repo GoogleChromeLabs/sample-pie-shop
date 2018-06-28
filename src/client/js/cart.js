@@ -17,10 +17,13 @@
  *
 */
 
-export default function highlightCurrentCategory() {
-  const navLinks = document.querySelectorAll('nav a');
-  const category = document.querySelector('main').dataset.category;
-  for (const navLink of navLinks) {
-    navLink.classList.toggle('current', navLink.href.includes(category));
-  }
+import pageInit from './page-init';
+
+function initializeCartPage() {
+  pageInit();
+  // TODO: Add code dedicated to cart page only.
+}
+
+export default function init() {
+  initializeCartPage();
 }

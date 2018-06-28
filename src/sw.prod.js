@@ -16,6 +16,8 @@
  *  limitations under the License
  *
  */
+/* global workbox */
+
 workbox.skipWaiting();
 workbox.clientsClaim();
 
@@ -63,13 +65,13 @@ function fragmentFallbackStrategy({event, url}) {
     });
 }
 workbox.routing.registerRoute(
-  new RegExp('\/(.+)?fragment=true'),
+  new RegExp('/(.+)?fragment=true'),
   fragmentFallbackStrategy
 );
 
 // Cache images from Cloudinary
 workbox.routing.registerRoute(
-  new RegExp('https\:\/\/res\.cloudinary\.com\/pieshop\/.*'),
+  new RegExp('https://res.cloudinary.com/pieshop/.*'),
   // POI: Why cacheFirst? Low risk of reusing url for changed resource.
   workbox.strategies.cacheFirst({
     cacheName: 'images',

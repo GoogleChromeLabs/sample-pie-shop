@@ -43,7 +43,7 @@ app.engine('hbs', hbs({
   layoutsDir: path.join(rootDir, 'templates', 'layouts'),
   partialsDir: path.join(rootDir, 'templates', 'partials'),
   helpers: {
-    multiply: (a, b) => (a * b),
+    multiplyAndFormat: (a, b) => (a * b).toFixed(2),
   },
 }));
 app.set('views', path.join(rootDir, 'templates', 'views'));
