@@ -1,4 +1,7 @@
+# Use a whitelist approach here as by default we want to ignore *everything*
 *
+
+# and only upload these three targets
 !/dist/**
 !/app.yaml
 !/package.json
