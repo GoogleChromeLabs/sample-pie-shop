@@ -16,6 +16,7 @@
  *  limitations under the License
  *
  */
+import appShell from './routes/app-shell';
 import index from './routes/index';
 import category from './routes/category';
 import product from './routes/product';
@@ -31,6 +32,7 @@ const categoryRoutes = categories.map((item) => {
 import {Router} from 'express';
 const router = new Router();
 
+router.get('/app-shell', appShell);
 router.get(categoryRoutes, category);
 router.get('/cart', cart);
 router.get('/payment', payment.get);
