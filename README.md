@@ -79,3 +79,7 @@ and displayed responsively using the `srcset` and `sizes` attributes in
 combination with
 [`lazy-img`](https://github.com/GoogleChromeLabs/sample-pie-shop/blob/master/src/client/js/lazy-img.js)
 for lazy loading.
+
+## Deploying
+
+See [`DEPLOY.mb`](DEPLOY.md).
