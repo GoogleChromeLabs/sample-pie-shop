@@ -7,7 +7,9 @@ There's an instance deployed to the AppEngine "Standard" environment on the
 at https://pie-shop-app-staging.appspot.com/
 
 First, ensure you have the `gcloud` command installed as per [the instructions
-here](https://cloud.google.com/sdk/gcloud/).
+here](https://cloud.google.com/sdk/gcloud/). If you already have the command
+installed, it's a good idea to make sure the components are up to date by
+running `gcloud components update`.
 
 Run `gcloud init` and when prompted to select a cloud project either pick
 `pie-shop-app-staging` (available to you if you're on the team) or `Create a new
