@@ -1,3 +1,19 @@
+/* Color theme */
+body {
+  --color-primary-light: #9099a2;
+  --color-primary-dark: #5d666f;
+
+  --color-secondary: #fff;
+  --color-secondary-dark: #457fe2;
+
+  --text-on-primary: #fff;
+  --text-on-secondary: #222;
+  --text-on-secondary-dark: #fff;
+
+  --color-background-dark: #fff;
+  --color-background-light: #fff;
+}
+
 * {
   font-family: 'Roboto', sans-serif;
 }
@@ -77,7 +93,7 @@ h1 a:hover {
 }
 
 nav a {
-  color: white;
+  color: var(--text-on-primary);
   display: inline-block;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -88,8 +104,8 @@ nav a {
 
 nav a:hover,
 nav a.current {
-  background-color: #eee;
-  color: #444;
+  background-color: var(--color-secondary);
+  color: var(--text-on-secondary);
 }
 
 section#home-categories a {
@@ -113,16 +129,17 @@ section#home-products a {
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--color-background-dark);
 }
 
 button {
-  background-color: #457fe2;
+  background-color: var(--color-secondary-dark);
   border: none;
   border-radius: 2px;
   box-shadow:
     0 2px 5px 0 rgba(0, 0, 0, 0.16),
     0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  color: #eee;
+  color: var(--text-on-secondary-dark);
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
@@ -195,6 +212,7 @@ main#category div {
   flex-direction: column;
   padding: 0 0 20px 0;
   text-align: center;
+  background-color: var(--color-background-light);
 }
 
 main#product > div {
@@ -230,7 +248,7 @@ footer {
 
 header {
   align-items: center;
-  background-color: #5d666f;
+  background-color: var(--color-primary-dark);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: grid;
   grid-template-columns: 81px 93px auto 60px;
@@ -409,7 +427,7 @@ main#product {
 }
 
 nav {
-  background-color: #9099a2;
+  background-color: var(--color-primary-light);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: none;
   font-family: 'Roboto', sans-serif;
