@@ -31,7 +31,7 @@ function category(req, res) {
     scripts: [
       '/js/category_main.js',
     ],
-    title: `pieshop: ${thisCategory}`,
+    title: `PWA Shop: ${thisCategory}`,
   });
 }
 

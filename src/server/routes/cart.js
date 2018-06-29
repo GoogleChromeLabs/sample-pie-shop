@@ -27,7 +27,7 @@ const cart = (req, res, next) => {
     scripts: [
       '/js/cart_main.js',
     ],
-    title: 'pieshop: cart',
+    title: 'PWA Shop: Cart',
   });
 };
 
