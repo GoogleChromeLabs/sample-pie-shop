@@ -16,13 +16,13 @@
     "lint:eslint": "eslint src",
     "lint:stylelint": "stylelint 'src/**/*.css'",
     "lint": "npm-run-all --continue-on-error lint:eslint lint:stylelint",
-    "build:backend": "./tasks/build-node-scripts.sh",
     "build:frontend": "./tasks/build-static.sh",
+    "build:backend": "./tasks/build-node-scripts.sh",
     "build": "npm-run-all clean build:backend build:frontend",
     "build:prod": "NODE_ENV=production npm run build",
-    "watch:backend": "nodemon --watch src/data --watch src/server --watch src/services --watch src/templates --exec 'npm-run-all build:backend start'",
-    "watch:frontend": "nodemon --watch src/client --exec 'npm run build:frontend'",
-    "start:dev": "NODE_ENV=development npm-run-all --parallel watch:backend watch:frontend",
+    "nodemon:frontend": "nodemon --watch src/client --exec 'npm run build:frontend'",
+    "nodemon:backend:serve": "nodemon --watch src/data --watch src/server --watch src/services --watch src/templates --exec 'npm-run-all build:backend start'",
+    "start:dev": "NODE_ENV=development npm-run-all --parallel nodemon:frontend nodemon:backend:serve",
     "start": "node dist/server/server.js"
   },
   "nodemonConfig": {
