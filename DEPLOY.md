@@ -18,9 +18,9 @@ deploy.
 
 AppEngine deploys to a read-only filesystem which means you need to deploy a
 locally built version of the app. The [`.gcloudignore`](.gcloudignore) file is
-set up to only deploy the resources need in production. To build and deploy the
-app into the currently selected project, run the following from the top-level
-directory of the project:
+set up to deploy only the resources needed in production. To build and deploy
+the app into the currently selected project, run the following commands from the
+top-level directory of the project:
 
 ```sh
 rm -rf node_modules && \

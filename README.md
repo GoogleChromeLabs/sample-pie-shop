@@ -82,4 +82,4 @@ for lazy loading.
 
 ## Deploying
 
-See [`DEPLOY.mb`](DEPLOY.md).
+See [`DEPLOY.md`](DEPLOY.md).
