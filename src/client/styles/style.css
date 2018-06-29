@@ -1,15 +1,12 @@
 /* Color theme */
-body {
+html {
   --color-primary-light: #9099a2;
   --color-primary-dark: #5d666f;
-
   --color-secondary: #fff;
   --color-secondary-dark: #457fe2;
-
   --text-on-primary: #fff;
   --text-on-secondary: #222;
   --text-on-secondary-dark: #fff;
-
   --color-background-dark: #fff;
   --color-background-light: #fff;
 }
