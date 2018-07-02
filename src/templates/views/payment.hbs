@@ -41,35 +41,38 @@
 
             <h2>Shipping address</h2>
 
-            <input id="shipping-same" name="shipping-shipping-same" type="checkbox">
-            <label for="shipping-shipping-same">Same as billing address</label>
+            <details>
+                <summary>Enter shipping address (optional)</summary>
 
-            <label for="shipping-honorific-prefix">Title</label>
-            <input required autocomplete="honorific-prefix" id="shipping-honorific-prefix" name="shipping-honorific-prefix">
+                <input id="shipping-same" name="shipping-shipping-same" type="checkbox">
+                <label for="shipping-shipping-same">Same as billing address</label>
 
-            <label for="shipping-given-name">First name</label>
-            <input required autocomplete="given-name" id="shipping-given-name" name="shipping-given-name">
+                <label for="shipping-honorific-prefix">Title</label>
+                <input required autocomplete="honorific-prefix" id="shipping-honorific-prefix" name="shipping-honorific-prefix">
 
-            <label for="shipping-family-name">Last name</label>
-            <input required autocomplete="family-name" id="shipping-family-name" name="shipping-family-name">
+                <label for="shipping-given-name">First name</label>
+                <input required autocomplete="given-name" id="shipping-given-name" name="shipping-given-name">
 
-            <label for="shipping-address-line1">Address 1</label>
-            <input required autocomplete="address-line1" id="shipping-address-line1" name="shipping-address-line1">
+                <label for="shipping-family-name">Last name</label>
+                <input required autocomplete="family-name" id="shipping-family-name" name="shipping-family-name">
 
-            <label for="shipping-address-line2">Address 2</label>
-            <input autocomplete="address-line2" id="shipping-address-line2" name="shipping-address-line2">
+                <label for="shipping-address-line1">Address 1</label>
+                <input required autocomplete="address-line1" id="shipping-address-line1" name="shipping-address-line1">
 
-            <label for="shipping-locality">City or town</label>
-            <input required autocomplete="locality" id="shipping-locality" name="shipping-locality">
+                <label for="shipping-address-line2">Address 2</label>
+                <input autocomplete="address-line2" id="shipping-address-line2" name="shipping-address-line2">
 
-            <label for="shipping-state">State or region</label>
-            <input autocomplete="state" id="shipping-state" name="shipping-state">
+                <label for="shipping-locality">City or town</label>
+                <input required autocomplete="locality" id="shipping-locality" name="shipping-locality">
 
-            {{> select-country id=shipping-country }}
+                <label for="shipping-state">State or region</label>
+                <input autocomplete="state" id="shipping-state" name="shipping-state">
 
-            <label for="shipping-postal-code">ZIP or postal code</label>
-            <input required autocomplete="postal-code" id="shipping-postal-code" name="shipping-postal-code">
+                {{> select-country id=shipping-country }}
 
+                <label for="shipping-postal-code">ZIP or postal code</label>
+                <input required autocomplete="postal-code" id="shipping-postal-code" name="shipping-postal-code">
+            </details>
         </section>
 
         <section id="payment">
