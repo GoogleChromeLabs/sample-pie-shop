@@ -1,29 +1,31 @@
 /* Color theme */
 
 html {
+  /* Primary color */
   --color-primary: #ff8a80;
   --color-primary-light: #ffbcaf;
   --color-primary-dark: #c85a54;
 
+  /* Secondary color */
   --color-secondary: #26c6da;
   --color-secondary-light: #6ff9ff;
   --color-secondary-dark: #0095a8;
 
+  /* Text on colored background */
   --text-on-primary-light: #000;
   --text-on-primary-dark: #fff;
   --text-on-secondary: #000;
   --text-on-secondary-dark: #fff;
 
+  /* Background color */
   --color-background-dark: #e1e2e1;
   --color-background-light: #efeeee;
 
-
+  /* Text color */
   --color-text: #444;
   --color-text-vivid: #000;
   --color-text-subtle: #bbb;
-
 }
-
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -119,7 +121,6 @@ nav a {
   padding: 10px 10px;
   text-transform: lowercase;
   border-bottom: 4px solid var(--color-primary-light);
-
 }
 
 nav a:hover,
