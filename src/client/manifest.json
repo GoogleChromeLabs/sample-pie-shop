@@ -1,6 +1,6 @@
 {
-  "name": "SHOP",
-  "short_name": "SHOP",
+  "name": "PWA shop",
+  "short_name": "PWA Shop",
   "icons": [
     {
       "src": "images/icons/shop-icon-128.png",
