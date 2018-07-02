@@ -135,6 +135,7 @@ class Router {
     }
     const oldView = document.querySelector('#main-view');
     const viewAnimation = this._animateOut(oldView);
+    performance.mark('pagestart')
     const newView = await this._loadFragment(link);
     await viewAnimation;
     oldView.parentNode.replaceChild(newView, oldView);

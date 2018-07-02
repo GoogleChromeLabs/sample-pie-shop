@@ -18,18 +18,24 @@
  */
 
 import categories from '../../data/categories';
+import index2 from './index';
+
 
 
 function index(req, res) {
-  res.render('app-shell', {
-    cart: req.session.cart,
-    categories: categories,
-    layout: 'layout',
-    scripts: [
-      '/js/app_main.js',
-    ],
-    title: 'Shop',
-  });
+  if (req.query.fragment) {
+    index2(req, res)
+  } else {
+    res.render('app-shell', {
+      cart: req.session.cart,
+      categories: categories,
+      layout: 'layout',
+      scripts: [
+        '/js/app_main.js',
+      ],
+      title: 'Shop',
+    });
+  }
 }
 
 export default index;

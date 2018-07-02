@@ -37,7 +37,8 @@ router.get(categoryRoutes, category);
 router.get('/cart', cart);
 router.get('/payment', payment.get);
 router.get('/confirmation', payment.confirm);
-router.get(/\/(index.html)?$/, index);
+// router.get(/\/(index.html)?$/, index);
+router.get(/\/(index.html)?$/, appShell);
 router.get('/:id', product.get);
 
 router.post('/:id/cart', product.addToCart);

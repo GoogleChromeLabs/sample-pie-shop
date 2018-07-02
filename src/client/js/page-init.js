@@ -24,6 +24,12 @@ function initializePage() {
   highlightCategory();
   const metaTitleEl = document.querySelector('#meta-title');
   document.title = metaTitleEl ? metaTitleEl.textContent : document.title;
+
+  performance.mark('pageready');
+  performance.measure('loadtime', 'pagestart', 'pageready');
+  console.log('Page start: ', performance.getEntriesByName('pagestart').pop().startTime.toFixed())
+  console.log('Page ready: ', performance.getEntriesByName('pageready').pop().startTime.toFixed())
+  console.log('Load time: ', performance.getEntriesByName('loadtime').pop().duration.toFixed())
 }
 
 export default function init() {
