@@ -1,39 +1,136 @@
-<main>
-<h1>{{title}}</h1>
+<main id="shipping-and-payment">
 
-{{#if cart.totalQty }}
-  {{> cart }}
-  <form action="/payment" method="post">
+    <h1>Shipping and payment</h1>
 
-    <h3>Shipping</h3>
-    <label for="SAddress">Shipping address</label>
-    <input name="ship-address" required id="SAddress" placeholder="Street name" autocomplete="shipping street-address">
+    {{#if cart.totalQty }}
+    <form action="/payment" method="post">
 
-    <label for="SCity">City</label>
-    <input name="ship-city" required id="SCity" placeholder="City" autocomplete="shipping city">
+        <section id="billing">
 
-    <label for="SZip">Zip / Postal code</label>
-    <input name="ship-zip" required id="SZip" placeholder="00000" autocomplete="shipping postal-code">
+            <h2>Billing address</h2>
 
-    <label for="SCountry">Country</label>
-    <input name="ship-country" required id="SCountry" placeholder="Country" autocomplete="shipping country">
+            <label for="billing-honorific-prefix">Title</label>
+            <input required autocomplete="honorific-prefix" id="billing-honorific-prefix" name="billing-honorific-prefix">
 
-    <h3>Payment</h3>
-    <label for="CCName">Name on card</label>
-    <input name="ccname" id="CCName" required placeholder="Full Name" autocomplete="cc-name">
+            <label for="billing-given-name">First name</label>
+            <input required autocomplete="given-name" id="billing-given-name" name="billing-given-name">
 
-    <label for="CCNum">Card Number</label>
-    <input name="cardnumber" id="CCNum" required autocomplete="cc-number">
+            <label for="billing-family-name">Last name</label>
+            <input required autocomplete="family-name" id="billing-family-name" name="billing-family-name">
 
-    <label for="CCCVC">CVC</label>
-    <input name="cvc" id="CCCVC" required autocomplete="cc-csc">
+            <label for="billing-address-line1">Address 1</label>
+            <input required autocomplete="address-line1" id="billing-address-line1" name="billing-address-line1">
 
-    <label for="CCExp">Expiry</label>
-    <input name="cc-exp" id="CCExp" required placeholder="MM-YYYY" autocomplete="cc-exp">
+            <label for="billing-address-line2">Address 2</label>
+            <input autocomplete="address-line2" id="billing-address-line2" name="billing-address-line2">
 
-    <button>Pay</button>
-  </form>
-{{else}}
-  <p>No items in your cart so far. Continue shopping!</p>
-{{/if}}
+            <label for="billing-locality">City or town</label>
+            <input required autocomplete="locality" id="billing-locality" name="billing-locality">
+
+            <label for="billing-state">State or region</label>
+            <input autocomplete="state" id="billing-state" name="billing-state">
+
+            {{> select-country id=billing-country }}
+
+            <label for="billing-postal-code">ZIP or postal code</label>
+            <input required autocomplete="postal-code" id="billing-postal-code" name="billing-postal-code">
+
+        </section>
+
+        <section id="shipping">
+
+            <h2>Shipping address</h2>
+
+            <input id="shipping-same" name="shipping-shipping-same" type="checkbox">
+            <label for="shipping-shipping-same">Same as billing address</label>
+
+            <label for="shipping-honorific-prefix">Title</label>
+            <input required autocomplete="honorific-prefix" id="shipping-honorific-prefix" name="shipping-honorific-prefix">
+
+            <label for="shipping-given-name">First name</label>
+            <input required autocomplete="given-name" id="shipping-given-name" name="shipping-given-name">
+
+            <label for="shipping-family-name">Last name</label>
+            <input required autocomplete="family-name" id="shipping-family-name" name="shipping-family-name">
+
+            <label for="shipping-address-line1">Address 1</label>
+            <input required autocomplete="address-line1" id="shipping-address-line1" name="shipping-address-line1">
+
+            <label for="shipping-address-line2">Address 2</label>
+            <input autocomplete="address-line2" id="shipping-address-line2" name="shipping-address-line2">
+
+            <label for="shipping-locality">City or town</label>
+            <input required autocomplete="locality" id="shipping-locality" name="shipping-locality">
+
+            <label for="shipping-state">State or region</label>
+            <input autocomplete="state" id="shipping-state" name="shipping-state">
+
+            {{> select-country id=shipping-country }}
+
+            <label for="shipping-postal-code">ZIP or postal code</label>
+            <input required autocomplete="postal-code" id="shipping-postal-code" name="shipping-postal-code">
+
+        </section>
+
+        <section id="payment">
+
+            <h2>Pay with credit card</h2>
+
+            <label for="cc-type">Card type</label>
+            <select id="cc-type" name="cc-type">
+                <option value="Visa">Visa</option>
+                <option value="MasterCard">MasterCard</option>
+                <option value="American Express">American Express</option>
+            </select>
+
+            <label for="cc-number">Card number</label>
+            <input required autocomplete="cc-number" id="cc-number" name="cc-number">
+
+            <div id="expiry-date">
+                <label for="cc-exp-month">Expiry date</label>
+                <select id="cc-exp-month" placeholder="MM">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <select id="cc-exp-year" placeholder="YYYY">
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                </select>
+            </div>
+
+            <label for="cc-name">Name on card</label>
+            <input required autocomplete="cc-name" id="cc-name" name="cc-name">
+
+            <label for="cc-csc">Security code</label>
+            <input required autocomplete="cc-csc" id="cc-csc" name="cc-csc">
+
+        </section>
+
+        <button>Confirm Payment</button>
+
+    </form>
+    {{else}}
+    <p>Your cart is empty.</p>
+    <a href="/" title="Go to home page"><button>Continue shopping</button></a>
+    {{/if}}
+
 </main>
