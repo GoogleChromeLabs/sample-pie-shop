@@ -1,18 +1,39 @@
 /* Color theme */
+
 html {
-  --color-primary-light: #9099a2;
-  --color-primary-dark: #5d666f;
-  --color-secondary: #fff;
-  --color-secondary-dark: #457fe2;
-  --text-on-primary: #fff;
-  --text-on-secondary: #222;
+  /* Primary color */
+  --color-primary: #ff8a80;
+  --color-primary-light: #ffbcaf;
+  --color-primary-dark: #c85a54;
+
+  /* Secondary color */
+  --color-secondary: #26c6da;
+  --color-secondary-light: #6ff9ff;
+  --color-secondary-dark: #0095a8;
+
+  /* Text on colored background */
+  --text-on-primary-light: #000;
+  --text-on-primary-dark: #fff;
+  --text-on-secondary: #000;
   --text-on-secondary-dark: #fff;
-  --color-background-dark: #fff;
-  --color-background-light: #fff;
+
+  /* Background color */
+  --color-background-dark: #e1e2e1;
+  --color-background-light: #efeeee;
+
+  /* Text color */
+  --color-text: #444;
+  --color-text-vivid: #000;
+  --color-text-subtle: #bbb;
 }
 
 * {
   font-family: 'Roboto', sans-serif;
+}
+
+input,
+select {
+  background-color: var(--color-background-light);
 }
 
 a {
@@ -63,7 +84,7 @@ a#checkout {
 }
 
 a#continue-shopping {
-  color: #666;
+  color: var(--color-text);
   display: block;
   font-weight: 200;
   text-align: center;
@@ -72,44 +93,45 @@ a#continue-shopping {
 }
 
 a#continue-shopping:hover {
-  color: black;
+  color: var(--color-text-vivid);
 }
 
 footer a {
-  color: #666;
+  color: var(--color-text);
 }
 
 footer a:hover {
-  color: black;
+  color: var(--color-text-vivid);
 }
 
 h1 a {
-  color: #eee;
+  color: var(--text-on-primary-dark);
 }
 
-h1 a:hover {
-  color: white;
+h1#logo a:hover {
+  color: #eee; /* Hover effect */
 }
 
 nav a {
-  color: var(--text-on-primary);
+  color: var(--text-on-primary-light);
   display: inline-block;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   margin: 0 1px 0 0;
   padding: 10px 10px;
   text-transform: lowercase;
+  border-bottom: 4px solid var(--color-primary-light);
 }
 
 nav a:hover,
 nav a.current {
-  background-color: var(--color-secondary);
-  color: var(--text-on-secondary);
+  color: var(--text-on-primary-light);
+  border-color: var(--color-secondary);
 }
 
 section#home-categories a {
-  background-color: #eee;
-  color: #444;
+  background-color: var(--color-background-light);
+  color: var(--color-text);
   cursor: pointer;
   display: block;
   padding: 30px;
@@ -118,7 +140,7 @@ section#home-categories a {
 
 section#home-products a {
   background: linear-gradient(#eee, #fff);
-  color: #444;
+  color: var(--color-text);
   cursor: pointer;
   display: block;
   margin: auto;
@@ -147,17 +169,14 @@ button {
   width: 110px;
 }
 
-button:active {
-  background-color: #1976d2;
-  color: white;
-}
-
+button:active,
 button:hover {
-  background-color: #1976d2;
-  color: white;
+  background-color: var(--color-secondary);
+  color: var(--text-on-secondary);
 }
 
 button:focus {
+  /* TODO: Consider stronger focus indicator */
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
   outline: none;
 }
@@ -226,7 +245,6 @@ main#product > div {
 }
 
 main#product div#description {
-  color: #444;
   font-size: 18px;
   font-weight: 200;
   line-height: 1.3em;
@@ -234,7 +252,6 @@ main#product div#description {
 }
 
 main#product div#price {
-  color: #444;
   font-size: 22px;
   font-weight: 100;
   margin: 0 0 25px 0;
@@ -245,7 +262,7 @@ div.shop-now {
 }
 
 footer {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--color-text-subtle);
   font-family: 'Roboto', sans-serif;
   padding: 10px 30px 10px 30px;
 }
@@ -270,7 +287,7 @@ main#shipping-and-payment h1 {
 }
 
 header h1 {
-  color: white;
+  color: var(--text-on-primary-light);
   font-size: 22px;
   font-weight: 400;
   margin: 0;
@@ -373,8 +390,7 @@ main#product img {
 }
 
 main#shipping-and-payment input {
-  background-color: #efefef;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-background-dark);
   font-size: 16px;
   margin: 0 0 35px 0;
   padding: 15px;
@@ -400,7 +416,7 @@ main#shipping-and-payment input#cc-csc {
 
 main#shipping-and-payment input:active {
   background-color: white;
-  border-color: #457fe2;
+  border-color: var(--color-secondary);
 }
 
 main#shipping-and-payment label {
@@ -434,10 +450,25 @@ section#home-brands img {
   width: 100%;
 }
 
+div#searchbox {
+  text-align: right;
+  position: relative;
+}
+
+div#searchbox svg {
+  width: 24px;
+  height: 33px;
+  margin-left: -35px;
+  vertical-align: middle;
+  fill: var(--color-text);
+  position: absolute;
+  top: 0;
+}
+
 input#search {
-  background-color: #eee;
   border: none;
-  color: #444;
+  border-radius: 33px;
+  color: var(--color-text);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   min-width: 100px;
@@ -449,7 +480,7 @@ input#search:focus {
 }
 
 input#search::placeholder {
-  color: #666;
+  color: var(--color-text);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 300;
@@ -512,7 +543,7 @@ p {
 }
 
 main p.price {
-  color: #457fe2;
+  color: var(--color-secondary-dark);
   margin: 0 0 20px 0;
 }
 
@@ -525,7 +556,7 @@ main#cart p.total {
 }
 
 footer p {
-  color: #666;
+  color: var(--color-text);
   margin: 20px 0;
 }
 
@@ -539,7 +570,7 @@ section#home-products p {
 }
 
 p#delivery-options {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--color-background-dark);
   font-size: 14px;
   margin: 0 0 30px 0;
   padding: 0 0 25px 0;
@@ -552,14 +583,14 @@ p#free-shipping {
 }
 
 section#cart-items {
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid var(--color-text);
   display: grid;
   grid-gap: 30px 0;
 }
 
 section.cart-item {
   align-items: start;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--color-text-subtle);
   display: grid;
   grid-gap: 0 20px;
   grid-template-columns: 1fr 2fr 1fr;
@@ -590,7 +621,7 @@ section#home-brands {
 }
 
 main#shipping-and-payment section {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-text-subtle);
   margin: 0 0 38px 0;
   padding: 0 0 17px 0;
 }
@@ -600,7 +631,7 @@ main#shipping-and-payment section:last-of-type {
 }
 
 main#shipping-and-payment select {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-text-subtle);
   border-radius: 3px;
   box-sizing: border-box;
   cursor: pointer;
@@ -646,13 +677,13 @@ div.shop-now svg {
 }
 
 a#cart svg {
-  fill: #eee;
+  fill: var(--text-on-primary-dark);
   height: 40px;
   width: 40px;
 }
 
 a#cart svg:hover {
-  fill: white;
+  fill: var(--text-on-primary-dark);
 }
 
 a#cart svg text {
@@ -662,7 +693,7 @@ a#cart svg text {
 
 #cart-summary svg {
   display: inline-block;
-  fill: #457fe2;
+  fill: var(--color-secondary);
   height: 20px;
   position: relative;
   top: 4px;
@@ -672,7 +703,7 @@ a#cart svg text {
 /* menu start */
 
 menu a {
-  color: white;
+  color: var(--text-on-secondary-dark);
   display: block;
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
@@ -681,13 +712,8 @@ menu a {
   white-space: nowrap;
 }
 
-menu a:hover {
-  background-color: #383d43;
-  color: white;
-}
-
 menu div {
-  background-color: #5d666f;
+  background-color: var(--color-secondary-dark);
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16);
   left: 0;
   margin: 0;
@@ -891,7 +917,7 @@ menu:focus svg#open {
   }
 
   section#cart-summary {
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-text-subtle);
     height: fit-content;
     padding: 30px;
   }
