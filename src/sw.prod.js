@@ -30,6 +30,8 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
 
 /**
  * Handle navigation requests
+ * All navigational requests will be redirected to this route, like in a SPA.
+ * @see https://developers.google.com/web/tools/workbox/modules/workbox-routing
  */
 
 workbox.routing.registerNavigationRoute('/app-shell');
