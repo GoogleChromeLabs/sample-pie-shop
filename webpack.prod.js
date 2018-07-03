@@ -34,10 +34,17 @@ module.exports = merge.smart(common, {
         'styles/*.css'
       ],
       templatedUrls: {
-        '/': [
+        '/?fragment=true': [
+          '../templates/views/index.hbs',
+          '../templates/partials/*.hbs',
+        ],
+        '/app-shell': [
+          '../server/routes/app-shell.js',
           '../templates/layouts/layout.hbs',
-          '../templates/partials/*.hbs'
-        ]
+          '../templates/views/app-shell.hbs',
+          // POI: This is relying on all partials now, probably not all needed.
+          '../templates/partials/*.hbs',
+        ],
       },
     })
   ],

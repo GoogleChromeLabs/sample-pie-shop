@@ -145,6 +145,10 @@ class Router {
 
     pageInit();
   }
+
+  loadCurrentRoute() {
+    this.navigate(new URL(location.href), document.body.scrollTop, false);
+  }
 }
 
 function transitionEndPromise(element) {
