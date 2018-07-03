@@ -2,9 +2,13 @@ dist: trusty
 language: node_js
 node_js:
   - 'lts/*'
-install:
-  - npm i -g npm@6.1.0
-  - npm ci
+git:
+  depth: false
+cache:
+  directories:
+    - node_modules
+before_install:
+  - npm i -g npm@latest
 script:
   - npm run lint
   - npm run build
