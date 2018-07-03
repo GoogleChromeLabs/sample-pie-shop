@@ -34,19 +34,19 @@ console](https://console.firebase.google.com/project/YOUR-PROJECT-NAME/settings/
 using the **Generate new private key** button. Save this to
 `src/data/firebase-admin-key.json`.
 
-The `serve` target will build the site and serve it locally while watching for
-any changes. Once the script completes the initial build, the site should be
+The `start:dev` target will build the site and serve it locally while watching
+for any changes. Once the script completes the initial build, the site should be
 available at [localhost:3000](http://localhost:3000/).
 
 ```sh
-npm run serve
+npm run start:dev
 ```
 
 *Note:* You can override the default location for the config file by specifying
 a path in the `FB_KEYS` environment variable.
 
 ```sh
-FB_KEYS=/path/to/alternative-key.json npm run serve
+FB_KEYS=/path/to/alternative-key.json npm run start:dev
 ```
 
 Check
