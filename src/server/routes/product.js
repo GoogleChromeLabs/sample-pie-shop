@@ -33,7 +33,7 @@ const product = {
         scripts: [
           '/js/product_main.js',
         ],
-        title: `pieshop: ${thisProduct.name}`,
+        title: `PWA Shop: ${thisProduct.name}`,
       });
     } else {
       res.status(404);

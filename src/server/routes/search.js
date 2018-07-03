@@ -19,7 +19,7 @@
 
 const search = (req, res, next) => {
   res.render('listing', {
-    title: 'Search — Pie Shop',
+    title: 'PWA Shop: Search',
     cart: req.session.cart,
   });
 };

@@ -112,6 +112,10 @@ h1#logo a:hover {
   color: #eee; /* Hover effect */
 }
 
+h1#logo svg {
+  display: none;  /* Default for mobile */
+}
+
 nav a {
   color: var(--text-on-primary-light);
   display: inline-block;
@@ -868,6 +872,14 @@ menu:focus svg#open {
     font-size: 32px;
     justify-self: start;
     padding: 0 0 6px 0;
+  }
+
+  h1#logo svg {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: sub;
+    margin: 0 10px;
   }
 
   main#category h1 {
