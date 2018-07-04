@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - 'lts/*'
 git:
-  depth: false
+  depth: 5
 cache:
   directories:
     - node_modules
