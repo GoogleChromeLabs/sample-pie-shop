@@ -12,9 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import initializeApp from '../services/firebase';
 const fei = require('firestore-export-import');
 
-fei.initializeApp(process.env.FB_KEYS,
-  'https://firebase.corp.google.com/u/0/project/pie-shop-app/');
-
+initializeApp();
 fei.restore('../src/data/home.json');

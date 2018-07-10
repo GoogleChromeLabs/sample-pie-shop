@@ -17,16 +17,10 @@
  *
  */
 
-const path = require('path');
+import initializeApp from '../services/firebase';
 const fei = require('firestore-export-import');
 
-let configFile = path.resolve(__dirname, '../data/firebase-admin-key.json');
-
-if (process.env.FB_KEYS) {
-  configFile = process.env.FB_KEYS;
-}
-
-fei.initializeApp(configFile, 'https://pie-shop-app.firebaseio.com');
+initializeApp();
 
 let homeData;
 let productData;
@@ -78,5 +72,3 @@ function findUrl(products, productUrl) {
     return product.url === productUrl;
   });
 }
-
-

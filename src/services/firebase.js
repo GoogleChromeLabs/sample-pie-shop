@@ -14,21 +14,24 @@
 
 import admin from 'firebase-admin';
 import path from 'path';
+import fs from 'fs';
 
-let configFile = path.resolve(__dirname, '../data/firebase-admin-key.json');
+export default function initializeApp() {
+  if (admin.apps.length == 0) {
+    let credential = null;
+    const defaultConfigFile = path.resolve(__dirname, '../data/firebase-admin-key.json');
 
-if (process.env.FB_KEYS) {
-  configFile = process.env.FB_KEYS;
+    if (process.env.FB_KEYS) {
+      credential = admin.credential.cert(require(process.env.FB_KEYS));
+    } else if (fs.existsSync(defaultConfigFile)) {
+      credential = admin.credential.cert(require(defaultConfigFile));
+    } else {
+      credential = admin.credential.applicationDefault();
+    }
+
+    admin.initializeApp({
+      credential: credential,
+      databaseURL: 'https://pie-shop-app.firebaseio.com',
+    });
+  }
 }
-
-if (admin.initializeApp) {
-  admin.initializeApp({
-    credential: admin.credential.cert(require(configFile)),
-    databaseURL: 'https://pie-shop-app.firebaseio.com',
-    databaseAuthVariableOverride: {
-      uid: 'my-service-worker',
-    },
-  });
-}
-
-export default admin;
