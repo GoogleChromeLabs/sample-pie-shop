@@ -1,4 +1,5 @@
 .DS_Store
+.travis-deploy-key.json
 dist
 keys
 node_modules
