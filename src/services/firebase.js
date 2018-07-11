@@ -17,21 +17,26 @@ import path from 'path';
 import fs from 'fs';
 
 export default function initializeApp() {
-  if (admin.apps.length == 0) {
+  // Check if app has already been initialized
+  if (admin.apps.length === 0) {
     let credential = null;
-    const defaultConfigFile = path.resolve(__dirname, '../data/firebase-admin-key.json');
+    const DEFAULT_CONFIG_FILE = path.resolve(__dirname, '../data/firebase-admin-key.json');
+    const DATABASE_URL = 'https://pie-shop-app.firebaseio.com';
 
     if (process.env.FB_KEYS) {
+      // Try the environment variable first
       credential = admin.credential.cert(require(process.env.FB_KEYS));
-    } else if (fs.existsSync(defaultConfigFile)) {
-      credential = admin.credential.cert(require(defaultConfigFile));
+    } else if (fs.existsSync(DEFAULT_CONFIG_FILE)) {
+      // Check the default config file second
+      credential = admin.credential.cert(require(DEFAULT_CONFIG_FILE));
     } else {
+      // Finally check if we can get credentials from a Cloud environment
       credential = admin.credential.applicationDefault();
     }
 
     admin.initializeApp({
       credential: credential,
-      databaseURL: 'https://pie-shop-app.firebaseio.com',
+      databaseURL: DATABASE_URL,
     });
   }
 }
