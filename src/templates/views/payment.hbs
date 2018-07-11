@@ -10,30 +10,30 @@
             <h2>Billing address</h2>
 
             <label for="billing-honorific-prefix">Title</label>
-            <input required autocomplete="honorific-prefix" id="billing-honorific-prefix" name="billing-honorific-prefix">
+            <input required autocomplete="billing honorific-prefix" id="billing-honorific-prefix" name="billing-honorific-prefix">
 
             <label for="billing-given-name">First name</label>
-            <input required autocomplete="given-name" id="billing-given-name" name="billing-given-name">
+            <input required autocomplete="billing given-name" id="billing-given-name" name="billing-given-name">
 
             <label for="billing-family-name">Last name</label>
-            <input required autocomplete="family-name" id="billing-family-name" name="billing-family-name">
+            <input required autocomplete="billing family-name" id="billing-family-name" name="billing-family-name">
 
             <label for="billing-address-line1">Address 1</label>
-            <input required autocomplete="address-line1" id="billing-address-line1" name="billing-address-line1">
+            <input required autocomplete="billing address-line1" id="billing-address-line1" name="billing-address-line1">
 
             <label for="billing-address-line2">Address 2</label>
-            <input autocomplete="address-line2" id="billing-address-line2" name="billing-address-line2">
+            <input autocomplete="billing address-line2" id="billing-address-line2" name="billing-address-line2">
 
             <label for="billing-locality">City or town</label>
-            <input required autocomplete="locality" id="billing-locality" name="billing-locality">
+            <input required autocomplete="billing locality" id="billing-locality" name="billing-locality">
 
             <label for="billing-state">State or region</label>
-            <input autocomplete="state" id="billing-state" name="billing-state">
+            <input autocomplete="billing state" id="billing-state" name="billing-state">
 
-            {{> select-country id=billing-country }}
+            {{> select-country id=billing-country type=billing }}
 
             <label for="billing-postal-code">ZIP or postal code</label>
-            <input required autocomplete="postal-code" id="billing-postal-code" name="billing-postal-code">
+            <input required autocomplete="billing postal-code" id="billing-postal-code" name="billing-postal-code">
 
         </section>
 
@@ -42,33 +42,33 @@
             <h2>Shipping address</h2>
 
             <details>
-                <summary>Use different shipping address (optional)</summary>
+                <summary>Enter shipping address if different from billing address (optional)</summary>
 
                 <label for="shipping-honorific-prefix">Title</label>
-                <input required autocomplete="honorific-prefix" id="shipping-honorific-prefix" name="shipping-honorific-prefix">
+                <input required autocomplete="shipping honorific-prefix" id="shipping-honorific-prefix" name="shipping-honorific-prefix">
 
                 <label for="shipping-given-name">First name</label>
-                <input required autocomplete="given-name" id="shipping-given-name" name="shipping-given-name">
+                <input required autocomplete="shipping given-name" id="shipping-given-name" name="shipping-given-name">
 
                 <label for="shipping-family-name">Last name</label>
-                <input required autocomplete="family-name" id="shipping-family-name" name="shipping-family-name">
+                <input required autocomplete="shipping family-name" id="shipping-family-name" name="shipping-family-name">
 
                 <label for="shipping-address-line1">Address 1</label>
-                <input required autocomplete="address-line1" id="shipping-address-line1" name="shipping-address-line1">
+                <input required autocomplete="shipping address-line1" id="shipping-address-line1" name="shipping-address-line1">
 
                 <label for="shipping-address-line2">Address 2</label>
-                <input autocomplete="address-line2" id="shipping-address-line2" name="shipping-address-line2">
+                <input autocomplete="shipping address-line2" id="shipping-address-line2" name="shipping-address-line2">
 
                 <label for="shipping-locality">City or town</label>
-                <input required autocomplete="locality" id="shipping-locality" name="shipping-locality">
+                <input required autocomplete="shipping locality" id="shipping-locality" name="shipping-locality">
 
                 <label for="shipping-state">State or region</label>
-                <input autocomplete="state" id="shipping-state" name="shipping-state">
+                <input autocomplete="shipping state" id="shipping-state" name="shipping-state">
 
-                {{> select-country id=shipping-country }}
+                {{> select-country id=shipping-country type=shipping }}
 
                 <label for="shipping-postal-code">ZIP or postal code</label>
-                <input required autocomplete="postal-code" id="shipping-postal-code" name="shipping-postal-code">
+                <input required autocomplete="shipping postal-code" id="shipping-postal-code" name="shipping-postal-code">
             </details>
         </section>
 
