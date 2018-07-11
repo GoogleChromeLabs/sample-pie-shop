@@ -13,6 +13,7 @@ script:
   - npm run build
 deploy:
   provider: gae
+  skip_cleanup: true
   keyfile: ".travis-deploy-key.json"
   project: "pie-shop-app"
   default: true
