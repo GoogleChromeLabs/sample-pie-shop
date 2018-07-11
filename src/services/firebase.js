@@ -14,21 +14,29 @@
 
 import admin from 'firebase-admin';
 import path from 'path';
+import fs from 'fs';
 
-let configFile = path.resolve(__dirname, '../data/firebase-admin-key.json');
+export default function initializeApp() {
+  // Check if app has already been initialized
+  if (admin.apps.length === 0) {
+    let credential = null;
+    const DEFAULT_CONFIG_FILE = path.resolve(__dirname, '../data/firebase-admin-key.json');
+    const DATABASE_URL = 'https://pie-shop-app.firebaseio.com';
 
-if (process.env.FB_KEYS) {
-  configFile = process.env.FB_KEYS;
+    if (process.env.FB_KEYS) {
+      // Try the environment variable first
+      credential = admin.credential.cert(require(process.env.FB_KEYS));
+    } else if (fs.existsSync(DEFAULT_CONFIG_FILE)) {
+      // Check the default config file second
+      credential = admin.credential.cert(require(DEFAULT_CONFIG_FILE));
+    } else {
+      // Finally check if we can get credentials from a Cloud environment
+      credential = admin.credential.applicationDefault();
+    }
+
+    admin.initializeApp({
+      credential: credential,
+      databaseURL: DATABASE_URL,
+    });
+  }
 }
-
-if (admin.initializeApp) {
-  admin.initializeApp({
-    credential: admin.credential.cert(require(configFile)),
-    databaseURL: 'https://pie-shop-app.firebaseio.com',
-    databaseAuthVariableOverride: {
-      uid: 'my-service-worker',
-    },
-  });
-}
-
-export default admin;
