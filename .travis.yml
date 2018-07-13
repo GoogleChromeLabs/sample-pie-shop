@@ -10,7 +10,7 @@ before_install:
   - npm i -g npm@latest
 script:
   - npm run lint
-  - npm run build
+  - npm run build:prod
 deploy:
   provider: gae
   skip_cleanup: true
