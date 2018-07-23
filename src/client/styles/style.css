@@ -18,8 +18,8 @@ html {
   --text-on-secondary-dark: #fff;
 
   /* Background color */
-  --color-background-dark: #e1e2e1;
-  --color-background-light: #efeeee;
+  --color-background-dark: #fff;
+  --color-background-light: #fff;
 
   /* Text color */
   --color-text: #444;
@@ -454,24 +454,29 @@ section#home-brands img {
   width: 100%;
 }
 
-div#searchbox {
-  text-align: right;
-  position: relative;
+div#search {
+  display: flex;
+  justify-self: right;
 }
 
-div#searchbox svg {
-  width: 24px;
-  height: 33px;
-  margin-left: -35px;
-  vertical-align: middle;
+div#search svg {
+  background-color: var(--color-primary);
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
   fill: var(--color-text);
-  position: absolute;
-  top: 0;
+  height: 33px;
+  padding: 0 7px;
+  width: 24px;
 }
 
-input#search {
+div#search svg:hover {
+  background-color: var(--color-primary-light);
+  fill: var(--color-text-vivid);
+}
+
+#search input {
   border: none;
-  border-radius: 33px;
+  border-radius: 2px 0 0 2px;
   color: var(--color-text);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -479,11 +484,11 @@ input#search {
   padding: 5px;
 }
 
-input#search:focus {
+#search input:focus {
   background-color: white;
 }
 
-input#search::placeholder {
+#search input::placeholder {
   color: var(--color-text);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -824,8 +829,9 @@ menu:focus svg#open {
     width: 42vw;
   }
 
-  input#search {
-    padding: 7px;
+  #search input {
+    min-width: 150px;
+    padding: 7px 40px 7px 7px;
   }
 
   main#category {
@@ -899,11 +905,12 @@ menu:focus svg#open {
     height: calc((100vw - 345px) / 3);
   }
 
-  input#search {
+  #search input {
     font-size: 16px;
+    min-width: 250px;
   }
 
-  input#search::placeholder {
+  #search input::placeholder {
     font-size: 16px;
   }
 

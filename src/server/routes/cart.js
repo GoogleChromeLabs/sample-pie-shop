@@ -26,6 +26,7 @@ const cart = (req, res, next) => {
     layout: req.query.fragment ? 'fragment' : 'layout',
     scripts: [
       '/js/cart_main.js',
+      '/js/search.js',
     ],
     title: 'PWA Shop: Cart',
   });

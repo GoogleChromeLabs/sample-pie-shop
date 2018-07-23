@@ -30,6 +30,7 @@ function index(req, res) {
     layout: req.query.fragment ? 'fragment' : 'layout',
     scripts: [
       '/js/home_main.js',
+      '/js/search.js',
     ],
     title: 'PWA Shop',
   });
