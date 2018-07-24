@@ -17,11 +17,12 @@
  *
  */
 import appShell from './routes/app-shell';
-import index from './routes/index';
-import category from './routes/category';
-import product from './routes/product';
-import payment from './routes/payment';
 import cart from './routes/cart';
+import category from './routes/category';
+import index from './routes/index';
+import payment from './routes/payment';
+import product from './routes/product';
+import search from './routes/search';
 
 // enable URLs like foo.com/accessories
 import categories from '../data/categories';
@@ -39,6 +40,7 @@ router.get('/payment', payment.get);
 router.get('/confirmation', payment.confirm);
 router.get(/\/(index.html)?$/, index);
 router.get('/:id', product.get);
+router.get('/search/:query', search.get);
 
 router.post('/:id/cart', product.addToCart);
 router.post('/payment', payment.pay);
