@@ -27,7 +27,7 @@ const search = {
       layout: req.query.fragment ? 'fragment' : 'layout',
       query: req.params.query,
       scripts: [
-        '/js/search-main.js',
+        '/js/search_main.js',
       ],
       title: 'PWA Shop: Search',
     });
