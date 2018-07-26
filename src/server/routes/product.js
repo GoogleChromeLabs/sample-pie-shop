@@ -32,7 +32,6 @@ const product = {
         product: thisProduct,
         scripts: [
           '/js/product_main.js',
-          '/js/search.js',
         ],
         title: `PWA Shop: ${thisProduct.name}`,
       });

@@ -30,7 +30,6 @@ function category(req, res) {
     products: getProducts(thisCategory),
     scripts: [
       '/js/category_main.js',
-      '/js/search.js',
     ],
     title: `PWA Shop: ${thisCategory}`,
   });

@@ -17,13 +17,29 @@
  *
  */
 
-import pageInit from './page-init';
+const searchInput = document.querySelector('#search input');
+const searchSvg = document.querySelector('#search svg');
 
-function initializeHomePage() {
-  pageInit();
-  // TODO: Add code dedicated to home page only.
+const MIN_QUERY_LENGTH = 3;
+
+class Search {
+  addHandlers() {
+    searchInput.onkeyup = (event) => {
+      if (event.keyCode === 13) {
+        _doSearch();
+      }
+    };
+    searchSvg.onclick = _doSearch;
+  }
 }
 
-export default function init() {
-  initializeHomePage();
+function _doSearch() {
+  const query = searchInput.value;
+  if (query.length >= MIN_QUERY_LENGTH) {
+    document.location.href = `/search/${query}`;
+  }
 }
+
+
+export const search = new Search();
+

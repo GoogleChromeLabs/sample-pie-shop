@@ -16,22 +16,8 @@
 *  limitations under the License
 *
 */
+import initApp from './app.js';
+import init from './search.js';
 
-import categories from '../../data/categories';
-
-const search = {
-  get: (req, res, next) => {
-    res.render('search', {
-      cart: req.session.cart,
-      categories: categories,
-      layout: req.query.fragment ? 'fragment' : 'layout',
-      query: req.params.query,
-      scripts: [
-        '/js/search-main.js',
-      ],
-      title: 'PWA Shop: Search',
-    });
-  },
-};
-
-export default search;
+initApp();
+init();

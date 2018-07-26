@@ -10,10 +10,11 @@ const BROWSERS = [
 module.exports = {
   entry: {
     app_main: './src/client/js/app-main.js',
-    home_main: './src/client/js/home-main.js',
-    category_main: './src/client/js/category-main.js',
-    product_main: './src/client/js/product-main.js',
     cart_main: './src/client/js/cart-main.js',
+    category_main: './src/client/js/category-main.js',
+    home_main: './src/client/js/home-main.js',
+    product_main: './src/client/js/product-main.js',
+    search_main: './src/client/js/search-main.js',
   },
   module: {
     rules: [{

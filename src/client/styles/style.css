@@ -96,6 +96,10 @@ a#continue-shopping:hover {
   color: var(--color-text-vivid);
 }
 
+a#logo {
+  display: flex;
+}
+
 footer a {
   color: var(--color-text);
 }
@@ -106,14 +110,6 @@ footer a:hover {
 
 h1 a {
   color: var(--text-on-primary-dark);
-}
-
-h1#logo a:hover {
-  color: #eee; /* Hover effect */
-}
-
-h1#logo svg {
-  display: none;  /* Default for mobile */
 }
 
 nav a {
@@ -265,6 +261,11 @@ div.shop-now {
   margin: 0 0 20px 0;
 }
 
+main#search em {
+  font-style: inherit;
+  font-weight: 300;
+}
+
 footer {
   border-top: 1px solid var(--color-text-subtle);
   font-family: 'Roboto', sans-serif;
@@ -290,17 +291,16 @@ main#shipping-and-payment h1 {
   margin: 0 0 30px 0;
 }
 
-header h1 {
-  color: var(--text-on-primary-light);
+a#logo h1 {
+  color: #eee;
   font-size: 22px;
-  font-weight: 400;
-  margin: 0;
-  padding: 0 0 6px 0;
-  white-space: nowrap;
+  font-weight: 600;
+  position: relative;
+  top: 4px;
 }
 
-header h1::before {
-  content: '';
+a#logo:hover h1 {
+  color: white;
 }
 
 main h1 {
@@ -316,6 +316,12 @@ main#product h1 {
 
 main#confirmation h1 {
   margin: 0 0 25px 0;
+}
+
+main#search h1 {
+  font-size: 24px;
+  font-weight: 200;
+  margin: 25px 0 25px 25px;
 }
 
 h2 {
@@ -457,21 +463,6 @@ section#home-brands img {
 div#search {
   display: flex;
   justify-self: right;
-}
-
-div#search svg {
-  background-color: var(--color-primary);
-  border-radius: 0 2px 2px 0;
-  cursor: pointer;
-  fill: var(--color-text);
-  height: 33px;
-  padding: 0 7px;
-  width: 24px;
-}
-
-div#search svg:hover {
-  background-color: var(--color-primary-light);
-  fill: var(--color-text-vivid);
 }
 
 #search input {
@@ -678,6 +669,33 @@ p.total span {
   display: block;
 }
 
+a#logo svg {
+  display: none;
+  fill: #eee;
+  width: 40px;
+  height: 40px;
+  margin: 0 18px 0 0;
+}
+
+a#logo:hover svg {
+  fill: white;
+}
+
+div#search svg {
+  background-color: var(--color-primary);
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+  fill: var(--color-text);
+  height: 33px;
+  padding: 0 7px;
+  width: 24px;
+}
+
+div#search svg:hover {
+  background-color: var(--color-primary-light);
+  fill: var(--color-text-vivid);
+}
+
 div.shop-now svg {
   display: inline-block;
   position: relative;
@@ -801,10 +819,10 @@ menu:focus svg#open {
   }
 
   header {
-    grid-template-columns: 89px 122px auto 62px;
+    grid-template-columns: 89px 135px auto 62px;
   }
 
-  header h1 {
+  a#logo h1 {
     font-size: 28px;
     justify-self: start;
   }
@@ -874,18 +892,14 @@ menu:focus svg#open {
     padding: 0 26px;
   }
 
-  header h1 {
+  a#logo h1 {
     font-size: 32px;
     justify-self: start;
     padding: 0 0 6px 0;
   }
 
-  h1#logo svg {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    vertical-align: sub;
-    margin: 0 10px;
+  a#logo svg {
+    display: block;
   }
 
   main#category h1 {
