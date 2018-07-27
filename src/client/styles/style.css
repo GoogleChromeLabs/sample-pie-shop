@@ -226,7 +226,8 @@ section.cart-item div.total-price {
   font-weight: 600;
 }
 
-main#category div {
+main#category div,
+main#search div {
   align-items: center;
   box-shadow:
     0 2px 5px 0 rgba(0, 0, 0, 0.16),
@@ -320,7 +321,6 @@ main#confirmation h1 {
 main#search h1 {
   font-size: 24px;
   font-weight: 200;
-  margin: 25px 0 25px 25px;
 }
 
 h2 {
@@ -500,7 +500,8 @@ main#cart {
   margin: 30px 28px 30px 28px;
 }
 
-main#category {
+main#category,
+main#search {
   display: grid;
   grid-gap: 30px 30px;
   grid-template-columns: 1fr;
@@ -853,7 +854,8 @@ menu:focus svg#open {
     padding: 7px 10px 7px 7px;
   }
 
-  main#category {
+  main#category,
+  main#search {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -934,7 +936,8 @@ menu:focus svg#open {
     grid-template-columns: 1fr 1fr;
   }
 
-  main#category {
+  main#category,
+  main#search {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
@@ -982,7 +985,8 @@ menu:focus svg#open {
     height: calc((100vw - 460px) / 4);
   }
 
-  main#category {
+  main#category,
+  main#search {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
