@@ -21,7 +21,6 @@ import pageInit from './page-init';
 
 function initializeSearchPage() {
   pageInit();
-  // TODO: Add code dedicated to search page only.
 }
 
 export default function init() {

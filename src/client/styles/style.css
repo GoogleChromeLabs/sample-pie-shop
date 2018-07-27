@@ -296,7 +296,6 @@ a#logo h1 {
   font-size: 22px;
   font-weight: 600;
   position: relative;
-  top: 4px;
 }
 
 a#logo:hover h1 {
@@ -471,8 +470,11 @@ div#search {
   color: var(--color-text);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  height: 33px;
+  margin: 0;
   min-width: 100px;
   padding: 5px;
+  -webkit-appearance: textfield;
 }
 
 #search input:focus {
@@ -824,7 +826,6 @@ menu:focus svg#open {
 
   a#logo h1 {
     font-size: 28px;
-    justify-self: start;
   }
 
   main#product h1 {
@@ -849,7 +850,7 @@ menu:focus svg#open {
 
   #search input {
     min-width: 150px;
-    padding: 7px 40px 7px 7px;
+    padding: 7px 10px 7px 7px;
   }
 
   main#category {
@@ -894,8 +895,8 @@ menu:focus svg#open {
 
   a#logo h1 {
     font-size: 32px;
-    justify-self: start;
     padding: 0 0 6px 0;
+    top: 4px;
   }
 
   a#logo svg {
