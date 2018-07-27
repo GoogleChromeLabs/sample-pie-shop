@@ -27,6 +27,7 @@ const search = {
       layout: req.query.fragment ? 'fragment' : 'layout',
       query: req.params.query,
       scripts: [
+        '/js/third_party/algoliasearchLite.min.js',
         '/js/search_main.js',
       ],
       title: 'PWA Shop: Search',

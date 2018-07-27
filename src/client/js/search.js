@@ -18,9 +18,16 @@
  */
 
 import pageInit from './page-init';
+import {search} from './search-class';
 
 function initializeSearchPage() {
   pageInit();
+  _searchPageInit();
+}
+
+function _searchPageInit() {
+  const searchInput = document.querySelector('#search input');
+  search.doSearch(searchInput.value);
 }
 
 export default function init() {

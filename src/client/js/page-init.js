@@ -23,11 +23,7 @@ import {search} from './search-class';
 function initializePage() {
   lazyImg.loadImages();
   highlightCategory();
-  search.addHandlers();
-  const searchInput = document.querySelector('#search input');
-  if (!location.href.includes('search')) {
-    searchInput.value = '';
-  }
+  search.init();
   const metaTitleEl = document.querySelector('#meta-title');
   document.title = metaTitleEl ? metaTitleEl.textContent : document.title;
 }
