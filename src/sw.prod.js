@@ -82,5 +82,5 @@ workbox.routing.registerRoute(
         maxEntries: 100,
       }),
     ],
-  }),
+  })
 );

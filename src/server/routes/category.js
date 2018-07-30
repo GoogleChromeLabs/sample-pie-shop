@@ -21,7 +21,7 @@ import {getProducts} from '../get-data';
 import categories from '../../data/categories';
 
 function category(req, res) {
-  const thisCategory = req.path.slice(1, );
+  const thisCategory = req.path.slice(1);
   res.render('category', {
     cart: req.session.cart,
     categories: categories,

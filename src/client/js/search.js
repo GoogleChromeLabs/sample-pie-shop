@@ -18,7 +18,6 @@
  */
 
 import pageInit from './page-init';
-import {searchUtilities} from './search-utilities';
 
 function initializeSearchPage() {
   pageInit();
