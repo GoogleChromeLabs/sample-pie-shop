@@ -113,14 +113,14 @@ h1 a {
 }
 
 nav a {
+  border-bottom: 4px solid var(--color-primary-light);
   color: var(--text-on-primary-light);
   display: inline-block;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   margin: 0 1px 0 0;
   padding: 10px 10px;
-  text-transform: lowercase;
-  border-bottom: 4px solid var(--color-primary-light);
+  text-transform: capitalize;
 }
 
 nav a:hover,
