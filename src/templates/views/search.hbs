@@ -1,3 +1,14 @@
 <main id="search">
-  <h1></h1>
+
+  {{#if results.nbHits}}
+  <h1>{{results.nbHits}} search results for <em>{{query}}</em></h1>
+
+  {{#each results.hits}}
+  {{> search-result result=this}}
+  {{/each}}
+
+  {{else}}
+  <h1>Sorry! We didn't find any search results for <em>{{query}}</em>.</h1>
+  {{/if}}
+
 </main>

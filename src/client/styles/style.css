@@ -330,6 +330,11 @@ h2 {
   line-height: 1.3em;
 }
 
+main#category div h2,
+main#search div h2 {
+padding: 0 10px;
+}
+
 main#shipping-and-payment h2 {
   font-size: 22px;
   font-weight: 200;

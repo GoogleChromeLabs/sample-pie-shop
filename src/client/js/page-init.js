@@ -18,12 +18,12 @@
  */
 import {instance as lazyImg} from './lazy-img.js';
 import highlightCategory from './highlight-category.js';
-import {search} from './search-class';
+import {searchUtilities} from './search-utilities';
 
 function initializePage() {
   lazyImg.loadImages();
   highlightCategory();
-  search.init();
+  searchUtilities.init();
   const metaTitleEl = document.querySelector('#meta-title');
   document.title = metaTitleEl ? metaTitleEl.textContent : document.title;
 }

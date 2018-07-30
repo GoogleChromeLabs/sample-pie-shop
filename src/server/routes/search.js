@@ -18,21 +18,37 @@
 */
 
 import categories from '../../data/categories';
+import {algolia} from '../../services/algolia';
 
 const search = {
   get: (req, res, next) => {
-    res.render('search', {
-      cart: req.session.cart,
-      categories: categories,
-      layout: req.query.fragment ? 'fragment' : 'layout',
-      query: req.params.query,
-      scripts: [
-        '/js/third_party/algoliasearchLite.min.js',
-        '/js/search_main.js',
-      ],
-      title: 'PWA Shop: Search',
-    });
+    algolia.init();
+    _doSearch(req, res);
   },
 };
+
+function _doSearch(req, res) {
+  algolia.search(req.params.query, function(error, results) {
+    if (error) {
+      throw error;
+    }
+    _displayResults(req, res, results);
+  });
+}
+
+function _displayResults(req, res, results) {
+  console.log('results', results);
+  res.render('search', {
+    cart: req.session.cart,
+    categories: categories,
+    layout: req.query.fragment ? 'fragment' : 'layout',
+    query: req.params.query,
+    scripts: [
+      '/js/search_main.js',
+    ],
+    results: results,
+    title: `PWA Shop: Search '${req.params.query}'`,
+  });
+}
 
 export default search;
