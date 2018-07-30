@@ -22,8 +22,6 @@ const payment = {
     res.render('payment', {
       cart: req.session.cart,
       layout: req.query.fragment ? 'fragment' : 'layout',
-      scripts: [
-      ],
       title: 'PWA Shop: Payment',
     });
   },

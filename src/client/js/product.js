@@ -21,6 +21,7 @@ import pageInit from './page-init';
 
 function initializeProductPage() {
   pageInit();
+
   // TODO: Add Code dedicated to Product page only.
 }
 

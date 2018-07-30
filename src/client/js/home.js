@@ -21,7 +21,8 @@ import pageInit from './page-init';
 
 function initializeHomePage() {
   pageInit();
-  // TODO: Add code dedicated to home page only.
+
+  // TODO: Add Code dedicated to home page only.
 }
 
 export default function init() {
