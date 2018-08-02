@@ -135,7 +135,7 @@ nav a.current {
 
 #offline-status {
   overflow: hidden;
-  transition: .2s height;
+  transition: 0.2s height;
   background: var(--color-background-light);
   line-height: 2em;
   height: 0;
