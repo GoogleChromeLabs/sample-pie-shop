@@ -84,8 +84,8 @@ const imagesHandler = workbox.strategies.cacheFirst({
 workbox.routing.registerRoute(
   new RegExp('https://res.cloudinary.com/pieshop/.*'),
   // POI: Why cacheFirst? Low risk of reusing url for changed resource.
-  ({ event }) => {
-    return imagesHandler.handle({ event })
+  ({event}) => {
+    return imagesHandler.handle({event})
       .catch(() => caches.match(FALLBACK_IMAGE_URL));
   }
 );
