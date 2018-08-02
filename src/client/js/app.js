@@ -18,9 +18,31 @@
  */
 import {instance as router} from './router';
 
+function updateOnlineStatus(event) {
+  document.body.classList.toggle('offline', !navigator.onLine);
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    if (navigator.onLine) {
+      btn.removeAttribute('disabled');
+    } else {
+      btn.disabled = true;
+    }
+  });
+}
+
 export default function initApp() {
   // Enable client side routing
   router.enable();
+
+  window.addEventListener('load', () => {
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    // Enable service worker.
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  });
+
 
   // Enable service worker.
   if ('serviceWorker' in navigator) {

@@ -133,6 +133,19 @@ nav a.current {
   border-color: var(--color-secondary);
 }
 
+#offline-status {
+  overflow: hidden;
+  transition: .2s height;
+  background: var(--color-background-light);
+  line-height: 2em;
+  height: 0;
+  text-align: center;
+}
+
+.offline #offline-status {
+  height: 2em;
+}
+
 section#home-categories a {
   background-color: var(--color-background-light);
   color: var(--color-text);
@@ -186,10 +199,8 @@ button:focus {
 }
 
 button[disabled] {
-  background-color: rgb(30, 30, 30);
-  background-color: rgba(255, 255, 255, 0.12);
-  color: rgb(76, 76, 76);
-  color: rgba(255, 255, 255, 0.3);
+  background-color: var(--color-background-dark);
+  color: var(--text-color);
 }
 
 main#cart button {
