@@ -71,16 +71,21 @@ workbox.routing.registerRoute(
   fragmentFallbackStrategy
 );
 
+const FALLBACK_IMAGE_URL = '/images/icons/image-fallback.svg';
+const imagesHandler = workbox.strategies.cacheFirst({
+  cacheName: 'images',
+  plugins: [
+    new workbox.expiration.Plugin({
+      maxEntries: 100,
+    }),
+  ],
+});
 // Cache images from Cloudinary
 workbox.routing.registerRoute(
   new RegExp('https://res.cloudinary.com/pieshop/.*'),
   // POI: Why cacheFirst? Low risk of reusing url for changed resource.
-  workbox.strategies.cacheFirst({
-    cacheName: 'images',
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxEntries: 100,
-      }),
-    ],
-  }),
+  ({ event }) => {
+    return imagesHandler.handle({ event })
+      .catch(() => caches.match(FALLBACK_IMAGE_URL));
+  }
 );
