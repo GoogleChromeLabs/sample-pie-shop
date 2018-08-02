@@ -778,6 +778,13 @@ menu:focus svg#open {
 
 /* menu end */
 
+.offline-notice {
+  width: 350px;
+  text-align: center;
+  padding: 3em;
+  margin: auto;
+}
+
 /* media queries start */
 
 @media all and (min-width: 420px) {
