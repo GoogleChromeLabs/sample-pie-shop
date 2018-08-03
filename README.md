@@ -71,6 +71,12 @@ node import_home.js
 node import_products.js
 ```
 
+### Creating an Algolia search index from Firebase data
+This demo uses the [Algolia](https://www.algolia.com) search engine. This is free for open source projects with up to 100k records and 200k operations monthly.
+1. Follow the tutorial [here](https://www.algolia.com/doc/tutorials/indexing/3rd-party-service/firebase-algolia/) to create an Algolia application.
+2. Follow the tutorial instructions to create a `.env` file in the [`/tools/algolia`](/tools/algolia) directory.
+3. Run `node index.js` in the same directory to create the index.
+
 ### Images
 
 Images are served from
