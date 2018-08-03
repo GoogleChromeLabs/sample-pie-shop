@@ -12,12 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const path = require('path');
-const fs = require('fs');
 const admin = require('firebase-admin');
-
 const algoliasearch = require('algoliasearch');
 const dotenv = require('dotenv');
+const fs = require('fs');
+const path = require('path');
 
 // load values from the .env file in this directory into process.env
 dotenv.load();
@@ -26,7 +25,8 @@ function initializeApp() {
   // Check if app has already been initialized
   if (admin.apps.length === 0) {
     let credential = null;
-    const defaultConfigFile = path.resolve(__dirname, '../data/firebase-admin-key.json');
+    const defaultConfigFile = path.resolve(__dirname,
+      '../data/firebase-admin-key.json');
     const databaseURL = 'https://pie-shop-app.firebaseio.com';
 
     if (process.env.FB_KEYS) {
@@ -51,24 +51,23 @@ initializeApp();
 
 const database = admin.database();
 
-// configure algolia
+// Configure Algolia
 const algolia = algoliasearch(
   process.env.ALGOLIA_APP_ID,
   process.env.ALGOLIA_API_KEY
 );
 const index = algolia.initIndex(process.env.ALGOLIA_INDEX_NAME);
-console.log('index', index);
 
-// Get all products from Firebase
-function importProducts() { // eslint-disable-line no-unused-vars
-  database.ref('/').once('value', (products) => {
+// Get all items from Firebase
+function importItems() { // eslint-disable-line no-unused-vars
+  database.ref('/').once('value', (items) => {
     // Build an array of all records to push to Algolia
     const records = [];
-    products.forEach((product) => {
-      // get the key and data from the snapshot
-      const childKey = product.key;
-      const childData = product.val();
-      // We set the Algolia objectID as the Firebase .key
+    items.forEach((item) => {
+      // Get the key and data from the snapshot
+      const childKey = item.key;
+      const childData = item.val();
+      // Set the Algolia objectID as the Firebase .key
       childData.objectID = childKey;
       // Add object for indexing
       records.push(childData);
@@ -78,10 +77,10 @@ function importProducts() { // eslint-disable-line no-unused-vars
     index
       .saveObjects(records)
       .then(() => {
-        console.log('products imported into Algolia');
+        console.log(`Imported ${records.length} records to Algolia`);
       })
       .catch((error) => {
-        console.error('Error when importing product into Algolia', error);
+        console.error('Error importing to Algolia', error);
         process.exit(1);
       });
   });
@@ -119,7 +118,7 @@ function deleteIndexRecord(contact) {
       console.log('Firebase object deleted from Algolia', objectID);
     })
     .catch((error) => {
-      console.error('Error when deleting contact from Algolia', error);
+      console.error('Error when deleting object from Algolia', error);
       process.exit(1);
     });
 }

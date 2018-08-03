@@ -37,7 +37,6 @@ function _doSearch(req, res) {
 }
 
 function _displayResults(req, res, results) {
-  console.log('results', results);
   res.render('search', {
     cart: req.session.cart,
     categories: categories,

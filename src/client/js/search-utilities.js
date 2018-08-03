@@ -29,6 +29,7 @@ class SearchUtilities {
 }
 
 function _addHandlers() {
+  console.log('Adding handlers!');
   searchInput.onkeyup = (event) => {
     if (event.keyCode === 13) {
       _openSearchPage();
