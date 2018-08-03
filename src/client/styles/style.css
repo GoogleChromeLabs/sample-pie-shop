@@ -137,13 +137,16 @@ nav a.current {
   overflow: hidden;
   transition: 0.2s height;
   background: var(--color-background-light);
+  position: absolute;
+  width: 100%;
+  font-size: 0.9em;
   line-height: 2em;
   height: 0;
   text-align: center;
 }
 
 .offline #offline-status {
-  height: 2em;
+  height: 1.8em;
 }
 
 section#home-categories a {

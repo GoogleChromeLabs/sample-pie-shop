@@ -18,8 +18,10 @@
  */
 import {instance as lazyImg} from './lazy-img.js';
 import highlightCategory from './highlight-category.js';
+import updateOnlineStatus from './online.js';
 
 function initializePage() {
+  updateOnlineStatus();
   lazyImg.loadImages();
   highlightCategory();
   const metaTitleEl = document.querySelector('#meta-title');
