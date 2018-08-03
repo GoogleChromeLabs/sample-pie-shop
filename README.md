@@ -1,5 +1,7 @@
 # Online store PWA sample
 
+[![Build Status](https://travis-ci.org/GoogleChromeLabs/sample-pie-shop.svg?branch=master)](https://travis-ci.org/GoogleChromeLabs/sample-pie-shop)
+
 This sample demonstrates best practices for e-commerce websites.
 
 It also demonstrates some useful features enabled by new technologies and APIs
