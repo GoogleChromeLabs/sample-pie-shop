@@ -31,7 +31,8 @@ module.exports = merge.smart(common, {
       swDest: 'sw.js',
       globDirectory: 'dist/static',
       globPatterns: [
-        'styles/*.css'
+        'styles/*.css',
+        'images/icons/image-fallback.svg',
       ],
       templatedUrls: {
         '/?fragment=true': [
