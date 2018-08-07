@@ -18,7 +18,7 @@
 */
 
 import {instance as router} from './router';
-import {searchUtilities} from './search-utilities';
+import {searchInput} from './search-input';
 
 export default function initApp() {
   // Enable client side routing
@@ -32,5 +32,5 @@ export default function initApp() {
     });
   }
   // Add handlers to initiate search (press return or click magnifying glass)
-  searchUtilities.init();
+  searchInput.init();
 }
