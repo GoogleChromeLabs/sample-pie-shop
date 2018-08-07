@@ -16,26 +16,8 @@
  *  limitations under the License
  *
  */
+import initApp from './app.js';
+import init from './payment.js';
 
-const payment = {
-  get: (req, res) => {
-    res.render('payment', {
-      cart: req.session.cart,
-      shippingAddress: req.session.shippingAddress,
-      layout: req.query.fragment ? 'fragment' : 'layout',
-      title: 'PWA Shop: Payment',
-    });
-  },
-  pay: (req, res) => {
-    req.session.cart = null;
-    res.redirect('/confirmation');
-  },
-  confirm: (req, res) => {
-    res.render('confirmation', {
-      cart: req.session.cart,
-      layout: req.query.fragment ? 'fragment' : 'layout',
-    });
-  },
-};
-
-export default payment;
+initApp();
+init();

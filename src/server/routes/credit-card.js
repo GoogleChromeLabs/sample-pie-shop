@@ -17,18 +17,14 @@
  *
  */
 
-const payment = {
+const creditCard = {
   get: (req, res) => {
-    res.render('payment', {
+    res.render('credit-card', {
       cart: req.session.cart,
       shippingAddress: req.session.shippingAddress,
       layout: req.query.fragment ? 'fragment' : 'layout',
-      title: 'PWA Shop: Payment',
+      title: 'PWA Shop: Credit Card',
     });
-  },
-  pay: (req, res) => {
-    req.session.cart = null;
-    res.redirect('/confirmation');
   },
   confirm: (req, res) => {
     res.render('confirmation', {
@@ -38,4 +34,4 @@ const payment = {
   },
 };
 
-export default payment;
+export default creditCard;

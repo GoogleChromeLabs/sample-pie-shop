@@ -15,27 +15,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  *
- */
+*/
 
-const payment = {
-  get: (req, res) => {
-    res.render('payment', {
-      cart: req.session.cart,
-      shippingAddress: req.session.shippingAddress,
-      layout: req.query.fragment ? 'fragment' : 'layout',
-      title: 'PWA Shop: Payment',
-    });
-  },
-  pay: (req, res) => {
-    req.session.cart = null;
-    res.redirect('/confirmation');
-  },
-  confirm: (req, res) => {
-    res.render('confirmation', {
-      cart: req.session.cart,
-      layout: req.query.fragment ? 'fragment' : 'layout',
-    });
-  },
-};
+import pageInit from './page-init';
 
-export default payment;
+function initializeCartPage() {
+  pageInit();
+  // TODO: Add code dedicated to cart page only.
+}
+
+export default function init() {
+  initializeCartPage();
+}

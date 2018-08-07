@@ -23,6 +23,9 @@ import index from './routes/index';
 import payment from './routes/payment';
 import product from './routes/product';
 import search from './routes/search';
+import shipping from './routes/shipping';
+import creditCard from './routes/credit-card';
+import cart from './routes/cart';
 
 // enable URLs like foo.com/accessories
 import categories from '../data/categories';
@@ -37,12 +40,16 @@ router.get('/app-shell', appShell);
 router.get(categoryRoutes, category);
 router.get('/cart', cart);
 router.get('/payment', payment.get);
+router.get('/credit-card', creditCard.get);
+router.get('/shipping', shipping.get);
 router.get('/confirmation', payment.confirm);
 router.get(/\/(index.html)?$/, index);
 router.get('/:id', product.get);
 router.get('/search/:query', search.get);
 
 router.post('/:id/cart', product.addToCart);
+router.post('/shipping', shipping.confirm);
+router.post('/credit-card', creditCard.confirm);
 router.post('/payment', payment.pay);
 
 export default router;

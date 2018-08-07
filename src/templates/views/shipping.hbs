@@ -1,0 +1,45 @@
+<main id="shipping-and-payment">
+
+    <h1>Shipping</h1>
+
+    {{#if cart.totalQty }}
+    <form action="/shipping" method="post">
+
+        <section id="shipping">
+
+            <h2>Shipping address</h2>
+
+            <label for="shipping-given-name">First name</label>
+            <input required autocomplete="shipping given-name" id="shipping-given-name" name="shipping-given-name">
+
+            <label for="shipping-family-name">Last name</label>
+            <input required autocomplete="shipping family-name" id="shipping-family-name" name="shipping-family-name">
+
+            <label for="shipping-address-line1">Address 1</label>
+            <input required autocomplete="shipping address-line1" id="shipping-address-line1" name="shipping-address-line1">
+
+            <label for="shipping-address-line2">Address 2</label>
+            <input autocomplete="shipping address-line2" id="shipping-address-line2" name="shipping-address-line2">
+
+            <label for="shipping-locality">City or town</label>
+            <input required autocomplete="shipping locality" id="shipping-locality" name="shipping-locality">
+
+            <label for="shipping-state">State or region</label>
+            <input autocomplete="shipping state" id="shipping-state" name="shipping-state">
+
+            {{> select-country id=shipping-country type=shipping }}
+
+            <label for="shipping-postal-code">ZIP or postal code</label>
+            <input required autocomplete="shipping postal-code" id="shipping-postal-code" name="shipping-postal-code">
+
+        </section>
+
+        <button>Confirm Payment</button>
+
+    </form>
+    {{else}}
+    <p>Your cart is empty.</p>
+    <a href="/" title="Go to home page"><button>Continue shopping</button></a>
+    {{/if}}
+
+</main>

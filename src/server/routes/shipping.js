@@ -17,25 +17,26 @@
  *
  */
 
-const payment = {
+const shipping = {
   get: (req, res) => {
-    res.render('payment', {
+    res.render('shipping', {
       cart: req.session.cart,
-      shippingAddress: req.session.shippingAddress,
       layout: req.query.fragment ? 'fragment' : 'layout',
-      title: 'PWA Shop: Payment',
+      title: 'PWA Shop: Shipping address',
     });
-  },
-  pay: (req, res) => {
-    req.session.cart = null;
-    res.redirect('/confirmation');
   },
   confirm: (req, res) => {
-    res.render('confirmation', {
-      cart: req.session.cart,
-      layout: req.query.fragment ? 'fragment' : 'layout',
-    });
+    // TODO: validation
+    // TODO: sanitization
+    // TODO: add shipping address to the session
+    // TODO: if the posted data looks good, redirect to /payment
+    req.session.shippingAddress = req.body;
+    res.redirect(302, '/payment');
+    // res.render('confirmation', {
+    //   cart: req.session.cart,
+    //   layout: req.query.fragment ? 'fragment' : 'layout',
+    // });
   },
 };
 
-export default payment;
+export default shipping;
