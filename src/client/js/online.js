@@ -15,20 +15,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  *
- */
-import {instance as lazyImg} from './lazy-img.js';
-import highlightCategory from './highlight-category.js';
-import updateOnlineStatus from './online.js';
+*/
 
-function initializePage() {
-  updateOnlineStatus();
-  lazyImg.loadImages();
-  highlightCategory();
-  const metaTitleEl = document.querySelector('#meta-title');
-  document.title = metaTitleEl ? metaTitleEl.textContent : document.title;
+export default function updateOnlineStatus(event) {
+  document.body.classList.toggle('offline', !navigator.onLine);
+  document.querySelectorAll('.add-to-cart').forEach((btn) => {
+    if (navigator.onLine) {
+      btn.removeAttribute('disabled');
+    } else {
+      btn.disabled = true;
+    }
+  });
 }
-
-export default function init() {
-  initializePage();
-}
-

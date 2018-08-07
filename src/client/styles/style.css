@@ -129,6 +129,22 @@ nav a.current {
   border-color: var(--color-secondary);
 }
 
+#offline-status {
+  overflow: hidden;
+  transition: 0.2s height;
+  background: var(--color-background-light);
+  position: absolute;
+  width: 100%;
+  font-size: 0.9em;
+  line-height: 2em;
+  height: 0;
+  text-align: center;
+}
+
+.offline #offline-status {
+  height: 1.8em;
+}
+
 section#home-categories a {
   background-color: var(--color-background-light);
   color: var(--color-text);
@@ -182,10 +198,8 @@ button:focus {
 }
 
 button[disabled] {
-  background-color: rgb(30, 30, 30);
-  background-color: rgba(255, 255, 255, 0.12);
-  color: rgb(76, 76, 76);
-  color: rgba(255, 255, 255, 0.3);
+  background-color: var(--color-background-dark);
+  color: var(--text-color);
 }
 
 main#cart button {
@@ -808,6 +822,13 @@ menu:focus svg#open {
 }
 
 /* menu end */
+
+.offline-notice {
+  width: 350px;
+  text-align: center;
+  padding: 3em;
+  margin: auto;
+}
 
 /* media queries start */
 

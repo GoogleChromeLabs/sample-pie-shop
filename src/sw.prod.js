@@ -42,7 +42,7 @@ workbox.routing.registerNavigationRoute('/app-shell');
 
 // Cache partial navigation routes (fragments)
 /* eslint-disable max-len */
-const offlineNavigationResponse = `<div>
+const offlineNavigationResponse = `<div class="offline-notice">
     <i class="icon">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path fill="none" d="M24 .01c0-.01 0-.01 0 0L0 0v24h24V.01zM0 0h24v24H0V0zm0 0h24v24H0V0z"/>
@@ -71,16 +71,21 @@ workbox.routing.registerRoute(
   fragmentFallbackStrategy
 );
 
+const FALLBACK_IMAGE_URL = '/images/icons/image-fallback.svg';
+const imagesHandler = workbox.strategies.cacheFirst({
+  cacheName: 'images',
+  plugins: [
+    new workbox.expiration.Plugin({
+      maxEntries: 100,
+    }),
+  ],
+});
 // Cache images from Cloudinary
 workbox.routing.registerRoute(
   new RegExp('https://res.cloudinary.com/pieshop/.*'),
   // POI: Why cacheFirst? Low risk of reusing url for changed resource.
-  workbox.strategies.cacheFirst({
-    cacheName: 'images',
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxEntries: 100,
-      }),
-    ],
-  })
+  ({event}) => {
+    return imagesHandler.handle({event})
+      .catch(() => caches.match(FALLBACK_IMAGE_URL));
+  }
 );

@@ -39,6 +39,7 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "copy-webpack-plugin": "4.5.2",
     "csv-parse": "^2.5.0",
     "dotenv": "^6.0.0",
     "eslint": "^5.1.0",
