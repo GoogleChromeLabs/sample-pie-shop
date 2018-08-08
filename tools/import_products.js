@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import initializeApp from '../src/services/firebase';
+import initializeApp from '../services/firebase';
 const fei = require('firestore-export-import');
 
 initializeApp();
