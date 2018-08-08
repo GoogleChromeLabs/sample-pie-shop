@@ -29,7 +29,6 @@ class SearchInput {
 }
 
 function _addHandlers() {
-  console.log('Adding handlers!');
   searchInputElement.onkeyup = (event) => {
     if (event.keyCode === 13) {
       _openSearchPage();
@@ -39,7 +38,7 @@ function _addHandlers() {
 }
 
 function _openSearchPage() {
-  const query = searchInput.value;
+  const query = searchInputElement.value;
   if (query.length >= MIN_QUERY_LENGTH) {
     document.location.href = `/search/${query}`;
   }
