@@ -27,15 +27,15 @@ import session from 'express-session';
 
 import router from './router';
 
-//import {getHomeData, getProducts} from './get-data';
+import {getHomeData, getProducts} from './get-data';
 import categories from '../data/categories';
 
 const app = express();
 const rootDir = path.join(__dirname, '..');
 const staticDir = path.join(rootDir, 'static');
 
-// getHomeData();
-// getProducts();
+getHomeData();
+getProducts();
 
 app.engine('hbs', hbs({
   extname: 'hbs',
