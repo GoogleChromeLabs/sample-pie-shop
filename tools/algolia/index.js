@@ -15,37 +15,11 @@
 const admin = require('firebase-admin');
 const algoliasearch = require('algoliasearch');
 const dotenv = require('dotenv');
-const fs = require('fs');
-const path = require('path');
+
+import initializeApp from '../../src/services/firebase';
 
 // load values from the .env file in this directory into process.env
 dotenv.load();
-
-function initializeApp() {
-  // Check if app has already been initialized
-  if (admin.apps.length === 0) {
-    let credential = null;
-    const defaultConfigFile = path.resolve(__dirname,
-      '../data/firebase-admin-key.json');
-    const databaseURL = 'https://pie-shop-app.firebaseio.com';
-
-    if (process.env.FB_KEYS) {
-      // Try the environment variable first
-      credential = admin.credential.cert(require(process.env.FB_KEYS));
-    } else if (fs.existsSync(defaultConfigFile)) {
-      // Check the default config file second
-      credential = admin.credential.cert(require(defaultConfigFile));
-    } else {
-      // Finally check if we can get credentials from a Cloud environment
-      credential = admin.credential.applicationDefault();
-    }
-
-    admin.initializeApp({
-      credential: credential,
-      databaseURL: databaseURL,
-    });
-  }
-}
 
 initializeApp();
 
