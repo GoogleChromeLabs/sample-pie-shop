@@ -82,8 +82,9 @@ However, if you want to use different product data, you will need to create your
 Follow these steps to build a search index if you want to use your own data:
 
 1. Follow the [Algolia tutorial](https://www.algolia.com/doc/tutorials/indexing/3rd-party-service/firebase-algolia/) to create a search application.
-2. Follow the tutorial instructions to create a `.env` configuration file in the [`/tools/algolia`](/tools/algolia) directory.
+2. Follow the tutorial instructions to create a `.env` configuration file in the [`/tools/algolia`](tools/algolia) directory.
 3. Run `node index.js` in the same directory to get data from Firebase and create the index for the Algolia app.
+4. Update the `APP_ID` (Algolia app) and `API_KEY` (search key) values in [/src/services/algolia.js](src/services/algolia.js).
 
 ### Images
 
