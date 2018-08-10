@@ -1,0 +1,7 @@
+#error {
+  padding: 30px 30px 60px 30px;
+}
+
+main#error p {
+  font-size: 18px;
+}
