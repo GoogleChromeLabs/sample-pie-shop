@@ -150,9 +150,6 @@ p#free-shipping {
   margin: 0 0 22px 0;
 }
 
-@media all and (min-width: 420px) {
-}
-
 @media all and (min-width: 750px) {
   #cart {
     grid-gap: 17px 60px;
@@ -172,7 +169,4 @@ p#free-shipping {
     height: fit-content;
     padding: 30px;
   }
-}
-
-@media all and (min-width: 1200px) {
 }

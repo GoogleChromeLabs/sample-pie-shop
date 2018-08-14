@@ -16,6 +16,17 @@
  *  limitations under the License
  *
  */
+import '../styles/index.css';
+import '../styles/cart.css';
+import '../styles/category.css';
+import '../styles/common.css';
+import '../styles/confirmation.css';
+import '../styles/error.css';
+import '../styles/footer.css';
+import '../styles/header.css';
+import '../styles/menu.css';
+import '../styles/product.css';
+import '../styles/shipping-and-payment.css';
 import {instance as router} from './router';
 import updateOnlineStatus from './online.js';
 

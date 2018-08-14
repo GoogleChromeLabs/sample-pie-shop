@@ -22,7 +22,6 @@
   padding: 0 10px;
 }
 
-
 @media all and (min-width: 420px) {
   #category {
     grid-template-columns: 1fr 1fr;
