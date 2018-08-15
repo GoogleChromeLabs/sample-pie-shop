@@ -60,7 +60,6 @@ button {
     0 2px 10px 0 rgba(0, 0, 0, 0.12);
   color: var(--text-on-secondary-dark);
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
   font-size: 12px;
   padding: 10px 15px;
   text-transform: uppercase;
@@ -86,7 +85,6 @@ button[disabled] {
 
 footer {
   border-top: 1px solid var(--color-text-subtle);
-  font-family: 'Roboto', sans-serif;
   padding: 10px 30px 10px 30px;
 }
 
@@ -100,7 +98,6 @@ header {
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
   font-weight: 100;
   margin: 0;
 }
@@ -110,14 +107,12 @@ h1 a {
 }
 
 h2 {
-  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.3em;
 }
 
 h3 {
-  font-family: 'Roboto', sans-serif;
   font-weight: 100;
   margin: 0;
 }
@@ -139,13 +134,11 @@ nav {
   background-color: var(--color-primary-light);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   display: none;
-  font-family: 'Roboto', sans-serif;
   padding: 0 20px 0 17px;
   white-space: nowrap;
 }
 
 p {
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 300;
   margin: 0 0 1em 0;

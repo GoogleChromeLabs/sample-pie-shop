@@ -1,13 +1,12 @@
-a#cart {
+a#shopping-cart {
   padding: 0 0 0 15px;
   position: relative;
   top: 7px;
 }
 
-a#cart::after {
+a#shopping-cart::after {
   color: white;
   content: attr(data-badge);
-  font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: bold;
   left: 22px;
@@ -17,27 +16,27 @@ a#cart::after {
   width: 18px;
 }
 
-a#cart[data-badge='']::after,
-a#cart[data-badge='0']::after {
+a#shopping-cart[data-badge='']::after,
+a#shopping-cart[data-badge='0']::after {
   display: none;
 }
 
-a#cart svg {
+a#shopping-cart svg {
   fill: var(--text-on-primary-dark);
   height: 40px;
   width: 40px;
 }
 
-a#cart svg:hover {
+a#shopping-cart svg:hover {
   fill: var(--text-on-primary-dark);
 }
 
-a#cart svg text {
+a#shopping-cart svg text {
   display: none;
   font-size: 12px;
 }
 
-header h1 {
+div#logo {
   color: var(--text-on-primary-light);
   font-size: 22px;
   font-weight: 400;
@@ -46,22 +45,25 @@ header h1 {
   white-space: nowrap;
 }
 
-header h1::before {
+div#logo::before {
   content: '';
 }
 
-h1#logo a:hover {
+div#logo a {
+  color: var(--text-on-primary-dark);
+}
+
+div#logo a:hover {
   color: #eee; /* Hover effect */
 }
 
-h1#logo svg {
+div#logo svg {
   display: none;  /* Default for mobile */
 }
 
 nav a {
   color: var(--text-on-primary-light);
   display: inline-block;
-  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   margin: 0 1px 0 0;
   padding: 10px 10px;
@@ -94,7 +96,6 @@ input#search {
   border: none;
   border-radius: 33px;
   color: var(--color-text);
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   min-width: 100px;
   padding: 5px;
@@ -106,7 +107,6 @@ input#search:focus {
 
 input#search::placeholder {
   color: var(--color-text);
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 300;
 }
@@ -116,7 +116,7 @@ input#search::placeholder {
     grid-template-columns: 89px 122px auto 62px;
   }
 
-  header h1 {
+  div#logo {
     font-size: 28px;
     justify-self: start;
   }
@@ -131,19 +131,19 @@ input#search::placeholder {
     display: block;
   }
 
-  a#cart {
+  a#shopping-cart {
     padding: 0 0 0 10px;
   }
 
-  a#cart::after {
+  a#shopping-cart::after {
     left: 40px;
   }
 
-  a#cart svg {
+  a#shopping-cart svg {
     width: 85px;
   }
 
-  a#cart svg text {
+  a#shopping-cart svg text {
     display: inherit;
   }
 
@@ -153,13 +153,13 @@ input#search::placeholder {
     padding: 0 26px;
   }
 
-  header h1 {
+  div#logo {
     font-size: 32px;
     justify-self: start;
     padding: 0 0 6px 0;
   }
 
-  h1#logo svg {
+  div#logo svg {
     display: inline-block;
     width: 40px;
     height: 40px;

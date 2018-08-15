@@ -1,9 +1,21 @@
+/*
+@import './cart.css';
+@import './category.css';
+@import './common.css';
+@import './confirmation.css';
+@import './error.css';
+@import './footer.css';
+@import './header.css';
+@import './menu.css';
+@import './product.css';
+@import './shipping-and-payment.css';
+*/
+
 div.shop-now {
   margin: 0 0 20px 0;
 }
 
 div.shop-now span {
-  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 600;
   margin: 0 5px 0 0;
