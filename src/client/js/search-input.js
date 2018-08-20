@@ -17,8 +17,8 @@
 *
 */
 
-const searchInputElement = document.querySelector('#search input');
-const searchSvgElement = document.querySelector('#search svg');
+const searchInputElement = document.querySelector('#searchbox input');
+const searchSvgElement = document.querySelector('#searchbox svg');
 
 const MIN_QUERY_LENGTH = 3;
 

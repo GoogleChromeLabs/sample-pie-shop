@@ -1,0 +1,145 @@
+/*
+@import './cart.css';
+@import './category.css';
+@import './common.css';
+@import './confirmation.css';
+@import './error.css';
+@import './footer.css';
+@import './header.css';
+@import './menu.css';
+@import './product.css';
+@import './search.css';
+@import './shipping-and-payment.css';
+*/
+
+div.shop-now {
+  margin: 0 0 20px 0;
+}
+
+div.shop-now span {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 5px 0 0;
+  text-transform: uppercase;
+}
+
+div.shop-now svg {
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  width: 22px;
+}
+
+#index h2 {
+  font-size: 32px;
+  font-weight: 300;
+  margin: 0 0 10px 0;
+}
+
+#home-brands {
+  display: grid;
+  grid-gap: 30px 30px;
+  grid-template-columns: auto auto auto;
+  padding: 0 30px 30px 30px;
+}
+
+#home-brands img {
+  max-width: 180px;
+  width: 100%;
+}
+
+#home-products {
+  margin: 0 0 30px 0;
+}
+
+#home-products p {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+#home-products a {
+  background: linear-gradient(#eee, #fff);
+  color: var(--color-text);
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  padding: 30px;
+}
+
+#home-products img {
+  height: 90vw;
+  width: 90vw;
+}
+
+#home-categories {
+  display: grid;
+  grid-gap: 30px 30px;
+  grid-template-columns: 1fr;
+  padding: 30px;
+}
+
+#home-categories a {
+  background-color: var(--color-background-light);
+  color: var(--color-text);
+  cursor: pointer;
+  display: block;
+  padding: 30px;
+  text-align: center;
+}
+
+#home-categories h2 {
+  grid-column: 1/-1;
+}
+
+#home-categories img {
+  height: 220px;
+  margin: 0 0 20px 0;
+  max-width: 240px;
+  width: 100%;
+}
+
+@media all and (min-width: 420px) {
+  #home-categories {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #home-categories img {
+    height: calc((100vw - 250px) / 2);
+  }
+}
+
+@media all and (min-width: 750px) {
+  #home-products a {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 2fr;
+    padding: 5% 10%;
+  }
+
+  #home-products img {
+    height: 50vw;
+    width: 50vw;
+  }
+
+  #home-categories {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #home-categories img {
+    height: calc((100vw - 345px) / 3);
+  }
+
+  #home-brands {
+    grid-template-columns: auto auto auto auto auto;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  #home-categories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  #home-categories img {
+    height: calc((100vw - 460px) / 4);
+  }
+}

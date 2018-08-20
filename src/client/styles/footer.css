@@ -1,0 +1,12 @@
+footer a {
+  color: var(--color-text);
+}
+
+footer p {
+  color: var(--color-text);
+  margin: 20px 0;
+}
+
+footer a:hover {
+  color: var(--color-text-vivid);
+}

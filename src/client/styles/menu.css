@@ -1,0 +1,72 @@
+/* menu start */
+
+menu {
+  display: block;
+  padding: 0 0 0 24px;
+  position: relative;
+}
+
+menu:focus {
+  outline: none;
+  pointer-events: none;
+}
+
+menu a {
+  color: var(--text-on-secondary-dark);
+  display: block;
+  font-weight: 200;
+  padding: 20px 80px 20px 34px;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+menu div {
+  background-color: var(--color-secondary-dark);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16);
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 40px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+menu:focus div {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+menu svg {
+  cursor: pointer;
+  fill: white;
+  position: absolute;
+  top: -21px;
+  transition: all 0.5s ease;
+  width: 40px;
+}
+
+menu svg#close {
+  opacity: 0;
+}
+
+menu svg#open {
+  opacity: 1;
+}
+
+menu:focus svg#close {
+  opacity: 1;
+}
+
+menu:focus svg#open {
+  opacity: 0;
+}
+
+@media all and (min-width: 750px) {
+  menu {
+    display: none;
+  }
+}

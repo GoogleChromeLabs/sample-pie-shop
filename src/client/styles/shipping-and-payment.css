@@ -1,0 +1,97 @@
+#shipping-and-payment {
+  max-width: 500px;
+  padding: 30px 30px 20px 30px;
+}
+
+#shipping-and-payment h1 {
+  margin: 0 0 30px 0;
+}
+
+#shipping-and-payment h2 {
+  font-size: 22px;
+  font-weight: 200;
+  margin: 0 0 25px 0;
+}
+
+#shipping-and-payment button {
+  font-size: 16px;
+  padding: 16px 0;
+  width: calc(100% + 2px);
+}
+
+#shipping-and-payment input {
+  border: 1px solid var(--color-background-dark);
+  font-size: 16px;
+  margin: 0 0 35px 0;
+  padding: 15px;
+  width: calc(100% - 30px);
+}
+
+#shipping-and-payment input:active {
+  background-color: white;
+  border-color: var(--color-secondary);
+}
+
+#shipping-and-payment input#shipping-same {
+  display: inline-block;
+  margin: 0 10px 25px 0;
+  width: inherit;
+}
+
+#shipping-and-payment input#billing-honorific-prefix,
+#shipping-and-payment input#shipping-honorific-prefix,
+#shipping-and-payment input#billing-postal-code,
+#shipping-and-payment input#shipping-postal-code {
+  width: 150px;
+}
+
+#shipping-and-payment input#cc-csc {
+  width: 35px;
+}
+
+#shipping-and-payment label {
+  display: block;
+  font-weight: 300;
+  margin: 0 0 8px 0;
+}
+
+#shipping-and-payment label[for=shipping-shipping-same] {
+  display: inline-block;
+}
+
+#shipping-and-payment section {
+  border-bottom: 1px solid var(--color-text-subtle);
+  margin: 0 0 38px 0;
+  padding: 0 0 17px 0;
+}
+
+#shipping-and-payment section:last-of-type {
+  margin: 0 0 46px 0;
+}
+
+#shipping-and-payment select {
+  border: 1px solid var(--color-text-subtle);
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 16px;
+  height: 48px;
+  line-height: 1.8em;
+  margin: 0 0 25px 0;
+  max-width: calc(100% + 3px);
+  padding: 10px 10px;
+  width: fit-content;
+}
+
+#shipping-and-payment select#cc-exp-month {
+  margin: 0 10px 0 0;
+  width: 67px;
+}
+
+#shipping-and-payment select#cc-exp-year {
+  width: 99px;
+}
+
+#shipping-and-payment select#cc-type {
+  width: 180px;
+}
