@@ -15,6 +15,7 @@ module.exports = {
     'category_main.js': './src/client/js/category-main.js',
     'product_main.js': './src/client/js/product-main.js',
     'cart_main.js': './src/client/js/cart-main.js',
+    'search_main.js': './src/client/js/search-main.js',
   },
   module: {
     rules: [{

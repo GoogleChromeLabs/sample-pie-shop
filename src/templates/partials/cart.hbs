@@ -2,7 +2,7 @@
   {{#each cart.items}}
   <section class="cart-item">
     <a href="{{this.url}}">
-      <img class="lazy cart" data-id="{{this.id}}" alt="{{this.name}}" srcset=""></img>
+      <img class="lazy cart" data-id="{{this.id}}" alt="{{this.name}}" srcset="">
     </a>
     <div class="name-and-quantity">
       <h2>{{this.name}}</h2>
@@ -19,7 +19,7 @@
 <section id="cart-summary">
   <h2 id="summary">Summary</h2>
   <p id="your-order">Your order qualifies for:</p>
-  <svg id="tick" viewBox="0 0 24 24">
+  <svg id="tick" viewbox="0 0 24 24">
     <path fill="none" d="M0 0h24v24H0z"/>
     <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
   </svg>

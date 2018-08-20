@@ -17,22 +17,13 @@
  *
  */
 
-import {getProducts} from '../get-data';
-import categories from '../../data/categories';
+import pageInit from './page-init';
 
-function category(req, res) {
-  const thisCategory = req.path.slice(1);
-  res.render('category', {
-    cart: req.session.cart,
-    categories: categories,
-    category: thisCategory,
-    layout: req.query.fragment ? 'fragment' : 'layout',
-    products: getProducts(thisCategory),
-    scripts: [
-      '/js/category_main.js',
-    ],
-    title: `PWA Shop: ${thisCategory}`,
-  });
+function initializeSearchPage() {
+  pageInit();
+  // TODO: Add code dedicated to Search page only.
 }
 
-export default category;
+export default function init() {
+  initializeSearchPage();
+}
