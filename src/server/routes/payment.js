@@ -19,12 +19,17 @@
 
 const payment = {
   get: (req, res) => {
-    res.render('payment', {
-      cart: req.session.cart,
-      shippingAddress: req.session.shippingAddress,
-      layout: req.query.fragment ? 'fragment' : 'layout',
-      title: 'PWA Shop: Payment',
-    });
+    const cart = req.session.cart;
+    if (cart && cart.totalQty > 0) {
+      res.render('payment', {
+        cart: req.session.cart,
+        shippingAddress: req.session.shippingAddress,
+        layout: req.query.fragment ? 'fragment' : 'layout',
+        title: 'PWA Shop: Payment',
+      });
+    } else {
+      res.redirect('/');
+    }
   },
   pay: (req, res) => {
     req.session.cart = null;

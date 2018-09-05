@@ -25,7 +25,7 @@
             <input required autocomplete="shipping locality" id="shipping-locality" name="shipping-locality">
 
             <label for="shipping-state">State or region</label>
-            <input autocomplete="shipping state" id="shipping-state" name="shipping-state">
+            <input autocomplete="shipping state locality" id="shipping-state" name="shipping-state">
 
             {{> select-country id=shipping-country type=shipping }}
 
@@ -34,7 +34,7 @@
 
         </section>
 
-        <button>Confirm Payment</button>
+        <button>Select Payment</button>
 
     </form>
     {{else}}

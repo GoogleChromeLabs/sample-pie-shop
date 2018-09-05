@@ -6,7 +6,7 @@ img.product {
   width: 100%;
 }
 
-main p.price {
+#product main p.price {
   color: var(--color-secondary-dark);
   margin: 0 0 20px 0;
 }

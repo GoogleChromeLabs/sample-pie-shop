@@ -1,52 +1,50 @@
-<main id="cart">
+<main id="payment">
 
-    <section>
-        <h1>Shipping and payment</h1>
+    <h1>Shipping and payment</h1>
 
-        {{#if cart.totalQty }}
-        <section id="shipping-summary">
+    <div class="flex-container">
 
-            <h2>Shipping address</h2>
+        <div class="left-column">
 
-            <p>{{shippingAddress.shipping-honorific-prefix}}
-            {{shippingAddress.shipping-given-name}}
-            {{shippingAddress.shipping-family-name}}</p>
-            <p>{{shippingAddress.shipping-address-line1}}
-            {{shippingAddress.shipping-address-line2}}
-            {{shippingAddress.shipping-locality}}</p>
-            <p>{{shippingAddress.shipping-state}}
-            {{shippingAddress.shipping-country}}
-            {{shippingAddress.shipping-postal-code}}</p>
+            <section id="shipping-summary">
 
+                <h2>Shipping address</h2>
+
+                <p>{{shippingAddress.shipping-honorific-prefix}}
+                {{shippingAddress.shipping-given-name}}
+                {{shippingAddress.shipping-family-name}}</p>
+                <p>{{shippingAddress.shipping-address-line1}}
+                {{shippingAddress.shipping-address-line2}}
+                {{shippingAddress.shipping-locality}}</p>
+                <p>{{shippingAddress.shipping-state}}
+                {{shippingAddress.shipping-country}}
+                {{shippingAddress.shipping-postal-code}}</p>
+
+            </section>
+
+            <section id="purchase-summary">
+
+                <h2>Purchase summary</h2>
+
+                {{#each cart.items}}
+                <p class="price">
+                    <span>{{this.name}} x {{this.quantity}}</span>
+                    <strong>${{multiplyAndFormat this.price this.quantity}}</strong>
+                </p>
+                {{/each}}
+                <p class="total">
+                    <span>Total price</span>
+                    <strong>${{cart.totalPrice}}</strong>
+                </p>
+
+            </section>
+
+        </div>
+
+        <section id="payment-methods" class="right-column">
+            <h2>Payment Method</h2>
+            <button>Pay with a credit card</button>
         </section>
 
-        <section>
-
-            <h2>Purchase summary</h2>
-
-            {{#each cart.items}}
-            <p class="total">
-                <span>{{this.name}} x {{this.quantity}}</span>
-                <strong>${{multiplyAndFormat this.price this.quantity}}</strong>
-            </p>
-            {{/each}}
-            <hr>
-            <p class="total">
-                <span>Total price</span>
-                <strong>${{cart.totalPrice}}</strong>
-            </p>
-
-        </section>
-    </section>
-    <section>
-        <button>Pay with a credit card</button>
-    </section>
-
-    {{else}}
-    <section>
-        <p>Your cart is empty.</p>
-        <a href="/" title="Go to home page"><button>Continue shopping</button></a>
-    </section>
-    {{/if}}
-
+    </div>
 </main>
