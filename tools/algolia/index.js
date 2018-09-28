@@ -12,16 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const algoliasearch = require('algoliasearch');
 const dotenv = require('dotenv');
 
-import initializeApp from '../../src/services/firebase';
-
 // load values from the .env file in this directory into process.env
 dotenv.load();
 
-initializeApp();
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
+	databaseURL: 'https://achocolates-f9732.firebaseio.com'
+});
 
 const database = admin.database();
 
