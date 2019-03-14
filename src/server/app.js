@@ -54,6 +54,8 @@ app.use(session({
   // instead of memcache in a production code.
   secret: 'some secret',
   maxAge: 60 * 1000, // 60 sec
+  saveUninitialized: false,
+  resave: false
 }));
 
 app.use(logger('dev'));

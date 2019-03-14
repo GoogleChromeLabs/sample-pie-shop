@@ -9,7 +9,7 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "firebase-admin": "5.12.1",
-    "firestore-export-import": "0.1.3",
+    "firestore-export-import": "0.1.7",
     "morgan": "^1.9.1"
   },
   "scripts": {

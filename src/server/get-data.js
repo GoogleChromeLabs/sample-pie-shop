@@ -16,11 +16,22 @@
  *  limitations under the License
  *
  */
-
-import initializeApp from '../services/firebase';
 const fei = require('firestore-export-import');
+import path from 'path';
+import fs from 'fs';
 
-initializeApp();
+const DEFAULT_CONFIG_FILE = path.resolve(__dirname, '../data/firebase-admin-key.json');
+const DATABASE_URL = 'https://pie-shop-app.firebaseio.com';
+
+if (process.env.FB_KEYS) {
+  // Try the environment variable first
+  fei.initializeApp(require(process.env.FB_KEYS), DATABASE_URL);
+} else if (fs.existsSync(DEFAULT_CONFIG_FILE)) {
+  // Check the default config file second
+  fei.initializeApp(require(DEFAULT_CONFIG_FILE), DATABASE_URL);
+} else {
+  fei.initializeApp();
+}
 
 let homeData;
 let productData;
