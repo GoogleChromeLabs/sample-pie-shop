@@ -60,16 +60,21 @@ for the other build targets.
 Sample data for products, product categories and homepage content is stored as
 JSON in the [`/src/data`](/src/data) directory.
 
-You can import (upload) this data to the remote Firestore database by running
+You can import (upload) this data to your remote Firestore database by running
 the following Node scripts from the
 [`/tools`](https://github.com/GoogleChromeLabs/sample-pie-shop/tree/master/tools)
 directory:
 
 ```sh
 cd tools
-node import_home.js
-node import_products.js
+node --experimental-modules import_home.mjs
+node --experimental-modules import_products.mjs
 ```
+<aside class="notice">
+	This project uses ECMAScript Modules, which currently require the `--experimental-modules` flag.
+
+	Check your version of Node using `node -v` and update to the LTS or Current version if necessary. The import code above has been tested in versions 10.15.3 and 11.14.0.
+</aside>
 
 ### Create a search index from your own data
 
