@@ -13,25 +13,23 @@
 // limitations under the License.
 
 import admin from 'firebase-admin';
-import path from 'path';
 import fs from 'fs';
 
 export default function initializeApp() {
   // Check if app has already been initialized
   if (admin.apps.length === 0) {
-    let credential = null;
-    const DEFAULT_CONFIG_FILE = path.resolve(__dirname, '../data/firebase-admin-key.json');
+    const credential = null;
+    const DEFAULT_CONFIG_FILE = '../data/firebase-admin-key.json';
     const DATABASE_URL = 'https://pie-shop-app.firebaseio.com';
 
     if (process.env.FB_KEYS) {
       // Try the environment variable first
-      credential = admin.credential.cert(require(process.env.FB_KEYS));
+      admin.initializeApp(process.env.FB_KEYS, DATABASE_URL);
     } else if (fs.existsSync(DEFAULT_CONFIG_FILE)) {
       // Check the default config file second
-      credential = admin.credential.cert(require(DEFAULT_CONFIG_FILE));
+      admin.initializeApp(require(DEFAULT_CONFIG_FILE), DATABASE_URL);
     } else {
-      // Finally check if we can get credentials from a Cloud environment
-      credential = admin.credential.applicationDefault();
+      admin.initializeApp();
     }
 
     admin.initializeApp({
