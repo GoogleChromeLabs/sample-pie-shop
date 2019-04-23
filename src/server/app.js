@@ -55,7 +55,7 @@ app.use(session({
   secret: 'some secret',
   maxAge: 60 * 1000, // 60 sec
   saveUninitialized: false,
-  resave: false
+  resave: false,
 }));
 
 app.use(logger('dev'));
