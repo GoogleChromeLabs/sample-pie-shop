@@ -12,29 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import admin from 'firebase-admin';
+import fei from 'firestore-export-import';
 import fs from 'fs';
 
+const DEFAULT_CONFIG_FILE = '../src/data/firebase-admin-key.json';
+const DATABASE_URL = 'https://pie-shop-app.firebaseio.com';
+
 export default function initializeApp() {
-  // Check if app has already been initialized
-  if (admin.apps.length === 0) {
-    const credential = null;
-    const DEFAULT_CONFIG_FILE = '../data/firebase-admin-key.json';
-    const DATABASE_URL = 'https://pie-shop-app.firebaseio.com';
-
-    if (process.env.FB_KEYS) {
-      // Try the environment variable first
-      admin.initializeApp(process.env.FB_KEYS, DATABASE_URL);
-    } else if (fs.existsSync(DEFAULT_CONFIG_FILE)) {
-      // Check the default config file second
-      admin.initializeApp(require(DEFAULT_CONFIG_FILE), DATABASE_URL);
-    } else {
-      admin.initializeApp();
-    }
-
-    admin.initializeApp({
-      credential: credential,
-      databaseURL: DATABASE_URL,
-    });
+  if (process.env.FB_KEYS) {
+    // Try the environment variable first
+    fei.initializeApp(process.env.FB_KEYS, DATABASE_URL);
+  } else if (fs.existsSync(DEFAULT_CONFIG_FILE)) {
+    // Check the default config file second
+    fei.initializeApp(require(DEFAULT_CONFIG_FILE), DATABASE_URL);
+  } else {
+    fei.initializeApp();
   }
 }
