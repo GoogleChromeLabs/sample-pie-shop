@@ -70,11 +70,10 @@ cd tools
 node --experimental-modules import_home.mjs
 node --experimental-modules import_products.mjs
 ```
-<aside class="notice">
-	This project uses ECMAScript Modules, which currently require the `--experimental-modules` flag.
 
-	Check your version of Node using `node -v` and update to the LTS or Current version if necessary. The import code above has been tested in versions 10.15.3 and 11.14.0.
-</aside>
+This project uses ECMAScript Modules, which currently require the `--experimental-modules` flag.
+
+Check your version of Node using `node -v` and update to the LTS or Current version if necessary. The import code above has been tested in versions 10.15.3 and 11.14.0.
 
 ### Create a search index from your own data
 
