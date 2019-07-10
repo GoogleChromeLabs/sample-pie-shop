@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import fei from 'firestore-export-import';
+const fei = require('firestore-export-import');
 import * as admin from 'firebase-admin';
 import path from 'path';
 import fs from 'fs';
