@@ -17,6 +17,7 @@
  *
  */
 const fei = require('firestore-export-import');
+import * as admin from 'firebase-admin';
 import path from 'path';
 import fs from 'fs';
 
@@ -30,7 +31,12 @@ if (process.env.FB_KEYS) {
   // Check the default config file second
   fei.initializeApp(require(DEFAULT_CONFIG_FILE), DATABASE_URL);
 } else {
-  fei.initializeApp();
+  // Hopefully in Cloud env and can use default credentials
+  admin.initializeApp({
+    credential: admin.credential.applicationDefault(),
+    databaseURL: DATABASE_URL,
+  });
+  admin.firestore().settings({timestampsInSnapshots: true});
 }
 
 let homeData;
