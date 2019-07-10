@@ -5,19 +5,19 @@ node_js:
 cache:
   directories:
     - node_modules
-stages:
-  - name: deploy
-    if: branch = master
+# stages:
+#   - name: deploy
+#     if: branch = master
 before_install:
   - npm i -g npm@latest
 script:
   - npm run lint
   - npm run build:prod
-before_deploy:
-  - openssl aes-256-cbc -K $encrypted_36c2cc2f95d4_key -iv $encrypted_36c2cc2f95d4_iv -in .travis-deploy-key.json.enc -out .travis-deploy-key.json -d
-deploy:
-  provider: gae
-  skip_cleanup: true
-  keyfile: '.travis-deploy-key.json'
-  project: 'pie-shop-app'
-  default: true
+# before_deploy:
+#   - openssl aes-256-cbc -K $encrypted_36c2cc2f95d4_key -iv $encrypted_36c2cc2f95d4_iv -in .travis-deploy-key.json.enc -out .travis-deploy-key.json -d
+# deploy:
+#   provider: gae
+#   skip_cleanup: true
+#   keyfile: '.travis-deploy-key.json'
+#   project: 'pie-shop-app'
+#   default: true
