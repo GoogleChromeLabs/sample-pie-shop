@@ -24,9 +24,9 @@ const IMAGE_NUMBER_TO_PRELOAD = 4;
 export default function getPreloads(products) {
   const preloads = [];
   let counter = 0;
-  for (let product of products) {
+  for (const product of products) {
     preloads.push({srcset: getSrcset(product.id), sizes: getSizes()});
-    if (++counter >= IMAGE_NUMBER_TO_PRELOAD)  {
+    if (++counter >= IMAGE_NUMBER_TO_PRELOAD) {
       break;
     }
   }

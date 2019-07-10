@@ -52,3 +52,5 @@ export function getSizes() {
   // (max - width: 1200 px) calc((100 vw - 120 px) / 3),
   // (min - width: 1200 px) calc((100 vw - 150 px) / 4)';
 };
+
+export {BASE_URL};

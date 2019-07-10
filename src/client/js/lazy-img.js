@@ -17,7 +17,7 @@
  *
  */
 
-import {getSrcset, getSizes} from '../../common/images.js';
+import {getSrcset, getSizes, BASE_URL} from '../../common/images.js';
 
 const options = {
   // rootMargin: top, right, bottom, left margins
