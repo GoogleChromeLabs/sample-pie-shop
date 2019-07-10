@@ -19,15 +19,19 @@
 
 import {getProducts} from '../get-data';
 import categories from '../../data/categories';
+import getPreloads from '../preload.js';
 
 function category(req, res) {
   const thisCategory = req.path.slice(1);
+  const products = getProducts(thisCategory);
+  const preloads = getPreloads(products);
   res.render('category', {
     cart: req.session.cart,
     categories: categories,
     category: thisCategory,
     layout: req.query.fragment ? 'fragment' : 'layout',
-    products: getProducts(thisCategory),
+    products: products,
+    preloads: preloads,
     scripts: [
       '/js/category_main.js',
     ],

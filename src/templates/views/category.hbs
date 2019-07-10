@@ -1,3 +1,6 @@
+{{#each preloads}}
+  <link rel=preload as=image crossorigin imagesrcset="{{this.srcset}}" imagesizes="{{this.sizes}}">
+{{/each}}
 <main id="category" data-category="{{category}}">
 
   <h1>{{category}}</h1>
