@@ -9,7 +9,7 @@
     "express-handlebars": "^3.1.0",
     "express-session": "^1.16.2",
     "firebase-admin": "^8.2.0",
-    "firestore-export-import": "0.2.3",
+    "firestore-export-import": "0.2.4",
     "morgan": "^1.9.1"
   },
   "scripts": {
@@ -50,7 +50,7 @@
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5",
+    "webpack-cli": "^3.3.6",
     "webpack-merge": "^4.2.1",
     "workbox-webpack-plugin": "^4.3.1"
   }
