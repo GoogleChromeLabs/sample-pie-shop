@@ -68,7 +68,7 @@ function fragmentFallbackStrategy({event, url}) {
 }
 workbox.routing.registerRoute(
   new RegExp('/(.+)?fragment=true'),
-  fragmentFallbackStrategy
+  fragmentFallbackStrategy,
 );
 
 const FALLBACK_IMAGE_URL = '/images/icons/image-fallback.svg';
@@ -87,5 +87,5 @@ workbox.routing.registerRoute(
   ({event}) => {
     return imagesHandler.handle({event})
       .catch(() => caches.match(FALLBACK_IMAGE_URL));
-  }
+  },
 );
