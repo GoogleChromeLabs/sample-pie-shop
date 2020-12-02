@@ -1,0 +1,102 @@
+<main id="shipping-and-payment">
+
+    <h1>Shipping and payment</h1>
+
+    {{#if cart.totalQty }}
+    <form action="/payment" method="post">
+
+        <section id="payment">
+
+            <h2>Pay with credit card</h2>
+
+            <label for="cc-type">Card type</label>
+            <select id="cc-type" name="cc-type">
+                <option value="Visa">Visa</option>
+                <option value="MasterCard">MasterCard</option>
+                <option value="American Express">American Express</option>
+            </select>
+
+            <label for="cc-number">Card number</label>
+            <input required autocomplete="cc-number" id="cc-number" name="cc-number">
+
+            <div id="expiry-date">
+                <label for="cc-exp-month">Expiry date</label>
+                <select id="cc-exp-month" placeholder="MM">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <select id="cc-exp-year" placeholder="YYYY">
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                </select>
+            </div>
+
+            <label for="cc-name">Name on card</label>
+            <input required autocomplete="cc-name" id="cc-name" name="cc-name">
+
+            <label for="cc-csc">Security code</label>
+            <input required autocomplete="cc-csc" id="cc-csc" name="cc-csc">
+
+        </section>
+
+        <section id="billing">
+
+            <h2>Billing address</h2>
+
+            <details>
+                <summary>Enter billing address if different from shipping address (optional)</summary>
+
+                <label for="billing-given-name">First name</label>
+                <input required autocomplete="billing given-name" id="billing-given-name" name="billing-given-name">
+
+                <label for="billing-family-name">Last name</label>
+                <input required autocomplete="billing family-name" id="billing-family-name" name="billing-family-name">
+
+                <label for="billing-address-line1">Address 1</label>
+                <input required autocomplete="billing address-line1" id="billing-address-line1" name="billing-address-line1">
+
+                <label for="billing-address-line2">Address 2</label>
+                <input autocomplete="billing address-line2" id="billing-address-line2" name="billing-address-line2">
+
+                <label for="billing-locality">City or town</label>
+                <input required autocomplete="billing locality" id="billing-locality" name="billing-locality">
+
+                <label for="billing-state">State or region</label>
+                <input autocomplete="billing state" id="billing-state" name="billing-state">
+
+                {{> select-country id=billing-country type=billing }}
+
+                <label for="billing-postal-code">ZIP or postal code</label>
+                <input required autocomplete="billing postal-code" id="billing-postal-code" name="billing-postal-code">
+
+            </details>
+        </section>
+
+        <button>Confirm Payment</button>
+
+    </form>
+    {{else}}
+    <p>Your cart is empty.</p>
+    <a href="/" title="Go to home page"><button>Continue shopping</button></a>
+    {{/if}}
+
+</main>

@@ -17,23 +17,14 @@
  *
  */
 
-const payment = {
+const creditCard = {
   get: (req, res) => {
-    const cart = req.session.cart;
-    if (cart && cart.totalQty > 0) {
-      res.render('payment', {
-        cart: req.session.cart,
-        shippingAddress: req.session.shippingAddress,
-        layout: req.query.fragment ? 'fragment' : 'layout',
-        title: 'PWA Shop: Payment',
-      });
-    } else {
-      res.redirect('/');
-    }
-  },
-  pay: (req, res) => {
-    req.session.cart = null;
-    res.redirect('/confirmation');
+    res.render('credit-card', {
+      cart: req.session.cart,
+      shippingAddress: req.session.shippingAddress,
+      layout: req.query.fragment ? 'fragment' : 'layout',
+      title: 'PWA Shop: Credit Card',
+    });
   },
   confirm: (req, res) => {
     res.render('confirmation', {
@@ -43,4 +34,4 @@ const payment = {
   },
 };
 
-export default payment;
+export default creditCard;

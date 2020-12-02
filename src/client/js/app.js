@@ -25,6 +25,7 @@ import '../styles/error.css';
 import '../styles/footer.css';
 import '../styles/header.css';
 import '../styles/menu.css';
+import '../styles/payment.css';
 import '../styles/product.css';
 import '../styles/search.css';
 import '../styles/shipping-and-payment.css';
