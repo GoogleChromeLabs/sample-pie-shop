@@ -10,7 +10,7 @@
     "express-session": "^1.17.1",
     "firebase-admin": "^9.3.0",
     "firestore-export-import": "0.8.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "morgan": "^1.10.0"
   },
   "scripts": {
