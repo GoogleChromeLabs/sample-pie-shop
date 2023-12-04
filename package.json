@@ -8,8 +8,8 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "express-session": "^1.17.1",
-    "firebase-admin": "^9.3.0",
-    "firestore-export-import": "0.8.0",
+    "firebase-admin": "^11.11.1",
+    "firestore-export-import": "1.4.0",
     "minimist": "^1.2.5",
     "morgan": "^1.10.0"
   },
